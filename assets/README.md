@@ -27,3 +27,35 @@ The animation is a visual replay of recorded Claude Code 1.0.5 evidence, not a n
 live session. Versions 1.0.6 and 1.0.7 update branding and packaging; the recorded coding-test baseline remains 1.0.5. The archive includes the public
 validation receipt and MIT license. It contains no private agent transcripts or
 third-party reference footage, illustrations, presenter, voice or soundtrack.
+
+
+## Visualizer and Video Analysis films
+
+Two original 32-second films by **Lex from SigmaStudioz**, rendered with Three.js shaders
+at 1920×1080 and 60 frames per second, with original stereo music and synthesized effects.
+There is no voiceover; SRT and VTT files contain timed scene summaries.
+
+| Film | Watch/download | Captions | Poster |
+| --- | --- | --- | --- |
+| SigmaStudioz Visualizer | [Full HD MP4](visualizer-demo.mp4?raw=true) | [SRT](visualizer-demo.srt) · [VTT](visualizer-demo.vtt) | [PNG](visualizer-demo-poster.png) |
+| SigmaStudioz Video Analysis | [Full HD MP4](video-analysis-demo.mp4?raw=true) | [SRT](video-analysis-demo.srt) · [VTT](video-analysis-demo.vtt) | [PNG](video-analysis-demo-poster.png) |
+
+[Download the editable source bundle for both films](visual-skills-demo-source.zip?raw=true).
+Extract it, read its README, and run `python3 source/server.py` from the extracted folder.
+The loopback preview is `http://127.0.0.1:8773/preview.html`; `watch.html` plays the finished films.
+Reproduction needs Python 3.10+, NumPy, FFmpeg/ffprobe and a WebGL2-capable browser.
+The archive includes pinned Three.js 0.186.1 with its MIT license, original mastered audio,
+storyboards, shaders, captions, evidence and export checks. It installs nothing automatically.
+
+Visualizer illustrates a deterministic fluid queue and the model-to-scene-to-export workflow.
+Video Analysis displays six actual timestamped samples from our original six-second synthetic
+clip; the released sampler returned eleven frames within a twelve-frame budget. Sparse frames
+do not establish exhaustive viewing or audio understanding. Both films are authored
+demonstrations, not recordings of fresh agent sessions or production performance benchmarks.
+
+Both exports passed full decoding, frame-count and browser-playback checks. Measured encoded
+loudness is −16.2 LUFS for each; true peaks are −1.53 dBTP and −1.40 dBTP respectively.
+These structural measurements do not substitute for a listening review.
+The original visuals, music, synthesized effects and source are MIT by Lex from SigmaStudioz;
+Three.js retains its included MIT notice. No private media, reference footage or session logs
+are redistributed. Files live outside plugin folders to keep skill distributions small.
