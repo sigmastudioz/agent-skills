@@ -8,7 +8,7 @@ Copyright (c) 2026 Lex from SigmaStudioz.
 
 ## Repository release
 
-The collection contains the domain-driven-design 1.0.5 release and supports independently versioned
+The collection contains the Principal Driven Domain Design 1.0.6 release (`domain-driven-design`) and supports independently versioned
 future plugins. Regenerate catalogs with `python3 tools/build_catalogs.py`, verify with `--check`,
 and run `python3 -m unittest discover -s tests` before publishing changes. Include each plugin's
 license in its own folder so cached distributions preserve the notice.

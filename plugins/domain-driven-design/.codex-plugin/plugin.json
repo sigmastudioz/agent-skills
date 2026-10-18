@@ -1,8 +1,8 @@
 {
   "license": "MIT",
   "name": "domain-driven-design",
-  "version": "1.0.5",
-  "description": "Principal-level domain architecture, reusable engines, module gap tracing, and explicit agent handoffs.",
+  "version": "1.0.6",
+  "description": "Principal Driven Domain Design: principal-level domain architecture, reusable engines, module gap tracing, and explicit agent handoffs.",
   "author": {
     "name": "Lex from SigmaStudioz",
     "url": "https://github.com/sigmastudioz"
@@ -11,9 +11,9 @@
   "repository": "https://github.com/sigmastudioz/agent-skills",
   "skills": "./skills/",
   "interface": {
-    "displayName": "Principal Domain-Driven Design",
+    "displayName": "Principal Driven Domain Design",
     "shortDescription": "Domain design and gap tracing",
-    "longDescription": "Principal-level domain architecture, reusable engines, module gap tracing, and explicit agent handoffs. By Lex from SigmaStudioz. Domain-first structure, scoped services/shared modules, cohesive engines, and evidence-based verification. Automatic use requires native global instructions. Fresh Claude Code with the optional handoff guard passed 16/16 external feature checks and 2/2 regressions using one teammate. Native global setup is opt-in; instructions do not guarantee every model or runtime follows every rule.",
+    "longDescription": "Principal Driven Domain Design: principal-level domain architecture, reusable engines, module gap tracing, and explicit agent handoffs. By Lex from SigmaStudioz. Domain-first structure, scoped services/shared modules, cohesive engines, and evidence-based verification. Automatic use requires native global instructions. Fresh Claude Code with the optional handoff guard passed 16/16 external feature checks and 2/2 regressions using one teammate. Native global setup is opt-in; instructions do not guarantee every model or runtime follows every rule.",
     "developerName": "Lex from SigmaStudioz",
     "websiteURL": "https://github.com/sigmastudioz",
     "supportURL": "https://github.com/sigmastudioz/agent-skills/issues",

@@ -1,5 +1,5 @@
 interface:
-  display_name: "Principal Domain-Driven Design"
+  display_name: "Principal Driven Domain Design"
   short_description: "By Lex from SigmaStudioz: domain structure and gap tracing"
   default_prompt: "Use $domain-driven-design to structure this change around domain ownership, reusable modules, and explicit contracts, then trace every created module for integration gaps, bugs, and missing required behavior."
 policy:

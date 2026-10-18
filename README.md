@@ -10,7 +10,11 @@ Users install only what they need; future plugins do not force a shared release 
 
 | Plugin | Purpose | Validation |
 | --- | --- | --- |
-| [domain-driven-design](plugins/domain-driven-design/README.md) 1.0.5 | Principal domain ownership, reusable engines, explicit handoffs and connected-path gap tracing | Fresh Claude Code: 16/16 feature checks, 2/2 regressions, one teammate |
+| [Principal Driven Domain Design](plugins/domain-driven-design/README.md) 1.0.6 | Principal domain ownership, reusable engines, explicit handoffs and connected-path gap tracing | Fresh Claude Code: 16/16 feature checks, 2/2 regressions, one teammate |
+
+**Principal Driven Domain Design** is the first skill: principal-level domain-driven design for
+AI coding agents. Its package and invocation identifier remains `domain-driven-design`, so
+existing installation commands continue to work.
 
 The full DDD skill folder is **597 lines**, including its metadata and optional helper.
 
@@ -40,6 +44,10 @@ user-approved global setup. Installing this catalog does not silently rewrite gl
 Remote/cloud agents and hosts that disable user instructions need separate accessible setup.
 
 ## Validation and limitations
+
+1.0.6 is a branding release. The engineering instructions and helper behavior match 1.0.5;
+only the instruction title, display metadata and documentation changed. Native evidence remains
+tied to its recorded 1.0.5 baseline, rather than being relabeled as a new test.
 
 The fresh 1.0.5 Claude Code test used the unchanged ordinary coding request, a clean billing
 monorepo fixture and exactly one implementation teammate. The coordinator integrated its work,

@@ -2,7 +2,7 @@
   "status": "MIT release; scoped fresh Claude gate passed; cross-runtime limits disclosed",
   "author": "Lex from SigmaStudioz",
   "publisher_url": "https://github.com/sigmastudioz",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "skill_folder_lines": 597,
   "checks_passed": 28,
   "checks": [

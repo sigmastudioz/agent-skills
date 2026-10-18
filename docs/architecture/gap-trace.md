@@ -39,3 +39,14 @@ Catalog-tool content revision: 2504ae7b2e3175effa18a4f21c08a091cb81b2525e97ac4cf
 These additions close the observed identity-collision and excess-teammate findings for this native
 run. Budget wording that cannot be recognized and unavailable native history remain coordinator
 responsibilities. No transcript data is sent to a publisher service by the helper.
+
+## 1.0.6 branding trace
+
+The human requested Principal Driven Domain Design as the public name. Keep the package and
+skill ID `domain-driven-design` for compatibility. Trace: reviewed title/UI metadata -> builder ->
+portable/native manifests -> generated catalogs/release hashes -> installed aliases and local
+plugin -> repository docs and directory scan. Instruction body after the H1 and optional helper
+are unchanged from the tested 1.0.5 baseline. Preserve original native evidence and hashes.
+Verify the 597-line folder limit, full baseline delivery before handoff, native manifest validation,
+catalog drift and every published file. Directory approval and platform-derived labels remain
+external; do not claim that a metadata update establishes a live listing.

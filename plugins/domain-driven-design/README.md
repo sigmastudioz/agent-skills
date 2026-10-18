@@ -1,8 +1,11 @@
-# Principal Domain-Driven Design
+# Principal Driven Domain Design
 
-By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.0.5**, [MIT](LICENSE).
+By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.0.6**, [MIT](LICENSE).
 
-A principal-level engineering baseline for application, API, worker and monorepo changes. Group
+**Principal-level domain-driven design for AI coding agents.**
+
+Build features that fit the codebase—and trace the connections that make them work.
+An engineering baseline for application, API, worker and monorepo changes. Group
 code by its owning domain, then by function; keep services and shared modules at the narrowest
 useful scope. Reuse an owned engine when real consumers share a cohesive algorithm. Trace modules
 through callers, dependencies, consumers and failures, and fix gaps required by the authorized task.
@@ -10,6 +13,13 @@ through callers, dependencies, consumers and failures, and fix gaps required by 
 The instruction file has **498 lines**; the complete skill folder has **597 lines**, including
 metadata and the optional Python helper. Small fixes stay small; read-only reviews stay read-only.
 The baseline does not authorize extra agents, unrelated restructuring or deployment.
+
+## What it helps agents do
+
+- Put code with the domain that owns it, then group services and shared modules by function.
+- Reuse cohesive engines across real consumers without creating a catch-all framework.
+- Follow callers, dependencies, consumers and failure paths to find and repair required gaps.
+- Give authorized teammates explicit ownership, contracts and evidence for integration.
 
 ## Setup and handoffs
 
@@ -30,6 +40,10 @@ other constraint wording leaves budget enforcement to the coordinator. Requires 
 
 ## Validation
 
+Version 1.0.6 changes the public title and listing metadata only. Its engineering instructions
+are unchanged from 1.0.5 apart from the title; the helper is byte-identical. The native coding
+evidence below was collected with 1.0.5. No fresh 1.0.6 native coding run is claimed.
+
 Fresh Claude Code 1.0.5 test: **16/16 external feature checks and 2/2 original regressions pass**,
 with exactly one implementation teammate. The parent integrated the isolated worktree result,
 ran 20 local tests, reviewed authority paths itself and fixed a forged-tenant field bug.
@@ -44,6 +58,12 @@ its original baseline; no new Cursor desktop or 1.0.5 coding result is implied.
 
 Production performance, durable payment concurrency and remote/cloud adherence are outside this
 small fixture. Local installation does not establish universal behavior across models or hosts.
+
+## Example
+
+An ordinary request such as “Add invoice refunds to the API and retry worker” should make the
+agent inspect the billing domain, reuse a shared billing service, wire both consumers, and trace
+retry, authorization and persistence paths. Automatic application requires the native setup above.
 
 ## Data and support
 

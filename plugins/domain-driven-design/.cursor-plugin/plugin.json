@@ -1,8 +1,8 @@
 {
   "license": "MIT",
   "name": "domain-driven-design",
-  "version": "1.0.5",
-  "description": "Principal-level domain architecture, reusable engines, module gap tracing, and explicit agent handoffs.",
+  "version": "1.0.6",
+  "description": "Principal Driven Domain Design: principal-level domain architecture, reusable engines, module gap tracing, and explicit agent handoffs.",
   "author": {
     "name": "Lex from SigmaStudioz",
     "url": "https://github.com/sigmastudioz"
