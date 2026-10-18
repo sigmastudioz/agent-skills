@@ -6,6 +6,11 @@ import json
 import re
 
 
+def cursor_identity(author):
+    """Cursor's strict author/owner objects accept name and email only."""
+    return {key: author[key] for key in ('name', 'email') if key in author}
+
+
 def render(root):
     root = Path(root).resolve()
     registry = json.loads((root / 'catalog.json').read_text())
@@ -28,7 +33,11 @@ def render(root):
             if root not in compatibility_path.parents:
                 raise ValueError('Compatibility manifest resolves outside the repository')
             compatibility = json.loads(compatibility_path.read_text())
-            if any(compatibility.get(key) != manifest.get(key) for key in ('name', 'version', 'author')):
+            expected_author = manifest.get('author', {})
+            if host == 'cursor':
+                expected_author = cursor_identity(expected_author)
+            if (any(compatibility.get(key) != manifest.get(key) for key in ('name', 'version'))
+                    or compatibility.get('author') != expected_author):
                 raise ValueError('Compatibility identity/version/author differs: ' + host + '/' + name)
         native.append({'name': name, 'source': relative, 'description': manifest['description']})
         codex.append({'name': name, 'source': {'source': 'local', 'path': relative},
@@ -44,7 +53,7 @@ def render(root):
     return {
         '.claude-plugin/marketplace.json': {'name': registry['name'], 'owner': registry['publisher'],
             'description': registry['description'], 'plugins': native},
-        '.cursor-plugin/marketplace.json': {'name': registry['name'], 'owner': registry['publisher'],
+        '.cursor-plugin/marketplace.json': {'name': registry['name'], 'owner': cursor_identity(registry['publisher']),
             'metadata': {'description': registry['description']}, 'plugins': native},
         '.agents/plugins/marketplace.json': {'name': registry['name'],
             'interface': {'displayName': registry['displayName']}, 'plugins': codex},
