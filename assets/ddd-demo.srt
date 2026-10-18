@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:06,000
+Domain ownership. Reuse. Connected behavior.
+
+2
+00:00:06,000 --> 00:00:12,000
+Put services and shared code with their owner.
+
+3
+00:00:12,000 --> 00:00:19,000
+API and worker share the billing capability.
+
+4
+00:00:19,000 --> 00:00:26,000
+Follow callers, dependencies and failure paths.
+
+5
+00:00:26,000 --> 00:00:32,000
+A payload cannot replace authenticated tenant context.
+
+6
+00:00:32,000 --> 00:00:38,000
+Scope, contracts, checks and unresolved findings travel together.
+
+7
+00:00:38,000 --> 00:00:43,000
+Recorded Claude Code 1.0.5: 16 feature checks, 2 regressions, 1 teammate.
+
+8
+00:00:43,000 --> 00:00:50,000
+Install the skill. Follow SETUP.md. Start a fresh session.
