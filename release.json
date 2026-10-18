@@ -4,7 +4,7 @@
     "domain-driven-design": {
       "version": "1.0.7",
       "files": {
-        ".claude-plugin/plugin.json": "f86abaabc5e7091e99135d7b0d2e088fd7381cba11bb297cba3333ca2bd82dc3",
+        ".claude-plugin/plugin.json": "f01d751fa4e1d5f72f6a4b3f4f911ebc2c81ea066bce3e7361438794c5f163b2",
         ".codex-plugin/plugin.json": "bd07a9ed5cd52bd3d763b66c39faba102902a68eeb0ff428671f004444af8be4",
         ".cursor-plugin/plugin.json": "57719dc3d8d6ccacbc577190fa041aaa6a5a4b81efccd4fe66b511c80cbf1b4c",
         "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
