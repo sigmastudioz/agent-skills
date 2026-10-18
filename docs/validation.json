@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-18",
+  "status": "preview; behavioral limitations remain",
+  "skill_version": "1.0.4",
+  "skill_instruction_lines": 535,
+  "complete_skill_folder_lines": 598,
+  "current_skill_sha256": "f6c33d67c2292e893f831a64e2a49a8484044f15042974e2b53440add723257a",
+  "cursor": {
+    "run": "cursor-final-01",
+    "fresh_process": true,
+    "automatic_full_skill_read": true,
+    "feature_checks": {
+      "passed": 16,
+      "total": 16
+    },
+    "original_regressions": {
+      "passed": 2,
+      "total": 2
+    },
+    "actual_teammates": 1,
+    "skill_sha256": "2fcb965ceadeab419b06473c1b1d76ab124f7aebb45e8bcd7d763b95277388e8"
+  },
+  "claude": {
+    "run": "claude-confirmation-01",
+    "fresh_process": true,
+    "automatic_loading_and_guarded_delivery": true,
+    "native_exit": 0,
+    "feature_checks": {
+      "passed": 15,
+      "total": 16
+    },
+    "original_regressions": {
+      "passed": 2,
+      "total": 2
+    },
+    "actual_teammates": 4,
+    "requested_teammates": 1,
+    "open_findings": [
+      "NUL delimiter compound-identity collision",
+      "Excess review teammates despite explicit count limit"
+    ],
+    "skill_sha256": "f6c33d67c2292e893f831a64e2a49a8484044f15042974e2b53440add723257a"
+  },
+  "evidence_hashes": {
+    "session.json": "3f5dda303b665cd7d0bac25fa1c7c120966f745934dc050079c3803b863c508c",
+    "events.jsonl": "1c7417ed87a05b854426af6df8cc9822c97d2263c16a8de00e321004bcea99e4",
+    "acceptance.tap": "0724b7115f84784b90c22ccfebc3254f3a79347eda0a8ad327f7dc2150c73ab6",
+    "existing.tap": "54242e08430773b88a2a6bee880ecbfd15d1800af42f79ea3386465249064ef7"
+  },
+  "limits": [
+    "Native CLI experiments only; Cursor desktop and cloud not exercised.",
+    "No universal instruction-adherence, concurrency or performance guarantee.",
+    "Historical failures retained in maintainer evidence; private session logs are not published."
+  ]
+}
