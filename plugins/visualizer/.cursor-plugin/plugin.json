@@ -1,0 +1,27 @@
+{
+  "license": "MIT",
+  "name": "visualizer",
+  "version": "1.0.0",
+  "description": "Build interactive diagrams, data explorers, simulations and editable visualization videos with coherent models, motion, shaders and sound. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "displayName": "SigmaStudioz Visualizer",
+  "publisher": "SigmaStudioz",
+  "keywords": [
+    "interactive-visualization",
+    "data-visualization",
+    "threejs",
+    "shaders",
+    "motion-design",
+    "visualization-video",
+    "simulation",
+    "animated-diagrams",
+    "visual-storytelling",
+    "agent-handoffs"
+  ],
+  "logo": "assets/icon.svg",
+  "category": "Developer Tools"
+}
