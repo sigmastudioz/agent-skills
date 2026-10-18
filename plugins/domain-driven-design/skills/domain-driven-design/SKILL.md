@@ -3,7 +3,7 @@ name: domain-driven-design
 description: Automatic principal-level engineering baseline for production-code tasks in applications, APIs, workers, and monorepos. Apply during implementation, fixes, refactoring, and architecture review without requiring a skill name or trigger phrase. Group by domain then function, using scoped services, shared modules, and reusable engines. Trace created modules and changed paths for integration gaps, bugs, and required behavior; preserve explicit agent handoffs. Apply small fixes locally without triggering a repository restructure. Excludes prose-only work and generated or vendor edits.
 ---
 
-# Principal Domain-Driven Design
+# Principal Driven Domain Design
 By [Lex from SigmaStudioz](https://github.com/sigmastudioz).
 
 Make business ownership obvious from paths, names, contracts, and dependencies.
