@@ -11,6 +11,16 @@
       "name": "domain-driven-design",
       "path": "./plugins/domain-driven-design",
       "category": "Productivity"
+    },
+    {
+      "name": "visualizer",
+      "path": "./plugins/visualizer",
+      "category": "Productivity"
+    },
+    {
+      "name": "video-analysis",
+      "path": "./plugins/video-analysis",
+      "category": "Productivity"
     }
   ]
 }

@@ -15,6 +15,45 @@
         "skills/domain-driven-design/agents/openai.yaml": "81c161c20c997ded13ce15be615f5cc2a5b163f1036e44d88745c4f0894eff8e",
         "skills/domain-driven-design/scripts/guard_handoff.py": "3a8783b79ad37f6157458272be6ab21ce811c452cff6df9d8376affea65966b1"
       }
+    },
+    "visualizer": {
+      "version": "1.0.0",
+      "files": {
+        ".claude-plugin/plugin.json": "5e822c0f190f49074bcdacd79fc9efefdc1ae82fc3f727b96d0a27a8c1a429c0",
+        ".codex-plugin/plugin.json": "39f7aabcfcffb74fe34dfdb17de7495b9671f73131429bb3efbcbaf3e6af8fbe",
+        ".cursor-plugin/plugin.json": "6a26c27b12f04dcc44403d310fd0caf5eb1ece7b64b42dd208f1ec502e9b129e",
+        "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
+        "README.md": "8d78f30c624bf9857c84c8818b510ca77740f3f20fe63ef5d70664f64aa2833b",
+        "assets/icon.svg": "f5189524ad356ee89798bae8327dbc293ac99f24a37cc0ada1a68a7d54541923",
+        "plugin.json": "ec5246d5276020c059d908f79c80d957b8d5c3e574b6a19a69bd8a4825df1b42",
+        "skills/visualizer/LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
+        "skills/visualizer/SKILL.md": "432adf73ddcff9d480b175c86a62cc09acab344d57d29034336381b0ab16d358",
+        "skills/visualizer/agents/openai.yaml": "b7d84607f2a6e954449a356756b73c981537f8b5705d69f1fe62c6e9fda6bfe0",
+        "skills/visualizer/references/data.md": "0a11d80aed6efafb686c2863cbdaa21b231075372fb0773ce96450b825978665",
+        "skills/visualizer/references/interactive.md": "ac2d18a9d770667e1c000de166c08463be471c2182db92bfbee18e1cb82d3b70",
+        "skills/visualizer/references/rendering.md": "e1ef34cfea1cfcb8a3d796312c27d92ef32334dd3c6348c8c65fc2ca7fcb5ced",
+        "skills/visualizer/references/verification.md": "0f74e5145eaed7c6962a84fa17c294a522b989ca23ea6656c6149da5c3de2d98",
+        "skills/visualizer/references/video.md": "21d94e8aacf3ee761f4b0231d0453e076112469f63c26e7dcae6ab67ccb187d3"
+      }
+    },
+    "video-analysis": {
+      "version": "1.0.0",
+      "files": {
+        ".claude-plugin/plugin.json": "c3d1a4753f48ecf0ea41c3bd03bed2b42920ac7fb95209c44a1718d734245656",
+        ".codex-plugin/plugin.json": "a68f38ebc4b17a8d8bbdf4fb11cc092d78bd500d3d3973c92978b27481fdb2e2",
+        ".cursor-plugin/plugin.json": "6db7533bc1ef74acddf660efd185bb1192256ae049da99abd5dd310139cadeb6",
+        "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
+        "README.md": "fa597bbf96f40412b48d545546cff0b750328b6f3d2254e0678760600bf069ef",
+        "assets/icon.svg": "95537eefaa36527d9b0c6d44172fdef366ee1aaa6c4f2abbb9cc283e1f271537",
+        "plugin.json": "c84b5ec0caae84651159c0c12c73371a3fccafbf63555e229215a37c912c38cc",
+        "skills/video-analysis/LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
+        "skills/video-analysis/SKILL.md": "a3747638b03ba4cd470539e6a5b813077825ae5aa0a18b1a4bd7547e2055f42d",
+        "skills/video-analysis/agents/openai.yaml": "26b450f9969cb1c6cf8b8ed1bb737f317907c19114f2f11ecb1c63372c074fcc",
+        "skills/video-analysis/references/analysis.md": "259e78389c06d042e4d0085a5692072dc062cf2c41d81617e24d683661b23dba",
+        "skills/video-analysis/references/evidence.md": "02d54bdae9e1446dd665525890318771fe43d9cabd8ba4a28cac427e61c5bebc",
+        "skills/video-analysis/references/media.md": "4a8c75d608378df8f9b25887e285da63f4472ed813f521b6604bc58c8703fa4e",
+        "skills/video-analysis/scripts/sample.py": "b21c0b7d829cfbfe54f27c87e68cdb9c628db33d8dcea22de98af4d6257ae307"
+      }
     }
   }
 }

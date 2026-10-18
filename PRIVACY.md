@@ -1,11 +1,17 @@
 # Data handling
 
-Publisher: Lex from SigmaStudioz. Applies to the domain-driven-design skill and its optional
-local Claude handoff helper in this repository.
+Publisher: Lex from SigmaStudioz. Applies to Principal Driven Domain Design, SigmaStudioz Visualizer and SigmaStudioz Video
+Analysis, including their optional local helpers in this repository.
 
-This plugin provides instructions and a local Python helper. It has no publisher-hosted backend,
-account system, telemetry endpoint or network calls. The publisher receives no automatic usage
-reports from the plugin.
+These plugins provide instructions and optional local Python helpers. There is no publisher-hosted
+backend, account system or telemetry endpoint. Shipped helpers do not send media or project data to
+the publisher. The Video Analysis sampler invokes existing local FFmpeg/ffprobe; it does not install
+dependencies or download speech models. No hooks automatically register these media helpers.
+
+The host agent may use local or external rendering, transcription or generation tools authorized
+by the user. Those providers may process supplied content under their own terms/settings. Selecting
+a skill does not authorize uploading private media, publishing an analysis or creating paid jobs.
+Keep private reference media, transcripts and extracted evidence out of public export packages.
 
 The coding agent reads project files and uses the tools permitted by its host. The optional
 handoff helper reads the host-provided session transcript locally to check explicit teammate
@@ -19,4 +25,4 @@ does not silently install global rules or enable the optional helper; see [setup
 
 Support is through [GitHub Issues](https://github.com/sigmastudioz/agent-skills/issues). Issues are
 public; do not include credentials, private source, personal records or raw agent session logs.
-This notice describes this plugin's behavior; it does not replace the host provider's policies.
+This notice describes these plugins' behavior; it does not replace the host provider's policies.
