@@ -1,0 +1,19 @@
+{
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "revision": "6451d807f6c7f77e36ecf105af0237d5acf125f2",
+  "files_verified": 26,
+  "missing": [],
+  "different": [],
+  "unexpected": [],
+  "license": "MIT",
+  "publisher": "Lex from SigmaStudioz",
+  "skill_folder_lines": 598,
+  "date": "2026-10-18",
+  "scope": "26-file initial public snapshot verified byte-for-byte; this receipt and trace closure are later documentation additions.",
+  "checks": {
+    "native_claude_marketplace": "passed",
+    "catalog_and_release_files": 4,
+    "multi_plugin_tests": 6
+  },
+  "official_directory_status": "not submitted; GitHub direct-install catalog published"
+}
