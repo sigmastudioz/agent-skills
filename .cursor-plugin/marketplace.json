@@ -1,0 +1,17 @@
+{
+  "name": "sigmastudioz",
+  "owner": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "metadata": {
+    "description": "Reusable agent skills and plugins by Lex from SigmaStudioz."
+  },
+  "plugins": [
+    {
+      "name": "domain-driven-design",
+      "source": "./plugins/domain-driven-design",
+      "description": "Principal-level domain architecture, reusable engines, module gap tracing, and explicit agent handoffs."
+    }
+  ]
+}
