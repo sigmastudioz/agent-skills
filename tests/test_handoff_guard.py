@@ -68,5 +68,5 @@ class GuardTests(unittest.TestCase):
   self.assertEqual(self.complete(events=[message]).returncode,2)
  def test_worker_receives_baseline_before_proposed_task(self):
   r=self.complete();p=json.loads(r.stdout)['hookSpecificOutput']['updatedInput']['prompt']
-  self.assertLess(p.index('# Principal Domain-Driven Design'),p.index('HANDOFF_JSON='))
+  self.assertLess(p.index((SCRIPT.parents[1]/'SKILL.md').read_text()),p.index('HANDOFF_JSON='))
 if __name__=='__main__':unittest.main(verbosity=2)
