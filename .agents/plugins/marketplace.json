@@ -1,0 +1,20 @@
+{
+  "name": "sigmastudioz",
+  "interface": {
+    "displayName": "SigmaStudioz Agent Skills"
+  },
+  "plugins": [
+    {
+      "name": "domain-driven-design",
+      "source": {
+        "source": "local",
+        "path": "./plugins/domain-driven-design"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
