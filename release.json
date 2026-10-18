@@ -1,0 +1,20 @@
+{
+  "catalog": "sigmastudioz",
+  "plugins": {
+    "domain-driven-design": {
+      "version": "1.0.4",
+      "files": {
+        ".claude-plugin/plugin.json": "f8badf51c3a3bcac5360056933b9b16bbc2db48aa83b90d45286c1084b4a4734",
+        ".codex-plugin/plugin.json": "8b905fdbcc804069227b69b89aa482282fbaf86a1d7e18f9c73ea802b9cdc5a8",
+        ".cursor-plugin/plugin.json": "f8badf51c3a3bcac5360056933b9b16bbc2db48aa83b90d45286c1084b4a4734",
+        "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
+        "README.md": "7551127b79c4e5c81b2abcf09c7715d3be3f740e5a53965148da847c5b6e322f",
+        "assets/icon.svg": "aa6005f096c92aae434b5da7c1409d75620f300650e4524beca64416e9c77a7e",
+        "plugin.json": "237ea34946fa18bcfb8feae903884342d6b82fb589735c0b5069744a30470ad2",
+        "skills/domain-driven-design/SKILL.md": "f6c33d67c2292e893f831a64e2a49a8484044f15042974e2b53440add723257a",
+        "skills/domain-driven-design/agents/openai.yaml": "b8d67d94aa914ab8a422b0a45f7c23af949a9685fb41d3986e7e9dad23ced012",
+        "skills/domain-driven-design/scripts/guard_handoff.py": "7b7a5c7a3bb7609858c058895dc48c33b4d91743de77e9c0987e1e8427f97384"
+      }
+    }
+  }
+}
