@@ -4,62 +4,94 @@
 
 [![Install on skills.sh](https://img.shields.io/badge/skills.sh-install-black)](https://skills.sh/sigmastudioz/agent-skills/domain-driven-design)
 
-A growing collection of reusable agent skills and plugins for Claude Code, Cursor and Codex.
-Each plugin owns its version and can contain one skill or a cohesive group of related skills.
-Users install only what they need; future plugins do not force a shared release version.
+A collection of reusable skills by Lex from SigmaStudioz. Each plugin has its own version.
 
-## Available plugins
+## Principal Driven Domain Design
 
-| Plugin | Purpose | Validation |
-| --- | --- | --- |
-| [Principal Driven Domain Design](plugins/domain-driven-design/README.md) 1.0.7 | Principal domain ownership, reusable engines, explicit handoffs and connected-path gap tracing | Fresh Claude Code: 16/16 feature checks, 2/2 regressions, one teammate |
+Help coding agents organize code by domain, reuse shared behavior, and trace integration gaps
+before handing work back. Apply principal-level engineering to the feature or fix at hand.
 
-**Principal Driven Domain Design** is the first skill: principal-level domain-driven design for
-AI coding agents. Its package and invocation identifier remains `domain-driven-design`, so
-existing installation commands continue to work.
+- **Clear ownership:** domain first, then services, adapters and scoped shared code.
+- **Useful reuse:** shared domain packages and cohesive engines when real consumers need them.
+- **Connected behavior:** follow callers, dependencies, failure paths and downstream consumers.
+- **Complete handoffs:** carry scope, locations, contracts, checks and unresolved findings.
 
-The full DDD skill folder is **597 lines**, including its metadata and optional helper.
+### Quick start
 
-## Installation
-
-Find [Principal Driven Domain Design on skills.sh](https://skills.sh/sigmastudioz/agent-skills/domain-driven-design),
-by **Lex from SigmaStudioz**, and install the skill with:
+**1. Install.** Use the [Claude directory](https://claude.ai/customize/plugins/id/afb92b63-9b33-4c1a-8a78-f321fa1d1c4b%40anthropic-plugin-directory)
+for the published Claude plugin, or install the skill in your project and choose your coding agent:
 
 ```sh
 npx skills add sigmastudioz/agent-skills --skill domain-driven-design
 ```
 
-Run this in your project and choose your coding agent when prompted. For automatic use across
-projects, follow the global setup in [SETUP.md](SETUP.md).
+Find the [live skills.sh listing](https://skills.sh/sigmastudioz/agent-skills/domain-driven-design)
+or visit [sigmastudioz.com/skills](https://sigmastudioz.com/skills).
 
-For the full plugin, use the platform-specific installation below.
+**2. Enable automatic use once.** Follow [the host-specific global setup](SETUP.md) for Claude Code,
+Cursor or Codex. Point the host's global instructions at your actual installed `SKILL.md`, preserve
+existing settings, and start a fresh session. The optional Claude handoff guard is separate.
+Installing the skill alone does not configure automatic use across projects or remote hosts.
 
-Claude Code users register the collection and select the plugin:
+**3. Give an ordinary coding request.** In a billing project, for example:
+
+> Add refund processing to the API and background job. Keep existing payment behavior working.
+> Follow the current public contracts and run the relevant checks.
+
+No skill name or architecture trigger is needed after automatic setup. Check the agent's actual
+loading, changes and verification; instruction guidance does not guarantee model compliance.
+
+### Watch the workflow
+
+[![Watch the 50-second Principal Driven Domain Design demo by Lex from SigmaStudioz](assets/ddd-demo-poster.png)](assets/ddd-demo.mp4)
+
+[Watch or download the demo](assets/ddd-demo.mp4?raw=true) ·
+[Captions](assets/ddd-demo.srt) · [Run the synthetic coding example](assets/README.md) ·
+[Editable sources](assets/ddd-demo-source.zip?raw=true)
+
+The illustrated demo follows API and worker consumers into one billing capability, traces a
+connection gap, visualizes the authority-boundary repair, and explains handoffs and checks.
+The 50-second film combines 60fps paper animation, GPU-baked material lighting and an
+original stereo score. Editable sources include a Three.js shader preview.
+Authored by **Lex from SigmaStudioz**, it replays recorded evidence through animation. The fresh Claude Code 1.0.5 run passed
+16 feature checks and 2 original regressions with one teammate. Versions 1.0.6 and 1.0.7
+update branding and packaging; they do not establish a new coding-test baseline.
+The included fixture is independently runnable and intentionally uses an in-memory store.
+
+### Native plugin installation
+
+For the full Claude Code plugin:
 
 ```sh
 claude plugin marketplace add sigmastudioz/agent-skills
 claude plugin install domain-driven-design@sigmastudioz --scope user
 ```
 
-For Codex, clone the collection and register the clone:
+For Codex, register a local collection clone:
 
 ```sh
 git clone https://github.com/sigmastudioz/agent-skills.git
 codex plugin marketplace add ./agent-skills
 ```
 
-Install the chosen plugin from the SigmaStudioz source in the plugin directory. Cursor users can
-install a native skill or load the plugin locally; see [SETUP.md](SETUP.md) and the platform docs.
-Official directory submissions have their own review process; repository publication is not a
-claim that Claude, Cursor or OpenAI has approved a listing.
+Install the chosen plugin from the SigmaStudioz source. Cursor local loading and native skill
+locations are covered in [SETUP.md](SETUP.md). Official directory reviews are separate from
+these direct installation methods. Claude currently serves 1.0.6; the 1.0.7 metadata update
+awaits reviewer activation. Cursor, Codex and Antigravity publication is not yet confirmed.
 
-For ordinary coding tasks to apply the baseline without trigger words, follow the one-time,
-user-approved global setup. Installing this catalog does not silently rewrite global settings.
-Remote/cloud agents and hosts that disable user instructions need separate accessible setup.
+### Available plugins
+
+| Plugin | Purpose | Version |
+| --- | --- | --- |
+| [Principal Driven Domain Design](plugins/domain-driven-design/README.md) | Domain ownership, reusable engines, gap tracing and agent handoffs | 1.0.7 |
+
+The stable package identifier is `domain-driven-design`. Its complete skill folder remains
+597 lines. This collection can host future plugins with independent versions.
 
 ## Validation and limitations
 
-1.0.7 adds the Claude display name and discovery keywords; 1.0.6 introduced the public branding. The engineering instructions and helper behavior match 1.0.5;
+1.0.7 adds display metadata, an original icon, discovery keywords and Cursor schema corrections;
+1.0.6 introduced the public branding. The engineering instructions and helper behavior match 1.0.5;
 only the instruction title, display metadata and documentation changed. Native evidence remains
 tied to its recorded 1.0.5 baseline, rather than being relabeled as a new test.
 
