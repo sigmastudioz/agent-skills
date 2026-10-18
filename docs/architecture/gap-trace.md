@@ -12,7 +12,7 @@ Scope: adding future independently versioned plugins to the SigmaStudioz collect
 | tests/test_catalogs.py | Standard-library unittest | Temporary independent plugin fixtures; read-only stale check | 6 tests pass, including no output on duplicate rejection | verified |
 | README / CONTRIBUTING / SETUP | New user / maintainer | Select plugins, add entries, opt into native global instructions | Source/path review; no placeholder skill folders created | static-only user instructions; each new plugin needs its own efficacy checks |
 | Repository publication | GitHub creation form -> public repository | Selected organization, name, visibility and license -> remote creation/upload | Public snapshot 6451d807f6c7f77e36ecf105af0237d5acf125f2; 26 files match reviewed bundle; native catalog validation and 6 tests pass in fresh clone | COLL-05 fixed-and-verified: MIT root/plugin notices, clean direct-install collection published; see ../publication.json |
-| Initial DDD skill | Installed/native agent -> module changes | Global baseline, optional Claude hook, handoffs and checks | Cursor fresh coding 16/16 + 2/2; completed Claude 15/16 + 2/2 with four teammates | gap-found: Claude tuple-collision and agent-count adherence remain open; preview disclosed |
+| Initial DDD skill | Installed/native agent -> module changes | Global baseline, optional Claude hook, handoffs and checks | Cursor fresh coding 16/16 + 2/2; fresh Claude 1.0.5: 16/16 + 2/2 with one teammate; 21 guard tests | fixed-and-verified for the scoped native test; desktop/cloud/performance remain outside coverage |
 
 Inventory: 8 review units, 8 accounted for. File/catalog checks and generated output are runtime
 verified locally; user setup, official-store publication and every possible future plugin are not.
@@ -26,3 +26,16 @@ closure are later documentation additions. No private session logs, global setti
 or publisher machine paths were uploaded. Official store submissions remain a separate boundary.
 
 Catalog-tool content revision: 2504ae7b2e3175effa18a4f21c08a091cb81b2525e97ac4cf8bb06592b86dea0 . Reopen evidence after relevant changes.
+
+## 1.0.5 repair trace
+
+| Module/path | Entry and effects | Evidence | Status |
+| --- | --- | --- | --- |
+| SKILL.md | Global routing -> original contract -> proposed brief -> worker and parent review | Core SHA in ../validation.json; full-body native child delivery before HANDOFF_JSON | fixed-and-verified: explicit injective identity and user budget precedence |
+| guard_handoff.py | Native PreToolUse -> non-meta user budget -> pending/non-rejected dispatches -> handoff validation -> updated input | 21 subprocess tests; one real accepted teammate, one rejected incomplete attempt | fixed-and-verified; English explicit Use N syntax and available transcript boundary documented |
+| Native consumer | Isolated worker -> parent copy/integration -> API/worker billing facade -> store/read/retry/error outcomes | 20 parent tests; 16 external feature checks; 2 original regressions | fixed-and-verified in the dependency-free fixture |
+| Installed package docs | Plugin cache README -> hosted setup/privacy/validation links | Absolute repository links replace paths outside a cached plugin folder | fixed-and-verified static link/path inspection; publisher portal scans remain separate |
+
+These additions close the observed identity-collision and excess-teammate findings for this native
+run. Budget wording that cannot be recognized and unavailable native history remain coordinator
+responsibilities. No transcript data is sent to a publisher service by the helper.
