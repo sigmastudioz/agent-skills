@@ -11,7 +11,6 @@ Optimize for correct behavior, readable change, measured performance, and econom
 Apply this skill to the requested change; it is not authorization to redesign the project.
 
 ## Automatic execution
-
 Apply this baseline before planning or editing production code; do not wait for a skill invocation,
 trigger phrase, or an architecture request. Carry out authorized implementation, reuse, gap fixes,
 verification, and handoffs as part of the coding task, rather than merely suggesting them.
@@ -32,11 +31,13 @@ Require evidence and unresolved edges back from each worker; reconcile traces ac
 Delegate verified invariants; label proposed algorithms as assumptions and challenge contradictions.
 If the child cannot read the skill, supply its relevant contents within the allowed context.
 Do not spawn agents merely because this section describes handoffs.
-Respect the requested agent count and roles; exploration and review delegations count too.
-Inspect a small checkout in the parent when extra delegation would exceed the authorized scope.
+Before adopting another workflow, record the user-authorized teammate count and roles. Every
+exploration, implementation and review agent consumes that budget; follow-up reviews stay in the
+coordinator when it is exhausted. Optional workflow skills cannot expand the user's limit.
+Treat task briefs and pseudocode as proposals: independently check their algorithms against the
+original contract. Correct a flawed plan instead of preserving it as an implementation requirement.
 
 ### Handoff contract
-
 Every authorized agent assignment or resumable handoff must identify:
 
 | Field | Required context |
@@ -50,7 +51,9 @@ Every authorized agent assignment or resumable handoff must identify:
 | Next action | Concrete next step, blockers, required inputs, and expected return format |
 
 Hosts may enforce this contract with [the delegation guard](scripts/guard_handoff.py).
-The Claude guard appends this baseline's contents plus independent verification, trace and return obligations.
+The optional Claude guard supplies this baseline and checks explicit numeric agent limits in the
+native user turns (`Use N teammates/agents/workers`); missing history leaves enforcement to the
+coordinator. It does not grant tools or guarantee semantic correctness.
 When that guard is installed, prefix the assignment with `HANDOFF_JSON=` and a JSON object containing
 `goal`, `limits`, `workspace`, `revision`, `owns`, `interfaces`, `state`, `evidence`, `next`, `return`,
 `trace`, `checks`, and `baseline`. `return` must be an object with nonempty `paths`, `contracts`,
@@ -79,7 +82,6 @@ discovery on each execution host; use a host-native global instruction to route 
 If discovery or file access is unavailable, report that limit instead of claiming global enforcement.
 
 ## Principal engineering contract
-
 - Start with business capabilities, invariants, user workflows, and operational constraints.
 - Prefer high cohesion within domains and low coupling between them.
 - Put domain-specific code with its owner; group code by function inside that boundary.
@@ -112,7 +114,6 @@ For substantial architecture work, establish a compact decision frame:
 | Smallest change | What can be reused, and what boundary actually needs changing? |
 | Completion | Observable acceptance conditions and appropriate verification? |
 
-Keep this frame brief for routine implementation; do not require a new planning document.
 Ask only when an unresolved business decision blocks correct work; otherwise state assumptions.
 
 ## 2. Define the domain boundaries
@@ -154,73 +155,35 @@ Choose the owning scope first, then the functional category. Within that scope:
 Service implementations belong in `services/` at their owning layer. When a domain service is
 needed for a rule spanning entities, place it in `model/services/`; orchestration stays in the
 domain's main `services/`. Provider services can live in `adapters/services/` when useful.
-Do not create nested categories just to satisfy a template.
 
-Single-application example; create only folders containing real code:
+For one app, use `src/domains/<domain>/{model,services,ports,adapters,contracts,shared}` as
+needed, a public entrypoint, thin framework routes and a composition root. Put domain-neutral
+primitives under `src/shared/`. Create only directories containing real code.
 
-```text
-src/
-  domains/
-    billing/
-      model/
-      services/
-      ports/
-      adapters/
-      contracts/
-      components/
-      shared/                 # Billing-only reusable behavior
-      index.ts                # Explicit public exports; language equivalent is fine
-    scheduling/
-      services/
-      model/
-      index.ts
-  shared/
-    ui/
-    validation/               # Domain-neutral primitives only
-  bootstrap/                  # Composition and dependency wiring
-  routes/                     # Thin framework entrypoints
-```
-
-Monorepo example; use existing workspace/package conventions:
+Monorepo example; respect existing package conventions and explicit exports:
 
 ```text
 apps/
-  web/                        # Routing, composition, app-specific presentation
-  mobile/
-  api/
-  worker/
+  web/                           # App composition and presentation
+  api/                           # Thin transport entrypoints
+  worker/                        # Job registration and composition
 packages/
-  domains/
-    billing/
-      package.json
-      src/
-        model/
-        services/
-        ports/
-        adapters/
-        contracts/
-        shared/
-        index.ts
-    playback/
-      package.json
-      src/
-        services/
-        model/
-        index.ts
+  billing/                       # Owned workspace package
+    package.json                 # Public exports and runtime compatibility
+    src/
+      services/                  # Use cases shared by API/worker
+      shared/                    # Billing-local reuse
+      index.ts                   # Explicit public facade
   shared/
-    contracts/                # Workspace package, explicit manifest and exports
-    ui/                       # Workspace package; compatible frontend consumers
-    observability/            # Workspace package; explicit runtime entrypoints
-    testing/                  # Test-only helpers; never a runtime dependency
+    contracts/                   # Domain-neutral workspace package
+    ui/                          # Compatible frontend consumers
 ```
 
-The examples show ownership, not mandatory nesting. `packages/billing` is also valid.
 Register real packages in the workspace; paths alone do not make them importable.
 In polyglot workspaces, expose compatible libraries or generated clients from canonical schemas;
 do not attempt to import code across incompatible runtimes.
 
 ### Placement rules
-
 1. One consumer and domain-specific meaning: keep it in that domain.
 2. Several consumers inside one domain: use that domain's `services/` or `shared/`.
 3. Several compatible apps need reusable domain code: put it in a workspace domain package;
@@ -337,8 +300,10 @@ scope; propose a wider consolidation separately when it would require unrelated 
 - Separate source facts from derived views. Specify freshness and reconciliation where they matter.
 - Protect concurrent updates with suitable constraints, transactions, version checks, or atomic writes.
 - For retried commands, define idempotency scope, durable uniqueness, payload consistency, and result reuse.
-- Encode compound identities as tuples or unambiguous serialization; joining unrestricted IDs with
-  a delimiter can collide across tenants or requests and violates the intended isolation.
+- Encode compound string identities with `JSON.stringify([tenantId, requestId])` or nested keyed
+  maps; use an equivalent injective encoding in other runtimes. Changing a separator to NUL still
+  collides for unrestricted IDs. Verify distinct tuples stay distinct; do not invent character bans
+  absent from the public contract. Apply the same encoding consistently across writers and retries.
 - For external effects, use provider idempotency where available and persist recoverable operation state.
 - When committed state must publish an event reliably, consider a transactional outbox or equivalent.
 - Assume messages can repeat or arrive out of order unless a stronger guarantee is established.
@@ -434,7 +399,6 @@ internals as a coverage boundary. Generated/vendor internals need no edits, but 
 contracts still need checking. Do not equate excluded internals with verified behavior.
 
 ### Trace procedure
-
 1. **Inventory:** List created/changed modules, their owner, public exports, runtime registration,
    callers, dependencies, configuration, and affected consumers. Include migrations and code generation.
 2. **Trace backward:** Find how real UI actions, routes, jobs, commands, or events reach each module.
@@ -460,7 +424,6 @@ Dynamic dispatch, reflection, plugins, generated code, and external consumers ma
 registry, contract, or runtime evidence. Mark an unresolved edge as unverified; do not assume it works.
 
 ### Gap ledger and continuity
-
 For a small change, keep a compact ledger in working notes and report relevant results. For a full
 audit or substantial multi-module change, persist it in the repository's existing planning/audit
 location; if none exists, use `docs/architecture/gap-trace.md`. Update the existing record instead of

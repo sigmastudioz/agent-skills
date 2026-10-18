@@ -59,7 +59,10 @@ a canonical installation under the user's own home; adapt the interpreter/path o
 ```
 
 The helper checks coding handoffs in recognized code workspaces, rejects missing context, and
-includes the complete baseline in accepted worker prompts. It preserves other tool arguments and
+places the complete baseline before accepted worker prompts. It also checks explicit
+`Use N teammates/agents/workers` limits against native user turns and pending dispatches, excludes
+hook-rejected attempts, and permits resuming an existing worker. Missing history or other wording
+leaves budget enforcement to the coordinator. It preserves other tool arguments and
 native permission decisions. It cannot prove that the assignment is true or that the worker follows
 every instruction. Review worker results and verify integrated behavior.
 

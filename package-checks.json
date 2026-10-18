@@ -1,9 +1,9 @@
 {
-  "status": "MIT preview; local package validation passed; native adherence limits disclosed",
+  "status": "MIT release; scoped fresh Claude gate passed; cross-runtime limits disclosed",
   "author": "Lex from SigmaStudioz",
   "publisher_url": "https://github.com/sigmastudioz",
-  "version": "1.0.4",
-  "skill_folder_lines": 598,
+  "version": "1.0.5",
+  "skill_folder_lines": 597,
   "checks_passed": 28,
   "checks": [
     "plugin.json author/version",
@@ -33,6 +33,6 @@
     "Setup preserves shell quoting",
     "MIT license included in repository and cached plugin",
     "All manifest licenses match",
-    "README discloses Claude limitations"
+    "Fresh Claude gate recorded with exact scope"
   ]
 }

@@ -1,57 +1,54 @@
 # Principal Domain-Driven Design
 
-By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Plugin version 1.0.4.
+By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.0.5**, [MIT](LICENSE).
 
-A principal-level engineering baseline for application/API/worker/monorepo changes. Group code by
-its owning domain, then by function; keep services and shared modules at the narrowest useful scope.
-Reuse an owned engine when actual consumers share a cohesive algorithm. Trace created modules and
-changed paths through callers, dependencies, consumers and relevant failures; fix authorized gaps.
+A principal-level engineering baseline for application, API, worker and monorepo changes. Group
+code by its owning domain, then by function; keep services and shared modules at the narrowest
+useful scope. Reuse an owned engine when real consumers share a cohesive algorithm. Trace modules
+through callers, dependencies, consumers and failures, and fix gaps required by the authorized task.
 
-The instruction file is 535 lines; its complete skill folder is **598 lines** with metadata and
-its optional native Claude delegation helper. Small fixes stay small. Read-only reviews stay
-read-only. The baseline does not authorize extra agents, unrelated restructuring or deployment.
+The instruction file has **498 lines**; the complete skill folder has **597 lines**, including
+metadata and the optional Python helper. Small fixes stay small; read-only reviews stay read-only.
+The baseline does not authorize extra agents, unrelated restructuring or deployment.
 
-## Installation and automatic use
+## Setup and handoffs
 
-After registering the collection catalog, install only this plugin:
+Install this plugin from the SigmaStudioz catalog. For global automatic use without trigger words,
+follow the one-time [native setup](https://github.com/sigmastudioz/agent-skills/blob/main/SETUP.md).
+Marketplace discovery alone does not install global instructions or enable lifecycle hooks.
 
-```sh
-claude plugin install domain-driven-design@sigmastudioz --scope user
-```
+Pass an accessible baseline, workspace/revision, ownership, contracts, current state, evidence,
+trace obligations, checks and expected return format to already-authorized teammates. Verify the
+integrated result. Task briefs and pseudocode are proposals, not proof of algorithm correctness.
+User teammate limits override optional workflow steps, including extra review agents.
 
-For Codex and Cursor instructions, see the [collection README](../../README.md).
-For ordinary coding tasks to apply the baseline without trigger words, follow the one-time
-user-approved [global setup](../../SETUP.md). Native discovery alone does not force every runtime
-to apply every rule. Hosts that disable user instructions and remote/cloud agents need separate setup.
+The optional Claude helper checks handoff structure, places the full baseline before the proposed
+task and enforces explicit `Use N teammates/agents/workers` limits from native user history. It
+counts pending dispatches, ignores hook-rejected attempts and permits resuming an existing worker.
+It does not infer authorization, grant tools or prove semantic correctness. Missing history or
+other constraint wording leaves budget enforcement to the coordinator. Requires Python 3.
 
-## Handoffs
+## Validation
 
-Pass the accessible baseline, workspace/revision, ownership, contracts, current state, evidence,
-trace obligations, checks and expected return format. Do not assume a worker inherits context.
-The optional Claude hook checks structured handoff presence and includes the complete baseline
-in the worker's actual assignment. It preserves other tool arguments and native permission decisions.
-It does not prove the handoff's truth or the worker's adherence; verify the integrated result.
+Fresh Claude Code 1.0.5 test: **16/16 external feature checks and 2/2 original regressions pass**,
+with exactly one implementation teammate. The parent integrated the isolated worktree result,
+ran 20 local tests, reviewed authority paths itself and fixed a forged-tenant field bug.
+Compound identity uses a JSON tuple instead of a separator, including NUL.
 
-## Validation status
+The test used normal global configuration with the optional handoff helper and an ordinary prompt
+that did not name the skill. The actual worker received the complete baseline before the assignment.
+Guard tests: 21; installer tests: 14. See the
+[validation receipt](https://github.com/sigmastudioz/agent-skills/blob/main/docs/validation.json).
+Earlier failed Claude runs remain recorded. The earlier passing Cursor CLI evidence is tied to
+its original baseline; no new Cursor desktop or 1.0.5 coding result is implied.
 
-Fresh Cursor Agent CLI: 16/16 external feature checks and 2/2 original regressions pass. The agent
-loaded the skill automatically, delegated one bounded task, integrated the result and ran checks.
-Fresh Claude Code confirmation completed: 15/16 external feature checks and 2/2 original
-regressions pass. The missing case is a compound-identity collision caused by joining unrestricted
-IDs with a NUL delimiter. Four actual teammates ran despite the request for one. The handoff guard
-rejected incomplete assignments and accepted corrected ones, but does not enforce agent budgets
-or semantic correctness. Automatic baseline loading/delivery works; full adherence is unvalidated.
+Production performance, durable payment concurrency and remote/cloud adherence are outside this
+small fixture. Local installation does not establish universal behavior across models or hosts.
 
-Earlier iterations exposed incomplete handoffs, excess delegated roles and compound-identity
-collisions; those failures are retained in the maintainer's experiment evidence. Do not claim that
-all initial attempts passed. Cursor desktop UI, cloud agents, production concurrency and performance
-were not established by the small dependency-free billing fixture.
+## Data and support
 
-A sanitized [validation receipt](../../docs/validation.json) records counts and evidence hashes.
-
-The current publication remains a preview, licensed under [MIT](LICENSE).
-See [publication details](../../PUBLISHING.md). Publisher identity in
-an official directory also depends on the platform's verification, not only local author metadata.
-
-The public repository is https://github.com/sigmastudioz/agent-skills.
-This plugin is the first collection entry. Future plugins can own their own versions and skills.
+No publisher-hosted service, telemetry or automatic usage upload is included. The optional helper
+reads the host-provided transcript locally; the agent provider handles prompts according to user
+settings. See [data handling](https://github.com/sigmastudioz/agent-skills/blob/main/PRIVACY.md).
+Support: [GitHub Issues](https://github.com/sigmastudioz/agent-skills/issues). Do not post secrets,
+private code or raw session logs. The MIT copyright notice credits Lex from SigmaStudioz.

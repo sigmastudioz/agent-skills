@@ -2,18 +2,18 @@
   "catalog": "sigmastudioz",
   "plugins": {
     "domain-driven-design": {
-      "version": "1.0.4",
+      "version": "1.0.5",
       "files": {
-        ".claude-plugin/plugin.json": "f8badf51c3a3bcac5360056933b9b16bbc2db48aa83b90d45286c1084b4a4734",
-        ".codex-plugin/plugin.json": "8b905fdbcc804069227b69b89aa482282fbaf86a1d7e18f9c73ea802b9cdc5a8",
-        ".cursor-plugin/plugin.json": "f8badf51c3a3bcac5360056933b9b16bbc2db48aa83b90d45286c1084b4a4734",
+        ".claude-plugin/plugin.json": "b67a699c25d47f51ad861896d942e774eea5bde30660e9b730137600df108279",
+        ".codex-plugin/plugin.json": "c25af0cf503935be4925d2cb5923a07545f3b49f58c9505b74629b58a7609dc0",
+        ".cursor-plugin/plugin.json": "b67a699c25d47f51ad861896d942e774eea5bde30660e9b730137600df108279",
         "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
-        "README.md": "7551127b79c4e5c81b2abcf09c7715d3be3f740e5a53965148da847c5b6e322f",
+        "README.md": "398530c2a42240be25d3561459e6b63672d553a5bd190f88fb35db4f6033fba7",
         "assets/icon.svg": "aa6005f096c92aae434b5da7c1409d75620f300650e4524beca64416e9c77a7e",
-        "plugin.json": "237ea34946fa18bcfb8feae903884342d6b82fb589735c0b5069744a30470ad2",
-        "skills/domain-driven-design/SKILL.md": "f6c33d67c2292e893f831a64e2a49a8484044f15042974e2b53440add723257a",
+        "plugin.json": "243009b81511f4bea8e47783334b8bce98375fa5ab4b9ea9b5ede7699c8b7d00",
+        "skills/domain-driven-design/SKILL.md": "fd944bebdf0c9816adb3092bb806a40877e019b8d1f794d02192a56f49769ba8",
         "skills/domain-driven-design/agents/openai.yaml": "b8d67d94aa914ab8a422b0a45f7c23af949a9685fb41d3986e7e9dad23ced012",
-        "skills/domain-driven-design/scripts/guard_handoff.py": "7b7a5c7a3bb7609858c058895dc48c33b4d91743de77e9c0987e1e8427f97384"
+        "skills/domain-driven-design/scripts/guard_handoff.py": "3a8783b79ad37f6157458272be6ab21ce811c452cff6df9d8376affea65966b1"
       }
     }
   }

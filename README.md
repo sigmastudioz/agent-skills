@@ -1,30 +1,29 @@
 # SigmaStudioz Agent Skills
 
-**By [Lex from SigmaStudioz](https://github.com/sigmastudioz).**
+**By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Licensed under [MIT](LICENSE).**
 
-A growing collection of reusable agent skills and plugins for Claude Code, Cursor, and Codex.
-One repository can hold many independently installable plugins. A plugin can contain one skill or
-a cohesive group of related skills. Each plugin owns its version, documentation and compatibility.
+A growing collection of reusable agent skills and plugins for Claude Code, Cursor and Codex.
+Each plugin owns its version and can contain one skill or a cohesive group of related skills.
+Users install only what they need; future plugins do not force a shared release version.
 
 ## Available plugins
 
-| Plugin | Purpose | Status |
+| Plugin | Purpose | Validation |
 | --- | --- | --- |
-| [domain-driven-design](plugins/domain-driven-design/README.md) | Principal domain ownership, reusable engines, explicit handoffs and connected-path gap tracing | Preview; Cursor CLI 16/16, Claude 15/16 with agent-count noncompliance |
+| [domain-driven-design](plugins/domain-driven-design/README.md) 1.0.5 | Principal domain ownership, reusable engines, explicit handoffs and connected-path gap tracing | Fresh Claude Code: 16/16 feature checks, 2/2 regressions, one teammate |
 
-More skills can be added without renaming this repository or forcing users to install everything.
-The domain-driven-design skill folder remains 598 lines including its metadata and helper.
+The full DDD skill folder is **597 lines**, including its metadata and optional helper.
 
 ## Installation
 
-Claude Code users register the catalog once and choose a plugin:
+Claude Code users register the collection and select the plugin:
 
 ```sh
 claude plugin marketplace add sigmastudioz/agent-skills
 claude plugin install domain-driven-design@sigmastudioz --scope user
 ```
 
-For Codex, clone the repository and register the clone:
+For Codex, clone the collection and register the clone:
 
 ```sh
 git clone https://github.com/sigmastudioz/agent-skills.git
@@ -32,55 +31,45 @@ codex plugin marketplace add ./agent-skills
 ```
 
 Install the chosen plugin from the SigmaStudioz source in the plugin directory. Cursor users can
-install a skill in its native skills directory or load a plugin locally; public marketplace listing
-requires the platform's separate review process. See [SETUP.md](SETUP.md) for global automatic use.
+install a native skill or load the plugin locally; see [SETUP.md](SETUP.md) and the platform docs.
+Official directory submissions have their own review process; repository publication is not a
+claim that Claude, Cursor or OpenAI has approved a listing.
 
-Plugin discovery is separate from a user-approved global baseline setup. Installing this catalog
-does not silently rewrite global instructions. Hosts that disable user instructions can limit it.
+For ordinary coding tasks to apply the baseline without trigger words, follow the one-time,
+user-approved global setup. Installing this catalog does not silently rewrite global settings.
+Remote/cloud agents and hosts that disable user instructions need separate accessible setup.
 
-## Repository layout
+## Validation and limitations
 
-```text
-catalog.json                     # Maintained list of plugins
-plugins/
-  domain-driven-design/
-    plugin.json                  # Portable identity, author, version and presentation
-    .claude-plugin/plugin.json
-    .cursor-plugin/plugin.json
-    .codex-plugin/plugin.json
-    skills/domain-driven-design/
-      SKILL.md
-      agents/openai.yaml
-      scripts/guard_handoff.py
-tools/build_catalogs.py           # Generates three host catalogs from catalog.json
-tests/test_catalogs.py            # Exercises multiple plugins and cross-host consistency
-```
+The fresh 1.0.5 Claude Code test used the unchanged ordinary coding request, a clean billing
+monorepo fixture and exactly one implementation teammate. The coordinator integrated its work,
+ran 20 local tests and repaired an authority-field bug. Independent held-out checks passed 16/16
+feature cases and 2/2 original regressions, including compound-identity collisions.
 
-The three root catalog files are generated. Add new plugin folders and registry entries as described
-in [CONTRIBUTING.md](CONTRIBUTING.md); do not maintain three different plugin inventories by hand.
-No empty future skill folders or placeholder implementations are included.
+The optional Claude helper delivered the full baseline before the task brief. Its 21 tests cover
+handoff validation, explicit teammate budgets, rejected attempts, parallel pending calls and worker
+resumption. It does not infer authorization or guarantee semantic correctness. Historical Claude
+failures are retained in the [validation receipt](docs/validation.json), not rewritten as passes.
 
-## Status and attribution
+The earlier Cursor CLI run also passed 16/16 + 2/2; its recorded baseline differs from 1.0.5.
+Cursor desktop, cloud runtimes and production concurrency/performance were not exercised.
+Instruction guidance and scoped tests do not guarantee every future model follows every rule.
 
-Published at [sigmastudioz/agent-skills](https://github.com/sigmastudioz/agent-skills) under the
-[MIT license](LICENSE), copyright 2026 Lex from SigmaStudioz. Each distributed plugin includes its
-license notice. This repository is a direct-install catalog; official marketplace-directory
-listings require separate submission and approval.
+## Adding future skills
 
-The initial plugin has 16/16 held-out feature checks and 2/2 payment regressions from a fresh Cursor
-Agent CLI experiment. A completed fresh Claude Code run passed 15/16 feature checks and 2/2
-payment regressions, but used four teammates despite the requested agent count of one. Its NUL
-delimiter compound key failed a collision check. Automatic loading and guarded handoff delivery
-worked; full behavioral validation did not pass. See the plugin README for coverage.
-These results do not guarantee every model, desktop mode, or remote/cloud host follows every rule.
+Add owned plugin folders under `plugins/`, register them once in `catalog.json`, and generate all
+three native catalogs plus per-plugin file hashes with `tools/build_catalogs.py`. See
+[CONTRIBUTING.md](CONTRIBUTING.md) for independent versions, author attribution and checks.
+The public entrypoints are `.claude-plugin/marketplace.json`, `.cursor-plugin/marketplace.json`
+and `.agents/plugins/marketplace.json`; generated catalogs are checked for drift.
 
-Author bylines and plugin publisher metadata credit **Lex from SigmaStudioz**. Official directory
-publisher names also depend on the platform's verified developer identity. Each future plugin should
-preserve its actual authorship and attribution rather than inherit incorrect creator claims.
+## Data, support and attribution
 
-See [PUBLISHING.md](PUBLISHING.md) for distribution and licensing details.
+This skill has no publisher-hosted backend or telemetry. The optional helper reads native session
+history locally. Host-agent data handling follows the user's provider settings. Read
+[PRIVACY.md](PRIVACY.md) and use [GitHub Issues](https://github.com/sigmastudioz/agent-skills/issues)
+for support; do not post private code, credentials or session logs.
 
-## License
-
-[MIT](LICENSE). Reuse, modification and commercial distribution are permitted with the copyright
-and license notice preserved. Author metadata credits Lex from SigmaStudioz.
+Author bylines and manifests credit **Lex from SigmaStudioz**. Directory publisher labels also
+use the platform's verified identity. [MIT](LICENSE) permits reuse, modification and commercial
+distribution with the copyright and license notice preserved. Each plugin includes its notice.
