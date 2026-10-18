@@ -1,10 +1,10 @@
 {
   "date": "2026-10-18",
   "status": "scoped native Claude coding and one-teammate gate passed; cross-runtime limits remain",
-  "skill_version": "1.0.5",
+  "skill_version": "1.0.6",
   "skill_instruction_lines": 498,
   "complete_skill_folder_lines": 597,
-  "current_skill_sha256": "fd944bebdf0c9816adb3092bb806a40877e019b8d1f794d02192a56f49769ba8",
+  "current_skill_sha256": "277bb39b502bb1e670a8fa0ef84752a2f23b89a5c3502836bb155bc08a517ce5",
   "cursor": {
     "run": "cursor-final-01",
     "fresh_process": true,
@@ -87,5 +87,13 @@
     "handoff_guard_tests": 21,
     "global_installer_tests": 14,
     "collection_catalog_tests": 6
+  },
+  "branding_release": {
+    "display_name": "Principal Driven Domain Design",
+    "identifier": "domain-driven-design",
+    "behavior_baseline": "1.0.5",
+    "instruction_change": "H1 title only; all other instruction bytes unchanged",
+    "helper_change": "none",
+    "native_retest": false
   }
 }
