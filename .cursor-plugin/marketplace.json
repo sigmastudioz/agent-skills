@@ -1,8 +1,7 @@
 {
   "name": "sigmastudioz",
   "owner": {
-    "name": "Lex from SigmaStudioz",
-    "url": "https://github.com/sigmastudioz"
+    "name": "Lex from SigmaStudioz"
   },
   "metadata": {
     "description": "Reusable agent skills and plugins by Lex from SigmaStudioz."
