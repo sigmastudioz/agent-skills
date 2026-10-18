@@ -4,6 +4,23 @@ By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · versio
 
 Build interactive diagrams, data explorers, simulations and editable visualization videos with coherent models, motion, shaders and sound. By Lex from SigmaStudioz.
 
+## Watch the demo
+
+https://github.com/user-attachments/assets/661bb0a7-0ac2-460a-8eaa-6b0e01d72f4d
+
+A 32-second film by **Lex from SigmaStudioz**: an illustrative queue becomes a shared
+model, an interactive Three.js shader scene and a verified video export. Original stereo
+music and synthesized effects accompany smooth 1080p60 animation.
+
+[Download MP4](../../assets/visualizer-demo.mp4?raw=true) ·
+[Captions: SRT](../../assets/visualizer-demo.srt) / [VTT](../../assets/visualizer-demo.vtt) ·
+[Poster](../../assets/visualizer-demo-poster.png) ·
+[Editable sources for both demos](../../assets/visual-skills-demo-source.zip?raw=true)
+
+The film is an authored demonstration, not a recorded agent session or a production
+performance benchmark. Captions are timed scene summaries; there is no voiceover.
+[Reproduce the preview and inspect export checks](../../assets/README.md#visualizer-and-video-analysis-films).
+
 ## Install
 
 ```sh
