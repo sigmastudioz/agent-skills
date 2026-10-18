@@ -1,0 +1,24 @@
+1
+00:00:00,000 --> 00:00:04,000
+A source clip becomes inspectable, timestamped evidence.
+
+2
+00:00:04,000 --> 00:00:09,000
+Use an original six-second clip. Preserve its identity and metadata.
+
+3
+00:00:09,000 --> 00:00:15,000
+These frames come from the actual clip, with decoded presentation timestamps.
+
+4
+00:00:15,000 --> 00:00:21,000
+Connect the source, frame time, observation and interpretation.
+
+5
+00:00:21,000 --> 00:00:26,000
+Sparse frames are partial evidence. Audio needs its own inspection.
+
+6
+00:00:26,000 --> 00:00:32,000
+Timestamped evidence. Clear coverage limits. By Lex from SigmaStudioz.
+
