@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "license": "MIT",
   "name": "domain-driven-design",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Principal-level domain architecture, reusable engines, module gap tracing, and explicit agent handoffs.",
   "author": {
     "name": "Lex from SigmaStudioz",
@@ -15,9 +15,11 @@
       "interface": {
         "displayName": "Principal Domain-Driven Design",
         "shortDescription": "Domain design and gap tracing",
-        "longDescription": "Principal-level domain architecture, reusable engines, module gap tracing, and explicit agent handoffs. By Lex from SigmaStudioz. Domain-first structure, scoped services/shared modules, cohesive engines, and evidence-based verification. Automatic use requires native global instructions. Preview: fresh Cursor CLI passed 16/16 feature checks; Claude passed 15/16 and exceeded the requested agent count. Instructions do not guarantee model adherence.",
+        "longDescription": "Principal-level domain architecture, reusable engines, module gap tracing, and explicit agent handoffs. By Lex from SigmaStudioz. Domain-first structure, scoped services/shared modules, cohesive engines, and evidence-based verification. Automatic use requires native global instructions. Fresh Claude Code with the optional handoff guard passed 16/16 external feature checks and 2/2 regressions using one teammate. Native global setup is opt-in; instructions do not guarantee every model or runtime follows every rule.",
         "developerName": "Lex from SigmaStudioz",
         "websiteURL": "https://github.com/sigmastudioz",
+        "supportURL": "https://github.com/sigmastudioz/agent-skills/issues",
+        "privacyPolicyURL": "https://github.com/sigmastudioz/agent-skills/blob/main/PRIVACY.md",
         "category": "Developer Tools",
         "capabilities": [],
         "logo": "./assets/icon.svg",
