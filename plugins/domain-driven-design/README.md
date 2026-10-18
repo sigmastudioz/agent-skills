@@ -1,6 +1,6 @@
 # Principal Driven Domain Design
 
-By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.0.6**, [MIT](LICENSE).
+By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.0.7**, [MIT](LICENSE).
 
 **Principal-level domain-driven design for AI coding agents.**
 
@@ -40,7 +40,7 @@ other constraint wording leaves budget enforcement to the coordinator. Requires 
 
 ## Validation
 
-Version 1.0.6 changes the public title and listing metadata only. Its engineering instructions
+Version 1.0.7 adds the Claude display name and discovery keywords. Version 1.0.6 introduced the public title and listing metadata. Its engineering instructions
 are unchanged from 1.0.5 apart from the title; the helper is byte-identical. The native coding
 evidence below was collected with 1.0.5. No fresh 1.0.6 native coding run is claimed.
 

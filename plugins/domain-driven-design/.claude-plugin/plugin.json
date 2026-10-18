@@ -1,12 +1,27 @@
 {
   "license": "MIT",
   "name": "domain-driven-design",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Principal Driven Domain Design: principal-level domain architecture, reusable engines, module gap tracing, and explicit agent handoffs.",
   "author": {
     "name": "Lex from SigmaStudioz",
     "url": "https://github.com/sigmastudioz"
   },
   "homepage": "https://github.com/sigmastudioz",
-  "repository": "https://github.com/sigmastudioz/agent-skills"
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "displayName": "Principal Driven Domain Design",
+  "keywords": [
+    "domain-driven-design",
+    "software-architecture",
+    "principal-engineering",
+    "modular-architecture",
+    "reusable-engines",
+    "gap-analysis",
+    "refactoring",
+    "monorepo",
+    "code-quality",
+    "agent-handoffs"
+  ],
+  "icon": "./assets/icon.svg",
+  "documentationUrl": "https://github.com/sigmastudioz/agent-skills/blob/main/plugins/domain-driven-design/README.md"
 }
