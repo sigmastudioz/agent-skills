@@ -78,6 +78,25 @@ class CatalogTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Compatibility'):
             catalogs.build(self.root)
 
+    def test_cursor_identity_omits_url_without_changing_other_hosts(self):
+        author = {'name': 'Example author', 'url': 'https://example.com'}
+        self.registry['publisher'] = author
+        self.save()
+        for relative in ('plugin.json', '.claude-plugin/plugin.json', '.codex-plugin/plugin.json'):
+            path = self.root / 'plugins/first' / relative
+            data = json.loads(path.read_text()); data['author'] = author
+            path.write_text(json.dumps(data))
+        outputs = catalogs.render(self.root)
+        self.assertEqual(outputs['.cursor-plugin/marketplace.json']['owner'], {'name': 'Example author'})
+        self.assertEqual(outputs['.claude-plugin/marketplace.json']['owner'], author)
+
+    def test_cursor_author_name_drift_still_rejected(self):
+        path = self.root / 'plugins/first/.cursor-plugin/plugin.json'
+        data = json.loads(path.read_text()); data['author']['name'] = 'Different author'
+        path.write_text(json.dumps(data))
+        with self.assertRaisesRegex(ValueError, 'Compatibility'):
+            catalogs.build(self.root)
+
 
 if __name__ == '__main__':
     unittest.main()
