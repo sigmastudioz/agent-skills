@@ -1,10 +1,10 @@
 {
   "date": "2026-10-18",
-  "status": "preview; behavioral limitations remain",
-  "skill_version": "1.0.4",
-  "skill_instruction_lines": 535,
-  "complete_skill_folder_lines": 598,
-  "current_skill_sha256": "f6c33d67c2292e893f831a64e2a49a8484044f15042974e2b53440add723257a",
+  "status": "scoped native Claude coding and one-teammate gate passed; cross-runtime limits remain",
+  "skill_version": "1.0.5",
+  "skill_instruction_lines": 498,
+  "complete_skill_folder_lines": 597,
+  "current_skill_sha256": "fd944bebdf0c9816adb3092bb806a40877e019b8d1f794d02192a56f49769ba8",
   "cursor": {
     "run": "cursor-final-01",
     "fresh_process": true,
@@ -20,7 +20,22 @@
     "actual_teammates": 1,
     "skill_sha256": "2fcb965ceadeab419b06473c1b1d76ab124f7aebb45e8bcd7d763b95277388e8"
   },
-  "claude": {
+  "evidence_hashes": {
+    "session.json": "26de0309bdb723c81cffed607e8d35c23a05b9a593c903301a5eb8e67d4cc988",
+    "events.jsonl": "bbccbf374ea8b8d8d8a79ff702975b2b53a030c6ce21738e7ab2dd00065dd8f1",
+    "acceptance.tap": "51b1b40e72dadc9893fd794d6d932ac21c1a6537981cbd69a2242fb6614bed8a",
+    "existing.tap": "58952f0d4a99f4dfc45bf620e1369a529db06e4e61fb674447c07a1115ca08d7",
+    "handoff-verification.json": "9b39a7c63dfcfd58d5863f70094619b6928d9aabc383779af87b1106a8dbf5f4"
+  },
+  "limits": [
+    "Native CLI experiments only; Cursor desktop and cloud not exercised.",
+    "No universal instruction-adherence, concurrency or performance guarantee.",
+    "Historical failures retained in maintainer evidence; private session logs are not published.",
+    "Cursor passing evidence is from the earlier recorded baseline; no fresh Cursor 1.0.5 coding claim.",
+    "The 1.0.5 Claude test used the optional native handoff guard; marketplace installation does not enable it automatically.",
+    "Budget enforcement recognizes explicit Use N teammate/agent/worker clauses in available native user history; other wording requires coordinator enforcement."
+  ],
+  "historical_claude": {
     "run": "claude-confirmation-01",
     "fresh_process": true,
     "automatic_loading_and_guarded_delivery": true,
@@ -41,15 +56,36 @@
     ],
     "skill_sha256": "f6c33d67c2292e893f831a64e2a49a8484044f15042974e2b53440add723257a"
   },
-  "evidence_hashes": {
-    "session.json": "3f5dda303b665cd7d0bac25fa1c7c120966f745934dc050079c3803b863c508c",
-    "events.jsonl": "1c7417ed87a05b854426af6df8cc9822c97d2263c16a8de00e321004bcea99e4",
-    "acceptance.tap": "0724b7115f84784b90c22ccfebc3254f3a79347eda0a8ad327f7dc2150c73ab6",
-    "existing.tap": "54242e08430773b88a2a6bee880ecbfd15d1800af42f79ea3386465249064ef7"
+  "claude": {
+    "run": "claude-1.0.5-01",
+    "native_session": "e868d380-657e-4503-88c1-02f9d1f46900",
+    "fresh_process": true,
+    "ordinary_prompt_unchanged": true,
+    "project_instruction_files_seeded": false,
+    "automatic_loading_and_guarded_delivery": true,
+    "baseline_before_assignment": true,
+    "native_exit": 0,
+    "feature_checks": {
+      "passed": 16,
+      "total": 16
+    },
+    "original_regressions": {
+      "passed": 2,
+      "total": 2
+    },
+    "actual_teammates": 1,
+    "requested_teammates": 1,
+    "parent_local_checks": {
+      "passed": 20,
+      "total": 20
+    },
+    "identity_encoding": "JSON.stringify([tenantId, requestId])",
+    "coordinator_gap_fix": "Authenticated tenant fields cannot be overridden by payload fields",
+    "skill_sha256": "fd944bebdf0c9816adb3092bb806a40877e019b8d1f794d02192a56f49769ba8"
   },
-  "limits": [
-    "Native CLI experiments only; Cursor desktop and cloud not exercised.",
-    "No universal instruction-adherence, concurrency or performance guarantee.",
-    "Historical failures retained in maintainer evidence; private session logs are not published."
-  ]
+  "checks": {
+    "handoff_guard_tests": 21,
+    "global_installer_tests": 14,
+    "collection_catalog_tests": 6
+  }
 }
