@@ -27,9 +27,22 @@ No renderer, commercial generation account or media library is automatically ins
 use existing project/host tools and must deliver and verify actual artifacts. Reference art is
 not redistributed. Video Analysis can supply an evidence brief but is an optional separate skill.
 
+## Example requests
+
+No test account or paid API is required. Use a host that can write and preview local HTML;
+video exports additionally need an available renderer and encoder. These are review scenarios,
+not claims of fresh-agent test results.
+
+1. “Build an interactive queue simulation with adjustable arrival and service rates. Label it
+   illustrative, explain its assumptions, show overload clearly, and add keyboard controls.”
+2. “Visualize this synthetic series: Jan 12, Feb 18, Mar 15. Keep the unit ‘orders’, include a
+   zero baseline and a readable data table, and let me toggle the series without losing context.”
+3. “Create a 15-second code-rendered film explaining a three-stage pipeline. Use original geometry,
+   smooth motion, optional original sound, captions and editable sources. Verify the actual export.”
+
 ## Evidence and support
 
 See [the skill](skills/visualizer/SKILL.md), [collection validation](../../docs/visual-skills-validation.md)
-and [data handling](../../PRIVACY.md). Packaging checks are distinct from fresh-agent efficacy.
+and [Privacy](../../PRIVACY.md). Packaging checks are distinct from fresh-agent efficacy.
 Report issues without private media, credentials or transcripts. No universal performance or
 automatic activation claim is made.
