@@ -11,7 +11,7 @@ Scope: adding future independently versioned plugins to the SigmaStudioz collect
 | release.json | Maintainer verification | Each plugin version plus hashes of its files | Two-plugin test verifies versions 1.0.0 and 2.3.4 coexist | COLL-04 fixed-and-verified: avoid a forced shared release version |
 | tests/test_catalogs.py | Standard-library unittest | Temporary independent plugin fixtures; read-only stale check | 6 tests pass, including no output on duplicate rejection | verified |
 | README / CONTRIBUTING / SETUP | New user / maintainer | Select plugins, add entries, opt into native global instructions | Source/path review; no placeholder skill folders created | static-only user instructions; each new plugin needs its own efficacy checks |
-| Repository publication | GitHub creation form -> public repository | Selected organization, name, visibility and license -> remote creation/upload | Publisher approved MIT; public repository created; root/plugin licenses match | COLL-05 publication verification recorded in repository publication receipt |
+| Repository publication | GitHub creation form -> public repository | Selected organization, name, visibility and license -> remote creation/upload | Public snapshot 6451d807f6c7f77e36ecf105af0237d5acf125f2; 26 files match reviewed bundle; native catalog validation and 6 tests pass in fresh clone | COLL-05 fixed-and-verified: MIT root/plugin notices, clean direct-install collection published; see ../publication.json |
 | Initial DDD skill | Installed/native agent -> module changes | Global baseline, optional Claude hook, handoffs and checks | Cursor fresh coding 16/16 + 2/2; completed Claude 15/16 + 2/2 with four teammates | gap-found: Claude tuple-collision and agent-count adherence remain open; preview disclosed |
 
 Inventory: 8 review units, 8 accounted for. File/catalog checks and generated output are runtime
@@ -19,8 +19,10 @@ verified locally; user setup, official-store publication and every possible futu
 A maintainer adding a plugin must rerun catalog checks and verify that plugin's actual behavior.
 Cycles are absent in the scoped flow: registry -> manifests -> catalogs/receipt; no reverse imports.
 
-Closure check for COLL-05: confirm the license, create the public destination, publish only the clean
-bundle, verify the repository files and native catalog source paths remotely, and record the result.
-Do not upload private session logs, global settings, credential material or publisher workspace paths.
+COLL-05 closure completed on 2026-10-18: MIT confirmed; public destination created; the clean
+bundle and all native catalog source paths verified in a fresh public clone. The 26-file verified
+snapshot is recorded in [the publication receipt](../publication.json); this receipt and trace
+closure are later documentation additions. No private session logs, global settings, credentials
+or publisher machine paths were uploaded. Official store submissions remain a separate boundary.
 
 Catalog-tool content revision: 2504ae7b2e3175effa18a4f21c08a091cb81b2525e97ac4cf8bb06592b86dea0 . Reopen evidence after relevant changes.
