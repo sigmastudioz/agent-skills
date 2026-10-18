@@ -1,0 +1,16 @@
+{
+  "name": "sigmastudioz",
+  "displayName": "SigmaStudioz Agent Skills",
+  "description": "Reusable agent skills and plugins by Lex from SigmaStudioz.",
+  "publisher": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "plugins": [
+    {
+      "name": "domain-driven-design",
+      "path": "./plugins/domain-driven-design",
+      "category": "Productivity"
+    }
+  ]
+}
