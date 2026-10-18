@@ -1,0 +1,6 @@
+interface:
+  display_name: "SigmaStudioz Video Analysis"
+  short_description: "Timestamped visual and audio evidence"
+  default_prompt: "Use $video-analysis to complete this visual task with evidence and verified deliverables."
+policy:
+  allow_implicit_invocation: true
