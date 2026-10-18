@@ -1,0 +1,26 @@
+{
+  "license": "MIT",
+  "name": "video-analysis",
+  "version": "1.0.0",
+  "description": "Analyze supplied videos and audio through timestamped frames, adaptive inspection, transcripts and explicit evidence/coverage limits. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "SigmaStudioz Video Analysis",
+    "shortDescription": "Timestamped visual and audio evidence",
+    "longDescription": "Analyze supplied videos and audio through timestamped frames, adaptive inspection, transcripts and explicit evidence/coverage limits. By Lex from SigmaStudioz. Uses host-authorized tools; no automatic installers or publisher backend. Direct repository distribution; native model selection and marketplace review are separate validation steps.",
+    "developerName": "Lex from SigmaStudioz",
+    "websiteURL": "https://github.com/sigmastudioz",
+    "supportURL": "https://github.com/sigmastudioz/agent-skills/issues",
+    "privacyPolicyURL": "https://github.com/sigmastudioz/agent-skills/blob/main/PRIVACY.md",
+    "category": "Developer Tools",
+    "capabilities": [],
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg"
+  }
+}

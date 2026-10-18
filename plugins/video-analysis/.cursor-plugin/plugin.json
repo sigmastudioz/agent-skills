@@ -1,0 +1,27 @@
+{
+  "license": "MIT",
+  "name": "video-analysis",
+  "version": "1.0.0",
+  "description": "Analyze supplied videos and audio through timestamped frames, adaptive inspection, transcripts and explicit evidence/coverage limits. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "displayName": "SigmaStudioz Video Analysis",
+  "publisher": "SigmaStudioz",
+  "keywords": [
+    "video-analysis",
+    "video-understanding",
+    "frame-extraction",
+    "transcription",
+    "whisper",
+    "motion-analysis",
+    "design-research",
+    "multimodal-analysis",
+    "timestamped-evidence",
+    "agent-handoffs"
+  ],
+  "logo": "assets/icon.svg",
+  "category": "Developer Tools"
+}

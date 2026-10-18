@@ -1,6 +1,6 @@
 # Publication plan
 
-Publisher: **Lex from SigmaStudioz**. Catalog: `sigmastudioz`. Plugin: `domain-driven-design`.
+Publisher: **Lex from SigmaStudioz**. Catalog: `sigmastudioz`. Plugins: `domain-driven-design`, `visualizer`, `video-analysis`.
 Publisher profile: https://github.com/sigmastudioz.
 Public repository: https://github.com/sigmastudioz/agent-skills.
 MIT was selected by the publisher on 2026-10-18; root and plugin LICENSE files carry the notice
@@ -27,8 +27,10 @@ directory is a separate application/review process; uploading files to GitHub do
 | Cursor | Submit the Git repository at cursor.com/marketplace/publish; Cursor reviews public listings. Team marketplace import is a separate team feature. |
 | ChatGPT / Codex | Submit the plugin ZIP through the OpenAI plugin portal, resolve automated findings, submit for review, and publish after approval. Select the verified developer identity that should appear publicly. |
 
-The included icon is a simple provisional Sigma mark for listing validation, not a claim about an
-existing registered SigmaStudioz logo. Replace it with approved brand assets if desired.
+Each plugin has an original icon and visible Lex from SigmaStudioz attribution. New Visualizer
+and Video Analysis1.0.0 applications need their own review records; do not reuse the DDD submission
+ID, imply approval, or accept new publisher agreements without action-time approval. Preserve the
+existing DDD review/support correspondence; no duplicate applications or messages.
 
 ## License comparison — checked 2026-10-17
 

@@ -85,6 +85,17 @@ awaits reviewer activation. Cursor, Codex and Antigravity publication is not yet
 | --- | --- | --- |
 | [Principal Driven Domain Design](plugins/domain-driven-design/README.md) | Domain ownership, reusable engines, gap tracing and agent handoffs | 1.0.7 |
 
+### Visual creation and analysis
+
+| Plugin | Purpose | Version |
+| --- | --- | --- |
+| [SigmaStudioz Visualizer](plugins/visualizer/README.md) | One package for interactive visuals, simulations and visualization videos | 1.0.0 |
+| [SigmaStudioz Video Analysis](plugins/video-analysis/README.md) | Timestamped visual/audio evidence, adaptive frame inspection and transcript correlation | 1.0.0 |
+
+Install either skill with `npx skills add sigmastudioz/agent-skills --skill visualizer` or
+`npx skills add sigmastudioz/agent-skills --skill video-analysis`. Both are by **Lex from SigmaStudioz**.
+See their documentation for requirements and validation limits. Official marketplace review is separate.
+
 The stable package identifier is `domain-driven-design`. Its complete skill folder remains
 597 lines. This collection can host future plugins with independent versions.
 

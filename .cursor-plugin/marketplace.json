@@ -11,6 +11,16 @@
       "name": "domain-driven-design",
       "source": "./plugins/domain-driven-design",
       "description": "Principal Driven Domain Design: principal-level domain architecture, reusable engines, module gap tracing, and explicit agent handoffs."
+    },
+    {
+      "name": "visualizer",
+      "source": "./plugins/visualizer",
+      "description": "Build interactive diagrams, data explorers, simulations and editable visualization videos with coherent models, motion, shaders and sound. By Lex from SigmaStudioz."
+    },
+    {
+      "name": "video-analysis",
+      "source": "./plugins/video-analysis",
+      "description": "Analyze supplied videos and audio through timestamped frames, adaptive inspection, transcripts and explicit evidence/coverage limits. By Lex from SigmaStudioz."
     }
   ]
 }
