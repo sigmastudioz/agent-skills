@@ -2,6 +2,8 @@
 
 **By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Licensed under [MIT](LICENSE).**
 
+[![Install on skills.sh](https://img.shields.io/badge/skills.sh-install-black)](https://skills.sh/sigmastudioz/agent-skills/domain-driven-design)
+
 A growing collection of reusable agent skills and plugins for Claude Code, Cursor and Codex.
 Each plugin owns its version and can contain one skill or a cohesive group of related skills.
 Users install only what they need; future plugins do not force a shared release version.
@@ -19,6 +21,18 @@ existing installation commands continue to work.
 The full DDD skill folder is **597 lines**, including its metadata and optional helper.
 
 ## Installation
+
+Find [Principal Driven Domain Design on skills.sh](https://skills.sh/sigmastudioz/agent-skills/domain-driven-design),
+by **Lex from SigmaStudioz**, and install the skill with:
+
+```sh
+npx skills add sigmastudioz/agent-skills --skill domain-driven-design
+```
+
+Run this in your project and choose your coding agent when prompted. For automatic use across
+projects, follow the global setup in [SETUP.md](SETUP.md).
+
+For the full plugin, use the platform-specific installation below.
 
 Claude Code users register the collection and select the plugin:
 
