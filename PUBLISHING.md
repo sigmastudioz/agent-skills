@@ -8,15 +8,15 @@ Copyright (c) 2026 Lex from SigmaStudioz.
 
 ## Repository release
 
-The collection contains the domain-driven-design 1.0.4 preview and supports independently versioned
+The collection contains the domain-driven-design 1.0.5 release and supports independently versioned
 future plugins. Regenerate catalogs with `python3 tools/build_catalogs.py`, verify with `--check`,
 and run `python3 -m unittest discover -s tests` before publishing changes. Include each plugin's
 license in its own folder so cached distributions preserve the notice.
 
 Only the clean distribution is published. Private session logs, global settings, authentication
-material, backups and publisher machine paths are excluded. Fresh Cursor CLI behavior passed;
-Claude's completed confirmation remains incomplete at 15/16 feature checks with excess delegation.
-Do not promote universal adherence or a fully validated Claude result from these observations.
+material, backups and publisher machine paths are excluded. Fresh Claude Code with the optional guard now passes 16/16 feature checks and 2/2 original
+regressions using one teammate. Earlier failures and the earlier Cursor baseline remain recorded.
+Do not promote universal adherence or untested desktop/cloud/performance results from these observations.
 
 Repository availability lets people install directly. A listing in a platform's official public
 directory is a separate application/review process; uploading files to GitHub does not create one.
