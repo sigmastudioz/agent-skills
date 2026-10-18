@@ -43,9 +43,9 @@ loading, changes and verification; instruction guidance does not guarantee model
 
 ### Watch the workflow
 
-[![Watch the 50-second Principal Driven Domain Design demo by Lex from SigmaStudioz](assets/ddd-demo-poster.png)](assets/ddd-demo.mp4)
+https://github.com/user-attachments/assets/cec0933f-4803-487a-8f6c-f92c24c257af
 
-[Watch or download the demo](assets/ddd-demo.mp4?raw=true) ·
+[Download the full HD demo](assets/ddd-demo.mp4?raw=true) ·
 [Captions](assets/ddd-demo.srt) · [Run the synthetic coding example](assets/README.md) ·
 [Editable sources](assets/ddd-demo-source.zip?raw=true)
 
