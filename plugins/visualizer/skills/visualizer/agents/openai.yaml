@@ -1,0 +1,6 @@
+interface:
+  display_name: "SigmaStudioz Visualizer"
+  short_description: "Interactive visuals and visualization videos"
+  default_prompt: "Use $visualizer to complete this visual task with evidence and verified deliverables."
+policy:
+  allow_implicit_invocation: true
