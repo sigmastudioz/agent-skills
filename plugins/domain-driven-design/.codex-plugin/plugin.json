@@ -1,0 +1,24 @@
+{
+  "license": "MIT",
+  "name": "domain-driven-design",
+  "version": "1.0.4",
+  "description": "Principal-level domain architecture, reusable engines, module gap tracing, and explicit agent handoffs.",
+  "author": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Principal Domain-Driven Design",
+    "shortDescription": "Domain design and gap tracing",
+    "longDescription": "Principal-level domain architecture, reusable engines, module gap tracing, and explicit agent handoffs. By Lex from SigmaStudioz. Domain-first structure, scoped services/shared modules, cohesive engines, and evidence-based verification. Automatic use requires native global instructions. Preview: fresh Cursor CLI passed 16/16 feature checks; Claude passed 15/16 and exceeded the requested agent count. Instructions do not guarantee model adherence.",
+    "developerName": "Lex from SigmaStudioz",
+    "websiteURL": "https://github.com/sigmastudioz",
+    "category": "Developer Tools",
+    "capabilities": [],
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg"
+  }
+}
