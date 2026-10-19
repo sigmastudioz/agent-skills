@@ -1,0 +1,59 @@
+{
+  "author": "Lex from SigmaStudioz",
+  "source": "Actual React Three Fiber manual-frame export",
+  "file": "public/exports/visualizer-r3f.mp4",
+  "sha256": "a1d57508a84b68627448a0d8c96d6b7928a5955f3fafba9b8de9737cc72c8db0",
+  "bytes": 10257176,
+  "width": 1920,
+  "height": 1080,
+  "fps": "60/1",
+  "frames": 2160,
+  "duration": 36.0,
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "audio_channels": 2,
+  "full_decode": "passed",
+  "encoded_integrated_lufs": -15.35,
+  "encoded_true_peak_dbtp": -1.67,
+  "eight_consecutive_distinct_frames": {
+    "3": 8,
+    "8": 8,
+    "14.5": 8,
+    "21": 8,
+    "27.5": 8,
+    "33": 8
+  },
+  "captions": "6scene summaries from the shared timeline; no voiceover",
+  "listening_review": "not performed by agent; measured/structural audio checks",
+  "visual_review": {
+    "status": "passed focused still/transition review",
+    "frames_seconds": [
+      1.2,
+      7.5,
+      14.5,
+      19.5,
+      20.8,
+      25.5,
+      27.5,
+      31.5,
+      33
+    ],
+    "scope": "Six-scene contact sheet plus corrected graph/material/clock/signature transitions; actual encoded final export inspected"
+  },
+  "limits": [
+    "Offline60fps export does not imply realtime60fps on all devices",
+    "Authored demonstration, not an agent efficacy run"
+  ],
+  "checked_at": "2026-10-19T06:03:08.994438+00:00",
+  "runtime_checks": {
+    "model": "passed 2161 samples, analytic queue/bounds/determinism/visibility regressions",
+    "typescript": "passed",
+    "production_build": "passed 597 modules",
+    "compiled_preview": "Actual dist served on 8778: Ready R3F9.8.2/Drei10.7.9 and rendered scene visually confirmed",
+    "native_film": "36s, readyState4, error null; playback progressed past20s and paused at32.494124",
+    "controls": "Keyboard arrival6 -> queue9; selection/reset; mute/volume0/.8; motion off blocks Play",
+    "gpu_loss": "Actual context loss: native film stayed playable; Reload scene restored Ready",
+    "transport": "Foreign origin403, valid media range206/32bytes, invalid range416; see server-checks.json"
+  },
+  "publication": "Local review candidate; previous public demo and published skill unchanged"
+}

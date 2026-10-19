@@ -59,3 +59,32 @@ These structural measurements do not substitute for a listening review.
 The original visuals, music, synthesized effects and source are MIT by Lex from SigmaStudioz;
 Three.js retains its included MIT notice. No private media, reference footage or session logs
 are redistributed. Files live outside plugin folders to keep skill distributions small.
+
+
+## React Three Fiber Visualizer film
+
+The current Visualizer demo is a new 36-second 1920×1080/60fps material study by
+**Lex from SigmaStudioz**. [Watch/download MP4](visualizer-r3f-demo.mp4?raw=true) ·
+[Captions: SRT](visualizer-r3f-demo.srt) / [VTT](visualizer-r3f-demo.vtt) ·
+[Poster](visualizer-r3f-demo-poster.png) ·
+[Editable source ZIP](visualizer-r3f-demo-source.zip?raw=true) ·
+[Validation](visualizer-r3f-validation.json). The earlier films above remain available.
+
+Original refractive geometry, procedural GLSL, studio lighting, smooth transitions and a stereo
+score share one deterministic model and clock. The live preview includes keyboard ranges,
+selection, reduced motion, mute/volume and bounded user-gesture feedback. Inspiration from the
+pmndrs examples informed lighting, materials and flow; no example code, artwork or media was copied.
+
+Extract the source ZIP and read `visualizer-r3f-demo/README.md`. It includes source, lockfile,
+original mastered audio, finished film, scene captions, encoder dependencies, license notices and
+verification evidence. Generated `dist/` is omitted to avoid duplicating media; `npm run build`
+recreates it. Reproduction needs compatible Node, Python with NumPy/Pillow, FFmpeg/ffprobe and WebGL2.
+Nothing is installed automatically. All browser dependencies and Manrope font assets build locally.
+
+The final MP4 passed full decode: 2160 frames, 36 seconds, H.264/yuv420p and stereo AAC.
+Encoded sound measured −15.35 LUFS and −1.67 dBTP. TypeScript, analytic-model regressions,
+keyboard controls, compiled preview, native playback and actual GPU-loss recovery were checked.
+Offline 60fps is not a realtime performance promise. This is an authored demonstration, not a
+fresh-agent efficacy test; captions are scene summaries without voiceover. Subjective listening
+was not performed by the agent. Original work is MIT by Lex from SigmaStudioz; dependencies
+retain their included licenses. No reference footage, private transcripts or account data is included.

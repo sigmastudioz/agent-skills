@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:05,500
+An original React Three Fiber demonstration by Lex from SigmaStudioz.
+
+2
+00:00:05,500 --> 00:00:11,500
+One deterministic model supplies the scene, its controls and the exported film.
+
+3
+00:00:11,500 --> 00:00:19,000
+Arrivals rise from 2 to 5 items/s against 3 items/s service. At 16 seconds arrivals fall to 1; the queue clears at 19.
+
+4
+00:00:19,000 --> 00:00:25,000
+Original geometry and shaders react to the measured soundtrack envelope; no reference media is reused.
+
+5
+00:00:25,000 --> 00:00:31,000
+Interactive and film views sample the same state and time. The authored export renders at 60 frames per second.
+
+6
+00:00:31,000 --> 00:00:36,000
+SigmaStudioz Visualizer. Interactive visuals and visualization videos. By Lex from SigmaStudioz.
