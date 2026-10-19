@@ -46,6 +46,8 @@ Reuse the project's renderer. For new code, own storyboard/model, layout, assets
 encoder separately at the smallest useful scope. Stream frames and bound buffers; use argument
 arrays for subprocesses. Detect render/encoder failures and incomplete frames. Preserve the prior
 output until a staged export passes validation; avoid overwriting source or evidence files.
+For R3F scenes, follow the [manual-frame export contract](react-three-fiber.md#one-clock-for-interaction-and-film);
+React reconciliation, asset readiness and compositing must finish before capture.
 Render at explicit frame times. A 60fps container with duplicated 30fps poses does not establish
 smoother source motion; deliberate cel holds are valid when chosen and documented.
 Use a compatible codec/container and color pipeline for the destination. Keep high-quality master
