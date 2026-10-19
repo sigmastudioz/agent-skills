@@ -6,20 +6,21 @@ Build interactive diagrams, simulations and editable visualization videos with R
 
 ## Watch the demo
 
-https://github.com/user-attachments/assets/661bb0a7-0ac2-460a-8eaa-6b0e01d72f4d
+https://github.com/user-attachments/assets/7bb28e63-35e4-40de-b639-f50430f04ab4
 
-A 32-second film by **Lex from SigmaStudioz**: an illustrative queue becomes a shared
-model, an interactive Three.js shader scene and a verified video export. Original stereo
-music and synthesized effects accompany smooth 1080p60 animation.
+A 36-second React Three Fiber film by **Lex from SigmaStudioz**: refractive glass, brushed
+alloy and a procedural pigment surface reveal one shared illustrative model. Smooth 1080p60
+animation is paired with an original stereo score and synchronized synthesized effects.
+The editable preview adds keyboard controls, object selection, motion settings and sound feedback.
 
-[Download MP4](../../assets/visualizer-demo.mp4?raw=true) ·
-[Captions: SRT](../../assets/visualizer-demo.srt) / [VTT](../../assets/visualizer-demo.vtt) ·
-[Poster](../../assets/visualizer-demo-poster.png) ·
-[Editable sources for both demos](../../assets/visual-skills-demo-source.zip?raw=true)
+[Download MP4](../../assets/visualizer-r3f-demo.mp4?raw=true) ·
+[Captions: SRT](../../assets/visualizer-r3f-demo.srt) / [VTT](../../assets/visualizer-r3f-demo.vtt) ·
+[Poster](../../assets/visualizer-r3f-demo-poster.png) ·
+[Editable React Three Fiber sources](../../assets/visualizer-r3f-demo-source.zip?raw=true)
 
 The film is an authored demonstration, not a recorded agent session or a production
 performance benchmark. Captions are timed scene summaries; there is no voiceover.
-[Reproduce the preview and inspect export checks](../../assets/README.md#visualizer-and-video-analysis-films).
+[Reproduce the preview and inspect export checks](../../assets/README.md#react-three-fiber-visualizer-film).
 
 ## Install
 
@@ -53,8 +54,8 @@ The [R3F reference](skills/visualizer/references/react-three-fiber.md) includes 
 a method for adapting [pmndrs examples](https://pmndrs.github.io/examples/) into original visuals.
 
 Existing vanilla Three.js projects and lightweight 2D charts keep their appropriate renderer.
-The demo above predates this upgrade and uses vanilla Three.js. No R3F dependencies install
-automatically, and this update does not imply new native marketplace approval.
+The demo above uses React Three Fiber and Drei with a shared deterministic timeline. No R3F
+dependencies install automatically, and this demo does not imply new native marketplace approval.
 
 ## Example requests
 
