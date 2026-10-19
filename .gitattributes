@@ -1,0 +1,5 @@
+# Optional demo media stays available through GitHub and README download links.
+# Omit it from source ZIP/tar archives so marketplace downloads stay small.
+# Complete plugin folders, including their icons and licenses, remain included.
+/assets/*.mp4 export-ignore
+/assets/*.zip export-ignore
