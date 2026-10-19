@@ -76,3 +76,26 @@ Direct repository packaging is distinct from Claude, Cursor, Codex or Antigravit
 Use separate application/scan records for each new plugin, original icons, visible Lex attribution,
 accurate descriptions and relevant keywords. Do not reuse DDD approval, support cases or listing IDs.
 No new marketplace approval, fresh-host activation, platform-wide performance or ranking is claimed.
+
+## Visualizer1.1.0: React Three Fiber upgrade
+
+The original1.0.0 validation above remains historical. Version1.1.0 adds an R3F route,
+component/uniform ownership, frame scheduling, deterministic capture, lifecycle failure paths
+and a pmndrs technique-selection guide. The complete installed Visualizer skill folder is557lines.
+The existing demo remains a vanilla Three.js film; it is not relabeled as an R3F agent run.
+
+The reference TSX component was extracted unchanged and typechecked with TypeScript5.9.3,
+React/React DOM19.3.1, Three.js0.186.1, R3F9.8.2 and R3F test renderer9.1.1. The manual-frame
+root adapter verified absolute/out-of-order time, replay/reset, stable material identity and
+uniform values, click propagation/selection, invalid time rejection and unmount/remount.
+The test renderer's advanceFrames helper did not forward callback failures; validation used the
+public root advance adapter instead. Upstream Three.js Clock/CommonJS deprecation warnings remain.
+
+A localhost browser preview compiled and rendered the original procedural GLSL sphere. Native
+range-control keyboard seeking, selection and reset were observed. This is a focused reference
+integration check; context restoration, target-device performance and a complete R3F film encode
+were not newly exercised. No fresh native-agent selection or marketplace approval is claimed.
+
+For a task using the reference, install compatible dependencies in an isolated project, extract
+the TSX block to a file, typecheck it, mount it below Canvas and run the artifact-specific matrix
+in the R3F and verification references. Keep runtime evidence tied to the actual dependency lock.
