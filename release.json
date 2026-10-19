@@ -17,23 +17,24 @@
       }
     },
     "visualizer": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "files": {
-        ".claude-plugin/plugin.json": "5e822c0f190f49074bcdacd79fc9efefdc1ae82fc3f727b96d0a27a8c1a429c0",
-        ".codex-plugin/plugin.json": "39f7aabcfcffb74fe34dfdb17de7495b9671f73131429bb3efbcbaf3e6af8fbe",
-        ".cursor-plugin/plugin.json": "6a26c27b12f04dcc44403d310fd0caf5eb1ece7b64b42dd208f1ec502e9b129e",
+        ".claude-plugin/plugin.json": "a184b7a891f9a4d2ed1c5b87ae5491015a2c8829bd8369171197d0e1011a4db4",
+        ".codex-plugin/plugin.json": "4cf727d8b4a6bc2646fe5bf6105c036edaa908cb8e5ae8ec224723e2d5dfbc45",
+        ".cursor-plugin/plugin.json": "3501fa090a737f5d30761fb05b35cdee987390046d1ec424176aa5de0173c4c2",
         "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
-        "README.md": "e496c156cee2922fe70334e06a8a051a2cf525e18c63a9be61014ddeb28c2c7c",
+        "README.md": "4687b5fb29b7c70a48ba161b81812e6494a303f4c07a9cedc66a49f61beefb7e",
         "assets/icon.svg": "f5189524ad356ee89798bae8327dbc293ac99f24a37cc0ada1a68a7d54541923",
-        "plugin.json": "ec5246d5276020c059d908f79c80d957b8d5c3e574b6a19a69bd8a4825df1b42",
+        "plugin.json": "0cda45d3164283270fe42d2e429e478ed0caa6e5ef84e5737398fdc66c3f1f07",
         "skills/visualizer/LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
-        "skills/visualizer/SKILL.md": "432adf73ddcff9d480b175c86a62cc09acab344d57d29034336381b0ab16d358",
-        "skills/visualizer/agents/openai.yaml": "b7d84607f2a6e954449a356756b73c981537f8b5705d69f1fe62c6e9fda6bfe0",
+        "skills/visualizer/SKILL.md": "fdcdea9ea6f87acfa9f4e54df11aeec275afdf5d99d3673b055dffb9c0437a41",
+        "skills/visualizer/agents/openai.yaml": "95f40c760e352bbe656ceb521e47dd1a6a7937e13ce85e5152df6e8cb86ad117",
         "skills/visualizer/references/data.md": "0a11d80aed6efafb686c2863cbdaa21b231075372fb0773ce96450b825978665",
         "skills/visualizer/references/interactive.md": "ac2d18a9d770667e1c000de166c08463be471c2182db92bfbee18e1cb82d3b70",
-        "skills/visualizer/references/rendering.md": "e1ef34cfea1cfcb8a3d796312c27d92ef32334dd3c6348c8c65fc2ca7fcb5ced",
-        "skills/visualizer/references/verification.md": "0f74e5145eaed7c6962a84fa17c294a522b989ca23ea6656c6149da5c3de2d98",
-        "skills/visualizer/references/video.md": "21d94e8aacf3ee761f4b0231d0453e076112469f63c26e7dcae6ab67ccb187d3"
+        "skills/visualizer/references/react-three-fiber.md": "374abd5ee6020fc5272e9e9d9536fbd97223ee8ba0c23ec19de1cafa2bd498da",
+        "skills/visualizer/references/rendering.md": "864ad7a8b02f7842f7995a39dfe1a4bbe54084854ab6568a547a13ce84f77289",
+        "skills/visualizer/references/verification.md": "9a82bd52c89d0a6030097067f937bf15417bf290ff618e700418d074457ffd41",
+        "skills/visualizer/references/video.md": "8749f123083b55429a34e7d59bc888bed131109fe289c4a327cc882615e69dc8"
       }
     },
     "video-analysis": {

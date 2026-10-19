@@ -1,8 +1,8 @@
 {
   "license": "MIT",
   "name": "visualizer",
-  "version": "1.0.0",
-  "description": "Build interactive diagrams, data explorers, simulations and editable visualization videos with coherent models, motion, shaders and sound. By Lex from SigmaStudioz.",
+  "version": "1.1.0",
+  "description": "Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.",
   "author": {
     "name": "Lex from SigmaStudioz",
     "url": "https://github.com/sigmastudioz"
@@ -18,7 +18,7 @@
     "motion-design",
     "visualization-video",
     "simulation",
-    "animated-diagrams",
+    "react-three-fiber",
     "visual-storytelling",
     "agent-handoffs"
   ],

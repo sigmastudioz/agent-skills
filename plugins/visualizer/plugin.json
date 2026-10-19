@@ -2,8 +2,8 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "license": "MIT",
   "name": "visualizer",
-  "version": "1.0.0",
-  "description": "Build interactive diagrams, data explorers, simulations and editable visualization videos with coherent models, motion, shaders and sound. By Lex from SigmaStudioz.",
+  "version": "1.1.0",
+  "description": "Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.",
   "author": {
     "name": "Lex from SigmaStudioz",
     "url": "https://github.com/sigmastudioz"
@@ -14,8 +14,8 @@
     "com.openai": {
       "interface": {
         "displayName": "SigmaStudioz Visualizer",
-        "shortDescription": "Interactive visuals and visualization videos",
-        "longDescription": "Build interactive diagrams, data explorers, simulations and editable visualization videos with coherent models, motion, shaders and sound. By Lex from SigmaStudioz. Uses host-authorized tools; no automatic installers or publisher backend. Direct repository distribution; native model selection and marketplace review are separate validation steps.",
+        "shortDescription": "React Three Fiber visuals and visualization videos",
+        "longDescription": "Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz. Uses host-authorized tools; no automatic installers or publisher backend. Direct repository distribution; native model selection and marketplace review are separate validation steps.",
         "developerName": "Lex from SigmaStudioz",
         "websiteURL": "https://github.com/sigmastudioz",
         "supportURL": "https://github.com/sigmastudioz/agent-skills/issues",

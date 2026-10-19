@@ -1,6 +1,6 @@
 ---
 name: visualizer
-description: Build interactive explanations, diagrams, data explorers, simulations, Three.js scenes and editable visualization videos. Use when the requested deliverable is a visual explanation or a video generated from a model, evidence or reference. Supports one interactive artifact, one film, or both; ordinary app UI and cinematic footage generation use their own workflows.
+description: Build interactive explanations, diagrams, data explorers, simulations, React Three Fiber / Three.js shader scenes and editable visualization videos. Use when the requested deliverable is a visual explanation or a video generated from a model, evidence or reference. Supports one interactive artifact, one film, or both; ordinary app UI and cinematic footage generation use their own workflows.
 license: MIT
 ---
 
@@ -17,11 +17,14 @@ interactive and video modes; do only the modes the user needs.
 | Explore a system or compare scenarios | [Interactive](references/interactive.md) | Working controls and an inspectable visual |
 | Explain measured data | [Data](references/data.md) | Honest mappings, sources and accessible alternatives |
 | Produce a linear explanation film | [Video and sound](references/video.md) | Playable video, captions, editable sources |
+| React 3D scenes, reusable components or R3F migration | [React Three Fiber](references/react-three-fiber.md) | Composable scene, explicit clock and verified lifecycle |
 | Rich motion, spatial scenes or shaders | [Art and rendering](references/rendering.md) | A renderer appropriate to the visual mechanism |
 | Any substantial artifact | [Trace and verify](references/verification.md) | Evidence, repaired gaps and explicit remaining limits |
 
 Use SVG/HTML for clear small diagrams, a plotting library for scientific/export charts, canvas
-for dense animated marks, and Three.js for genuine spatial/material requirements. Prefer an
+for dense animated marks, and React Three Fiber (R3F) over Three.js for new React-based spatial
+work. Read the R3F reference before implementing that path. Keep a working non-React Three.js
+renderer unless migration serves the requested outcome; do not add React to a simple chart. Prefer an
 available host visualization surface when it can deliver the requested interaction. Use existing
 project tooling before introducing a stack. Do not require a particular vendor or paid service.
 Read only applicable references. A chart does not automatically need a video or 3D engine.
@@ -70,7 +73,9 @@ relationships. Translate that grammar into original work. Preserve user identity
 meaning; do not copy reference footage, characters, presenters, voices or music without rights.
 Use original/code-native assets or authorized generation; retain licenses and provenance.
 For a premium brief, compare hero/mechanism/payoff frames and a short motion study before export.
-Judge the weakest dimension instead of adding effects indiscriminately.
+Judge the weakest dimension instead of adding effects indiscriminately. For R3F work, study the
+[pmndrs examples](https://pmndrs.github.io/examples/) using the selection method in the R3F reference;
+translate relevant techniques into original, budgeted scenes rather than cloning a showcase.
 
 ## Execution and safety of scope
 Build the smallest useful vertical slice: real input → model → one explanatory view → meaningful

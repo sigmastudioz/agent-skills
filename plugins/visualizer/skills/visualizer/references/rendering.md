@@ -21,6 +21,8 @@ than displacing everything with noise. Generated assets need a style/identity sh
 reject drift rather than hiding it with transitions. Retain provenance and authorized prompts.
 
 ## GPU and Three.js implementation
+For React scenes, use [React Three Fiber](react-three-fiber.md) for component ownership, lifecycle,
+frame scheduling and ecosystem selection; the material, evidence and export rules below still apply.
 Use the requested renderer when viable. A plane, orthographic camera, VideoTexture and
 ShaderMaterial can post-process video; state that it is material processing of flat artwork.
 Use meshes/layers when independent spatial depth is required. Keep model/timing outside adapters.

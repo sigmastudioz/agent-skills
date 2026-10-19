@@ -14,7 +14,7 @@
     {
       "name": "visualizer",
       "source": "./plugins/visualizer",
-      "description": "Build interactive diagrams, data explorers, simulations and editable visualization videos with coherent models, motion, shaders and sound. By Lex from SigmaStudioz."
+      "description": "Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz."
     },
     {
       "name": "video-analysis",

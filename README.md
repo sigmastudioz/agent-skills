@@ -89,7 +89,7 @@ awaits reviewer activation. Cursor, Codex and Antigravity publication is not yet
 
 | Plugin | Purpose | Version |
 | --- | --- | --- |
-| [SigmaStudioz Visualizer](plugins/visualizer/README.md) | One package for interactive visuals, simulations and visualization videos | 1.0.0 |
+| [SigmaStudioz Visualizer](plugins/visualizer/README.md) | React Three Fiber scenes, interactive visuals, simulations and visualization videos | 1.1.0 |
 | [SigmaStudioz Video Analysis](plugins/video-analysis/README.md) | Timestamped visual/audio evidence, adaptive frame inspection and transcript correlation | 1.0.0 |
 
 Install either skill with `npx skills add sigmastudioz/agent-skills --skill visualizer` or

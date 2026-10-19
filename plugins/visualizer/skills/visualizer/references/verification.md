@@ -32,6 +32,7 @@ Report inventoried/traced modules and checked/unresolved edges separately from r
 | Diagram | Valid endpoints/direction, label readability, reachable selection and reset |
 | Simulation | Stable seed, analytic/invariant cases, numerical bounds, time-step behavior |
 | Interaction | Every control's actual consequence, keyboard/touch, rapid changes, reset, empty/error |
+| R3F | Compatible dependencies, Strict Mode remount, scene events, demand wake/sleep, asset failure and out-of-order seek |
 | GPU | Shader compilation, resize, context loss/recovery, reduced motion, fallback and cleanup |
 | Video | Full decode, timing/frame count, representative shots/transitions, captions and audio |
 | Shared output | Same selected model state/seed/time across interactive and film adapters |
