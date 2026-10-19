@@ -1,8 +1,8 @@
 # SigmaStudioz Visualizer
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version1.0.0.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.1.0.
 
-Build interactive diagrams, data explorers, simulations and editable visualization videos with coherent models, motion, shaders and sound. By Lex from SigmaStudioz.
+Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.
 
 ## Watch the demo
 
@@ -37,12 +37,24 @@ settings or guarantee selection on every model, desktop or remote host.
 
 One unified skill supports interactive explanations and video generation, with shared model,
 scene/time, data and evidence contracts. Read only the references needed for the requested mode.
-It covers charts, diagrams, simulations, Three.js/shaders, art direction, original sound, captions,
+It covers charts, diagrams, simulations, React Three Fiber/Three.js shaders, art direction, sound, captions,
 accessible interaction, exports, performance evidence, gap tracing and agent handoffs.
 
 No renderer, commercial generation account or media library is automatically installed. Agents
 use existing project/host tools and must deliver and verify actual artifacts. Reference art is
 not redistributed. Video Analysis can supply an evidence brief but is an optional separate skill.
+
+## React Three Fiber in 1.1.0
+
+For new React 3D work, the skill now prefers composable R3F scenes over imperative scene setup.
+It covers compatible dependencies, stable shader uniforms, Drei helpers, demand rendering,
+resource ownership, accessible controls and one deterministic timeline for interaction and film.
+The [R3F reference](skills/visualizer/references/react-three-fiber.md) includes a TSX component and
+a method for adapting [pmndrs examples](https://pmndrs.github.io/examples/) into original visuals.
+
+Existing vanilla Three.js projects and lightweight 2D charts keep their appropriate renderer.
+The demo above predates this upgrade and uses vanilla Three.js. No R3F dependencies install
+automatically, and this update does not imply new native marketplace approval.
 
 ## Example requests
 
@@ -50,7 +62,7 @@ No test account or paid API is required. Use a host that can write and preview l
 video exports additionally need an available renderer and encoder. These are review scenarios,
 not claims of fresh-agent test results.
 
-1. “Build an interactive queue simulation with adjustable arrival and service rates. Label it
+1. “Using React Three Fiber, build an interactive queue simulation with adjustable arrival and service rates. Label it
    illustrative, explain its assumptions, show overload clearly, and add keyboard controls.”
 2. “Visualize this synthetic series: Jan 12, Feb 18, Mar 15. Keep the unit ‘orders’, include a
    zero baseline and a readable data table, and let me toggle the series without losing context.”
