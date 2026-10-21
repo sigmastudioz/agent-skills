@@ -50,3 +50,20 @@ are unchanged from the tested 1.0.5 baseline. Preserve original native evidence 
 Verify the 597-line folder limit, full baseline delivery before handoff, native manifest validation,
 catalog drift and every published file. Directory approval and platform-derived labels remain
 external; do not claim that a metadata update establishes a live listing.
+
+## 1.1.0 user-installed instruction update
+
+The instruction body now adds cross-module edge checks, staged-snapshot and concurrent-writer
+review, candidate disproof, and early orientation versus final acceptance gates.
+
+| Cluster | Edges checked | Evidence and limits |
+| --- | --- | --- |
+| Instruction delivery | Consumer, contract, registration | Stable skill ID and path; updated SKILL.md exactly matches user-installed source; full-body guard delivery unchanged; existing 21 guard tests pass |
+| Distribution | Contract, back-compat, snapshot | Four manifests agree on 1.1.0; registry and three catalogs retain stable IDs; release inventory and ZIP byte hashes match; other plugins unchanged |
+| Documentation | Contract, headroom | README reports 567 instruction lines / 666 skill-folder lines; earlier 597-line and native efficacy receipts remain historical, not relabeled |
+
+No new production module, periodic task, UI component, discriminator, storage writer or persisted
+key was introduced, so cadence, mount and data-migration edges have no changed runtime path.
+The helper and UI metadata remain byte-identical. No fresh native-agent efficacy run was made
+for 1.1.0; packaging checks do not establish instruction adherence. Reviewer activation and
+blocked uploader eligibility remain external boundaries, not confirmed publication.
