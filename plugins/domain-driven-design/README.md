@@ -1,6 +1,6 @@
 # Principal Driven Domain Design
 
-By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.0.7**, [MIT](LICENSE).
+By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.1.0**, [MIT](LICENSE).
 
 **Principal-level domain-driven design for AI coding agents.**
 
@@ -10,7 +10,7 @@ code by its owning domain, then by function; keep services and shared modules at
 useful scope. Reuse an owned engine when real consumers share a cohesive algorithm. Trace modules
 through callers, dependencies, consumers and failures, and fix gaps required by the authorized task.
 
-The instruction file has **498 lines**; the complete skill folder has **597 lines**, including
+The instruction file has **567 lines**; the complete skill folder has **666 lines**, including
 metadata and the optional Python helper. Small fixes stay small; read-only reviews stay read-only.
 The baseline does not authorize extra agents, unrelated restructuring or deployment.
 
@@ -20,6 +20,9 @@ The baseline does not authorize extra agents, unrelated restructuring or deploym
 - Reuse cohesive engines across real consumers without creating a catch-all framework.
 - Follow callers, dependencies, consumers and failure paths to find and repair required gaps.
 - Give authorized teammates explicit ownership, contracts and evidence for integration.
+
+- Check consumer, contract, registration, cadence, compatibility and staged-snapshot edges.
+- Disprove candidate findings against earlier revisions and real callers before reporting them.
 
 ## Setup and handoffs
 
@@ -40,9 +43,11 @@ other constraint wording leaves budget enforcement to the coordinator. Requires 
 
 ## Validation
 
-Version 1.0.7 adds the Claude display name and discovery keywords. Version 1.0.6 introduced the public title and listing metadata. Its engineering instructions
-are unchanged from 1.0.5 apart from the title; the helper is byte-identical. The native coding
-evidence below was collected with 1.0.5. No fresh 1.0.6 native coding run is claimed.
+Version 1.1.0 adds mechanical edge checks, staged-index and concurrent-writer review,
+candidate-disproof guidance, and the distinction between early orientation gates and final
+acceptance checks. The optional helper and UI metadata are unchanged. No fresh native-agent
+efficacy run was performed for 1.1.0; the native coding evidence below belongs to 1.0.5.
+The updated folder contains 666 lines; the earlier 597-line receipt describes the older package.
 
 Fresh Claude Code 1.0.5 test: **16/16 external feature checks and 2/2 original regressions pass**,
 with exactly one implementation teammate. The parent integrated the isolated worktree result,
