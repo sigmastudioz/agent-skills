@@ -83,7 +83,7 @@ awaits reviewer activation. Cursor, Codex and Antigravity publication is not yet
 
 | Plugin | Purpose | Version |
 | --- | --- | --- |
-| [Principal Driven Domain Design](plugins/domain-driven-design/README.md) | Domain ownership, reusable engines, gap tracing and agent handoffs | 1.0.7 |
+| [Principal Driven Domain Design](plugins/domain-driven-design/README.md) | Domain ownership, reusable engines, gap tracing and agent handoffs | 1.1.0 |
 
 ### Visual creation and analysis
 
@@ -96,13 +96,17 @@ Install either skill with `npx skills add sigmastudioz/agent-skills --skill visu
 `npx skills add sigmastudioz/agent-skills --skill video-analysis`. Both are by **Lex from SigmaStudioz**.
 See their documentation for requirements and validation limits. Official marketplace review is separate.
 
-The stable package identifier is `domain-driven-design`. Its complete skill folder remains
-597 lines. This collection can host future plugins with independent versions.
+The stable package identifier is `domain-driven-design`. Its updated skill folder contains
+666 lines. This collection can host future plugins with independent versions.
 
 ## Validation and limitations
 
+1.1.0 publishes the updated engineering instructions: cross-module edge checks, staged snapshot
+and concurrent-writer review, candidate-disproof guidance, and early versus final gates. The
+optional helper and UI metadata are unchanged. No fresh native-agent efficacy run is claimed.
+
 1.0.7 adds display metadata, an original icon, discovery keywords and Cursor schema corrections;
-1.0.6 introduced the public branding. The engineering instructions and helper behavior match 1.0.5;
+1.0.6 introduced the public branding. Those versions’ engineering instructions and helper behavior match 1.0.5;
 only the instruction title, display metadata and documentation changed. Native evidence remains
 tied to its recorded 1.0.5 baseline, rather than being relabeled as a new test.
 

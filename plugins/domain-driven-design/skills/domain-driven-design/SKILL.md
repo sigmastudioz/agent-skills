@@ -398,9 +398,63 @@ At external boundaries, inspect the local adapter and published contract; record
 internals as a coverage boundary. Generated/vendor internals need no edits, but their integration
 contracts still need checking. Do not equate excluded internals with verified behavior.
 
+### Edge checks
+
+A change set is a set of pieces, and every piece edge is a contract with a mechanical test. A
+misfit is an edge with no mate, or two mates that disagree about one fact. Test every edge the
+change touches; each failure below is a defect class, not a style preference. These are
+file-independent: every one of them fails while per-file review and every gate stay green.
+
+| Edge | What must mate | Test |
+| --- | --- | --- |
+| Consumer | New module to at least one production importer | Search the basename across source roots, excluding the module itself and tests |
+| Contract | New field or event to a consumer that selects it, and the reverse | Search each added field in the consuming codebase, then search the consumer's request for fields the producer does not declare |
+| Mount | New component to a page or parent that renders it | Search the name outside its own file and tests |
+| Registration | Handler to its task map, model to its loader, runtime file to both the CI artifact list and the deploy archive | Search the identifier in every registry that must carry it |
+| Cadence | A periodic task to its own completion | It schedules from the timestamp taken after its work, and backs off further on failure than on success; compare its interval with its siblings |
+| Discriminator | A union variant to exactly one decision site | Count the sites deciding the variant; persisted and in-memory discriminators must be provably equivalent, including how the datastore treats a missing field |
+| Default | An absent argument to one meaning | Absence must not mean one lane on one side of a call and no lane at all on the other |
+| Back-compat | A changed persisted key or field shape to the rows written before the change | Read one pre-change row through the new code path; a new variant should take a new shape and leave the old one resolvable, and the datastore's treatment of a missing field must land those rows on the legacy branch |
+| Snapshot | The staged index to the working tree | Diff index against worktree, including generated and derived files, before reviewing anything as final |
+| Concurrent writer | A path to exactly one writer for the duration of the change | Establish what else writes each touched path — an automated appender, a scheduled job, another agent — before editing or staging it wholesale; a path with another live writer is staged by hunk or left alone, never swept in |
+| Headroom | The change to every chokepoint file it must pass through | Remaining budget against the cap, and whether a baseline or ratchet exempts that file |
+
+Order the work by cost and yield: run the repository's existing gates first, because they are
+cheapest, eliminate whole categories, and state the project's own definition of wrong; cluster the
+changed files by business vocabulary rather than directory, and trace and report in clusters; trace
+the cluster with the most new domain nouns end to end; then check cross-boundary contracts, where
+producer and consumer disagree most cheaply; check the snapshot edge last, because it invalidates
+every conclusion above it. A coherent working tree establishes nothing about the commit that ships.
+
+Record which edges were tested for which cluster, and carry that into the gap ledger below. An edge
+not tested is an unverified path, not a passed one: "fit checked" is not a claim, whereas "consumer,
+contract, and registration edges tested on these four clusters; cadence untested because no periodic
+task changed" is. Account for edges the same way this section accounts for modules, and state which
+of them no available evidence could close.
+
+Report a fit finding as: the edge that failed, the exact sites on both sides of it as path and line,
+what ships if nobody fixes it, the smallest fix, and a severity where blocking means something
+breaks on the next commit or deployment and latent means no caller reaches it yet. Open with the
+cluster map rather than a file list, and close with the checks actually run and their results,
+naming separately what was not verified.
+
+Recurring traps in fit review:
+
+| Trap | Instead |
+| --- | --- |
+| A file list, or notes filed per file | Clusters, and the edges between them |
+| Treating green gates as proof of fit | Gates establish files; fit lives between them, and every edge above can fail with all gates green |
+| Checking a contract edge in one direction | A field the producer added and a field the consumer selects are two separate tests |
+| Calling a cadence outlier the defect | The interval is a question; the defect is scheduling from the start of the work, or retrying failures at sampling speed |
+| Calling a near-duplicate a reuse violation | Compare inputs, consumers, and trust boundaries first: offline untrusted input and live authoritative reads are different contexts |
+| Reviewing the working tree and calling the change reviewed | Review what the next commit contains |
+| Relieving a chokepoint by raising its cap | Extract a cohesive group, keep registration and call order identical, and give the extracted module its own test |
+
 ### Trace procedure
 1. **Inventory:** List created/changed modules, their owner, public exports, runtime registration,
    callers, dependencies, configuration, and affected consumers. Include migrations and code generation.
+   Record the staged-versus-working-tree state of every changed path, and the remaining line or
+   complexity budget of each chokepoint file the change must pass through.
 2. **Trace backward:** Find how real UI actions, routes, jobs, commands, or events reach each module.
    Check package exports, imports, dependency wiring, routing, subscriptions, and feature gates.
 3. **Trace forward:** Follow branches through services, rules, ports, adapters, writes, emitted events,
@@ -450,6 +504,15 @@ Classify findings before acting:
 - **Improvement opportunity:** Useful additional capability without evidence that current scope requires it.
 - **Unverified path:** Evidence or an environment is unavailable; name the exact missing verification.
 
+Disprove each candidate before recording it. Compare the pre-change revision of the same path: a
+defect that predates the change is a pre-existing condition, not this change's. Locate real call
+sites: a hazard no caller reaches is an unverified path or a latent risk, not a bug, and the record
+must say why it is unreachable. Establish whether an asymmetry is principled before calling it an
+inconsistency - two sibling contracts may differ legitimately when one must represent an empty
+population and the other is only constructed from a non-empty one. Record which candidates were
+disproved and on what evidence; a report of survivors alone cannot be audited and invites the next
+reviewer to re-investigate settled questions.
+
 Prioritize by user impact, data correctness, security, and blast radius. Fix bugs and required gaps
 within the task's authority; capture unrelated findings and optional features as proposed follow-ups.
 Do not invent requirements from personal preference or silently turn a module trace into a new product.
@@ -461,6 +524,12 @@ static trace, not complete runtime verification. Stop retrying an unchanged bloc
 specific evidence and recovery action instead of repeating the same unsuccessful check.
 
 ## 12. Verify and finish
+
+The repository's existing gates serve two different purposes, and both orderings in this document
+are deliberate. Under Edge checks they run first, as the cheapest orientation instrument when
+inspecting work that already exists: they eliminate whole categories and state the project's own
+definition of wrong. Here they run last, as the acceptance instrument for work just written. Running
+them early never substitutes for running them again at the end, against the final content.
 
 Choose verification proportional to the changed behavior and risk:
 
