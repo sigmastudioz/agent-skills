@@ -67,3 +67,21 @@ key was introduced, so cadence, mount and data-migration edges have no changed r
 The helper and UI metadata remain byte-identical. No fresh native-agent efficacy run was made
 for 1.1.0; packaging checks do not establish instruction adherence. Reviewer activation and
 blocked uploader eligibility remain external boundaries, not confirmed publication.
+
+## Engineering Spikes 1.0.0 addition
+
+Scope: one new, independent instruction/template plugin; no production runtime helper or global
+configuration change. The 13 design gaps and scenario boundaries are recorded in
+[Engineering Spikes validation](../engineering-spikes-validation.md).
+
+| Cluster | Forward / backward edges | Candidate findings and closure |
+| --- | --- | --- |
+| Instruction consumption | Relevant spike request -> modes -> evidence/decision -> two audience templates -> delivery reference | SP-01–12 covered; negative/blocked outcomes and recommendation versus approval explicit |
+| Format delivery | Templates -> HTML artifacts -> rendered copy -> target editor | Six-column identity table replaced; Mermaid native-rendering assumption rejected; actual Confluence paste remains unverified |
+| Distribution | catalog.json -> portable/native manifests -> three host catalogs -> skill/resources -> release hashes -> ZIP | SP-13; stable independent ID/version and contained paths; exact inventory checked at release preparation |
+| Discovery and documentation | README install ID -> registry name -> plugin skill path -> UI metadata | No alwaysApply global rule, executable helper or forced activation; existing plugin versions/inventories preserved |
+
+Four clusters inventoried and accounted for. No runtime storage writer, recurring process, API or
+UI mount was introduced; cadence, migration and production rollback edges have no changed code.
+Research access, actual agent adherence, editor paste and native directory activation remain
+external/unverified boundaries. Authored scenarios and package checks do not close those claims.
