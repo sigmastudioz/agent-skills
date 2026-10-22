@@ -21,6 +21,11 @@
       "name": "video-analysis",
       "path": "./plugins/video-analysis",
       "category": "Productivity"
+    },
+    {
+      "name": "engineering-spikes",
+      "path": "./plugins/engineering-spikes",
+      "category": "Productivity"
     }
   ]
 }

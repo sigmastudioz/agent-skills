@@ -84,6 +84,7 @@ awaits reviewer activation. Cursor, Codex and Antigravity publication is not yet
 | Plugin | Purpose | Version |
 | --- | --- | --- |
 | [Principal Driven Domain Design](plugins/domain-driven-design/README.md) | Domain ownership, reusable engines, gap tracing and agent handoffs | 1.1.0 |
+| [Engineering Spikes](plugins/engineering-spikes/README.md) | Timeboxed research, evidence and gap tracing, separate stakeholder and technical documents | 1.0.0 |
 
 ### Visual creation and analysis
 
