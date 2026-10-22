@@ -20,6 +20,11 @@
       "name": "video-analysis",
       "source": "./plugins/video-analysis",
       "description": "Analyze supplied videos and audio through timestamped frames, adaptive inspection, transcripts and explicit evidence/coverage limits. By Lex from SigmaStudioz."
+    },
+    {
+      "name": "engineering-spikes",
+      "source": "./plugins/engineering-spikes",
+      "description": "Plan timeboxed engineering spikes, trace evidence to decisions, and deliver separate stakeholder and technical documents for Confluence. By Lex from SigmaStudioz."
     }
   ]
 }

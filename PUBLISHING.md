@@ -1,6 +1,6 @@
 # Publication plan
 
-Publisher: **Lex from SigmaStudioz**. Catalog: `sigmastudioz`. Plugins: `domain-driven-design`, `visualizer`, `video-analysis`.
+Publisher: **Lex from SigmaStudioz**. Catalog: `sigmastudioz`. Plugins: `domain-driven-design`, `visualizer`, `video-analysis`, `engineering-spikes`.
 Publisher profile: https://github.com/sigmastudioz.
 Public repository: https://github.com/sigmastudioz/agent-skills.
 MIT was selected by the publisher on 2026-10-18; root and plugin LICENSE files carry the notice
@@ -31,6 +31,10 @@ Each plugin has an original icon and visible Lex from SigmaStudioz attribution. 
 and Video Analysis1.0.0 applications need their own review records; do not reuse the DDD submission
 ID, imply approval, or accept new publisher agreements without action-time approval. Preserve the
 existing DDD review/support correspondence; no duplicate applications or messages.
+
+Engineering Spikes1.0.0 is a separate instruction skill for timeboxed investigation and paired
+Confluence-oriented documents. Its repository release is separate from official marketplace review.
+No Confluence account, terms acceptance or external publication is implied by installation.
 
 ## License comparison — checked 2026-10-17
 

@@ -1,0 +1,27 @@
+{
+  "license": "MIT",
+  "name": "engineering-spikes",
+  "version": "1.0.0",
+  "description": "Plan timeboxed engineering spikes, trace evidence to decisions, and deliver separate stakeholder and technical documents for Confluence. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "displayName": "Engineering Spikes",
+  "publisher": "SigmaStudioz",
+  "keywords": [
+    "engineering-spikes",
+    "technical-discovery",
+    "feasibility-research",
+    "proof-of-concept",
+    "spike-documentation",
+    "confluence",
+    "evidence-tracing",
+    "decision-records",
+    "risk-analysis",
+    "agent-handoffs"
+  ],
+  "logo": "assets/icon.svg",
+  "category": "Developer Tools"
+}

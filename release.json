@@ -55,6 +55,24 @@
         "skills/video-analysis/references/media.md": "4a8c75d608378df8f9b25887e285da63f4472ed813f521b6604bc58c8703fa4e",
         "skills/video-analysis/scripts/sample.py": "b21c0b7d829cfbfe54f27c87e68cdb9c628db33d8dcea22de98af4d6257ae307"
       }
+    },
+    "engineering-spikes": {
+      "version": "1.0.0",
+      "files": {
+        ".claude-plugin/plugin.json": "bbcdb6e93754d962d745049fe8420c38efe926309ab821bb478002c4f08efdff",
+        ".codex-plugin/plugin.json": "37ca9ed5ed68971d40638259aa11d996e3318aed9f1aad4cb04dc8f916a3ce84",
+        ".cursor-plugin/plugin.json": "c972bd5e075d8dfe854f1fa642b51e4b450ada1f9d61bf0636a1debb9496f45f",
+        "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
+        "README.md": "fe4dd93b7b6106bb82b278f43de565b5919034b1ee9abe84cb075bccbc3386c5",
+        "assets/icon.svg": "e1e52147b2e18cd92790f50452d4e71fd4a9c13210f43c776862de8e26928ac8",
+        "plugin.json": "08562a4d3972fd95256dd4519c993173936d907d25c4f071753a91f941711e27",
+        "skills/engineering-spikes/LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
+        "skills/engineering-spikes/SKILL.md": "6a6d2af9bc7679cf1dba8dbf502a7156e04523778d172af92d5c86d42d7edf1f",
+        "skills/engineering-spikes/agents/openai.yaml": "3e0d8010ed8f02205996b816bbca72701f428940c0c5a77b45f10913cc57a4c6",
+        "skills/engineering-spikes/assets/non-technical.template.md": "506af1ed6d10d4827145c29ec3da632c3f0b620b236dbc8765cf0c3582fa2eba",
+        "skills/engineering-spikes/assets/technical.template.md": "ff44b94b80abac6b5eebe5ded91fe2ab64db1770ddce721090217f198dcaa5f5",
+        "skills/engineering-spikes/references/confluence.md": "43f3ef92fd7b6a6aca0c8bc3505265e7618663d1ea7a7a631cdefc48bacd3b2a"
+      }
     }
   }
 }

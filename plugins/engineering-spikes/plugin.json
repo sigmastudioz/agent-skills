@@ -1,0 +1,30 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "license": "MIT",
+  "name": "engineering-spikes",
+  "version": "1.0.0",
+  "description": "Plan timeboxed engineering spikes, trace evidence to decisions, and deliver separate stakeholder and technical documents for Confluence. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Engineering Spikes",
+        "shortDescription": "Timeboxed research and paired spike documents",
+        "longDescription": "Plan timeboxed engineering spikes, trace evidence to decisions, and deliver separate stakeholder and technical documents for Confluence. By Lex from SigmaStudioz. Uses available host tools and isolated experiments within user authorization. No publisher service, auto-installers or required Confluence account. Native marketplace approval is separate.",
+        "developerName": "Lex from SigmaStudioz",
+        "websiteURL": "https://github.com/sigmastudioz",
+        "supportURL": "https://github.com/sigmastudioz/agent-skills/issues",
+        "privacyPolicyURL": "https://github.com/sigmastudioz/agent-skills/blob/main/PRIVACY.md",
+        "category": "Developer Tools",
+        "capabilities": [],
+        "logo": "./assets/icon.svg",
+        "composerIcon": "./assets/icon.svg"
+      }
+    }
+  }
+}

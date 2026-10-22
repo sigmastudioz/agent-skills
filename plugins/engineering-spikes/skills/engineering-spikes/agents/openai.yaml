@@ -1,0 +1,4 @@
+interface:
+  display_name: "Engineering Spikes"
+  short_description: "Timeboxed research and paired spike documents"
+  default_prompt: "Use $engineering-spikes to investigate this engineering uncertainty and deliver separate stakeholder and technical documents with evidence and a decision."
