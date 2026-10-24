@@ -1,0 +1,28 @@
+{
+  "mode": "move",
+  "reason": "Collection DDD-owned trace; public legacy document links retained, local relative evidence links rebased.",
+  "source": "docs/architecture/gap-trace.md",
+  "destination": ".principal-ddd/gap-trace.md",
+  "before_sha256": "9322a6c36c2625331483598e55d353d855663ca32ec8bf05198bc661eff7548b",
+  "after_sha256": "2d1035ae410cd9279486c1908234a73dc57dd31ac64c31b3d25ca2e2a4e6e4ba",
+  "forward_sha256": "2ef7fd525fa10a7984888d8ddb4090a78b24b1cfceb58491c1b5df0147c4fc24",
+  "source_mode": 420,
+  "link_edits": [
+    {
+      "after_start": 3232,
+      "old": "../publication.json",
+      "new": "../docs/publication.json"
+    },
+    {
+      "after_start": 7443,
+      "old": "../engineering-spikes-validation.md",
+      "new": "../docs/engineering-spikes-validation.md"
+    }
+  ],
+  "checks": {
+    "exact_restore": true,
+    "same_link_targets": true,
+    "same_heading_anchors": true,
+    "preexisting_missing_link_targets": 0
+  }
+}

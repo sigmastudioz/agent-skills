@@ -95,7 +95,8 @@ Do not put API/worker implementation or evidence in a UI repository, or UI imple
 evidence in an API repository, merely because that is the agent's current working directory.
 A verification folder, temporary label or build exclusion does not waive repository ownership.
 
-- Use each owner's existing tracker and evidence/archive conventions; link related records with
+- Use `.principal-ddd/index.md` as the DDD record map when present; established owner trackers
+  and evidence/archive conventions keep their authority. Link related records with
   repository identity, revision and source/artifact checksums rather than duplicating bodies.
 - Cross-repository coordination uses an established operations owner or a concise manifest linking
   the owner-local operators and receipts. Do not invent a coordination repository or copy another

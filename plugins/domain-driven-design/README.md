@@ -1,6 +1,6 @@
 # Principal Driven Domain Design
 
-By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.2.0**, [MIT](LICENSE).
+By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.3.0**, [MIT](LICENSE).
 
 **Principal-level domain-driven design for AI coding agents.**
 
@@ -10,7 +10,7 @@ code by its owning domain, then by function; keep services and shared modules at
 useful scope. Reuse an owned engine when real consumers share a cohesive algorithm. Trace modules
 through callers, dependencies, consumers and failures, and fix gaps required by the authorized task.
 
-The instruction file has **405 lines**; the complete skill folder has **1348 lines**, including
+The instruction file has **411 lines**; the complete skill folder has **1422 lines**, including
 the architecture reference, metadata, optional Python helper and its regression tests. Small fixes stay small; read-only reviews stay read-only.
 The baseline does not authorize extra agents, unrelated restructuring or deployment.
 
@@ -45,13 +45,17 @@ semantic correctness remain the coordinator's responsibility. Requires Python 3.
 
 ## Validation
 
-Version 1.2.0 publishes the final user-maintained source: tracker-first evidence retention and safe
-archival, corrected cadence and verification rules, repository ownership and conditional architecture guidance, and clearer
-handoff safeguards. The packaged guard has **51 subprocess regression tests**. The UI metadata is
-unchanged. No fresh native-agent efficacy run was performed for 1.2.0; the native coding evidence
-below belongs to 1.0.5 and its earlier full-baseline guard. Package tests do not establish model
-adherence or marketplace activation. The earlier 567/666-line 1.1.0 and 597-line receipts remain
-historical; this release's complete skill folder contains 1348 lines.
+Version 1.3.0 adds `.principal-ddd/` as the project-local map for DDD records. Existing trackers
+remain authoritative; DDD-owned ledgers can move with preserved links, heading anchors, exact
+restore identities and pinned active writers. No folders are scaffolded for projects without data.
+Read the packaged project-record reference when creating or migrating records. Hidden placement
+is organization, not security or automatic exclusion from runtime/build/release inputs.
+
+The release retains the 1.2.0 retention, cadence, verification and handoff safeguards. The guard,
+its **51 subprocess regression tests**, and UI metadata are unchanged. No fresh native-agent
+efficacy run was performed for 1.3.0; the native coding evidence below belongs to 1.0.5 and its
+earlier full-baseline guard. Package and migration checks do not establish model adherence or
+marketplace activation. This release has 411 instruction lines / 1422 complete skill-folder lines.
 
 Fresh Claude Code 1.0.5 test: **16/16 external feature checks and 2/2 original regressions pass**,
 with exactly one implementation teammate. The parent integrated the isolated worktree result,

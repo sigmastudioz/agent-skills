@@ -2,18 +2,19 @@
   "catalog": "sigmastudioz",
   "plugins": {
     "domain-driven-design": {
-      "version": "1.2.0",
+      "version": "1.3.0",
       "files": {
-        ".claude-plugin/plugin.json": "a6c122efb8e38cb0b04bbc8bb47483adbdcd0a4bf2bb80717299c60525b59531",
-        ".codex-plugin/plugin.json": "52149127d8afdc54b498c08b31e03836c5813a2f07e0bc56258c0aedad6ab620",
-        ".cursor-plugin/plugin.json": "0766945d65e10fc9c983ad5ad4e6136e80ef513a507a92d6bf853c9abdcf37cd",
+        ".claude-plugin/plugin.json": "7323e6fc3ce2bbcc00bb6e693cce302e0c5ab7cef9d64e85f0993a4481092b90",
+        ".codex-plugin/plugin.json": "f90cd10a53d93e2c4dbf087bf82a8e58ca7738ba9ae185949b6117c0729d7775",
+        ".cursor-plugin/plugin.json": "605eddfcd12dd0ec88c02cdd6860c10a050451b468715aed9d86f21de0736488",
         "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
-        "README.md": "0dc85b0fa4a520623a01890b6ae431960b392b36f0c9f6e5fce6b3a444efa38c",
+        "README.md": "08c050354b5f9f68e37e56fdb20389320a0fe8a3ab7f59a8a2ea55ca174b7877",
         "assets/icon.svg": "ecc444f42595ddaac663925c73dfd64b306fa0f2172a96fd49e4a2810dde348c",
-        "plugin.json": "0e69c2d98b235a8ebb5fdf1796fdc0f9528069a349a9e378df58ff9be44b0944",
-        "skills/domain-driven-design/SKILL.md": "9c182f766ad185c9cb1236b30b65d287f377a449bffde5e46d530c8ae6794716",
+        "plugin.json": "526fa1a26dcd54d7ace2f8649bd42af6b8d76751ebb5cc477f977163e05a11f2",
+        "skills/domain-driven-design/SKILL.md": "ea9d5de440dabca5fe922e4065d214dc949762e71e129bd34cc97627384d5a5f",
         "skills/domain-driven-design/agents/openai.yaml": "81c161c20c997ded13ce15be615f5cc2a5b163f1036e44d88745c4f0894eff8e",
-        "skills/domain-driven-design/references/architecture.md": "8431a2d26b6562ef3ed834827ca8afe92ae679846dc60f50a1380e791f198a79",
+        "skills/domain-driven-design/references/architecture.md": "0e432b5d8f5064d4ff2204c6152b8f5c1d0139e8f2fede2ccf7fc12e3d0050de",
+        "skills/domain-driven-design/references/project-records.md": "7e47a9fbcf49be2655085b6cf284f34fac4a0519a3e281bab384cc5edcdc59f4",
         "skills/domain-driven-design/scripts/guard_handoff.py": "26883eede549911b131f6d14149118a91704ca681f0d6703bbfb4c294196234f",
         "skills/domain-driven-design/scripts/test_guard_handoff.py": "18f189970b77d3147cd31a760bece538c58c93a51a197de482bda0b30c747602"
       }
