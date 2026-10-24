@@ -85,3 +85,12 @@ References: [Claude imports](https://code.claude.com/docs/en/memory),
 [Cursor skills](https://cursor.com/docs/skills),
 [Cursor local plugins](https://cursor.com/docs/plugins#test-plugins-locally),
 [Codex skills](https://developers.openai.com/codex/skills).
+
+## Project continuity
+
+The skill discovers `.principal-ddd/index.md` at the owning repository root. That index links the
+project's established tracker or the DDD-owned `.principal-ddd/gap-trace.md`; it does not replace
+other task systems. Create records only when current work needs them. Existing projects use the
+packaged [migration guidance](plugins/domain-driven-design/skills/domain-driven-design/references/project-records.md)
+to preserve active writers, relative links, heading anchors and rollback. A hidden folder provides
+organization, not privacy or automatic build exclusion.

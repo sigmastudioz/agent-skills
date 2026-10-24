@@ -37,3 +37,10 @@ new plugin's actual runtime behavior separately; passing catalog tests is not an
 
 This collection and its first plugin use MIT. Include a LICENSE file in every plugin distribution
 and preserve its copyright notice. Record any explicit per-plugin license exception clearly.
+
+## DDD project records
+
+Start at [the DDD index](.principal-ddd/index.md). The collection trace now lives in
+`.principal-ddd/gap-trace.md`; the former documentation path forwards to it and preserves anchors.
+Keep established project trackers authoritative. Follow the packaged project-record migration
+reference before moving another record or retiring a legacy path.

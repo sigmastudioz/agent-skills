@@ -83,7 +83,7 @@ await reviewer activation. Cursor, Codex and Antigravity publication is not yet 
 
 | Plugin | Purpose | Version |
 | --- | --- | --- |
-| [Principal Driven Domain Design](plugins/domain-driven-design/README.md) | Domain ownership, reusable engines, gap tracing and agent handoffs | 1.2.0 |
+| [Principal Driven Domain Design](plugins/domain-driven-design/README.md) | Domain ownership, reusable engines, gap tracing and agent handoffs | 1.3.0 |
 | [Engineering Spikes](plugins/engineering-spikes/README.md) | Timeboxed research, evidence and gap tracing, separate stakeholder and technical documents | 1.0.0 |
 
 ### Visual creation and analysis
@@ -98,15 +98,14 @@ Install either skill with `npx skills add sigmastudioz/agent-skills --skill visu
 See their documentation for requirements and validation limits. Official marketplace review is separate.
 
 The stable package identifier is `domain-driven-design`. Its updated skill folder contains
-1348 lines, including its architecture reference and guard tests. This collection can host future plugins with independent versions.
+1422 lines, including conditional architecture/record guidance and guard tests. This collection can host future plugins with independent versions.
 
 ## Validation and limitations
 
-1.2.0 publishes tracker-first evidence retention, safe archival, corrected cadence and verification
-rules, repository ownership and conditional architecture guidance, and the hardened optional handoff guard. Its 51 packaged
-subprocess regressions cover handoff/input validation, recognized workspaces, cumulative budgets,
-isolation declarations and compact idempotent reminders. The UI metadata is unchanged. No fresh
-native-agent efficacy run is claimed; historical coding evidence remains tied to 1.0.5.
+1.3.0 adds the `.principal-ddd/` project-record convention and safe migration guidance.
+Existing task trackers retain authority; DDD-owned records use a discoverable hidden index and
+ledger, with pinned writers and legacy links preserved during migration. It retains the 1.2.0
+tracker-first retention, cadence, verification and handoff safeguards.
 
 1.1.0 added cross-module edge checks, staged snapshot and concurrent-writer review, candidate
 disproof, and early versus final gates. Its helper behavior matched the earlier release.
