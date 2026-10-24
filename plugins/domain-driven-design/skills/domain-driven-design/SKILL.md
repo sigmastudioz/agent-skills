@@ -112,6 +112,10 @@ If discovery or file access is unavailable, report that limit instead of claimin
 
 ## 1. Establish context before editing
 
+For project continuity, check `.principal-ddd/index.md` when present, then read the linked owning
+tracker and relevant trace. Use the [project records convention](references/project-records.md)
+when creating or migrating DDD records. Do not scaffold empty folders or replace an existing tracker.
+
 Inspect applicable repository instructions, manifests, package exports, entrypoints, existing
 domain modules, migrations, tests, and relevant runtime evidence. Search for equivalent behavior
 and existing shared packages before creating files. Use the repository's language and tooling.
@@ -279,8 +283,10 @@ open gaps and next action. Where the repository requires both a status tracker a
 ledger, link them and keep each fact in its owning record rather than duplicating reports. For a
 small change without an existing tracker or a durable handoff need, report results in the final
 response. For a full audit or substantial change without an existing record, use one compact
-`docs/architecture/gap-trace.md`. Do not create a new report or dated verification folder per run,
-or put project-specific state into this global skill.
+`.principal-ddd/gap-trace.md`, discovered through `.principal-ddd/index.md`. Keep established trackers
+authoritative and link them; do not fork their status into a second ledger. Follow the linked
+project-records convention before moving existing data. Do not create a new report or dated
+verification folder per run, or put project-specific state into this global skill.
 
 Record enough evidence for another agent to resume:
 
