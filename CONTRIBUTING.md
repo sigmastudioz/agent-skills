@@ -25,8 +25,9 @@ claude plugin validate .
 7. Review changes before release. A repository commit can change one plugin while others keep their
    existing versions. A root release tag is a collection snapshot, not a forced shared plugin version.
 
-The initial DDD skill has a strict under-600-line folder limit. Do not turn its global instructions
-into project-specific task state. Avoid copying the same behavior across several skills; link or
+The initial DDD release targeted an under-600-line folder; later user-approved releases include
+linked references and guard regressions. Report actual instruction and folder sizes for each release
+and honor applicable host limits. Do not turn global instructions into project-specific task state. Avoid copying the same behavior across several skills; link or
 share owned resources when their semantics really match.
 
 Catalog generation traces registry -> plugin manifests -> three contained host sources -> skill
