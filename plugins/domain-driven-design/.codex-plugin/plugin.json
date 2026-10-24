@@ -1,7 +1,7 @@
 {
   "license": "MIT",
   "name": "domain-driven-design",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Principal Driven Domain Design: principal-level domain architecture, reusable engines, module gap tracing, and explicit agent handoffs.",
   "author": {
     "name": "Lex from SigmaStudioz",
@@ -13,7 +13,7 @@
   "interface": {
     "displayName": "Principal Driven Domain Design",
     "shortDescription": "Domain design and gap tracing",
-    "longDescription": "Principal Driven Domain Design: principal-level domain architecture, reusable engines, module gap tracing, and explicit agent handoffs. By Lex from SigmaStudioz. Domain-first structure, scoped services/shared modules, cohesive engines, and evidence-based verification. Automatic use requires native global instructions. Historical Claude Code 1.0.5 evidence with the optional handoff guard passed 16/16 external feature checks and 2/2 regressions using one teammate. Native global setup is opt-in; instructions do not guarantee every model or runtime follows every rule. Version 1.1.0 adds cross-module edge checks, staged snapshot review and candidate-disproof guidance; no fresh native-agent efficacy run is claimed.",
+    "longDescription": "Principal Driven Domain Design: principal-level domain architecture, reusable engines, module gap tracing, and explicit agent handoffs. By Lex from SigmaStudioz. Domain-first structure, scoped services/shared modules, cohesive engines, and evidence-based verification. Automatic use requires native global instructions. Historical Claude Code 1.0.5 evidence with the optional handoff guard passed 16/16 external feature checks and 2/2 regressions using one teammate. Native global setup is opt-in; instructions do not guarantee every model or runtime follows every rule. Version 1.2.0 adds tracker-first evidence retention, safe archival, corrected scheduling and verification guidance, a conditional architecture reference, and a hardened optional handoff guard with 51 regression tests. No fresh native-agent efficacy run is claimed.",
     "developerName": "Lex from SigmaStudioz",
     "websiteURL": "https://github.com/sigmastudioz",
     "supportURL": "https://github.com/sigmastudioz/agent-skills/issues",

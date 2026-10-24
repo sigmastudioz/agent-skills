@@ -1,6 +1,6 @@
 # Principal Driven Domain Design
 
-By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.1.0**, [MIT](LICENSE).
+By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.2.0**, [MIT](LICENSE).
 
 **Principal-level domain-driven design for AI coding agents.**
 
@@ -10,8 +10,8 @@ code by its owning domain, then by function; keep services and shared modules at
 useful scope. Reuse an owned engine when real consumers share a cohesive algorithm. Trace modules
 through callers, dependencies, consumers and failures, and fix gaps required by the authorized task.
 
-The instruction file has **567 lines**; the complete skill folder has **666 lines**, including
-metadata and the optional Python helper. Small fixes stay small; read-only reviews stay read-only.
+The instruction file has **405 lines**; the complete skill folder has **1348 lines**, including
+the architecture reference, metadata, optional Python helper and its regression tests. Small fixes stay small; read-only reviews stay read-only.
 The baseline does not authorize extra agents, unrelated restructuring or deployment.
 
 ## What it helps agents do
@@ -35,19 +35,23 @@ trace obligations, checks and expected return format to already-authorized teamm
 integrated result. Task briefs and pseudocode are proposals, not proof of algorithm correctness.
 User teammate limits override optional workflow steps, including extra review agents.
 
-The optional Claude helper checks handoff structure, places the full baseline before the proposed
-task and enforces explicit `Use N teammates/agents/workers` limits from native user history. It
-counts pending dispatches, ignores hook-rejected attempts and permits resuming an existing worker.
-It does not infer authorization, grant tools or prove semantic correctness. Missing history or
-other constraint wording leaves budget enforcement to the coordinator. Requires Python 3.
+The optional Claude helper validates handoff structure and adds a compact reminder to read the
+installed baseline and relevant linked guidance. It recognizes more coding workspaces, rejects
+malformed inputs, and preserves cumulative explicit agent budgets across repeated limits. Only an
+explicit new-budget instruction resets usage. Quoted or negated examples cannot expand a limit;
+resuming an existing worker does not allocate another slot. A different workspace needs explicit
+isolation confirmation. Missing history, unrecognized wording, actual isolation authority and
+semantic correctness remain the coordinator's responsibility. Requires Python 3.
 
 ## Validation
 
-Version 1.1.0 adds mechanical edge checks, staged-index and concurrent-writer review,
-candidate-disproof guidance, and the distinction between early orientation gates and final
-acceptance checks. The optional helper and UI metadata are unchanged. No fresh native-agent
-efficacy run was performed for 1.1.0; the native coding evidence below belongs to 1.0.5.
-The updated folder contains 666 lines; the earlier 597-line receipt describes the older package.
+Version 1.2.0 publishes the final user-maintained source: tracker-first evidence retention and safe
+archival, corrected cadence and verification rules, repository ownership and conditional architecture guidance, and clearer
+handoff safeguards. The packaged guard has **51 subprocess regression tests**. The UI metadata is
+unchanged. No fresh native-agent efficacy run was performed for 1.2.0; the native coding evidence
+below belongs to 1.0.5 and its earlier full-baseline guard. Package tests do not establish model
+adherence or marketplace activation. The earlier 567/666-line 1.1.0 and 597-line receipts remain
+historical; this release's complete skill folder contains 1348 lines.
 
 Fresh Claude Code 1.0.5 test: **16/16 external feature checks and 2/2 original regressions pass**,
 with exactly one implementation teammate. The parent integrated the isolated worktree result,
@@ -56,7 +60,7 @@ Compound identity uses a JSON tuple instead of a separator, including NUL.
 
 The test used normal global configuration with the optional handoff helper and an ordinary prompt
 that did not name the skill. The actual worker received the complete baseline before the assignment.
-Guard tests: 21; installer tests: 14. See the
+Historical guard tests: 21; installer tests: 14. See the
 [validation receipt](https://github.com/sigmastudioz/agent-skills/blob/main/docs/validation.json).
 Earlier failed Claude runs remain recorded. The earlier passing Cursor CLI evidence is tied to
 its original baseline; no new Cursor desktop or 1.0.5 coding result is implied.

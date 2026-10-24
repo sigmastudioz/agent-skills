@@ -76,14 +76,14 @@ codex plugin marketplace add ./agent-skills
 
 Install the chosen plugin from the SigmaStudioz source. Cursor local loading and native skill
 locations are covered in [SETUP.md](SETUP.md). Official directory reviews are separate from
-these direct installation methods. Claude currently serves 1.0.6; the 1.0.7 metadata update
-awaits reviewer activation. Cursor, Codex and Antigravity publication is not yet confirmed.
+these direct installation methods. Claude currently serves 1.0.6; newer publication requests
+await reviewer activation. Cursor, Codex and Antigravity publication is not yet confirmed.
 
 ### Available plugins
 
 | Plugin | Purpose | Version |
 | --- | --- | --- |
-| [Principal Driven Domain Design](plugins/domain-driven-design/README.md) | Domain ownership, reusable engines, gap tracing and agent handoffs | 1.1.0 |
+| [Principal Driven Domain Design](plugins/domain-driven-design/README.md) | Domain ownership, reusable engines, gap tracing and agent handoffs | 1.2.0 |
 | [Engineering Spikes](plugins/engineering-spikes/README.md) | Timeboxed research, evidence and gap tracing, separate stakeholder and technical documents | 1.0.0 |
 
 ### Visual creation and analysis
@@ -98,13 +98,18 @@ Install either skill with `npx skills add sigmastudioz/agent-skills --skill visu
 See their documentation for requirements and validation limits. Official marketplace review is separate.
 
 The stable package identifier is `domain-driven-design`. Its updated skill folder contains
-666 lines. This collection can host future plugins with independent versions.
+1348 lines, including its architecture reference and guard tests. This collection can host future plugins with independent versions.
 
 ## Validation and limitations
 
-1.1.0 publishes the updated engineering instructions: cross-module edge checks, staged snapshot
-and concurrent-writer review, candidate-disproof guidance, and early versus final gates. The
-optional helper and UI metadata are unchanged. No fresh native-agent efficacy run is claimed.
+1.2.0 publishes tracker-first evidence retention, safe archival, corrected cadence and verification
+rules, repository ownership and conditional architecture guidance, and the hardened optional handoff guard. Its 51 packaged
+subprocess regressions cover handoff/input validation, recognized workspaces, cumulative budgets,
+isolation declarations and compact idempotent reminders. The UI metadata is unchanged. No fresh
+native-agent efficacy run is claimed; historical coding evidence remains tied to 1.0.5.
+
+1.1.0 added cross-module edge checks, staged snapshot and concurrent-writer review, candidate
+disproof, and early versus final gates. Its helper behavior matched the earlier release.
 
 1.0.7 adds display metadata, an original icon, discovery keywords and Cursor schema corrections;
 1.0.6 introduced the public branding. Those versions’ engineering instructions and helper behavior match 1.0.5;
@@ -116,7 +121,7 @@ monorepo fixture and exactly one implementation teammate. The coordinator integr
 ran 20 local tests and repaired an authority-field bug. Independent held-out checks passed 16/16
 feature cases and 2/2 original regressions, including compound-identity collisions.
 
-The optional Claude helper delivered the full baseline before the task brief. Its 21 tests cover
+The historical 1.0.5 Claude helper delivered the full baseline before the task brief. Its 21 tests covered
 handoff validation, explicit teammate budgets, rejected attempts, parallel pending calls and worker
 resumption. It does not infer authorization or guarantee semantic correctness. Historical Claude
 failures are retained in the [validation receipt](docs/validation.json), not rewritten as passes.

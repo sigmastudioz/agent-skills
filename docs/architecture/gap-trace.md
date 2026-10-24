@@ -85,3 +85,39 @@ Four clusters inventoried and accounted for. No runtime storage writer, recurrin
 UI mount was introduced; cadence, migration and production rollback edges have no changed code.
 Research access, actual agent adherence, editor paste and native directory activation remain
 external/unverified boundaries. Authored scenarios and package checks do not close those claims.
+
+## 1.2.0 final local update
+
+Scope: publish the user-approved five-file skill snapshot, four compatible plugin manifests,
+and matching setup/release documentation. No delegation, global-settings change or new runtime
+service is authorized by this release task. Existing privacy, icons, demos and other plugins stay
+outside the changed capability.
+
+| Cluster | Connected paths and edge evidence | Outcome and limits |
+| --- | --- | --- |
+| Instruction/reference delivery | Stable skill ID -> SKILL.md routing -> references/architecture.md sections; complete reference included in release inventory | Exact local-source bytes retained; linked files/anchors checked. Tracker/evidence retention, cadence and verification guidance updated. No fresh native-agent adherence run. |
+| Optional guard | Documented SETUP PreToolUse command -> guard input -> coding workspace -> native user history and cumulative budget -> handoff/isolation/baseline validation -> compact idempotent updated prompt | 51 packaged subprocess regressions pass, including malformed input/history, repeated caps, quoted/negated examples, pending/rejected/resumed calls and different-workspace declarations. Caller permissions, real isolation authority, unsupported natural language and host resume identity validation remain external responsibilities. |
+| Regression ownership | tests/test_handoff_guard.py loads the packaged test class; packaged tests launch the adjacent guard with isolated fixtures | One maintained 51-test contract replaces obsolete full-baseline/reset-on-repeated-cap expectations. Repository discovery runs 70 tests successfully without launching agents or project jobs. |
+| Distribution | Portable/native version1.2.0 manifests -> existing catalog generator -> three host catalogs and release.json -> ZIP inventory | Stable package/skill IDs, UI metadata and other plugin bytes preserved. Source/copy/release hashes and staged snapshot checked; independent marketplace activation remains outside local package proof. |
+| Setup/documentation | README and SETUP consumers -> compact reminder, cumulative limits and explicit isolation object | Present-tense instructions describe1.2.0. Historical1.0.5 full-body guard and coding efficacy remain identified as historical; no new efficacy or universal-host guarantee. |
+
+Consumer, contract, registration, default/back-compat, snapshot, concurrent-writer and relevant
+headroom edges are covered by the named source, link, manifest, fixture and artifact checks.
+Cadence changes are instruction guidance only; no scheduler runs in this plugin. Mount,
+discriminator and persisted-data migration edges have no changed production implementation.
+The user confirmed the local pass complete; the source is copied into an isolated release branch
+and rechecked by content hashes before committing. No live writer is swept into the release.
+The source entrypoint is405lines; its complete five-file folder is1348lines, including313lines of
+conditional architecture guidance and406lines of guard regressions. Earlier size caps/receipts
+are historical and do not describe this explicitly requested source snapshot.
+
+Candidate disproof: the guard's smaller output and cumulative repeated cap are intended new
+contracts, not regressions to repair back to old behavior. The existing root tests that required
+full-body injection or reset-on-every-cap were superseded by the shipped contract tests. Multiple
+semantic decision sites and legitimate runtime loops are no longer automatically classified as
+bugs. No confirmed in-scope package defect remains after the listed checks. Actual provider review,
+remote/cloud loading, model adherence and production runtime behavior remain unverified boundaries.
+
+Final pre-publication revision also adds repository ownership and operational-artifact guidance in
+SKILL.md and its architecture reference. Existing reference/anchor and package inventory checks
+cover this prose change; guard source/configuration/tests are byte-identical to the51-test pass.

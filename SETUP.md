@@ -58,13 +58,23 @@ a canonical installation under the user's own home; adapt the interpreter/path o
 }
 ```
 
-The helper checks coding handoffs in recognized code workspaces, rejects missing context, and
-places the complete baseline before accepted worker prompts. It also checks explicit
-`Use N teammates/agents/workers` limits against native user turns and pending dispatches, excludes
-hook-rejected attempts, and permits resuming an existing worker. Missing history or other wording
-leaves budget enforcement to the coordinator. It preserves other tool arguments and
-native permission decisions. It cannot prove that the assignment is true or that the worker follows
-every instruction. Review worker results and verify integrated behavior.
+The helper checks coding handoffs in recognized code workspaces, rejects malformed or missing
+context, and adds a compact reminder to read the installed baseline and relevant linked guidance.
+It does not embed the full skill in every worker prompt. Explicit numeric or supported word-form
+agent limits are cumulative within a budget; repeated or changed limits retain prior usage. Only
+an explicit `Start a new delegation budget: use N agents` instruction resets it. Quoted, fenced or
+negated examples cannot increase the cap. Hook-rejected attempts do not consume a slot; resuming
+an existing worker does not allocate another. The host must validate resumed agent identities.
+
+A handoff into a different workspace must include an `isolation` object with `confirmed: true`,
+the matching absolute `workspace`, and a nonblank `reason`. Verify the actual checkout and its
+authority before making that declaration. Missing history, unsupported wording, permissions and
+semantic correctness remain coordinator responsibilities. The guard preserves other tool arguments
+and native permission decisions. Run the packaged regressions with:
+
+```sh
+python3 -B plugins/domain-driven-design/skills/domain-driven-design/scripts/test_guard_handoff.py
+```
 
 Start fresh sessions after setup. Test an ordinary coding request without the skill name and inspect
 loading, actual handoffs, changed paths, checks and limits. Do not substitute metadata validation for

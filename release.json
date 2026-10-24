@@ -2,18 +2,20 @@
   "catalog": "sigmastudioz",
   "plugins": {
     "domain-driven-design": {
-      "version": "1.1.0",
+      "version": "1.2.0",
       "files": {
-        ".claude-plugin/plugin.json": "9d7535abe51167bfa050c2849b465a570691c64f6447c827d051e91a21a64359",
-        ".codex-plugin/plugin.json": "2c7f7d835a6326f557d1c777b67b2abb2fe1520312b8c223f2a1d8b57ae87ec0",
-        ".cursor-plugin/plugin.json": "51d721a3c6aa100709fb50b1e47a2d42d50346d92725b2cb6920e01245dd7b0c",
+        ".claude-plugin/plugin.json": "a6c122efb8e38cb0b04bbc8bb47483adbdcd0a4bf2bb80717299c60525b59531",
+        ".codex-plugin/plugin.json": "52149127d8afdc54b498c08b31e03836c5813a2f07e0bc56258c0aedad6ab620",
+        ".cursor-plugin/plugin.json": "0766945d65e10fc9c983ad5ad4e6136e80ef513a507a92d6bf853c9abdcf37cd",
         "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
-        "README.md": "0c05c1243b18de64914d3ca9bbb493d4a0c61799f815f071b27d6cff6aadc806",
+        "README.md": "0dc85b0fa4a520623a01890b6ae431960b392b36f0c9f6e5fce6b3a444efa38c",
         "assets/icon.svg": "ecc444f42595ddaac663925c73dfd64b306fa0f2172a96fd49e4a2810dde348c",
-        "plugin.json": "0ed60ed9da7a34761a80188c91b8e389ffff52af2188b6ba0d65001442e30250",
-        "skills/domain-driven-design/SKILL.md": "9b7abbc0aa3523cfbe27c8b272026b526a9a97e9b04a8462d86a807787584103",
+        "plugin.json": "0e69c2d98b235a8ebb5fdf1796fdc0f9528069a349a9e378df58ff9be44b0944",
+        "skills/domain-driven-design/SKILL.md": "9c182f766ad185c9cb1236b30b65d287f377a449bffde5e46d530c8ae6794716",
         "skills/domain-driven-design/agents/openai.yaml": "81c161c20c997ded13ce15be615f5cc2a5b163f1036e44d88745c4f0894eff8e",
-        "skills/domain-driven-design/scripts/guard_handoff.py": "3a8783b79ad37f6157458272be6ab21ce811c452cff6df9d8376affea65966b1"
+        "skills/domain-driven-design/references/architecture.md": "8431a2d26b6562ef3ed834827ca8afe92ae679846dc60f50a1380e791f198a79",
+        "skills/domain-driven-design/scripts/guard_handoff.py": "26883eede549911b131f6d14149118a91704ca681f0d6703bbfb4c294196234f",
+        "skills/domain-driven-design/scripts/test_guard_handoff.py": "18f189970b77d3147cd31a760bece538c58c93a51a197de482bda0b30c747602"
       }
     },
     "visualizer": {
