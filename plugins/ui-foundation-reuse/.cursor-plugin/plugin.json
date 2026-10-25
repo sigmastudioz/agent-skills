@@ -1,0 +1,27 @@
+{
+  "license": "MIT",
+  "name": "ui-foundation-reuse",
+  "version": "1.0.0",
+  "description": "Reuse bundled React effects, lifecycle hooks and scene helpers from @sigmastudioz/ui-foundation. Includes runtime, source, types and license notices. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "displayName": "UI Foundation Reuse",
+  "publisher": "SigmaStudioz",
+  "keywords": [
+    "react",
+    "ui-foundation",
+    "reusable-effects",
+    "threejs",
+    "scene-helpers",
+    "shaders",
+    "reduced-motion",
+    "local-runtime",
+    "design-systems",
+    "agent-skills"
+  ],
+  "logo": "assets/icon.svg",
+  "category": "Developer Tools"
+}
