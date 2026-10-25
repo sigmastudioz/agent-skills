@@ -26,6 +26,11 @@
       "name": "engineering-spikes",
       "path": "./plugins/engineering-spikes",
       "category": "Productivity"
+    },
+    {
+      "name": "ui-foundation-reuse",
+      "path": "./plugins/ui-foundation-reuse",
+      "category": "Productivity"
     }
   ]
 }

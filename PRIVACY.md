@@ -1,10 +1,10 @@
 # Data handling
 
 Publisher: Lex from SigmaStudioz. Applies to Principal Driven Domain Design, SigmaStudioz Visualizer,
-SigmaStudioz Video Analysis and Engineering Spikes, including the optional local helpers shipped
+SigmaStudioz Video Analysis, Engineering Spikes and UI Foundation Reuse, including the optional local helpers shipped
 with the applicable plugins in this repository.
 
-These plugins provide instructions and optional local Python helpers. There is no publisher-hosted
+These plugins provide instructions and optional local Python/Node.js helpers. There is no publisher-hosted
 backend, account system or telemetry endpoint. Shipped helpers do not send media or project data to
 the publisher. The Video Analysis sampler invokes existing local FFmpeg/ffprobe; it does not install
 dependencies or download speech models. No hooks automatically register these media helpers.
@@ -41,3 +41,10 @@ does not silently install global rules or enable the optional helper; see [setup
 Support is through [GitHub Issues](https://github.com/sigmastudioz/agent-skills/issues). Issues are
 public; do not include credentials, private source, personal records or raw agent session logs.
 This notice describes these plugins' behavior; it does not replace the host provider's policies.
+
+UI Foundation Reuse reads its local runtime metadata/archive and a selected app manifest,
+then copies a checksum-verified archive into that app's vendor directory. It does not
+download code, install dependencies, send data or modify package manifests. A separately
+authorized package-manager install can access its configured registries for external peers.
+Visualizer's optional local renderer reads user-controlled scene/font files and invokes
+local FFmpeg to write video, captions and posters; no publisher service receives them.

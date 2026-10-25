@@ -1,6 +1,6 @@
 # Publication plan
 
-Publisher: **Lex from SigmaStudioz**. Catalog: `sigmastudioz`. Plugins: `domain-driven-design`, `visualizer`, `video-analysis`, `engineering-spikes`.
+Publisher: **Lex from SigmaStudioz**. Catalog: `sigmastudioz`. Plugins: `domain-driven-design`, `visualizer`, `video-analysis`, `engineering-spikes`, `ui-foundation-reuse`.
 Publisher profile: https://github.com/sigmastudioz.
 Public repository: https://github.com/sigmastudioz/agent-skills.
 MIT was selected by the publisher on 2026-10-18; root and plugin LICENSE files carry the notice
@@ -64,3 +64,15 @@ Primary references: [MIT text](https://opensource.org/license/mit),
 [Claude distribution](https://code.claude.com/docs/en/plugins/publish),
 [Cursor publishing](https://cursor.com/docs/plugins),
 [OpenAI submission and publisher identity](https://developers.openai.com/plugins/deploy/submission).
+
+## UI Foundation Reuse and Visualizer update
+
+UI Foundation Reuse1.0.0 includes runtime0.5.0 plus its original TypeScript source,
+compiled modules, type declarations and notices. Bundled head/brain geometry retains
+CC BY attribution; the implementation's MIT license does not replace those notices.
+Visualizer1.2.0 preserves its stable plugin/skill identity and demo assets, adding the
+latest local video workflow, renderer and optional reuse-companion routing.
+Update its existing draft and existing directory identities; do not create a second
+Visualizer or rename it to visualization-videos. UI Foundation Reuse is a distinct
+new plugin; check for an existing entry before creating any native submission.
+No new legal declarations are accepted by repository publication.

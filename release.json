@@ -20,24 +20,30 @@
       }
     },
     "visualizer": {
-      "version": "1.1.0",
+      "version": "1.2.0",
       "files": {
-        ".claude-plugin/plugin.json": "a184b7a891f9a4d2ed1c5b87ae5491015a2c8829bd8369171197d0e1011a4db4",
-        ".codex-plugin/plugin.json": "4cf727d8b4a6bc2646fe5bf6105c036edaa908cb8e5ae8ec224723e2d5dfbc45",
-        ".cursor-plugin/plugin.json": "3501fa090a737f5d30761fb05b35cdee987390046d1ec424176aa5de0173c4c2",
+        ".claude-plugin/plugin.json": "79bf9fb51c45ef9cbfdda9f2db0d4a082e0181677ba12935ba80e24697258505",
+        ".codex-plugin/plugin.json": "14a1d694935b4667b4c152e92671298c0086f12189c1c00988dd0c8a088a7b96",
+        ".cursor-plugin/plugin.json": "c74a02622d849f34333ab67bde2d2515242082d183014f1b5d69f1538cc1f35a",
         "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
-        "README.md": "f34c57afacefd1d27dbad396161fe22c628b0d6422c8afda3a728be34c75190b",
+        "README.md": "e3bb480a954f02c3340fe7c92879fb1c79265db46e9cc70e56c4c690479442b5",
         "assets/icon.svg": "f5189524ad356ee89798bae8327dbc293ac99f24a37cc0ada1a68a7d54541923",
-        "plugin.json": "0cda45d3164283270fe42d2e429e478ed0caa6e5ef84e5737398fdc66c3f1f07",
+        "plugin.json": "0fc29dbc9d9b781e2b4512ef26f9f4c00471629025920460106a6922febd0381",
         "skills/visualizer/LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
-        "skills/visualizer/SKILL.md": "fdcdea9ea6f87acfa9f4e54df11aeec275afdf5d99d3673b055dffb9c0437a41",
+        "skills/visualizer/SKILL.md": "44c56ec48bfdae388ceffac939db2f49caff57abe362dc2e2d52a1039baed4cf",
         "skills/visualizer/agents/openai.yaml": "95f40c760e352bbe656ceb521e47dd1a6a7937e13ce85e5152df6e8cb86ad117",
+        "skills/visualizer/references/art-direction.md": "8fd99cac68130bf8f85e5b07a623ad44498e23a43e2dc8d763152beabdbde514",
         "skills/visualizer/references/data.md": "0a11d80aed6efafb686c2863cbdaa21b231075372fb0773ce96450b825978665",
         "skills/visualizer/references/interactive.md": "ac2d18a9d770667e1c000de166c08463be471c2182db92bfbee18e1cb82d3b70",
-        "skills/visualizer/references/react-three-fiber.md": "374abd5ee6020fc5272e9e9d9536fbd97223ee8ba0c23ec19de1cafa2bd498da",
-        "skills/visualizer/references/rendering.md": "864ad7a8b02f7842f7995a39dfe1a4bbe54084854ab6568a547a13ce84f77289",
+        "skills/visualizer/references/motion-and-sound.md": "86920f112f6ce21433eee5b1edb51b9d47a8344a90e7f2c6d759d098daab82be",
+        "skills/visualizer/references/react-three-fiber.md": "62c318ea8f265e353f762e4a937b7e7b98eaeeed149ee3f19a08cec3a6ba4067",
+        "skills/visualizer/references/rendering.md": "39e8c60506d58eea3f51be5190840b66eac27c4536b9b817188ae6021ac7fc67",
+        "skills/visualizer/references/shaders.md": "77d65fd35d743b2d2fb62ab56265a38907852917b2c7b1376dc125f5929f02d8",
+        "skills/visualizer/references/storyboards.md": "13854cef1887232c3a36eedb68dd322d3a18205f9df5099d54103b49d009f334",
         "skills/visualizer/references/verification.md": "9a82bd52c89d0a6030097067f937bf15417bf290ff618e700418d074457ffd41",
-        "skills/visualizer/references/video.md": "8749f123083b55429a34e7d59bc888bed131109fe289c4a327cc882615e69dc8"
+        "skills/visualizer/references/video-export.md": "187bc47052a9f12c5f176f6bda662b9f33d91f6102a9479ce3eb5aed8ef95be9",
+        "skills/visualizer/references/video.md": "9c61f479e9607ef1cacbd151e0b73a274f8d9d4969fea600f0e34e2482042a1f",
+        "skills/visualizer/scripts/render.py": "57e09be0875d8e810f6a4bb63dbbfe9f77f9895969182c5da656cb4d3c14056a"
       }
     },
     "video-analysis": {
@@ -75,6 +81,26 @@
         "skills/engineering-spikes/assets/non-technical.template.md": "506af1ed6d10d4827145c29ec3da632c3f0b620b236dbc8765cf0c3582fa2eba",
         "skills/engineering-spikes/assets/technical.template.md": "ff44b94b80abac6b5eebe5ded91fe2ab64db1770ddce721090217f198dcaa5f5",
         "skills/engineering-spikes/references/confluence.md": "43f3ef92fd7b6a6aca0c8bc3505265e7618663d1ea7a7a631cdefc48bacd3b2a"
+      }
+    },
+    "ui-foundation-reuse": {
+      "version": "1.0.0",
+      "files": {
+        ".claude-plugin/plugin.json": "531b822e88eec8ca7619002e8474080cedb8a19ecd30a38bc0c133faf8336905",
+        ".codex-plugin/plugin.json": "8bc3f9b165983bb23da3dc3f57661831d6784e0907242ec8308bcf40a6730ded",
+        ".cursor-plugin/plugin.json": "7a751204a022b4e8dbdba435238148a6619e9b8e49992a784b308b977b585729",
+        "LICENSE": "7b83ecb33262b1eb1520aba2d0ff0705b835c988c89e94b0284769f2d8a0ab99",
+        "README.md": "65b06fe9c7d4fa3b0f888dd59beda8fc7bfeb4ed54f499ec558ade411ac07faa",
+        "assets/icon.svg": "ffabdeda1fb856ba322eb678ce765d6c359aec73d8ee5fb5951d15e0cb941699",
+        "plugin.json": "89802a8c5b89a7b293242764bfe68031169e26b898e18966be6516e627c0edb2",
+        "skills/ui-foundation-reuse/LICENSE": "7b83ecb33262b1eb1520aba2d0ff0705b835c988c89e94b0284769f2d8a0ab99",
+        "skills/ui-foundation-reuse/SKILL.md": "7f02ae5783b86d7e7ed854e0ff7d68dad874e074d9a9a355c35d6fae89ec8b40",
+        "skills/ui-foundation-reuse/agents/openai.yaml": "aae7dd31c55b82568950f77072a7b3a32741884a14b3542a08db516ae741906e",
+        "skills/ui-foundation-reuse/assets/bundle.json": "b1c96d10165f18f2c916f0f1aaf928e74818375909c77ad5b8713a8c6d282286",
+        "skills/ui-foundation-reuse/assets/ui-foundation.tgz": "6247098e8bce41a372c3edb41abc5f9965e0c03d994f7c2966728d9622a2714f",
+        "skills/ui-foundation-reuse/references/setup.md": "9b4b44447a921c6c851a81d1004b1ea0c0ae12fba5d448a3c2277cc0e5114077",
+        "skills/ui-foundation-reuse/references/third-party-notices.md": "49d7b7130ceb9f0fc1afd0653945029bdd4a4b13c45cffe1325d2deb30d4c072",
+        "skills/ui-foundation-reuse/scripts/stage-runtime.mjs": "c7cb60700223fbfbbfc5a1e71e3acf9a99b01729c51b49f0a0ed5f8a8a25947e"
       }
     }
   }
