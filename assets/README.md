@@ -88,3 +88,30 @@ Offline 60fps is not a realtime performance promise. This is an authored demonst
 fresh-agent efficacy test; captions are scene summaries without voiceover. Subjective listening
 was not performed by the agent. Original work is MIT by Lex from SigmaStudioz; dependencies
 retain their included licenses. No reference footage, private transcripts or account data is included.
+
+
+## UI Foundation Reuse upgrade film
+
+**Light takes form** is the additional 12-second 1280×720/24fps film after the original
+Visualizer demo. By **Lex from SigmaStudioz**. [MP4](visualizer-ui-foundation-demo.mp4?raw=true),
+[VTT scene summaries](visualizer-ui-foundation-demo.vtt),
+[poster](visualizer-ui-foundation-demo-poster.png),
+[editable source](visualizer-ui-foundation-demo-source.zip?raw=true) and
+[publication-time checks](visualizer-ui-foundation-validation.json).
+
+Extract the source ZIP, read `app/README.md`, then run its documented install, verify,
+build and render commands. It needs Node.js, Python 3, FFmpeg and Chrome/Chromium.
+Public React/Three/Vite/Playwright peers install separately; UI Foundation runtime0.5.0
+comes from the included local archive. Keep its MIT license and third-party notices.
+The original composition/app source is MIT; no reference footage or private logs are included.
+
+The app imports Gradient, World, ExplodedAssembly, GlassMaterial, ReflectiveFloor,
+PaperReveal and BrushWipe through public exports. Its own timeline and Fiber capture
+adapter sample the film clock; Gradient holds shader time fixed and changes public
+configuration. This demonstrates selected effects, not universal arbitrary-frame seeking.
+
+At publication the supplied MP4 metadata, full audio/video decode, distributed visual
+frames, source archive inventory and matching runtime checksum were checked. The source
+README records the original isolated build/render/seek verification; that run was not
+repeated or relabeled as new evidence. Audio listening and fresh native-agent efficacy
+are not claimed. Demo files stay outside plugin packages, preserving small marketplace sources.

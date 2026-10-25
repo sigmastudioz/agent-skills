@@ -144,3 +144,26 @@ Migration receipt `.principal-ddd/migration.json` records the exact pre-append m
 this section is newer canonical work, so hash-gated rollback must reconcile it rather than
 overwriting it. Public product/architecture docs remain in their normal documentation locations.
 No fresh agent efficacy, marketplace publication, production or universal host guarantee is implied.
+
+## UI Foundation Reuse 1.0.0 and Visualizer 1.2.0
+
+Scope: add one independently versioned UI Foundation Reuse plugin; update the existing
+Visualizer identity with the current local visualization-videos workflow. Existing interactive,
+data and R3F entry points, icons and demonstration media remain present.
+
+| Cluster | Connected paths and checked edges | Evidence / limits |
+| --- | --- | --- |
+| UI reuse | Skill -> setup -> checksum manifest -> staging helper -> contained runtime archive -> public exports/types | Runtime0.5.0, 74 public export targets; exact installed-source comparison, safe archive inventory, repeated staging, conflict preservation and symlink escape tests. Source/license and CC BY geometry notices retained. |
+| Visualizer video | Existing SKILL -> video routing -> art direction/storyboard/motion/shaders -> renderer -> captions/poster/FFmpeg export | Latest local helper and four references preserved; existing manual R3F frame/export guidance linked. Nine renderer regressions include real encoding, audio and full decode. Explicit scene clock is required; scene helpers do not imply arbitrary frame export. |
+| Distribution | Unique catalog entry -> four plugin manifests -> three generated host catalogs -> release inventory -> separate ZIPs | Catalog duplicate/path/version tests and Claude native validation pass. Cursor schemas and contained Markdown references checked. Other plugin bytes and existing media are unchanged. |
+
+83 repository tests passed using the bundled Python with Pillow. Skill metadata validation passes
+for both packaged skills. These checks prove package and helper behavior; no fresh native-agent
+efficacy or provider marketplace approval is inferred. Publication receipts remain in the owning
+release tracker, separate from provider decisions.
+
+User-requested upgrade film: existing Visualizer demo -> additional Light takes form
+player -> downloadable MP4/VTT/poster -> complete editable source -> public runtime
+imports -> app-owned timeline/capture adapter. Original film retained. Supplied archive
+is safe and checksum-consistent; full decode/metadata and six distributed frames checked.
+The original production-run claims remain identified as historical source documentation.

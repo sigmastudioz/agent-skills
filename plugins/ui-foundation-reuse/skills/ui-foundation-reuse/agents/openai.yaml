@@ -1,0 +1,6 @@
+interface:
+  display_name: "UI Foundation Reuse"
+  short_description: "Reuse bundled React effects and scene helpers"
+  default_prompt: "Use $ui-foundation-reuse to inspect this app and reuse compatible effects and scene helpers."
+policy:
+  allow_implicit_invocation: true

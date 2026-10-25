@@ -1,5 +1,10 @@
 # Art direction, Three.js and shaders
 
+For compatible React effects and scene infrastructure, apply the separately installed
+`ui-foundation-reuse` companion first. Its actual exports/types own reusable capabilities;
+keep custom subject geometry and the canonical timeline in this project. For video,
+read [shader timing and reuse](shaders.md) before claiming deterministic capture.
+
 ## Select a coherent visual world
 Study references at distributed timestamps and dense transition windows. Distinguish a finished
 shot, montage, tutorial claim and interaction demo. Do not infer a production stack from style.

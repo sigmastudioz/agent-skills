@@ -16,7 +16,7 @@ interactive and video modes; do only the modes the user needs.
 | --- | --- | --- |
 | Explore a system or compare scenarios | [Interactive](references/interactive.md) | Working controls and an inspectable visual |
 | Explain measured data | [Data](references/data.md) | Honest mappings, sources and accessible alternatives |
-| Produce a linear explanation film | [Video and sound](references/video.md) | Playable video, captions, editable sources |
+| Produce a linear explanation film | [Video and sound](references/video.md), then its conditional direction/export references | Playable video, captions, editable sources |
 | React 3D scenes, reusable components or R3F migration | [React Three Fiber](references/react-three-fiber.md) | Composable scene, explicit clock and verified lifecycle |
 | Rich motion, spatial scenes or shaders | [Art and rendering](references/rendering.md) | A renderer appropriate to the visual mechanism |
 | Any substantial artifact | [Trace and verify](references/verification.md) | Evidence, repaired gaps and explicit remaining limits |
@@ -28,6 +28,19 @@ renderer unless migration serves the requested outcome; do not add React to a si
 available host visualization surface when it can deliver the requested interaction. Use existing
 project tooling before introducing a stack. Do not require a particular vendor or paid service.
 Read only applicable references. A chart does not automatically need a video or 3D engine.
+
+## Reuse compatible React effects
+
+Before planning compatible React effects or scene infrastructure, discover and read the
+installed `ui-foundation-reuse` companion skill. Inspect the resolved package version,
+exports, types and optional peers; reuse compatible effects and shared lifecycle helpers.
+If no package exists, that skill includes a checksum-verified local runtime and staging
+workflow. Keep app layouts, branding, custom geometry, timeline and encoder app-owned.
+The companion is separately installed; do not assume a home directory or source checkout.
+Report an unavailable companion or archive and continue independent 2D/storyboard work.
+Do not add React to a non-React task or silently replace the user's chosen renderer.
+Inspect actual pause/seeking contracts before choosing a film adapter: live RAF motion
+is not an arbitrary-frame export API. Verify effects in the encoded output.
 
 ## Principal-level brief
 Infer audience, question, takeaway, medium, destination and useful default controls. Ask only

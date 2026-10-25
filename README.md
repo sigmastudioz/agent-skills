@@ -90,10 +90,13 @@ await reviewer activation. Cursor, Codex and Antigravity publication is not yet 
 
 | Plugin | Purpose | Version |
 | --- | --- | --- |
-| [SigmaStudioz Visualizer](plugins/visualizer/README.md) | React Three Fiber scenes, interactive visuals, simulations and visualization videos | 1.1.0 |
+| [SigmaStudioz Visualizer](plugins/visualizer/README.md) | React Three Fiber scenes, interactive visuals, simulations and visualization videos | 1.2.0 |
 | [SigmaStudioz Video Analysis](plugins/video-analysis/README.md) | Timestamped visual/audio evidence, adaptive frame inspection and transcript correlation | 1.0.0 |
+| [UI Foundation Reuse](plugins/ui-foundation-reuse/README.md) | Bundled React effects, lifecycle and scene helpers with local runtime staging | 1.0.0 |
 
-Install either skill with `npx skills add sigmastudioz/agent-skills --skill visualizer` or
+Install UI Foundation Reuse with `npx skills add sigmastudioz/agent-skills --skill ui-foundation-reuse`.
+
+Install either visual skill with `npx skills add sigmastudioz/agent-skills --skill visualizer` or
 `npx skills add sigmastudioz/agent-skills --skill video-analysis`. Both are by **Lex from SigmaStudioz**.
 See their documentation for requirements and validation limits. Official marketplace review is separate.
 
@@ -146,4 +149,4 @@ for support; do not post private code, credentials or session logs.
 
 Author bylines and manifests credit **Lex from SigmaStudioz**. Directory publisher labels also
 use the platform's verified identity. [MIT](LICENSE) permits reuse, modification and commercial
-distribution with the copyright and license notice preserved. Each plugin includes its notice.
+distribution with the copyright and license notice preserved. Each plugin includes its notice. UI Foundation Reuse also preserves CC BY notices for bundled geometry; see its documentation.
