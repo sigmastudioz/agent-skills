@@ -1,0 +1,50 @@
+{
+  "checked_at": "2026-10-25T22:39:23.467774+00:00",
+  "title": "Light takes form",
+  "author": "Lex from SigmaStudioz",
+  "source": "User supplied local output and adjacent editable source archive",
+  "media": {
+    "duration_seconds": 12,
+    "width": 1280,
+    "height": 720,
+    "fps": 24,
+    "video_codec": "H.264",
+    "audio_codec": "AAC",
+    "channels": 2,
+    "sample_rate": 48000,
+    "full_decode": "passed",
+    "visual_review": "six distributed decoded frames inspected",
+    "listening_review": false
+  },
+  "runtime_version": "0.5.0",
+  "runtime_sha256": "6247098e8bce41a372c3edb41abc5f9965e0c03d994f7c2966728d9622a2714f",
+  "exports_shown": [
+    "Gradient",
+    "World",
+    "ExplodedAssembly",
+    "GlassMaterial",
+    "ReflectiveFloor",
+    "PaperReveal",
+    "BrushWipe"
+  ],
+  "reuse_evidence": "Public imports and app timeline/capture adapter inspected in supplied source. App owns original geometry, composition, clock and encoding. Selected export demonstration; not universal seek support.",
+  "original_run_checks": "Supplied README records isolated install/build/render and exact-time seek checks. Not rerun or relabeled as new publication-time proof.",
+  "files": {
+    "visualizer-ui-foundation-demo-poster.png": {
+      "bytes": 486688,
+      "sha256": "26acfdd7924551f736c5a353a1e48275e12f20dfe68b90902e1c2248bc1caf95"
+    },
+    "visualizer-ui-foundation-demo-source.zip": {
+      "bytes": 1845467,
+      "sha256": "0410d4ad0917ddc74378a1b23ff27ab8cf9ea9bb022a2c519b86569d3ceedc58"
+    },
+    "visualizer-ui-foundation-demo.mp4": {
+      "bytes": 1730127,
+      "sha256": "0220dd1677aff54923ca7a6df3aee363ea905419f80e9b64d0397b3e07ed7177"
+    },
+    "visualizer-ui-foundation-demo.vtt": {
+      "bytes": 333,
+      "sha256": "a6e59612f368303ca82b08ec550a3f57dfe7beff1067d4a5485edb56455f9599"
+    }
+  }
+}
