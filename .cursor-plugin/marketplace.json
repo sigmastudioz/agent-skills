@@ -26,6 +26,11 @@
       "name": "engineering-spikes",
       "source": "./plugins/engineering-spikes",
       "description": "Plan timeboxed engineering spikes, trace evidence to decisions, and deliver separate stakeholder and technical documents for Confluence. By Lex from SigmaStudioz."
+    },
+    {
+      "name": "ui-foundation-reuse",
+      "source": "./plugins/ui-foundation-reuse",
+      "description": "Reuse bundled React effects, lifecycle hooks and scene helpers from @sigmastudioz/ui-foundation. Includes runtime, source, types and license notices. By Lex from SigmaStudioz."
     }
   ]
 }
