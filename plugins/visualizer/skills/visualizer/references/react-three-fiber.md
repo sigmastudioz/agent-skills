@@ -1,5 +1,10 @@
 # React Three Fiber: reusable interactive scenes and films
 
+For compatible React effects and scene infrastructure, apply the separately installed
+`ui-foundation-reuse` companion first. Its actual exports/types own reusable capabilities;
+keep custom subject geometry and the canonical timeline in this project. For video,
+read [shader timing and reuse](shaders.md) before claiming deterministic capture.
+
 ## Choose and verify the runtime
 Use R3F for new React-based 3D explanations, shader scenes and reusable spatial components.
 Keep SVG/HTML/plotting for legible 2D information. Preserve working vanilla Three.js unless an
