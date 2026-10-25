@@ -161,3 +161,9 @@ data and R3F entry points, icons and demonstration media remain present.
 for both packaged skills. These checks prove package and helper behavior; no fresh native-agent
 efficacy or provider marketplace approval is inferred. Publication receipts remain in the owning
 release tracker, separate from provider decisions.
+
+User-requested upgrade film: existing Visualizer demo -> additional Light takes form
+player -> downloadable MP4/VTT/poster -> complete editable source -> public runtime
+imports -> app-owned timeline/capture adapter. Original film retained. Supplied archive
+is safe and checksum-consistent; full decode/metadata and six distributed frames checked.
+The original production-run claims remain identified as historical source documentation.
