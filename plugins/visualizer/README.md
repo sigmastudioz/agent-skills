@@ -22,6 +22,27 @@ The film is an authored demonstration, not a recorded agent session or a product
 performance benchmark. Captions are timed scene summaries; there is no voiceover.
 [Reproduce the preview and inspect export checks](../../assets/README.md#react-three-fiber-visualizer-film).
 
+## UI Foundation Reuse upgrade: Light takes form
+
+https://github.com/user-attachments/assets/18032b0e-c269-4d64-bb6f-b0b6106474b5
+
+This additional 12-second film by **Lex from SigmaStudioz** demonstrates the 1.2.0
+workflow with the **UI Foundation Reuse** companion: a bundled shader backdrop, shared
+scene host, controlled assembly, glass material, reflective floor and seeded paper reveals
+compose an original sculpture. The app owns the geometry, composition and capture clock.
+
+[Download MP4](../../assets/visualizer-ui-foundation-demo.mp4?raw=true) ·
+[Captions: VTT](../../assets/visualizer-ui-foundation-demo.vtt) ·
+[Poster](../../assets/visualizer-ui-foundation-demo-poster.png) ·
+[Editable source ZIP](../../assets/visualizer-ui-foundation-demo-source.zip?raw=true) ·
+[Export checks](../../assets/visualizer-ui-foundation-validation.json)
+
+The film is 1280×720 at 24 fps with an original synthesized stereo score; captions
+are scene summaries, with no narration. The source includes runtime 0.5.0, licenses
+and an app-specific frame adapter. Its selected effects demonstrate actual reuse;
+this does not imply every effect supports seeking or establish fresh agent efficacy.
+[Reproduction and timing limits](../../assets/README.md#ui-foundation-reuse-upgrade-film).
+
 ## Install
 
 ```sh
@@ -54,13 +75,19 @@ and the optional deterministic Pillow/FFmpeg renderer. Read its
 Pillow, FFmpeg and fonts are external prerequisites; no global install occurs.
 The helper is suitable for simple diagrams, code and metrics, not every creative reference.
 
-For compatible React effects, install the separate
+For compatible React effects, add the companion alongside Visualizer:
+
+```sh
+npx skills add sigmastudioz/agent-skills --skill ui-foundation-reuse
+```
+
+Use the separate
 [UI Foundation Reuse companion](../ui-foundation-reuse/README.md). It includes its runtime;
 Visualizer does not duplicate that archive. Inspect installed exports and motion clocks
 before promising frame-driven capture. Keep interactive and film outputs tied to one
 model/timeline; preserve a suitable non-React renderer.
 
-The existing demos below remain historical authored examples. This instruction/helper
+The original demo above remains a historical authored example. This instruction/helper
 update does not establish fresh native-agent efficacy or directory approval.
 
 ## React Three Fiber introduced in 1.1.0
