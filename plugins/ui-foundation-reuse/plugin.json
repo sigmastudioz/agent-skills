@@ -1,0 +1,30 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "license": "MIT",
+  "name": "ui-foundation-reuse",
+  "version": "1.0.0",
+  "description": "Reuse bundled React effects, lifecycle hooks and scene helpers from @sigmastudioz/ui-foundation. Includes runtime, source, types and license notices. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "UI Foundation Reuse",
+        "shortDescription": "Reusable React effects and scene infrastructure",
+        "longDescription": "Reuse bundled React effects, lifecycle hooks and scene helpers from @sigmastudioz/ui-foundation. Includes runtime, source, types and license notices. By Lex from SigmaStudioz. The staging helper copies a checksum-verified local archive into an authorized app; dependency installation is a separate user-scoped action. No publisher backend or automatic downloads.",
+        "developerName": "Lex from SigmaStudioz",
+        "websiteURL": "https://github.com/sigmastudioz",
+        "supportURL": "https://github.com/sigmastudioz/agent-skills/issues",
+        "privacyPolicyURL": "https://github.com/sigmastudioz/agent-skills/blob/main/PRIVACY.md",
+        "category": "Developer Tools",
+        "capabilities": [],
+        "logo": "./assets/icon.svg",
+        "composerIcon": "./assets/icon.svg"
+      }
+    }
+  }
+}
