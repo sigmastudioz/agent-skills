@@ -1,0 +1,4 @@
+interface:
+  display_name: "Does It Make Sense?"
+  short_description: "Trace a finished build back to its intended outcome"
+  default_prompt: "Use $does-it-make-sense to explain the actual build, trace it back to the end goal, and recommend concrete refinements within the existing scope."

@@ -31,6 +31,11 @@
       "name": "ui-foundation-reuse",
       "source": "./plugins/ui-foundation-reuse",
       "description": "Reuse bundled React effects, lifecycle hooks and scene helpers from @sigmastudioz/ui-foundation. Includes runtime, source, types and license notices. By Lex from SigmaStudioz."
+    },
+    {
+      "name": "does-it-make-sense",
+      "source": "./plugins/does-it-make-sense",
+      "description": "Explain an existing build, trace actual behavior back to the end goal, and recommend evidence-backed refinements within scope. By Lex from SigmaStudioz."
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "license": "MIT",
   "name": "ui-foundation-reuse",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Reuse bundled React effects, lifecycle hooks and scene helpers from @sigmastudioz/ui-foundation. Includes runtime, source, types and license notices. By Lex from SigmaStudioz.",
   "author": {
     "name": "Lex from SigmaStudioz",

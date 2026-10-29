@@ -1,7 +1,7 @@
 # Data handling
 
 Publisher: Lex from SigmaStudioz. Applies to Principal Driven Domain Design, SigmaStudioz Visualizer,
-SigmaStudioz Video Analysis, Engineering Spikes and UI Foundation Reuse, including the optional local helpers shipped
+SigmaStudioz Video Analysis, Engineering Spikes, Does It Make Sense? and UI Foundation Reuse, including the optional local helpers shipped
 with the applicable plugins in this repository.
 
 These plugins provide instructions and optional local Python/Node.js helpers. There is no publisher-hosted
@@ -48,3 +48,9 @@ download code, install dependencies, send data or modify package manifests. A se
 authorized package-manager install can access its configured registries for external peers.
 Visualizer's optional local renderer reads user-controlled scene/font files and invokes
 local FFmpeg to write video, captions and posters; no publisher service receives them.
+
+Does It Make Sense? provides instructions for reviewing a user-authorized build and its
+goal/evidence records. It has no executable helper, publisher backend or required external
+connector. Assessment may read confidential project context and produce local findings;
+keep them in the owning project. Implementation, external messages and uploads require
+the corresponding user authorization. Host/provider data handling remains applicable.

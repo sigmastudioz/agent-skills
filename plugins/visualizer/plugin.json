@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "license": "MIT",
   "name": "visualizer",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.",
   "author": {
     "name": "Lex from SigmaStudioz",

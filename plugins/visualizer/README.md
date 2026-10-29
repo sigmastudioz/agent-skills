@@ -1,6 +1,6 @@
 # SigmaStudioz Visualizer
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.2.0.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.2.1.
 
 Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.
 
@@ -89,6 +89,15 @@ model/timeline; preserve a suitable non-React renderer.
 
 The original demo above remains a historical authored example. This instruction/helper
 update does not establish fresh native-agent efficacy or directory approval.
+
+## Feedback and learning in 1.2.1
+
+The [learning reference](skills/visualizer/references/learning.md) connects reviewed feedback
+to bounded storyboard and production decisions. Keep project-specific identities, assets,
+voice choices and configuration in project notes. Promote only supported reusable lessons;
+a successful encode and creative approval are distinct observations. This instruction update
+preserves the existing interactive/R3F routes, renderer, demos and stable `visualizer` identity.
+It does not imply model training, background learning or fresh native-agent efficacy.
 
 ## React Three Fiber introduced in 1.1.0
 

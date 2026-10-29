@@ -20,21 +20,22 @@
       }
     },
     "visualizer": {
-      "version": "1.2.0",
+      "version": "1.2.1",
       "files": {
-        ".claude-plugin/plugin.json": "79bf9fb51c45ef9cbfdda9f2db0d4a082e0181677ba12935ba80e24697258505",
-        ".codex-plugin/plugin.json": "14a1d694935b4667b4c152e92671298c0086f12189c1c00988dd0c8a088a7b96",
-        ".cursor-plugin/plugin.json": "c74a02622d849f34333ab67bde2d2515242082d183014f1b5d69f1538cc1f35a",
+        ".claude-plugin/plugin.json": "83faf50068be88a2155371830a457143dab7a7f21181355b980eca82b977d7af",
+        ".codex-plugin/plugin.json": "d70bc4851bca25c2a6407e258be6ad39ee6c6caac07ba7f9565939de8ce50c18",
+        ".cursor-plugin/plugin.json": "d52f631a071d8bdb9b3bf6541ea83812c4bde1c858ec418cb600dfe67095821c",
         "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
-        "README.md": "694217ee68ae23ec7b65ad365bdcaf0fe831f7a8388c296af8bc48cd92fbc099",
+        "README.md": "a2be1fb6547ad39f842a306bc7d5b15d191900a1fd9d309e05fadf9abdf03c2e",
         "assets/icon.svg": "f5189524ad356ee89798bae8327dbc293ac99f24a37cc0ada1a68a7d54541923",
-        "plugin.json": "0fc29dbc9d9b781e2b4512ef26f9f4c00471629025920460106a6922febd0381",
+        "plugin.json": "3cf3ec22e76ffe946d52915996639b8c5d9bd1df1d2f80b69a880582da6cf2df",
         "skills/visualizer/LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
-        "skills/visualizer/SKILL.md": "44c56ec48bfdae388ceffac939db2f49caff57abe362dc2e2d52a1039baed4cf",
+        "skills/visualizer/SKILL.md": "a5a15cb9e6ebcbbb94f5e1cfb593480442f8531c0c7020d54371adb34d48c321",
         "skills/visualizer/agents/openai.yaml": "95f40c760e352bbe656ceb521e47dd1a6a7937e13ce85e5152df6e8cb86ad117",
         "skills/visualizer/references/art-direction.md": "8fd99cac68130bf8f85e5b07a623ad44498e23a43e2dc8d763152beabdbde514",
         "skills/visualizer/references/data.md": "0a11d80aed6efafb686c2863cbdaa21b231075372fb0773ce96450b825978665",
         "skills/visualizer/references/interactive.md": "ac2d18a9d770667e1c000de166c08463be471c2182db92bfbee18e1cb82d3b70",
+        "skills/visualizer/references/learning.md": "9278a854df1b2b0c1a002a9cd11f7215dc8692f132ae773536b645c87ae2fb31",
         "skills/visualizer/references/motion-and-sound.md": "86920f112f6ce21433eee5b1edb51b9d47a8344a90e7f2c6d759d098daab82be",
         "skills/visualizer/references/react-three-fiber.md": "62c318ea8f265e353f762e4a937b7e7b98eaeeed149ee3f19a08cec3a6ba4067",
         "skills/visualizer/references/rendering.md": "39e8c60506d58eea3f51be5190840b66eac27c4536b9b817188ae6021ac7fc67",
@@ -42,7 +43,7 @@
         "skills/visualizer/references/storyboards.md": "13854cef1887232c3a36eedb68dd322d3a18205f9df5099d54103b49d009f334",
         "skills/visualizer/references/verification.md": "9a82bd52c89d0a6030097067f937bf15417bf290ff618e700418d074457ffd41",
         "skills/visualizer/references/video-export.md": "187bc47052a9f12c5f176f6bda662b9f33d91f6102a9479ce3eb5aed8ef95be9",
-        "skills/visualizer/references/video.md": "9c61f479e9607ef1cacbd151e0b73a274f8d9d4969fea600f0e34e2482042a1f",
+        "skills/visualizer/references/video.md": "3d127bd248c17068d2f56291af9c878b38af4538a956d26e16b9c8555c39457c",
         "skills/visualizer/scripts/render.py": "57e09be0875d8e810f6a4bb63dbbfe9f77f9895969182c5da656cb4d3c14056a"
       }
     },
@@ -84,23 +85,37 @@
       }
     },
     "ui-foundation-reuse": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "files": {
-        ".claude-plugin/plugin.json": "531b822e88eec8ca7619002e8474080cedb8a19ecd30a38bc0c133faf8336905",
-        ".codex-plugin/plugin.json": "8bc3f9b165983bb23da3dc3f57661831d6784e0907242ec8308bcf40a6730ded",
-        ".cursor-plugin/plugin.json": "7a751204a022b4e8dbdba435238148a6619e9b8e49992a784b308b977b585729",
+        ".claude-plugin/plugin.json": "0771bd7a98f63492a06468a742fe5dd71a8a547f30d3a34e6893f2a0a90e5a79",
+        ".codex-plugin/plugin.json": "900530ee6208f41c7ebefe3cd7d5bfb6d4180b7a868646ad100a338313ddc4e5",
+        ".cursor-plugin/plugin.json": "47762eac4263bee9b7d17616c58d49355c3180c7f635de6ff0f68f43427e91aa",
         "LICENSE": "7b83ecb33262b1eb1520aba2d0ff0705b835c988c89e94b0284769f2d8a0ab99",
-        "README.md": "65b06fe9c7d4fa3b0f888dd59beda8fc7bfeb4ed54f499ec558ade411ac07faa",
+        "README.md": "f21049a51245f9025e816dcad2c890f7b470d1aa1d9a3e8efcd7cc2bfcb9e7e7",
         "assets/icon.svg": "ffabdeda1fb856ba322eb678ce765d6c359aec73d8ee5fb5951d15e0cb941699",
-        "plugin.json": "89802a8c5b89a7b293242764bfe68031169e26b898e18966be6516e627c0edb2",
+        "plugin.json": "334962c33d6362dcab9d296c8670ff403bdf8304ee2a007cbc3d3a9ab60ec0b4",
         "skills/ui-foundation-reuse/LICENSE": "7b83ecb33262b1eb1520aba2d0ff0705b835c988c89e94b0284769f2d8a0ab99",
-        "skills/ui-foundation-reuse/SKILL.md": "7f02ae5783b86d7e7ed854e0ff7d68dad874e074d9a9a355c35d6fae89ec8b40",
+        "skills/ui-foundation-reuse/SKILL.md": "d63a7f2d66aeca2111617e8c7578639bc44cbacc60be2a4c976aa65b1d887e36",
         "skills/ui-foundation-reuse/agents/openai.yaml": "aae7dd31c55b82568950f77072a7b3a32741884a14b3542a08db516ae741906e",
-        "skills/ui-foundation-reuse/assets/bundle.json": "b1c96d10165f18f2c916f0f1aaf928e74818375909c77ad5b8713a8c6d282286",
-        "skills/ui-foundation-reuse/assets/ui-foundation.tgz": "6247098e8bce41a372c3edb41abc5f9965e0c03d994f7c2966728d9622a2714f",
-        "skills/ui-foundation-reuse/references/setup.md": "9b4b44447a921c6c851a81d1004b1ea0c0ae12fba5d448a3c2277cc0e5114077",
+        "skills/ui-foundation-reuse/assets/bundle.json": "8479e88b50e5406aa5e9e0f5e62a5ec4d87a53a1d86eb6c2d1f5eb091e231285",
+        "skills/ui-foundation-reuse/assets/ui-foundation.tgz": "d08c4e0b447bade19f7ea77d5bf138b7e0976cd7da3d947385dc78fda96bfe2c",
+        "skills/ui-foundation-reuse/references/setup.md": "ca6fac0b6ec67e4ef40a7478294c7d9dc6ef42712c366ca96b642d1d680b8f5f",
         "skills/ui-foundation-reuse/references/third-party-notices.md": "49d7b7130ceb9f0fc1afd0653945029bdd4a4b13c45cffe1325d2deb30d4c072",
         "skills/ui-foundation-reuse/scripts/stage-runtime.mjs": "c7cb60700223fbfbbfc5a1e71e3acf9a99b01729c51b49f0a0ed5f8a8a25947e"
+      }
+    },
+    "does-it-make-sense": {
+      "version": "1.0.0",
+      "files": {
+        ".claude-plugin/plugin.json": "e36058bc6414dbab5c6a15b88df42646d2e907c7cb6b2ec5e4022be2920f0dd7",
+        ".codex-plugin/plugin.json": "75febc0d63264ca2410fe9a0c887442db94b2296d031da01f41023713a6416a1",
+        ".cursor-plugin/plugin.json": "56664b4a211a6d16ff4f8178be36ceaeb4eca6aa8f4b68da49070fb49af7a75d",
+        "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
+        "README.md": "b8428de95d59177e471c6174b9cc88f6d924145177ce1d3236b0be2fe5f57e2a",
+        "assets/icon.svg": "e86034b3f9cbbad2173064937ee136af9a1314e53727b0583267b329be3d6428",
+        "plugin.json": "ba12c48147a043a679357f9e800982bed76499c0aa8e723092eea70305a95387",
+        "skills/does-it-make-sense/SKILL.md": "6d22b8874f4504ef87d2383f2fa266445938f9cdc43c85744e703ea1f34c024e",
+        "skills/does-it-make-sense/agents/openai.yaml": "69b6f93123b9b0bd30426928a0f56fc1d597b20b61f2ca51403a7d8a290bbde2"
       }
     }
   }

@@ -15,6 +15,9 @@ takeaway, duration, aspect ratio, destination, branding, factual sources, and th
 action the viewer should take. Ask only about missing choices that block useful work.
 For a social explainer, a short portrait draft is a useful default, not a universal rule.
 Keep project-specific state in the project, never in this installed skill.
+Before choosing the direction, read [feedback and learning](learning.md)
+and any relevant project learning notes. Apply lessons that fit the current brief;
+the user’s current direction takes precedence over earlier preferences.
 
 ## Analyze a reference without pretending to recover its source
 
@@ -129,6 +132,15 @@ asset rights, render command, checked outputs and unresolved issues; preserve ot
 When library effects are used, identify the actual runtime version, public exports
 reused, and any timing/export adapter or remaining gap. An animated browser preview
 does not establish that those effects appear correctly in the encoded video.
+
+## Learn from reviewed work
+
+After meaningful user feedback or a reviewed delivery, follow
+[feedback and learning](learning.md). Record the feedback, the change,
+and the observed outcome in the project; promote only supported, reusable lessons
+into the skill. Keep project identities, assets, voice selections and service
+configuration in project notes. Distinguish user approval from technical checks,
+and do not claim that saving a lesson retrains the model or guarantees future quality.
 
 For manual R3F frame capture, preview controls and authorized inline delivery, read
 [export and public delivery](video-export.md). The stable installed skill ID remains `visualizer`.

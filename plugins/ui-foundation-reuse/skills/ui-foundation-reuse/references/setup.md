@@ -157,12 +157,17 @@ media, dependency installations or maintainer filesystem is included.
 
 Maintainers run `npm run build` in the library repository after capability/API changes
 to refresh the runtime, source, license, checksum metadata and shareable
-`dist/ui-foundation-reuse.zip`. Registered agent folders and shared ZIP paths in
+`dist/ui-foundation-reuse.zip`. A registered Visualizer source also produces
+`dist/sigmastudioz-visualizer-kit.zip` from both skills and the current runtime,
+with setup instructions and complete checksums. Registered agent folders and ZIP paths in
 the repository's ignored `.reuse-skill.local.json` synchronize during the same build;
 the repository README documents registration. `npm run dev` automatically repeats
-the full build and synchronization when effects, exports or authored skill files change.
-CI creates the ZIP without writing to agent home folders. `npm run check:skill`
-verifies payload, ZIP and registered-copy freshness without modifying them, and
-`npm run test:skill` checks local-only installation, distribution and watch behavior.
+the full build and synchronization when effects, exports, authored skill files or the
+registered external Visualizer change. CI creates the standalone ZIP without writing
+to agent home folders; the combined kit needs an explicit `UI_FOUNDATION_VISUALIZER_DIR`
+build input. A missing configured source fails without replacing the last combined ZIP.
+`npm run check:skill` verifies configured payloads, ZIPs and mirrors without modifying them;
+`npm run check:kit` requires the combined kit. `npm run test:skill` checks local-only
+installation, distribution and watch behavior.
 Consumers need only the distributed skill folder; maintainer build tooling is not
 required for using the included runtime.
