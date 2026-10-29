@@ -1,0 +1,30 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "license": "MIT",
+  "name": "does-it-make-sense",
+  "version": "1.0.0",
+  "description": "Explain an existing build, trace actual behavior back to the end goal, and recommend evidence-backed refinements within scope. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Does It Make Sense?",
+        "shortDescription": "Trace a build back to its intended outcome",
+        "longDescription": "Explain an existing build, trace actual behavior back to the end goal, and recommend evidence-backed refinements within scope. By Lex from SigmaStudioz. Assessment is read-only unless fixes are authorized. No executable helper, required service or automatic account changes. Repository availability is separate from native marketplace review.",
+        "developerName": "Lex from SigmaStudioz",
+        "websiteURL": "https://github.com/sigmastudioz",
+        "supportURL": "https://github.com/sigmastudioz/agent-skills/issues",
+        "privacyPolicyURL": "https://github.com/sigmastudioz/agent-skills/blob/main/PRIVACY.md",
+        "category": "Developer Tools",
+        "capabilities": [],
+        "logo": "./assets/icon.svg",
+        "composerIcon": "./assets/icon.svg"
+      }
+    }
+  }
+}

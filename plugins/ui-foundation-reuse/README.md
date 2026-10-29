@@ -1,10 +1,10 @@
 # UI Foundation Reuse
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.0.0.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.1.0.
 
 Reuse compatible React effects and scene infrastructure without a library download. This
 plugin includes the complete `ui-foundation-reuse` skill and the bundled
-`@sigmastudioz/ui-foundation` 0.5.0 runtime: CJS/ESM modules, TypeScript declarations,
+`@sigmastudioz/ui-foundation` 0.7.0 runtime: CJS/ESM modules, TypeScript declarations,
 original source and license notices. React and optional rendering peers are external.
 
 ## Install
@@ -36,6 +36,16 @@ encoded output before promising deterministic video capture.
 Taste, Impeccable, img2threejs and Visualizer are independent companion skills. This
 plugin neither installs them nor requires React for a non-React task. A missing peer,
 damaged archive or unsupported renderer must be reported rather than hidden.
+
+## Changes in 1.1.0
+
+Refresh the bundled runtime to 0.7.0 and its matching source, types and checksum metadata.
+Guidance now covers image distortion facades, thermal color ramps, iridescent ribbons,
+rain-on-glass, native foil composition and current scene/physics loading constraints.
+Inspect platform peers and actual public exports before selecting an effect. The runtime
+contains 85 public export entries and 2,431 files; these inventory counts do not establish
+visual correctness, native-agent efficacy or compatibility with every consuming application.
+Existing app-vendored versions remain pinned until deliberately upgraded.
 
 ## Data and licenses
 

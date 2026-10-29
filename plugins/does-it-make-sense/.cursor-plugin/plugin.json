@@ -1,0 +1,23 @@
+{
+  "license": "MIT",
+  "name": "does-it-make-sense",
+  "version": "1.0.0",
+  "description": "Explain an existing build, trace actual behavior back to the end goal, and recommend evidence-backed refinements within scope. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "displayName": "Does It Make Sense?",
+  "publisher": "SigmaStudioz",
+  "keywords": [
+    "outcome-review",
+    "gap-analysis",
+    "goal-tracing",
+    "post-build-review",
+    "scope-control",
+    "concrete-refinements"
+  ],
+  "logo": "assets/icon.svg",
+  "category": "Developer Tools"
+}

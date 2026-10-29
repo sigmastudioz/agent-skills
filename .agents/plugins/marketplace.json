@@ -63,6 +63,18 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Productivity"
+    },
+    {
+      "name": "does-it-make-sense",
+      "source": {
+        "source": "local",
+        "path": "./plugins/does-it-make-sense"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
     }
   ]
 }
