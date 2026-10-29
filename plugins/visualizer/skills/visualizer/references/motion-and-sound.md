@@ -22,8 +22,11 @@ sound. Preserve the brief's actual medium instead of defaulting to a text-slide 
 
 ## Compose sound around actions
 
-- Create a cue sheet: event ID, exact time, visual cause, sound family, level, duration,
-  and stereo position. Derive picture and sound from the same event/timeline source.
+Follow the [sound-design pass](sound-design.md) for cue anchors, asset rights, mixing
+and final-export review. Read [verified tool options](sound-tools.md) only when a
+separate sourcing, placement or synthesis tool is useful. Preserve the same owned
+timeline; a tool's cue detector or score does not set the film's creative direction.
+
 - Use distinct, coherent materials: soft paper friction/folds, rounded contact clicks,
   air movement for travel, tension for a break, and a clear resolution for recovery.
   Do not label synthesized noise as recorded foley.
@@ -33,10 +36,8 @@ sound. Preserve the brief's actual medium instead of defaulting to a text-slide 
   understandable in mono and through the picture; headphones are not a requirement.
 - Vary density. Duck or pause the bed at a meaningful interruption; allow the repair
   and final reveal to resolve. Avoid continuous maximum intensity or repetitive hits.
-- Keep narration intelligible. Use original, licensed, or authorized sources and never
-  clone the reference presenter. Without narration, captions must still explain the film.
-- Measure the final encoded mix for loudness and true peak. Use a destination-appropriate
-  target; preserve dynamics. Report actual measurements and listening-review limits.
+- Without narration, captions must still explain the film. A sparse or silent edit
+  can meet the brief; do not add layers merely because a tool flags low density.
 
 ## Actual interactivity and verification
 

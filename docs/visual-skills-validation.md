@@ -1,5 +1,30 @@
 # Visual skill validation and scope
 
+## Visualizer 1.3.0 sound workflow
+
+The optional sound bridge connects Openverse public discovery/download, a separately
+installed Earshot DSP bank and Real SFX's local mixer. Sixteen guard tests cover source
+snapshots, asset rights and origin, finite cue times, duplicate identities, explicit
+audio preservation, bounded network reads/retries and existing output protection.
+Review found that upstream mixing can overwrite same-basename WAV/report files even
+when the requested MP4 is new; the bridge now rejects that whole output namespace
+before launching the mixer. Regression cases preserve existing stems and reports.
+
+A scoped 12-second local film used a CC0 Freesound asset obtained through Openverse's
+license/source filter route, an Earshot whoosh and local synthetic narration. Its
+360 H.264 frames and AAC export decoded successfully. Measured effect peaks were
+6.94ms and 8.31ms from authored times at 30fps; speech-keyed effects attenuation was
+5.96dB, and the encoded mix measured −16.0 LUFS / −3.6dBTP. Local ASR recovered all
+narration words. First/mechanism/final picture frames were inspected. These are
+technical integration checks; human listening, taste and pronunciation approval are
+not established. A fresh reproduction also runs through the installed skill.
+
+Openverse keyword requests timed out during this run; explicit filtered browsing and
+the selected download worked. Optional model-assisted analysis and FFmpeg
+drawtext/rubberband paths were not exercised. Tools and fonts are host prerequisites,
+not bundled runtimes. Existing native marketplace review and agent-selection evidence
+remain separate. The following sections retain their historical candidate scope.
+
 By Lex from SigmaStudioz. Candidates: **Visualizer1.0.0** and **Video Analysis1.0.0**.
 Both are original MIT packages. Visualizer combines interactive visuals and video generation in
 one skill; Video Analysis is separate and can supply an evidence brief to it. Neither requires

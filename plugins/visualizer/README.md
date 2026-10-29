@@ -1,6 +1,6 @@
 # SigmaStudioz Visualizer
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.2.1.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.3.0.
 
 Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.
 
@@ -89,6 +89,28 @@ model/timeline; preserve a suitable non-React renderer.
 
 The original demo above remains a historical authored example. This instruction/helper
 update does not establish fresh native-agent efficacy or directory approval.
+
+## Sound-design workflow in 1.3.0
+
+The [sound-design pass](skills/visualizer/references/sound-design.md) adds editable cues,
+asset rights and provenance, audible onset/peak/end anchors, speech-safe mixing and
+review of the actual encoded export. Intentional silence remains a valid choice.
+The [sound runtime and bridge](skills/visualizer/references/sound-runtime.md) connect
+Openverse audio discovery/download, Earshot generation and Real SFX mixing. Tools
+use a separately provisioned isolated host runtime; no automatic installation, model
+fetch, account setup or upload follows from installing Visualizer.
+
+A local 12-second integration test exercised a CC0 asset from Openverse's source/license
+filter route, an Earshot whoosh and narration mixed through Real SFX. Effect peaks
+landed within 9 ms of their targets at 30fps; the encoded mix measured −16.0 LUFS and
+−3.6 dBTP, and local ASR recovered all narration words. These are scoped technical
+checks, not subjective listening approval or fresh native-agent efficacy.
+
+Openverse keyword queries timed out during the test; explicit filtered browsing and
+download worked. Optional analysis models and FFmpeg drawtext/rubberband paths were
+not exercised. The bridge refuses existing MP4s and same-basename stems/reports/work
+folders before invoking the mixer. Existing interactive/R3F routes and both earlier
+demos remain available; marketplace reviewer activation is separate.
 
 ## Feedback and learning in 1.2.1
 

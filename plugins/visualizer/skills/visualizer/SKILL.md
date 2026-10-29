@@ -29,6 +29,11 @@ available host visualization surface when it can deliver the requested interacti
 project tooling before introducing a stack. Do not require a particular vendor or paid service.
 Read only applicable references. A chart does not automatically need a video or 3D engine.
 
+For film audio, use the [sound-design pass](references/sound-design.md) and
+[sound runtime](references/sound-runtime.md). The optional Openverse, Earshot and
+Real SFX bridge connects asset rights, audible cue anchors, speech-safe mixing and
+final-export checks. External tools are provisioned separately on each host.
+
 ## Reuse compatible React effects
 
 Before planning compatible React effects or scene infrastructure, discover and read the

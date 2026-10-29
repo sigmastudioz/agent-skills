@@ -1,5 +1,71 @@
 # Collection catalog trace
 
+## Visualizer 1.3.0 release review — 2026-10-29
+
+Human authorized review, push to the main collection, a Visualizer release and one
+skills.sh refresh while preserving existing marketplace identities. Review found a
+blocking output collision: a fresh MP4 name could overwrite an approved same-basename
+WAV/report through upstream FFmpeg `-y`. `sound_design.mix_output` now rejects existing
+stem/report/work namespaces before launching the mixer. Sixteen guard tests include
+seven existing-sidecar cases and a non-MP4 rejection. The installed-skill reproduction
+was rerun after this fix and retained −16.0 LUFS / −3.6dBTP with speech-keyed ducking.
+
+Release trace: Visualizer1.3.0 portable + three native manifests -> unchanged six-entry
+registry -> generated hashes -> self-contained versioned ZIP -> main/release/index
+verification. Only Visualizer's plugin inventory changes; the other five inventories
+remain byte-identical. Root privacy documentation now describes optional Openverse
+requests/downloads and project-local sound records. No source media, model/runtime
+payloads, private config, new directory intake or legal reacceptance is included.
+Official provider approval/activation remains separate from this release.
+
+
+## 2026-10-29 installed sound runtime and end-to-end test (local, unreleased)
+
+The subsequent human request explicitly authorized installing and integrating all
+three tools and testing a short film. This supersedes the earlier documentation-only
+scope below; it does not change any published version or marketplace receipt.
+
+| Module/consumer | Connected trace and checks | Status / boundary |
+| --- | --- | --- |
+| scripts/sound_design.py | Skill -> sound-runtime.md -> CLI doctor/search/fetch/generate/mix -> pinned isolated runtime -> final playable export | SOUND-01 fixed-and-verified on this host; identical standalone and Visualizer adapters, 14 guard tests |
+| Openverse adapter | HTTPS query/filter -> saved result ID -> reviewed original CC0 item -> bounded download -> ffprobe/hash/provenance -> cue | SOUND-02 supported filtered-browse/download route verified live; keyword searches time out externally and remain an explicit limitation, never silently relabeled as matches |
+| Earshot adapter | Revision/dirty-tree check -> offline model-free bank render -> recipe/seed/audited WAV -> provenance -> mixer | SOUND-03 verified 0.4.0 / 591fa3e028032e6dce56620a20e932e35667e8d8; original whoosh clean, no optional analysis models fetched |
+| Real SFX adapter | Validated picture/cue/asset snapshot -> project-local config and explicit files -> plan -> speech-keyed mix/stems -> AAC -> decoded export | SOUND-04 verified edbefcbc3474869e6cc1e8a7ca583b0efd0dab7e; no automatic cue snapping, destructive stem extraction or tonal fitting. Origin metadata distinguishes generated files from upstream generic “library” labels |
+| Revision/rights/failure contracts | Reject stale picture, changed assets, missing clearance/origin, duplicate IDs, nonfinite time, ambiguous audio preservation, double base/stems and existing output; bounded download/retry | SOUND-05 verified by 14 guard tests and actual short-video invocation; unsupported optional drawtext/rubberband paths remain reported |
+| 12-second test film | Openverse CC0 pop + Earshot whoosh + local narration -> authored cues -> Real SFX -> 360 H.264 frames/AAC -> final metrics/ASR/visual frames | SOUND-06 technical pass: cue peaks +6.94ms/+8.31ms, voice-keyed SFX attenuation 5.96dB, −16.0 LUFS / −3.6dBTP. All narration words recovered; exact final AAC payload matches analyzed draft. Listening/taste approval remains unclaimed |
+| Installed/distribution consumers | Standalone skill -> Codex/Claude aliases and separate Cursor copy; Visualizer video mode -> same self-contained refs/script -> catalog hashes | SOUND-07 13-file installed copies and ZIP byte-verified, 20/34 local links valid, schemas pass, 8 catalog tests, native catalog validation passes with existing metadata warnings; installed-skill reproduction also passes |
+
+Local task artifacts live outside this public repository in the owning task's
+`outputs/visualization-sound-e2e/`: verified-demo.mp4, editable storyboard/plan,
+rights/provenance, separate effects/stems, reproduce.py and e2e-verification.json.
+The final video SHA-256 is
+`a17e45830c7063eaaf3c926babbe73635d51d8fea275932e6db9a8bb51e5a4bb`.
+The audio ends at 11.908s, leaving 92ms within the intentional silent picture tail.
+No private/runtime paths or third-party tool repositories are bundled in the skill.
+Openverse is a remote API client, not a locally hosted service. Native agent skill
+selection on other hosts, optional model analysis and subjective listening are not
+established by these checks. No release, push or duplicate submission was performed.
+
+## 2026-10-29 sound-design guidance update (local, unreleased)
+
+Scope: human-authorized visualization-videos sound pass and verified optional tools;
+no renderer changes, tool installation, release or marketplace action. The installed
+standalone skill, shared archive and Visualizer video consumer carry the same sound
+references. Existing publication receipts still describe their published revisions.
+
+| Path/consumer | Trace and check | Result/limit |
+| --- | --- | --- |
+| visualization-videos SKILL.md / Visualizer references/video.md | Audio route -> sound-design.md -> sound-tools.md -> original timeline/assets/mixer -> encoded export | Connected local reference links: 15 standalone, 29 Visualizer; no broken targets |
+| sound-design.md | Cues with intent/quiet decisions -> cleared assets or recipes -> processed audible anchors -> speech-safe mix -> mux -> measured/listening review | Manual scenario review: silent brief, 2.000 s cue minus .320 s peak, missing tools/rights, no clean stems, narration masking and unjustified score-driven density; no rendered efficacy test claimed |
+| sound-tools.md | Openverse official API/terms; Clipwing source edbefcbc3474869e6cc1e8a7ca583b0efd0dab7e; Earshot source 591fa3e028032e6dce56620a20e932e35667e8d8 / 0.4.0 | Docs/source verified; API query timed out; external tools not installed/executed. Asset rights, provisioned environment and final listening remain task-specific |
+| Installed copies / standalone archive | Canonical skill -> existing Codex/Claude symlinks; separate Cursor copy refreshed; ZIP -> byte comparison with source | 10 installed files hash-verified across two existing folders; 11-file ZIP round-trip verified, no caches |
+| Collection integration | Video reference -> self-contained sound references -> release.json hashes | Both skill schemas pass; 8 catalog tests pass; generated catalogs/hashes pass --check. No new version/release/native activation claim |
+
+The optional tools complement existing project mechanics. Real SFX voice-safe and
+music-led duck flags have different directions; arbitrary combined tracks cannot be
+assumed cleanly separable. Earshot metering/model evidence is not taste, speech
+transcription or licensing clearance. These limits are carried into the instructions.
+
 Scope: adding future independently versioned plugins to the SigmaStudioz collection. Reviewed
 2026-10-18. This record covers catalog tooling, not universal skill efficacy or an official listing.
 

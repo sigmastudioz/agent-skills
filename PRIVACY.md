@@ -49,6 +49,15 @@ authorized package-manager install can access its configured registries for exte
 Visualizer's optional local renderer reads user-controlled scene/font files and invokes
 local FFmpeg to write video, captions and posters; no publisher service receives them.
 
+Visualizer's optional sound bridge sends the selected search terms and source/license
+filters to Openverse, then downloads a chosen asset from its source host. Those services
+receive the network request under their own policies. The bridge does not upload local
+media, project files or narration. It stores result metadata, the rights-review note,
+asset hashes, cue plans, runtime paths and mix reports locally in the selected project.
+Earshot bank rendering and Real SFX mixing run in a separately configured local runtime;
+the bridge disables optional model fetching and does not register an MCP server. Installing
+the skill does not install that runtime or authorize new uploads, accounts or paid calls.
+
 Does It Make Sense? provides instructions for reviewing a user-authorized build and its
 goal/evidence records. It has no executable helper, publisher backend or required external
 connector. Assessment may read confidential project context and produce local findings;
