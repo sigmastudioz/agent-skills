@@ -94,6 +94,17 @@ Use an isolated environment when dependencies are needed; do not change global s
 
 ## Sound, captions, and framing
 
+For a film with audio, perform the [sound-design pass](sound-design.md)
+after the rough picture edit and before final export. Keep editable cues tied to
+visual causes and the actual picture revision; source or generate suitable assets,
+clear their rights, resolve audible anchors, mix around speech, and review the encoded
+result. Silence is a valid choice. Read [verified tool options](sound-tools.md)
+only when choosing Openverse, Real SFX or Earshot; they are optional, separately
+provisioned tools. Their availability does not establish listening quality.
+When those tools are installed, use the [sound runtime](sound-runtime.md)
+and bundled bridge to search/download, generate and mix a project cue sheet. Check
+actual runtime availability; a packaged adapter does not provision another host.
+
 Map sound cues to explicit visual events on the same timeline. Distinguish a linear
 film's synchronized/reactive soundtrack from actual interactive playback controls.
 An MP4 does not become interactive merely because effects follow its movements.
@@ -123,6 +134,10 @@ verify duration, dimensions, frame rate, codecs, audio, first/last frames and sa
 Readability needs visual inspection, not only a successful encode. Listen to sound if
 possible and distinguish structural audio checks from a listening review.
 Do not label a video fully verified when essential scenes, audio, or playback are unchecked.
+
+For audio work, carry cue/asset provenance, resolved timing and final-mix measurements
+through to the exported file. Report listening coverage separately from structural
+checks and supply timestamped questions for any remaining audio review.
 
 Deliver the MP4, poster, scene source, caption file, reproduction command, evidence notes,
 and any actual remaining limits. Do not publish posts or uploads merely because a launch

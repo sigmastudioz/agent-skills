@@ -91,7 +91,7 @@ await reviewer activation. Cursor, Codex and Antigravity publication is not yet 
 
 | Plugin | Purpose | Version |
 | --- | --- | --- |
-| [SigmaStudioz Visualizer](plugins/visualizer/README.md) | React Three Fiber scenes, interactive visuals, simulations and visualization videos | 1.2.1 |
+| [SigmaStudioz Visualizer](plugins/visualizer/README.md) | React Three Fiber scenes, interactive visuals, simulations and visualization videos | 1.3.0 |
 | [SigmaStudioz Video Analysis](plugins/video-analysis/README.md) | Timestamped visual/audio evidence, adaptive frame inspection and transcript correlation | 1.0.0 |
 | [UI Foundation Reuse](plugins/ui-foundation-reuse/README.md) | Bundled React effects, lifecycle and scene helpers with local runtime staging | 1.1.0 |
 
