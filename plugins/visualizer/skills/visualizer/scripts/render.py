@@ -66,6 +66,15 @@ def validate(data):
     require(sum(s['duration'] for s in scenes) <= 300, 'Maximum runtime is 300 seconds')
 
 
+def parse_size(text):
+    """Parse WIDTHxHEIGHT; both dimensions must be even and within 640–3840 pixels."""
+    parts = str(text).split('x')
+    require(len(parts) == 2 and all(p.isdigit() for p in parts), 'Output size must be WIDTHxHEIGHT, e.g. 1080x1920')
+    size = tuple(int(p) for p in parts)
+    require(all(640 <= n <= 3840 and n % 2 == 0 for n in size), 'Output dimensions must be even and between 640 and 3840 pixels')
+    return size
+
+
 def ease(x):
     x = max(0, min(1, x))
     return 1 - (1 - x) ** 3
@@ -213,8 +222,7 @@ def main():
     ap.add_argument('--still', type=float); ap.add_argument('--validate-only', action='store_true')
     ap.add_argument('--overwrite', action='store_true'); args = ap.parse_args()
     data = json.loads(args.storyboard.read_text(encoding='utf-8')); validate(data)
-    size = tuple(map(int, args.size.split('x')))
-    require(len(size)==2 and all(640 <= n <= 3840 and n%2==0 for n in size), 'Invalid even output dimensions')
+    size = parse_size(args.size)
     require(args.fps in (24, 25, 30, 60), 'Unsupported frame rate')
     renderer = Renderer(data, size, args.font, args.mono_font)
     require(all(abs(s['duration']*args.fps-round(s['duration']*args.fps)) < 1e-6 for s in data['scenes']), 'Scene durations must align to frames')

@@ -1,11 +1,19 @@
 # Does It Make Sense?
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.0.0.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.0.1.
 
 Understand what was actually built and whether the intended user can achieve the original
 end goal. Trace from the problem through real entry points, implementation, state changes
 and downstream effects to the terminal result. Trace significant components backward to
 the outcome or constraint they serve.
+
+## Changes in 1.0.1
+
+Makes implicit invocation explicit in UI metadata and adds portable synthetic pressure cases
+with summarized historical observations. Clarifies that a stakeholder request quoted inside a
+ticket is assessment input, not authorization from the person requesting the review.
+[Scenario evidence](skills/does-it-make-sense/tests/README.md) retains known baseline limits;
+this release does not claim a fresh independent-agent evaluation.
 
 ## Install
 

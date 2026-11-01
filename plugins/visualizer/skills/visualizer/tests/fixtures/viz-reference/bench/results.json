@@ -1,0 +1,17 @@
+{
+  "measured_on": "2026-10-28",
+  "machine": "MacBook Pro M3, 1 Gbps uplink, us-east-1 bucket",
+  "method": "three repetitions, median reported",
+  "runs": [
+    {
+      "files": 10000,
+      "total_mb": 812,
+      "first_sync_seconds": 3.2
+    },
+    {
+      "files": 10000,
+      "changed_files": 37,
+      "second_sync_seconds": 0.41
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "ledgerline",
+  "private": true,
+  "version": "2.3.1",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}

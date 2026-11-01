@@ -8,6 +8,14 @@ import sys
 EXPECTED = Path(__file__).resolve().parents[1] / 'SKILL.md'
 REQUIRED = ('goal', 'limits', 'workspace', 'revision', 'owns', 'interfaces',
             'state', 'evidence', 'next', 'return', 'trace', 'checks', 'baseline')
+SESSION_TOOL = 'mcp__ccd_session__start_session'
+DELEGATION_TOOLS = {'Task', 'Agent', SESSION_TOOL}
+CODE_WORK = re.compile(
+    r'\b(code|codebase|repo|repository|checkout|implement|refactor|debug|test|api|worker|module|'
+    r'service|function|architecture|source|feature|bug|fix|fixes|ship|deploy|build|component|'
+    r'endpoint|schema|migration|database|frontend|backend|ui|page|app|dependency|package|lint|'
+    r'commit|branch|merge|pull request|pr|hook|script|cli)\b'
+    r'|\.(m?js|tsx?|jsx|py|rs|go|java|cs|cpp|swift|kts?|fs|vb|csproj|fsproj|vbproj|slnx?|hpp)\b', re.I)
 
 
 def reject(problem, contract=False):
@@ -29,6 +37,26 @@ def meaningful(value):
 def is_resume(inputs):
     return (isinstance(inputs, dict) and isinstance(inputs.get('resume'), str)
             and bool(inputs['resume'].strip()))
+
+
+def session_phase(tool, inputs):
+    """Which checks a delegation call needs: (counts against budget, carries a handoff brief).
+
+    Task/Agent calls do both. The desktop session tool has three shapes: an "offer" card
+    (title only, nothing runs, nothing to validate); a proposal with a brief (validate the
+    brief now; it only runs once the user starts it, so it is not budget yet); and a start
+    (``user_asked`` with a brief, or ``proposal_id`` alone, whose brief was validated when
+    proposed).
+    """
+    if tool != SESSION_TOOL:
+        return True, True
+    if not isinstance(inputs, dict):
+        return True, True
+    if meaningful(inputs.get('proposal_id')):
+        return True, False
+    if not isinstance(inputs.get('prompt'), str):
+        return False, False
+    return inputs.get('initiation') != 'own_initiative', True
 
 
 def command_lines(text):
@@ -96,8 +124,9 @@ def budget_history(path):
                 for block in blocks:
                     identifier = block.get('id')
                     if (event.get('type') == 'assistant' and block.get('type') == 'tool_use'
-                            and block.get('name') in {'Task', 'Agent'} and isinstance(identifier, str)
-                            and not is_resume(block.get('input')) and identifier not in calls):
+                            and block.get('name') in DELEGATION_TOOLS and isinstance(identifier, str)
+                            and not is_resume(block.get('input')) and identifier not in calls
+                            and session_phase(block.get('name'), block.get('input'))[0]):
                         calls.append(identifier)
                     result_id = block.get('tool_use_id')
                     if (event.get('type') == 'user' and block.get('type') == 'tool_result'
@@ -117,12 +146,16 @@ except (ValueError, OSError):
     reject('Hook input must be valid JSON')
 if not isinstance(data, dict):
     reject('Hook input must be an object')
-if data.get('tool_name') not in {'Task', 'Agent'}:
+tool_name = data.get('tool_name')
+if tool_name not in DELEGATION_TOOLS:
     raise SystemExit(0)
 inputs = data.get('tool_input')
 if not isinstance(inputs, dict):
     reject('tool_input must be an object')
-if not isinstance(inputs.get('prompt'), str):
+needs_budget, needs_handoff = session_phase(tool_name, inputs)
+if not needs_budget and not needs_handoff:
+    raise SystemExit(0)  # An offer card: nothing runs and no brief exists yet.
+if needs_handoff and not isinstance(inputs.get('prompt'), str):
     reject('prompt must be text')
 if inputs.get('resume') is not None and not is_resume(inputs):
     reject('resume must be a nonempty agent identifier when supplied')
@@ -148,7 +181,7 @@ except (OSError, RuntimeError, ValueError):
 if not coding_workspace:
     raise SystemExit(0)
 limit, calls, rejected = budget_history(data.get('transcript_path'))
-if limit is not None and not is_resume(inputs):
+if limit is not None and needs_budget and not is_resume(inputs):
     current = data.get('tool_use_id')
     calls = [call for call in calls if call not in rejected]
     if isinstance(current, str) and current and current not in calls:
@@ -157,8 +190,10 @@ if limit is not None and not is_resume(inputs):
     if position >= limit:
         reject(f'Delegation budget exhausted ({limit}). User limits override optional workflows. '
                'Complete further reviews and integration in the coordinator; do not retry with another role.')
+if not needs_handoff:
+    raise SystemExit(0)  # Starting an already-validated proposal: budget checked above.
 prompt = inputs['prompt']
-if not re.search(r'\b(code|codebase|repo|repository|checkout|implement|refactor|debug|test|api|worker|module|service|function|architecture|source)\b|\.(m?js|tsx?|jsx|py|rs|go|java|cs|cpp|swift|kts?|fs|vb|csproj|fsproj|vbproj|slnx?|hpp)\b', prompt, re.I):
+if not CODE_WORK.search(prompt):
     raise SystemExit(0)
 handoff = {}
 try:

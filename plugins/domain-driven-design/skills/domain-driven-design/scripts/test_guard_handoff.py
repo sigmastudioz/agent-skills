@@ -401,6 +401,69 @@ class HandoffGuardTests(unittest.TestCase):
         self.events(self.call('earlier-unscoped'), self.user('Use 1 agent'), self.call('within-budget'))
         self.assert_blocked(self.run_guard(), 'Delegation budget exhausted (1)')
 
+    SESSION = 'mcp__ccd_session__start_session'
+
+    def session_call(self, identifier, **inputs):
+        return {'type': 'assistant', 'message': {'content': [
+            {'type': 'tool_use', 'name': self.SESSION, 'id': identifier, 'input': inputs}]}}
+
+    def test_session_start_with_code_brief_requires_handoff(self):
+        for initiation in ('user_asked', 'own_initiative'):
+            with self.subTest(initiation=initiation):
+                result = self.run_guard(tool_name=self.SESSION, tool_input={
+                    'title': 'Fix invoice', 'initiation': initiation,
+                    'prompt': 'Review repository source and fix the total.', 'background': 'x' * 80})
+                self.assert_blocked(result, 'Missing nonempty')
+
+    def test_session_offer_card_without_brief_is_untouched(self):
+        result = self.run_guard(tool_name=self.SESSION, tool_input={'title': 'Fix invoice', 'initiation': 'offer'})
+        self.assertEqual((result.returncode, result.stdout), (0, ''))
+
+    def test_valid_session_brief_is_prefixed_and_other_fields_kept(self):
+        result = self.run_guard(tool_name=self.SESSION, tool_input={
+            'title': 'Fix invoice', 'initiation': 'user_asked', 'prompt': self.prompt(), 'background': 'b' * 80})
+        self.assertEqual(result.returncode, 0, result.stderr)
+        updated = json.loads(result.stdout)['hookSpecificOutput']['updatedInput']
+        self.assertTrue(updated['prompt'].endswith(self.prompt()))
+        self.assertEqual((updated['title'], updated['initiation'], updated['background']),
+                         ('Fix invoice', 'user_asked', 'b' * 80))
+
+    def test_session_proposal_does_not_consume_budget_but_start_does(self):
+        self.events(self.user('Use 0 agents'))
+        proposal = self.run_guard(tool_name=self.SESSION, tool_input={
+            'title': 'Fix invoice', 'initiation': 'own_initiative', 'prompt': self.prompt(), 'background': 'b' * 80})
+        self.assertEqual(proposal.returncode, 0, proposal.stderr)
+        for inputs in ({'title': 'Fix invoice', 'initiation': 'user_asked', 'prompt': self.prompt(), 'background': 'b' * 80},
+                       {'proposal_id': 'task_123'}):
+            with self.subTest(inputs=inputs):
+                self.assert_blocked(self.run_guard(tool_name=self.SESSION, tool_input=inputs),
+                                    'Delegation budget exhausted (0)')
+
+    def test_prior_session_start_consumes_budget_and_prior_proposal_does_not(self):
+        self.events(self.user('Use 1 agent'),
+                    self.session_call('card', title='t', initiation='own_initiative', prompt='p', background='b'))
+        self.assertEqual(self.run_guard().returncode, 0)
+        self.events(self.user('Use 1 agent'), self.session_call('started', proposal_id='task_123'))
+        self.assert_blocked(self.run_guard(), 'Delegation budget exhausted (1)')
+        self.events(self.user('Use 1 agent'),
+                    self.session_call('direct', title='t', initiation='user_asked', prompt='p', background='b'))
+        self.assert_blocked(self.run_guard(), 'Delegation budget exhausted (1)')
+
+    def test_everyday_coding_language_triggers_handoff_check(self):
+        for prompt in ['Add a dark mode toggle to the settings page and ship it',
+                       'Fix the bug in the checkout flow', 'Build the new onboarding feature',
+                       'Open a PR for the migration', 'Deploy the frontend']:
+            with self.subTest(prompt=prompt):
+                self.assert_blocked(self.run_guard(prompt), 'Missing nonempty')
+
+    def test_prose_assignments_remain_untouched_in_coding_workspace(self):
+        for prompt in ['Translate this sentence into French', 'Summarize the meeting notes',
+                       'Draft a thank-you email to the client']:
+            with self.subTest(prompt=prompt):
+                result = self.run_guard(prompt)
+                self.assertEqual((result.returncode, result.stdout), (0, ''))
+
+
 
 if __name__ == '__main__':
     unittest.main()

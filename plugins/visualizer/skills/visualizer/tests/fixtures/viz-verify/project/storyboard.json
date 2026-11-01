@@ -1,0 +1,89 @@
+{
+  "brand": "SIGMASTUDIOZ",
+  "author": "Lex from SigmaStudioz",
+  "scenes": [
+    {
+      "id": "decide",
+      "duration": 6,
+      "kind": "graph",
+      "eyebrow": "01 / HOW IT DECIDES",
+      "title": "Only changed files move",
+      "body": "Every file is hashed; only new hashes upload.",
+      "caption": "Hash locally, compare to the manifest, upload the difference.",
+      "nodes": [
+        {
+          "id": "files",
+          "label": "Folder",
+          "x": 0.2,
+          "y": 0.3
+        },
+        {
+          "id": "hash",
+          "label": "Hashes",
+          "x": 0.5,
+          "y": 0.5,
+          "tone": "accent"
+        },
+        {
+          "id": "bucket",
+          "label": "Bucket",
+          "x": 0.8,
+          "y": 0.7,
+          "tone": "good"
+        }
+      ],
+      "edges": [
+        {
+          "from": "files",
+          "to": "hash"
+        },
+        {
+          "from": "hash",
+          "to": "bucket"
+        }
+      ]
+    },
+    {
+      "id": "run",
+      "duration": 6,
+      "kind": "code",
+      "eyebrow": "02 / ONE COMMAND",
+      "title": "Sync a site",
+      "body": "Set-up for a new bucket ships in 3 days.",
+      "caption": "One command syncs the folder; repeat runs touch only what changed.",
+      "label": "terminal",
+      "lines": [
+        "$ sigma sync ./site s3://acme-site",
+        "  hashed 10,000 files",
+        "  uploaded 37 changed files",
+        "  done in 0.41 s"
+      ],
+      "highlight": [
+        3
+      ]
+    },
+    {
+      "id": "numbers",
+      "duration": 6,
+      "kind": "metrics",
+      "eyebrow": "03 / MEASURED",
+      "title": "Benchmarked 2026-10-28",
+      "body": "Median of three runs on an M3 laptop.",
+      "caption": "Numbers come from bench/results.json; first sync then a 37-file change.",
+      "items": [
+        {
+          "value": "3.2 s",
+          "label": "first sync, 10k files"
+        },
+        {
+          "value": "0.41 s",
+          "label": "second sync, 37 changed"
+        },
+        {
+          "value": "812 MB",
+          "label": "folder size"
+        }
+      ]
+    }
+  ]
+}

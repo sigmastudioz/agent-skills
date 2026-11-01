@@ -1,8 +1,17 @@
 # SigmaStudioz Visualizer
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.3.0.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.3.1.
 
 Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.
+
+## Changes in 1.3.1
+
+Adds explicit even-dimension validation (640–3840 pixels), a supported Pillow dependency range,
+portable CLI regressions and updated sound-runtime commands. The video-only local workflow is
+merged into this existing package; interactive diagrams, data, React Three Fiber, shaders,
+manual export guidance and demos remain available. Existing sound-output collision safeguards
+are retained. [Pressure scenarios](skills/visualizer/tests/README.md) contain synthetic inputs
+and historical results with explicit limits, not a new efficacy claim.
 
 ## Watch the demo
 

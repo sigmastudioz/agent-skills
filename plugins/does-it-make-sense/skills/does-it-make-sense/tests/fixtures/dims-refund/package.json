@@ -1,0 +1,9 @@
+{
+  "name": "northwind-orders",
+  "private": true,
+  "version": "3.1.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}

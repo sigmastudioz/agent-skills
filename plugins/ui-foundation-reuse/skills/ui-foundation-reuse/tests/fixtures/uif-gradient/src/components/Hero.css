@@ -1,0 +1,6 @@
+.hero { position: relative; min-height: 80vh; overflow: hidden; color: #f4f6fb; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 0 8vw; }
+.hero-bg { position: absolute; inset: 0; background: #0b1020; }
+.hero-copy { position: relative; z-index: 1; max-width: 36rem; }
+.hero-copy h1 { font-size: clamp(2.4rem, 5vw, 4.2rem); line-height: 1.05; margin: 0 0 1rem; }
+.hero-art { position: relative; z-index: 1; justify-self: end; }
+.cta { display: inline-block; margin-top: 1.5rem; padding: .9rem 1.4rem; background: #35d0c8; color: #061018; border-radius: 999px; text-decoration: none; font-weight: 600; }

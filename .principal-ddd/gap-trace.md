@@ -1,5 +1,30 @@
 # Collection catalog trace
 
+## Maintained skill releases — November 1
+
+Scope: synchronize four maintained skills from the existing six-plugin collection at
+571947f. Release DDD 1.4.0, Visualizer 1.3.1, UI Foundation Reuse 1.1.1 and Does It Make
+Sense? 1.0.1. Engineering Spikes and Video Analysis retain exact prior inventories.
+No new catalog identity, native submission, source check, legal acceptance or support message.
+
+| Cluster | Trace, review and verification | Remaining boundary |
+| --- | --- | --- |
+| DDD guidance and guard | Entrypoint -> focused architecture/handoff/tracing/verification references -> documented PreToolUse matcher -> coding request/session offer/proposal/start -> cumulative budget and validated brief -> reminder. Corrected setup matcher to register the added desktop tool. All packaged guard regressions run through the collection gate. | Only the named host tool is supported; permissions, real isolation and natural-language intent remain host/coordinator responsibilities. No global hook settings changed. |
+| Visualizer | Stable interactive/data/R3F entrypoints retained; local video guidance rebased into video.md -> sound/storyboard/dependency references -> size parser/layout -> encoder/captions/poster. Corrected two relative script links and isolated test imports to preserve root discovery. Real encode/full decode and existing sound namespace protections pass. | No new rich-scene, subjective listening, external sound service or model-efficacy claim. |
+| UI reuse | Expanded guide -> all 85 existing runtime export entries -> unchanged 0.7.0 archive/source/types/notices -> app-local staging helper. All guide entries present in the bundled package; integrity, contained targets, conflict/idempotency/symlink checks pass. | Runtime was not rebuilt because its bytes/API are unchanged; consuming apps remain pinned. Native rendering not rerun. |
+| Outcome review | Request authority -> existing goal -> terminal consumer -> bounded recommendation. Recorded refund scenario exposed quoted-ticket ambiguity; clarified that quoted stakeholder text does not grant user authorization. Existing implicit discovery made explicit in metadata. | The narrow clarification was reviewed but not retested with a fresh model; historical scenarios retain their original tested hashes. |
+| Portable scenarios | Eight synthetic tasks/fixture folders and summarized historical comparisons included. Raw sessions, host paths/configuration and the duplicated host-only generator excluded. Historical baseline contamination and no-difference cases retained. | These are repeatable inputs and limited historical evidence, not fresh causal efficacy scores. No agents spawned. |
+| Distribution | Four native/portable manifests per changed plugin -> unchanged six-entry registry -> generated release inventory -> four complete ZIPs. Unchanged plugins and existing media compared by hash. | Native directory activation and skills.sh backing snapshots remain separate provider observations. No installs/telemetry or marketplace requests repeated. |
+
+Validation: 119 collection tests passed, no skips; 29 distributed renderer/sound tests passed,
+no skips. Four skill validators passed; 88 relative skill links resolve inside the repository.
+Claude native validation passed with the existing 12 nonblocking icon/documentationUrl warnings.
+JSON, Python syntax, runtime integrity/exports, unique identities and excluded-skill checks pass.
+The first suite attempt exposed imported test-directory shadowing; the test loader path is now
+restored after importing the renderer, and the full suite then passed. No unrelated applications,
+private source media, model installations or operational records were changed.
+
+
 ## Visualizer 1.3.0 release review — 2026-10-29
 
 Human authorized review, push to the main collection, a Visualizer release and one

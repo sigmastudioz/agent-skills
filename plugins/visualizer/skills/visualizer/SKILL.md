@@ -5,6 +5,7 @@ license: MIT
 ---
 
 # SigmaStudioz Visualizer
+Regression scenarios and their recorded limits: [tests](tests/README.md).
 By [Lex from SigmaStudioz](https://github.com/sigmastudioz).
 
 Make the subject understandable through a coherent visual model, purposeful interaction and

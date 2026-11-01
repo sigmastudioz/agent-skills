@@ -66,6 +66,9 @@ at `edbefcbc3474869e6cc1e8a7ca583b0efd0dab7e`.
   the actual tool root. Review its cue schema before adapting project events. Use
   `python scripts/mix.py PROJECT_CUES.json --out NEW_OUTPUT.mp4 --plan` to inspect
   resolved choices before rendering; retain manual cue edits across imports.
+  Those are upstream's documented commands; the host's interpreter name may differ
+  (for example `python3`, or the runtime venv's `python`), so adapt them to what is
+  actually on the path.
 - In its mixer, `--voice-safe` ducks effects beneath speech; `--duck` dips the
   original audio beneath effects for a music-led edit. They are not interchangeable.
   Verify the actual mix rather than assuming a flag protects narration. Replacing

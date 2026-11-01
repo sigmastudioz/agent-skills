@@ -1,7 +1,8 @@
 # Architecture guidance
 
-Read the matching sections when the change touches these decisions. Shared authorization,
-trace, evidence-retention and verification requirements remain in [SKILL.md](../SKILL.md).
+Read the matching sections when the change touches these decisions. Shared authorization
+requirements remain in [SKILL.md](../SKILL.md); trace and evidence-retention rules are in
+[gap-tracing.md](gap-tracing.md) and verification rules in [verification.md](verification.md).
 
 ## 2. Define the domain boundaries
 

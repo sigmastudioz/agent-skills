@@ -47,7 +47,7 @@ a canonical installation under the user's own home; adapt the interpreter/path o
 {
   "hooks": {
     "PreToolUse": [{
-      "matcher": "Task|Agent",
+      "matcher": "Task|Agent|mcp__ccd_session__start_session",
       "hooks": [{
         "type": "command",
         "command": "python3 \"$HOME/.agents/skills/domain-driven-design/scripts/guard_handoff.py\"",
@@ -65,6 +65,11 @@ agent limits are cumulative within a budget; repeated or changed limits retain p
 an explicit `Start a new delegation budget: use N agents` instruction resets it. Quoted, fenced or
 negated examples cannot increase the cap. Hook-rejected attempts do not consume a slot; resuming
 an existing worker does not allocate another. The host must validate resumed agent identities.
+
+When the desktop session tool is available, the same hook validates coding proposals before
+they can start. An offer card without a brief does not dispatch work; a proposal is validated
+without consuming an agent slot, while starting it counts against the current budget. This is
+support for that specific host tool, not automatic enforcement on other desktop/cloud products.
 
 A handoff into a different workspace must include an `isolation` object with `confirmed: true`,
 the matching absolute `workspace`, and a nonblank `reason`. Verify the actual checkout and its
