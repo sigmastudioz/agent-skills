@@ -1,7 +1,7 @@
 {
   "license": "MIT",
   "name": "does-it-make-sense",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Explain an existing build, trace actual behavior back to the end goal, and recommend evidence-backed refinements within scope. By Lex from SigmaStudioz.",
   "author": {
     "name": "Lex from SigmaStudioz",

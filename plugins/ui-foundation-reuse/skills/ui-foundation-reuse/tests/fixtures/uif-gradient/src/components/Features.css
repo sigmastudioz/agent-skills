@@ -1,0 +1,2 @@
+.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: 6rem 8vw; }
+.feature-card { padding: 2rem; border-radius: 1rem; background: #11172b; color: #e8ecf6; }

@@ -2,15 +2,28 @@
 
 Requires Python 3.10+, Pillow, FFmpeg with libx264 and AAC, and two local TrueType/OpenType
 fonts. Resolve font paths on the execution host; fonts are not redistributed by this skill.
+The supported Pillow range is declared in [`scripts/requirements.txt`](../scripts/requirements.txt); install it
+into an isolated environment instead of the system interpreter:
+
+```sh
+python3 -m venv .venv && .venv/bin/pip install -r <skill-dir>/scripts/requirements.txt
+.venv/bin/python3 <skill-dir>/scripts/render.py --help
+```
+
 Use another renderer when these simple graph/code/metric scenes cannot explain the topic.
 
 ```sh
-python scripts/render.py project/storyboard.json --output project/demo.mp4 \
+python3 scripts/render.py project/storyboard.json --output project/demo.mp4 \
   --font /path/to/body.ttf --mono-font /path/to/mono.ttf \
   --size 1080x1920 --fps 30 --score --poster project/poster.png
 ```
 
 Use `--validate-only` with the same font/size options for schema and text-layout checks.
+`--size` is `WIDTHxHEIGHT`; both dimensions must be even and between 640 and 3840 pixels,
+so `540x960` is rejected and `720x1280` is the smallest common portrait draft.
+Run the bundled tests with `python3 -m unittest` from `scripts/`; renderer tests need Pillow,
+and CLI cases need local fonts (override with `VISUALIZER_TEST_FONT` and
+`VISUALIZER_TEST_MONO_FONT`). The collection's integration suite also performs a real encode.
 Use `--still 12 --poster project/frame.png` for an individual frame without encoding.
 Output files are not overwritten unless `--overwrite` is explicit. Rendering writes
 temporary media next to the output and replaces it only after successful encoding.

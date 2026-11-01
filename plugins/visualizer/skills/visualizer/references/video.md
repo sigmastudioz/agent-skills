@@ -1,4 +1,4 @@
-# Visualization video, motion and sound
+# Visualization video workflow
 
 By [Lex from SigmaStudioz](https://github.com/sigmastudioz).
 
@@ -91,6 +91,7 @@ Use one timeline for picture, captions, and sound. Resolve paths relative to the
 project, use argument arrays for subprocesses, and avoid per-frame external processes.
 Bound memory by streaming frames. Check tools and assets before a long render.
 Use an isolated environment when dependencies are needed; do not change global settings.
+The bundled renderer's only dependency is pinned in [`scripts/requirements.txt`](../scripts/requirements.txt).
 
 ## Sound, captions, and framing
 
@@ -157,5 +158,4 @@ into the skill. Keep project identities, assets, voice selections and service
 configuration in project notes. Distinguish user approval from technical checks,
 and do not claim that saving a lesson retrains the model or guarantees future quality.
 
-For manual R3F frame capture, preview controls and authorized inline delivery, read
-[export and public delivery](video-export.md). The stable installed skill ID remains `visualizer`.
+For manual R3F capture and authorized inline delivery, read [export and public delivery](video-export.md). The stable public skill ID remains `visualizer`.

@@ -83,17 +83,17 @@ await reviewer activation. Cursor, Codex and Antigravity publication is not yet 
 
 | Plugin | Purpose | Version |
 | --- | --- | --- |
-| [Principal Driven Domain Design](plugins/domain-driven-design/README.md) | Domain ownership, reusable engines, gap tracing and agent handoffs | 1.3.0 |
+| [Principal Driven Domain Design](plugins/domain-driven-design/README.md) | Domain ownership, reusable engines, gap tracing and agent handoffs | 1.4.0 |
 | [Engineering Spikes](plugins/engineering-spikes/README.md) | Timeboxed research, evidence and gap tracing, separate stakeholder and technical documents | 1.0.0 |
-| [Does It Make Sense?](plugins/does-it-make-sense/README.md) | Trace an actual build back to its end goal and recommend bounded, evidence-backed refinements | 1.0.0 |
+| [Does It Make Sense?](plugins/does-it-make-sense/README.md) | Trace an actual build back to its end goal and recommend bounded, evidence-backed refinements | 1.0.1 |
 
 ### Visual creation and analysis
 
 | Plugin | Purpose | Version |
 | --- | --- | --- |
-| [SigmaStudioz Visualizer](plugins/visualizer/README.md) | React Three Fiber scenes, interactive visuals, simulations and visualization videos | 1.3.0 |
+| [SigmaStudioz Visualizer](plugins/visualizer/README.md) | React Three Fiber scenes, interactive visuals, simulations and visualization videos | 1.3.1 |
 | [SigmaStudioz Video Analysis](plugins/video-analysis/README.md) | Timestamped visual/audio evidence, adaptive frame inspection and transcript correlation | 1.0.0 |
-| [UI Foundation Reuse](plugins/ui-foundation-reuse/README.md) | Bundled React effects, lifecycle and scene helpers with local runtime staging | 1.1.0 |
+| [UI Foundation Reuse](plugins/ui-foundation-reuse/README.md) | Bundled React effects, lifecycle and scene helpers with local runtime staging | 1.1.1 |
 
 Install the outcome-review skill with `npx skills add sigmastudioz/agent-skills --skill does-it-make-sense`.
 
@@ -103,10 +103,23 @@ Install either visual skill with `npx skills add sigmastudioz/agent-skills --ski
 `npx skills add sigmastudioz/agent-skills --skill video-analysis`. Both are by **Lex from SigmaStudioz**.
 See their documentation for requirements and validation limits. Official marketplace review is separate.
 
-The stable package identifier is `domain-driven-design`. Its updated skill folder contains
-1422 lines, including conditional architecture/record guidance and guard tests. This collection can host future plugins with independent versions.
+The stable package identifier is `domain-driven-design`. Its skill folder includes conditional architecture, record, handoff, tracing and verification
+guidance plus helper regressions and portable pressure scenarios. This collection can host future plugins with independent versions.
 
 ## Validation and limitations
+
+The November maintained-skill sync publishes DDD 1.4.0, Visualizer 1.3.1, UI Foundation
+Reuse 1.1.1 and Does It Make Sense? 1.0.1. DDD splits conditional guidance into references
+and extends the optional handoff helper to a supported desktop session tool. Visualizer
+adds clear size validation and portable renderer tests while preserving interactive/data/R3F
+modes. UI guidance covers the existing 0.7.0 runtime's additional exports. Outcome review
+makes quoted stakeholder text distinct from user authorization.
+
+Each updated skill includes synthetic pressure fixtures and summarized historical comparisons.
+Those comparisons disclose contaminated baselines and cases where no behavioral difference was
+observed. Raw sessions and host-specific configuration are excluded. They do not establish
+fresh native-agent efficacy for these releases; current automated gates verify helper and
+package behavior. Existing native directory identities and review requests remain separate.
 
 1.3.0 adds the `.principal-ddd/` project-record convention and safe migration guidance.
 Existing task trackers retain authority; DDD-owned records use a discoverable hidden index and

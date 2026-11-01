@@ -1,0 +1,2 @@
+# Runtime dependency of scripts/render.py. sound_design.py uses the standard library only.
+Pillow>=10,<14

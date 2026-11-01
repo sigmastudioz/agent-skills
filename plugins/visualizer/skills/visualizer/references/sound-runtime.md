@@ -14,7 +14,7 @@ The default host config is
 not part of a distributed skill or project handoff. Check it with:
 
 ```sh
-python scripts/sound_design.py doctor
+python3 scripts/sound_design.py doctor
 ```
 
 An authorized setup needs Git, Python 3.10+, FFmpeg/ffprobe with libx264/AAC and the
@@ -23,7 +23,7 @@ audio filters used by the selected path. In a new isolated runtime folder, clone
 `591fa3e028032e6dce56620a20e932e35667e8d8` and
 [Clipwing skills](https://github.com/Clipwing/skills) at
 `edbefcbc3474869e6cc1e8a7ca583b0efd0dab7e`. Create a venv and install Earshot editable
-into it with `python -m pip install -e /path/to/earshot 'transformers<5'`. Do not run
+into it with `python3 -m pip install -e /path/to/earshot 'transformers<5'`. Do not run
 model-fetch or upload commands for the bank-render/mix workflow. Preserve notices;
 do not redistribute a user's library. Record `pip freeze` and `pip check` locally.
 
@@ -57,17 +57,17 @@ video project; paths with spaces should be quoted. Select meaningful assets rath
 than downloading the whole index:
 
 ```sh
-python scripts/sound_design.py search whoosh --output /project/search.json
+python3 scripts/sound_design.py search whoosh --output /project/search.json
 # Explicit alternative if keyword search is unavailable; no keyword matching claimed:
-python scripts/sound_design.py search --browse --source freesound --license cc0 --output /project/browse.json
+python3 scripts/sound_design.py search --browse --source freesound --license cc0 --output /project/browse.json
 ```
 
 Inspect a candidate's original item page and license for the intended use, then
 fetch its ID from those saved results:
 
 ```sh
-python scripts/sound_design.py fetch /project/browse.json --id ITEM_UUID --output /project/audio/effect.mp3 --rights-note 'Original item and license reviewed for this use; retain creator, terms and any modifications.'
-python scripts/sound_design.py generate whoosh_fast/crisp --output /project/audio/whoosh.wav --duration 0.8 --apex 0.32 --seed 42
+python3 scripts/sound_design.py fetch /project/browse.json --id ITEM_UUID --output /project/audio/effect.mp3 --rights-note 'Original item and license reviewed for this use; retain creator, terms and any modifications.'
+python3 scripts/sound_design.py generate whoosh_fast/crisp --output /project/audio/whoosh.wav --duration 0.8 --apex 0.32 --seed 42
 ```
 
 Each asset gets a `.provenance.json` with hash and source/recipe details. Inspect
@@ -114,7 +114,7 @@ universal target. For `anchor`, use `start` for audible onset, `peak` or `end`;
 project and needs a newly reviewed processed asset/provenance snapshot.
 
 ```sh
-python scripts/sound_design.py mix /project/sound-plan.json --output /project/review.mp4
+python3 scripts/sound_design.py mix /project/sound-plan.json --output /project/review.mp4
 ```
 
 The bridge validates picture/assets/rights and cues, runs Real SFX's plan step,

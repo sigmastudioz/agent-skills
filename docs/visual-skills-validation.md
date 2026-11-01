@@ -1,5 +1,18 @@
 # Visual skill validation and scope
 
+## Visualizer 1.3.1 and UI Foundation Reuse 1.1.1
+
+The maintained video workflow adds explicit malformed/even/range dimension validation,
+a supported Pillow range and portable packaged CLI tests. Interactive, data and R3F
+references, sound-output protection and demo media are retained. UI documentation now maps
+all85 existing runtime0.7.0 export entries; the archive checksum and source remain unchanged.
+The collection gate passes119 tests with no skips, including an actual FFmpeg encode and
+full decode. Distributed renderer/sound tests pass29 cases with no skips. These checks cover
+helpers and package integration, not a new native-agent, subjective audio or device-rendering
+baseline. Synthetic pressure scenarios retain the historical comparison limits and exclude
+raw host session reports.
+
+
 ## Visualizer 1.3.0 sound workflow
 
 The optional sound bridge connects Openverse public discovery/download, a separately

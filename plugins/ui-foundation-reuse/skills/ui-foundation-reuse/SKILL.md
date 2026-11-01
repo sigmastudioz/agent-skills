@@ -4,8 +4,7 @@ description: Reuse bundled ui-foundation effect code and scene helpers alongside
 ---
 
 # Reuse ui-foundation
-
-By [Lex from SigmaStudioz](https://github.com/sigmastudioz).
+Regression tests: recorded baseline and with-skill pressure scenarios live in [tests/](tests/README.md).
 
 Prefer the project's existing `@sigmastudioz/ui-foundation` implementations before writing equivalent effects or scene infrastructure. Apply this alongside Taste, Impeccable, img2threejs and visualization-videos while preserving their design, reconstruction and video workflows.
 
@@ -53,20 +52,29 @@ Subpaths below are relative to `@sigmastudioz/ui-foundation`. Confirm availabili
 | --- | --- |
 | Shader backgrounds, liquid metal/glass, glass distortion | `/gradient`, `/liquid-metal`, `/liquid-glass`, `/fluted-glass`, `/iridescence`, `/iridescent-ribbon` |
 | Video/frame scrubbing, scroll chapters, depth and parallax | `/scroll-scrub`, `/scroll-3d`, `/scroll-reveal`, `/mouse-parallax`, `/camera-journey` |
-| Pointer attraction, particles, fluid motion, text effects | `/magnetic`, `/particle-form`, `/particles`, `/fluid-field`, `/kinetic-text` |
+| Pointer attraction, particles, fluid motion, text effects | `/magnetic`, `/particle-form`, `/particles`, `/fluid-field`, `/kinetic-text`; `/luminous-trails`: `LuminousTrails`, `TRAIL_PATHS` (glowing parametric ribbons) |
+| Procedural GPU volumes without Three: dust nebula, plasma ribbon, tree-to-brain fibers | `/particle-nebula`: `ParticleNebula`; `/plasma-vortex`: `PlasmaVortex`; `/neural-field`: `NeuralField`, `NEURAL_COLORS` |
+| Headless 2D spring/collision simulation for app-drawn bodies | `/force-2d`: `useForceSim`, `stepForceSim`, `syncForceBodies`, `DEFAULT_FORCE_SIM_CONFIG` (paints through `onFrame`; reduced motion paints rest poses) |
 | Image transitions, filters and material treatments | `/image-transition`, `/image-filter`, `/heatmap`, `/foil-surface`, `/light-glow`, `/text-portrait` |
 | Image refraction, liquid bulges, strip displacement and localized stretch | `/lens-distortion`: `LensDistortion`; `/moving-blobs`: `MovingBlobs`; `/slice-shift`: `SliceShift`; `/pixel-stretch`: `PixelStretch`; `/image-warp`: `ImageWarp` |
 | Print dots and square image cells | `/halftone`: `Halftone`; `/pixelate`: `Pixelate` |
-| Media layouts, panels and transitions | `/media-strip`, `/media-carousel`, `/scene-panel`, `/layout-morph`, `/object-stack`, `/media-disclosure` |
+| Retro print and signal still-image treatments (three presets each on the shared `/image-filter` host) | `/posterize`: `Posterize`; `/stipple-duotone`: `StippleDuotone`; `/glyph-grid`: `GlyphGrid`; `/thermal-noise`: `ThermalNoise`; `/phosphor-ghost`: `PhosphorGhost`; `/liquid-screen`: `LiquidScreen`; `/xerox-collage`: `XeroxCollage`; `/raster-lines`: `RasterLines`; `/solarized-streak`: `SolarizedStreak`; `/teletext-pattern`: `TeletextPattern`; each also exports its `*_PRESETS` |
+| Traced contour, Delaunay, dither and circle-chain fields from a photo or procedural source | `/geometric`: `Geometric`, `GEOMETRIC_PRESETS`, `resolveGeometricConfig`, `buildGeometricScene` |
+| Film grain and miniature-focus overlays above live content | `/grain`: `Grain` (pointer-transparent noise overlay); `/tilt-shift`: `TiltShift` (masked backdrop blur; content stays clear without backdrop filtering) |
+| Media layouts, panels and transitions | `/media-strip`, `/media-carousel`, `/scene-panel`, `/layout-morph`, `/object-stack`, `/media-disclosure`; `/recursive-viewport`: `RecursiveViewport`; `/adaptive-surface`: `AdaptiveSurface`; `/motion-video`: `MotionVideo` |
 | Spatial interfaces, floating objects and tactile media | `/spatial-canvas`, `/floating-objects`, `/crt-surface`, `/disc-carousel` |
 | Paper, brush and aperture reveals | `/paper-motion`, `/aperture-reveal` |
-| Audio-reactive and environmental effects | `/visualizer`, `/cymatics`, `/weather` |
+| Square-tile wipes, glyph curtains, scratch cards and pointer-scrubbed film | `/square-tile-reveal`: `SquareTileReveal`; `/glyph-curtain`: `GlyphCurtain`, `GlyphCurtainHandle`; `/scratch-reveal`: `ScratchReveal`, `ScratchRevealHandle`; `/cursor-video`: `CursorVideo` (silent; never plays audio) |
+| Audio-reactive and environmental effects | `/visualizer`, `/cymatics`, `/weather`; React Native: `/visualizer/native`: `Visualizer`, `createSmoothedAudioSource`, `EffectsProvider` (Skia renderer, no DOM or microphone access) |
+| React Native blur surfaces and remote images, with web counterparts | `/frosted-blur`, `/frosted-blur/native`: `FrostedBlur`, `resolveFrostedBlurType`; `/remote-image`, `/remote-image/native`: `RemoteImage`, `AnimatedRemoteImage`. Native entries accept app-injected blur/image backends; web entries render through the optional `react-native-web` peer and stay SSR-safe without it |
 | Rain beads and sliding drops refracting a blurred still image | `/rain-on-glass`: `RainOnGlass` |
 | 3D hosting, staging and models | `/three`: `Scene`, `World`, `Model`, `Float`, `GlassMaterial`, `Portal`, `ReflectiveFloor`, `SoftShadows`, `Bloom`, `Caustics`, `ExplodedAssembly`, `useSceneMotion`. `Model` and `Float` accept `onError` when their runtime cannot load. `World` then shows its install fallback. |
 | Rigid-body scene content | `/physics`: `BallPit` loads `@react-three/rapier` on mount and accepts `onError`. `/physics/rapier`: `Physics`, `RigidBody`, `CuboidCollider`, `BallCollider`, `CapsuleCollider` (this subpath evaluates the peer at import). |
 | Shared lifecycle, visibility, interaction and quality policy | `/core`: `EffectsProvider`, `useEffectsSettings`, `useRafLoop`, `useReducedMotion`, `useInView`, `usePageVisible`, `useWebGLEffect`, `useScrollProgress`, `useInteraction`, `useAdaptiveQuality` |
 
-Search the full installed exports if the selective map has no match. Inspect `/presets` when available for existing configurations and composition patterns.
+Every `/native` subpath (`/visualizer/native`, `/foil-surface/native`, `/frosted-blur/native`, `/remote-image/native`) requires the optional `react-native` peer (>=0.77) and the host app's native build; `/visualizer/native` and `/foil-surface/native` also lazy-load the optional `@shopify/react-native-skia` peer and keep a static fallback without it. The remaining subpaths are web React DOM entries that need no native or Three peers unless their row says so.
+
+Search the full installed exports if the selective map has no match. Inspect `/presets` when available for existing configurations and composition patterns. `npm run check:skill` fails when a public export subpath is missing from this guide.
 
 The seven image-effect facades above share `/image-filter`'s WebGL 1 texture pass;
 they work in React DOM (React >=18.2), require no Three peers, and are SSR-safe.
@@ -155,7 +163,7 @@ navigation and scene switching in the Rain Atlas demo belong to the app.
 - **Taste:** use its direction, composition and review process; implement matching motion and material effects with library exports. Its handwritten effect recipes are alternatives after the reuse check establishes a gap. Keep typography, brand tokens, page structure and content in the consuming app.
 - **Impeccable:** refine composition, styling, effect configuration and accessibility around library components. Do not replace a reusable shader or scene helper merely to satisfy a generic aesthetic detector. Honor explicit visual intent; investigate correctness or performance problems at their owning layer. Keep reviews read-only.
 - **img2threejs:** its staged pipeline owns subject-specific geometry, materials and reconstruction evidence. Reuse the library for hosting and generic staging instead of generating another Canvas, asset loader, orbit controller or ambient float implementation. Keep custom subject geometry and unmet material requirements in the generated asset.
-- **Visualization Videos by SigmaStudioz (`visualization-videos`):** reuse compatible effects and scene helpers for React video previews and supported exports. The video project owns its storyboard, captions, custom geometry, canonical timeline and encoder. Check actual clock/seeking contracts before promising deterministic capture; live RAF animation or scene pause alone is not a frame-driven export API. Verify effects in the encoded video. Keep Pillow/FFmpeg and non-React renderers when appropriate; add only a demonstrated, authorized adapter or report the compatibility/export gap.
+- **SigmaStudioz Visualizer (`visualizer`; local video workflow `visualization-videos`):** reuse compatible effects and scene helpers for React video previews and supported exports. The video project owns its storyboard, captions, custom geometry, canonical timeline and encoder. Check actual clock/seeking contracts before promising deterministic capture; live RAF animation or scene pause alone is not a frame-driven export API. Verify effects in the encoded video. Keep Pillow/FFmpeg and non-React renderers when appropriate; add only a demonstrated, authorized adapter or report the compatibility/export gap.
 
 These companion skills are independent installations. This guide does not install them or require all of them to be present.
 

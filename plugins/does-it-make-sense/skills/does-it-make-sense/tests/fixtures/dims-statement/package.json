@@ -1,0 +1,10 @@
+{
+  "name": "northwind-billing",
+  "private": true,
+  "version": "1.4.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "start": "node src/app.js"
+  }
+}

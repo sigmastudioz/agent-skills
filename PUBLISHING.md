@@ -8,7 +8,7 @@ Copyright (c) 2026 Lex from SigmaStudioz.
 
 ## Repository release
 
-The collection contains the Principal Driven Domain Design 1.3.0 release (`domain-driven-design`) and supports independently versioned
+The collection contains the Principal Driven Domain Design 1.4.0 release (`domain-driven-design`) and supports independently versioned
 future plugins. Regenerate catalogs with `python3 tools/build_catalogs.py`, verify with `--check`,
 and run `python3 -m unittest discover -s tests` before publishing changes. Include each plugin's
 license in its own folder so cached distributions preserve the notice.
@@ -79,9 +79,19 @@ No new legal declarations are accepted by repository publication.
 
 ## Local skill sync and outcome-review addition
 
-UI Foundation Reuse1.1.0 packages maintained runtime0.7.0 and matching effect/scene/native
+UI Foundation Reuse1.1.0 packages maintained runtime 0.7.0 and matching effect/scene/native
 guidance. Visualizer1.2.1 adds reviewed-feedback learning guidance while retaining its
 existing identity, renderer, interactive routes and historical demos. Does It Make Sense?1.0.0
 is a separate instruction-only outcome-review plugin, registered once in the collection.
 No new native submission, legal acceptance or provider approval is performed by this sync.
 Use existing provider identities for updates; the new plugin has no native review receipt.
+
+## Maintained skill sync — November 1
+
+Publish independently versioned DDD 1.4.0, Visualizer 1.3.1, UI Foundation Reuse 1.1.1 and
+Does It Make Sense? 1.0.1 from one reviewed collection revision. Keep Engineering Spikes and
+Video Analysis unchanged. This sync adds no new catalog entries or marketplace submissions.
+Only reusable synthetic fixtures and summarized test cases are public; raw host sessions,
+personal paths/configuration and the original host-specific generator remain private.
+Existing native publication requests are not repeated. GitHub release availability does not
+establish native review approval or a refreshed skills.sh backing snapshot.

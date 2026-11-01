@@ -1,6 +1,6 @@
 # Principal Driven Domain Design
 
-By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.3.0**, [MIT](LICENSE).
+By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.4.0**, [MIT](LICENSE).
 
 **Principal-level domain-driven design for AI coding agents.**
 
@@ -10,8 +10,8 @@ code by its owning domain, then by function; keep services and shared modules at
 useful scope. Reuse an owned engine when real consumers share a cohesive algorithm. Trace modules
 through callers, dependencies, consumers and failures, and fix gaps required by the authorized task.
 
-The instruction file has **411 lines**; the complete skill folder has **1422 lines**, including
-the architecture reference, metadata, optional Python helper and its regression tests. Small fixes stay small; read-only reviews stay read-only.
+The short entrypoint routes conditional architecture, handoff, gap-tracing, record and verification
+rules into focused references. Small fixes stay small; read-only reviews stay read-only.
 The baseline does not authorize extra agents, unrelated restructuring or deployment.
 
 ## What it helps agents do
@@ -43,19 +43,22 @@ resuming an existing worker does not allocate another slot. A different workspac
 isolation confirmation. Missing history, unrecognized wording, actual isolation authority and
 semantic correctness remain the coordinator's responsibility. Requires Python 3.
 
-## Validation
+## Changes and validation
 
-Version 1.3.0 adds `.principal-ddd/` as the project-local map for DDD records. Existing trackers
-remain authoritative; DDD-owned ledgers can move with preserved links, heading anchors, exact
-restore identities and pinned active writers. No folders are scaffolded for projects without data.
-Read the packaged project-record reference when creating or migrating records. Hidden placement
-is organization, not security or automatic exclusion from runtime/build/release inputs.
+Version 1.4.0 preserves the project-record convention and engineering safeguards while splitting
+conditional guidance out of the entrypoint. The optional guard recognizes common coding requests
+and the supported desktop session tool's offer/proposal/start phases. Starts consume the existing
+cumulative budget; proposals carry a validated handoff without consuming a slot. The documented
+hook matcher includes this tool. Noncoding prose requests remain outside the handoff contract.
+The helper cannot validate host permissions, actual isolated-checkout authority or every possible
+wording; those remain coordinator responsibilities.
 
-The release retains the 1.2.0 retention, cadence, verification and handoff safeguards. The guard,
-its **51 subprocess regression tests**, and UI metadata are unchanged. No fresh native-agent
-efficacy run was performed for 1.3.0; the native coding evidence below belongs to 1.0.5 and its
-earlier full-baseline guard. Package and migration checks do not establish model adherence or
-marketplace activation. This release has 411 instruction lines / 1422 complete skill-folder lines.
+[Pressure scenarios](skills/domain-driven-design/tests/README.md) include portable synthetic
+inputs and historical comparisons. The original DDD baseline already had the skill text in
+context, so those records cannot establish causal efficacy. Raw host sessions are not distributed.
+Fresh native-agent evaluation was not run for 1.4.0. The historical coding evidence below remains
+tied to 1.0.5, and automated guard/package checks do not establish model adherence or marketplace
+activation.
 
 Fresh Claude Code 1.0.5 test: **16/16 external feature checks and 2/2 original regressions pass**,
 with exactly one implementation teammate. The parent integrated the isolated worktree result,
