@@ -8,8 +8,8 @@ Copyright (c) 2026 Lex from SigmaStudioz.
 
 ## Repository release
 
-The collection contains the Principal Driven Domain Design 1.4.0 release (`domain-driven-design`) and supports independently versioned
-future plugins. Regenerate catalogs with `python3 tools/build_catalogs.py`, verify with `--check`,
+The collection contains six independently versioned plugins. The latest release scope is recorded below;
+older sections preserve historical publication context. Regenerate catalogs with `python3 tools/build_catalogs.py`, verify with `--check`,
 and run `python3 -m unittest discover -s tests` before publishing changes. Include each plugin's
 license in its own folder so cached distributions preserve the notice.
 
@@ -95,3 +95,18 @@ Only reusable synthetic fixtures and summarized test cases are public; raw host 
 personal paths/configuration and the original host-specific generator remain private.
 Existing native publication requests are not repeated. GitHub release availability does not
 establish native review approval or a refreshed skills.sh backing snapshot.
+
+
+## Maintained skill sync — November 11
+
+Update only the six previously published identities: DDD 1.4.1, Visualizer 1.4.0,
+Video Analysis 1.0.1, UI Foundation Reuse 1.2.0 and Does It Make Sense? 1.0.2;
+Engineering Spikes stays 1.0.0 with its existing inventory unchanged. UI Foundation Reuse
+bundles runtime 0.11.0, source, declarations and license notices. Visualizer includes the
+reference-to-timed-spec workflow, motion vocabulary, optional renderer guidance and the
+media-in-3D adapter. New plugin additions are outside this release.
+
+Use the existing directory identities and supported update paths. Publication on GitHub
+does not prove provider review approval, native activation or a current index snapshot.
+Retain prior sent-once requests and actual observation times. AgenticSkills' accepted
+Visualizer listing follows the repository; its provider requested no version-update emails.

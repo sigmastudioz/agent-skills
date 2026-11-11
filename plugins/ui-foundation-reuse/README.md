@@ -1,11 +1,27 @@
 # UI Foundation Reuse
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.1.1.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.2.0.
 
 Reuse compatible React effects and scene infrastructure without a library download. This
 plugin includes the complete `ui-foundation-reuse` skill and the bundled
-`@sigmastudioz/ui-foundation` 0.7.0 runtime: CJS/ESM modules, TypeScript declarations,
+`@sigmastudioz/ui-foundation` 0.11.0 runtime: CJS/ESM modules, TypeScript declarations,
 original source and license notices. React and optional rendering peers are external.
+
+## Changes in 1.2.0
+
+Refresh the bundled runtime to 0.11.0 (98 public export entries, 2,871 files) and its
+matching source, types and checksum metadata. 0.11.0 adds `/scroll-layout`
+(`StackingCards`, `HorizontalScroll`, `VelocityMarquee`, `ScrollColor`), `/scroll-nav`
+(`HideOnScroll`, `useScrollDirection`, `useScrollSpy`), entrance components in `/scroll-reveal`
+(`Reveal`, `SplitReveal`, `Typewriter`, `CountUp`, `TextFill`) and `/refractive-glass`
+(`RefractiveGlass`, `GlassLens`). 0.10.0 added `/blob-track`, `/gooey-reveal`,
+`/flip-card`, `/dot-matrix`, `/zoom-blur` and `/reaction-diffusion`. Guidance also covers `/dither` (Bayer and
+error diffusion), `/image-particles`, `/glitch`, `ImageFilter` presets (night vision,
+receipt print, flash), the magenta phosphor preset and `PixelateTransition`, plus the
+0.8.0 shape patterns, rain-on-glass and iridescent ribbon contracts. It adds a
+text-behind-subject scroll recipe, common-name mappings, an aesthetic style dictionary
+and a UX-laws critique pass. Inventory counts and unit/SSR checks do not establish visual
+correctness in every consuming application; existing app-vendored versions stay pinned.
 
 ## Changes in 1.1.1
 

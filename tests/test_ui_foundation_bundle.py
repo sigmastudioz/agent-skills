@@ -31,6 +31,14 @@ class RuntimeBundleTests(unittest.TestCase):
             self.assertTrue(any(p.startswith('package/src/') for p in files))
             self.assertIn('package/LICENSE',files)
 
+    def test_plugin_readme_describes_the_bundled_runtime(self):
+        meta=json.loads((SKILL/'assets/bundle.json').read_text())
+        readme=(SKILL.parents[1]/'README.md').read_text()
+        with tarfile.open(SKILL/'assets'/meta['archive']) as package:
+            exports=len(json.load(package.extractfile('package/package.json'))['exports'])
+        self.assertIn(f"`@sigmastudioz/ui-foundation` {meta['version']} runtime",readme)
+        self.assertIn(f"Refresh the bundled runtime to {meta['version']} ({exports} public export entries, {meta['fileCount']:,} files)",readme)
+
     @unittest.skipUnless(NODE,'Node is required for staging behavior')
     def test_staging_is_idempotent_and_preserves_app_manifest(self):
         with tempfile.TemporaryDirectory() as tmp:

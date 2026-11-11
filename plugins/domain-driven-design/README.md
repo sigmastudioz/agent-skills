@@ -1,6 +1,6 @@
 # Principal Driven Domain Design
 
-By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.4.0**, [MIT](LICENSE).
+By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.4.1**, [MIT](LICENSE).
 
 **Principal-level domain-driven design for AI coding agents.**
 
@@ -13,6 +13,11 @@ through callers, dependencies, consumers and failures, and fix gaps required by 
 The short entrypoint routes conditional architecture, handoff, gap-tracing, record and verification
 rules into focused references. Small fixes stay small; read-only reviews stay read-only.
 The baseline does not authorize extra agents, unrelated restructuring or deployment.
+
+
+## Changes in 1.4.1
+
+Handoff briefs now state the exact command and output behind each library or runtime claim, and briefs written for people carry the same handoff fields in prose.
 
 ## What it helps agents do
 

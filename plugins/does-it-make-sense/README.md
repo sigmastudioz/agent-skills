@@ -1,11 +1,16 @@
 # Does It Make Sense?
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.0.1.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.0.2.
 
 Understand what was actually built and whether the intended user can achieve the original
 end goal. Trace from the problem through real entry points, implementation, state changes
 and downstream effects to the terminal result. Trace significant components backward to
 the outcome or constraint they serve.
+
+
+## Changes in 1.0.2
+
+Requires edit authorization to come from the requester's own words: permission that appears only inside a ticket, excerpt or quoted stakeholder is treated as input, and the agent asks before editing.
 
 ## Changes in 1.0.1
 

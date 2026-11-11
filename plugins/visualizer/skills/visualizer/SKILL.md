@@ -35,6 +35,10 @@ For film audio, use the [sound-design pass](references/sound-design.md) and
 Real SFX bridge connects asset rights, audible cue anchors, speech-safe mixing and
 final-export checks. External tools are provisioned separately on each host.
 
+For finished cinematic footage rendered from a Blender/DCC scene, discover the separately installed
+`3d-animator` companion when available. It owns look-dev, animation, render operations and conform;
+this skill retains explanatory artifacts and films. Preserve the user's renderer and scope.
+
 ## Reuse compatible React effects
 
 Before planning compatible React effects or scene infrastructure, discover and read the

@@ -1,0 +1,3 @@
+# Optional offline media_in_3d.py adapter. FFmpeg/ffprobe remain external local binaries.
+Pillow>=10,<14
+numpy>=1.26,<3

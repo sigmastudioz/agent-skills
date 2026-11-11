@@ -5,6 +5,9 @@ sound. Preserve the brief's actual medium instead of defaulting to a text-slide 
 
 ## Match the visual mechanism
 
+For mixed-media edits, portals, presenter-integrated type or paper collage, use
+[montage and compositing](montage-and-compositing.md) for layer contracts and motion checks.
+
 - Choose a coherent material and visual vocabulary. For a papercraft film, use actual
   textured assets, cut edges, overlap, shadows, printed marks, and restrained line work.
 - Separate movable pieces: hero object, petals/parts, messengers, foreground accents,

@@ -6,6 +6,10 @@ import json
 import re
 
 
+# OS metadata files that git ignores and must never be hashed into a release.
+JUNK_FILES = {'.DS_Store', 'Thumbs.db', 'desktop.ini'}
+
+
 def cursor_identity(author):
     """Cursor's strict author/owner objects accept name and email only."""
     return {key: author[key] for key in ('name', 'email') if key in author}
@@ -47,7 +51,8 @@ def render(root):
         for path in sorted(manifest_path.parent.rglob('*')):
             if path.is_symlink():
                 raise ValueError('Distribution must be self-contained: ' + str(path))
-            if path.is_file() and '__pycache__' not in path.parts and path.suffix != '.pyc':
+            if (path.is_file() and '__pycache__' not in path.parts and path.suffix != '.pyc'
+                    and path.name not in JUNK_FILES):
                 files[path.relative_to(manifest_path.parent).as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
         releases[name] = {'version': manifest['version'], 'files': files}
     return {

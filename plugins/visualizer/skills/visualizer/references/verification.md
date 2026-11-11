@@ -49,6 +49,20 @@ budget and limits; do not turn one desktop result into a universal 60fps or scal
 Inspect representative frames at viewing size and export size, with sound if available. Record
 audio measurements separately from listening and accessibility checks; don't infer unheard speech.
 
+## Independent critique loop
+For visual quality, do not grade your own work alone. Each round: render the real artifact (the
+exported or decoded video, or the page in a headless browser), capture representative frames,
+and, when delegation is authorized, hand them to a separate critic agent with no access to your reasoning. Give it the brief,
+any reference frames, and these frames, and ask for concrete defects ranked by severity (what,
+where, at which frame), not a score. Fix confirmed defects, re-render, and send fresh frames to a
+fresh critic. Stop when a round finds no material defect, after three rounds unless the user set
+another budget, or when the user's budget is reached. If a defect comes back after a fix, don't
+tweak the same parameter again: change the construction or approach, and say so. Then
+show the user the result, with the defects you fixed and those you chose not to fix. When the host
+offers no subagents or delegation isn't authorized, review the frames yourself and say it was self-review. Critique is a check on top of the
+acceptance tests above, not a replacement for them. Pass the critic only frames and the brief,
+never credentials or private inputs.
+
 ## Deliver and hand off
 Provide the actual artifact, editable sources, scenario/timeline, assets/rights, reproduction
 commands, dependency versions and relevant evidence. Preserve useful errors and partial results;

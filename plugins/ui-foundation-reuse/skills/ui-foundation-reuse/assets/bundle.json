@@ -1,10 +1,10 @@
 {
   "package": "@sigmastudioz/ui-foundation",
-  "version": "0.7.0",
+  "version": "0.11.0",
   "archive": "ui-foundation.tgz",
-  "sha256": "d08c4e0b447bade19f7ea77d5bf138b7e0976cd7da3d947385dc78fda96bfe2c",
-  "contentSha256": "000c6ce9fb126b52a9482506d8ddc68c5185a041b79486995b808f00e1d7626b",
-  "fileCount": 2431,
+  "sha256": "131981891da4db57b5bfae2df588364b1ae52f0f5c9a1340ee60e9821d108175",
+  "contentSha256": "b0bc9d122c0312ebff10837b5e1a5c9b1cfae9d64dfd6af94747977a1d727ed1",
+  "fileCount": 2871,
   "includes": [
     "CommonJS",
     "ESM",

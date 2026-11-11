@@ -83,17 +83,17 @@ await reviewer activation. Cursor, Codex and Antigravity publication is not yet 
 
 | Plugin | Purpose | Version |
 | --- | --- | --- |
-| [Principal Driven Domain Design](plugins/domain-driven-design/README.md) | Domain ownership, reusable engines, gap tracing and agent handoffs | 1.4.0 |
+| [Principal Driven Domain Design](plugins/domain-driven-design/README.md) | Domain ownership, reusable engines, gap tracing and agent handoffs | 1.4.1 |
 | [Engineering Spikes](plugins/engineering-spikes/README.md) | Timeboxed research, evidence and gap tracing, separate stakeholder and technical documents | 1.0.0 |
-| [Does It Make Sense?](plugins/does-it-make-sense/README.md) | Trace an actual build back to its end goal and recommend bounded, evidence-backed refinements | 1.0.1 |
+| [Does It Make Sense?](plugins/does-it-make-sense/README.md) | Trace an actual build back to its end goal and recommend bounded, evidence-backed refinements | 1.0.2 |
 
 ### Visual creation and analysis
 
 | Plugin | Purpose | Version |
 | --- | --- | --- |
-| [SigmaStudioz Visualizer](plugins/visualizer/README.md) | React Three Fiber scenes, interactive visuals, simulations and visualization videos | 1.3.1 |
-| [SigmaStudioz Video Analysis](plugins/video-analysis/README.md) | Timestamped visual/audio evidence, adaptive frame inspection and transcript correlation | 1.0.0 |
-| [UI Foundation Reuse](plugins/ui-foundation-reuse/README.md) | Bundled React effects, lifecycle and scene helpers with local runtime staging | 1.1.1 |
+| [SigmaStudioz Visualizer](plugins/visualizer/README.md) | React Three Fiber scenes, interactive visuals, simulations and visualization videos | 1.4.0 |
+| [SigmaStudioz Video Analysis](plugins/video-analysis/README.md) | Timestamped visual/audio evidence, adaptive frame inspection and transcript correlation | 1.0.1 |
+| [UI Foundation Reuse](plugins/ui-foundation-reuse/README.md) | Bundled React effects, lifecycle and scene helpers with local runtime staging | 1.2.0 |
 
 Install the outcome-review skill with `npx skills add sigmastudioz/agent-skills --skill does-it-make-sense`.
 
@@ -105,6 +105,10 @@ See their documentation for requirements and validation limits. Official marketp
 
 The stable package identifier is `domain-driven-design`. Its skill folder includes conditional architecture, record, handoff, tracing and verification
 guidance plus helper regressions and portable pressure scenarios. This collection can host future plugins with independent versions.
+
+## November 11 maintained-skill update
+
+Prepared versions: DDD 1.4.1, Visualizer 1.4.0, Video Analysis 1.0.1, UI Foundation Reuse 1.2.0 and Does It Make Sense? 1.0.2. Engineering Spikes stays 1.0.0. This release preserves the six existing plugin identities. Native directory review and activation are separate from repository publication.
 
 ## Validation and limitations
 
