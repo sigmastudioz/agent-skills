@@ -16,6 +16,8 @@ owned files/modules, acceptance conditions, and trace obligations in the assignm
 a child agent inherits the parent's conversation, loaded skills, or global instruction files.
 Require evidence and unresolved edges back from each worker; reconcile traces across worker boundaries.
 Delegate verified invariants; label proposed algorithms as assumptions and challenge contradictions.
+For each claim about library or runtime behaviour in the brief, state the exact command and options
+that produced the evidence and its output, so a reviewer can see what was and was not tested.
 If the child cannot read the skill, supply its relevant contents within the allowed context.
 Do not spawn agents merely because this section describes handoffs.
 Before adopting another workflow, record any explicit user-authorized teammate limit and roles.
@@ -29,6 +31,11 @@ original contract. Correct a flawed plan instead of preserving it as an implemen
 ### Handoff contract
 The contract table (the fields every authorized agent assignment or resumable handoff must
 identify) lives in [SKILL.md](../SKILL.md#agent-portability-and-handoffs); it is not repeated here.
+The fields apply to every handoff someone else will act on. If the deliverable is a brief for a
+person (a Markdown file, ticket or message), carry the same fields in prose: workspace and revision
+(file hashes when there is no version control), owned files, current state including failing checks
+and their cause, acceptance checks with their commands, and the return format. The `HANDOFF_JSON=`
+prefix below applies only to agent and session tools.
 
 Hosts may enforce this contract with [the delegation guard](../scripts/guard_handoff.py).
 The optional Claude guard supplies this baseline path and checks explicit numeric agent limits in the

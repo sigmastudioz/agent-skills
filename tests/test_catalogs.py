@@ -46,6 +46,14 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(json.loads((self.root / 'plugins/first/plugin.json').read_text())['version'], '1.0.0')
         self.assertEqual(json.loads((self.root / 'plugins/second/plugin.json').read_text())['version'], '2.3.4')
 
+    def test_os_metadata_files_are_not_released(self):
+        (self.root / 'plugins/first/.DS_Store').write_bytes(b'junk')
+        (self.root / 'plugins/first/README.md').write_text('readme')
+        self.save()
+        files = catalogs.render(self.root)['release.json']['plugins']['first']['files']
+        self.assertIn('README.md', files)
+        self.assertNotIn('.DS_Store', files)
+
     def test_check_is_read_only_and_detects_changed_description(self):
         catalogs.build(self.root)
         path = self.root / 'plugins/first/plugin.json'

@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "license": "MIT",
   "name": "video-analysis",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Analyze supplied videos and audio through timestamped frames, adaptive inspection, transcripts and explicit evidence/coverage limits. By Lex from SigmaStudioz.",
   "author": {
     "name": "Lex from SigmaStudioz",

@@ -282,3 +282,25 @@ skill is not a replacement for the broader published Visualizer: preserve its st
 and add only its current video guidance. Local shared discovery paths are not public package
 content. Official provider activation, live user effectiveness and model adherence remain
 unverified and require their own evidence. This branch does not close pending review cases.
+
+
+## Published-identity update — November 11
+
+Scope: isolate the latest five maintained updates on the November 1 public base
+35e9eeadc8197347cf80f825d45e5febde0f67cd; preserve exactly six catalog identities and
+Engineering Spikes' inventory. New plugin additions and their commit history are excluded.
+
+| Cluster | Connected-path trace | Evidence / limit |
+| --- | --- | --- |
+| Discovery and packages | Six registry entries → portable and host manifests → generated catalogs/release hashes → complete plugin ZIPs | Catalog generation/check and native CLI validation pass; package and repository link/version tests pass. Native provider review remains separate. |
+| DDD and outcome review | Existing entrypoints → handoff evidence references / requester authorization → unchanged guard and outcome consumers | Included in 139 collection tests, no skips. No fresh agent-efficacy claim. |
+| Visualizer | Existing root routes → timed spec, motion/renderer references → media-in-3D CLI and its optional dependencies → export/review | Distributed adapter, renderer and sound regressions included in collection gate. Optional external model/render providers not exercised. |
+| UI Foundation | Skill → bundle metadata/checksum → staging helper → bundled 0.11.0 exports/source/types and notices | Archive integrity, every public export target, idempotent staging and conflicting archive/symlink rejection verified. No agent install performed. |
+| Snapshot boundary | Frozen selected plugin folders → generated per-file inventories → staged commit → release artifacts | All six folders exactly match the selected local source snapshot; Engineering Spikes exactly matches the public base. Each ZIP is re-read against release.json. |
+
+Checks: `python3 -B -m unittest discover -s tests` — 139 passed in 14.446s, no skips;
+`python3 tools/build_catalogs.py --check` — four generated files verified;
+`claude plugin validate .` — passed, four nonblocking install-line suggestions;
+`git diff --check` — passed. Cadence, database persistence and app mounts are not changed.
+No tests or implementation for held-back plugins are included. Provider update outcomes belong
+to the existing marketplace receipt, with their actual observation times preserved.

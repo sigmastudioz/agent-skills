@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "license": "MIT",
   "name": "does-it-make-sense",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Explain an existing build, trace actual behavior back to the end goal, and recommend evidence-backed refinements within scope. By Lex from SigmaStudioz.",
   "author": {
     "name": "Lex from SigmaStudioz",

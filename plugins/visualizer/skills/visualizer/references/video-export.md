@@ -1,7 +1,10 @@
 # Export and public delivery
 
 ## Encode and deliver
-Reuse the project's renderer. For new code, own storyboard/model, layout, assets, renderer and
+Reuse the project's renderer (an installed [raea](rendering.md#optional-native-renderer-raea) counts
+only for Remotion-style 2D compositions; an installed
+[hyperframes](rendering.md#optional-browser-renderer-hyperframes) counts for HTML, GSAP and
+plain Three.js scenes, with telemetry off). For new code, own storyboard/model, layout, assets, renderer and
 encoder separately at the smallest useful scope. Stream frames and bound buffers; use argument
 arrays for subprocesses. Detect render/encoder failures and incomplete frames. Preserve the prior
 output until a staged export passes validation; avoid overwriting source or evidence files.
@@ -11,6 +14,11 @@ Render at explicit frame times. A 60fps container with duplicated 30fps poses do
 smoother source motion; deliberate cel holds are valid when chosen and documented.
 Use a compatible codec/container and color pipeline for the destination. Keep high-quality master
 and delivery derivatives distinct. Copy encoded audio when appropriate to avoid unnecessary loss.
+For social delivery, export H.264 High in MP4, 4:2:0 8-bit, video (limited) range, with explicit
+Rec.709 primaries, transfer and matrix tags; never force full range on a delivery file, since many
+players ignore the flag and crush or wash the tones. Platforms re-encode every upload: match the
+source resolution and frame rate, don't upscale only to claim "4K", and judge the result in the
+platform's own playback at phone size, not the local file.
 
 Decode the complete export, then verify dimensions, duration, FPS, frame count, audio, captions,
 orientation, safe areas and representative transitions. Inspect rich textures after compression.

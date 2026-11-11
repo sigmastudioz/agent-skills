@@ -70,3 +70,22 @@ establish that any single technique is necessary or sufficient.
 The production details for a specific campaign remain with that campaign. Reuse
 its reasoning and proven mechanics where relevant while creating a direction that
 fits the next brief.
+
+## Reviewed reference-reconstruction lessons
+
+A later MP4-only procedural reconstruction received “looks good” after combined changes to timing,
+framing, materials, optics and particle action. This supports the practices below as available
+techniques, not a claim of pixel identity or a controlled result for each technique. Audio was not
+audited in that revision; no sound-quality lesson is inferred.
+
+| Trigger | Decision to carry forward | Check / limit |
+| --- | --- | --- |
+| Similar objects and colors still feel unlike the reference | Measure screen-space anchors and handoff times before changing finish | Compare source/output before, during and after a transition; a matching still is insufficient |
+| Reflections feel flat or glow washes everything out | Separate emitted core, local spill and broad reflected color response | Inspect the encoded object and its surroundings at delivery size; physical and stylized approaches remain brief-dependent |
+| A reference includes tutorial UI or another scene | Establish the actual target animation boundaries before sampling colors or tracking | Inspect first/last encoded frames and label any held reference ending |
+| More particles/effects fail to capture the shot | Reproduce the dominant first/action/end transformation | Formation and dispersal require that action; steady drift and extra detail do not substitute |
+| A pass encodes successfully | Report technical checks, visual review and user acceptance separately | Preserve the reviewed revision and actual remaining differences; approval does not establish exact reconstruction |
+
+Blender-specific API, baking and conform mechanics belong to the separately installed
+`3d-animator` skill when available. Keep project media, coordinates, shaders and private paths
+in the project rather than copying them into shared instructions.

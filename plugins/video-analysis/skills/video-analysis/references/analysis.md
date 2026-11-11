@@ -35,7 +35,7 @@ Inventory changed helpers and each entrypoint/consumer. Trace argument validatio
 multiple streams, unknown duration, VFR, nonzero start, short clips, malformed media, source changes,
 existing output paths, missing binaries and timeout. No hidden network/provider fallback.
 Fix required in-scope gaps and retrace. Record static-only/unverified paths separately from passed
-runtime checks. A contact sheet with24 pictures is neither a24-scene guarantee nor a full audit.
+runtime checks. A contact sheet with 24 pictures is neither a 24-scene guarantee nor a full audit.
 
 ## Checks before completion
 - Known-time test media verifies sample timestamps, window offsets and source-relative citations.

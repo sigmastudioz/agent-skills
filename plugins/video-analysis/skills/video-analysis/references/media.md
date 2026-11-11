@@ -13,8 +13,8 @@ python scripts/sample.py /path/to/video.mp4 --output /path/to/new-evidence --fra
 python scripts/sample.py /path/to/video.mp4 --output /path/to/detail --start 8 --end 12 --frames 16
 ```
 
-It uses existing FFmpeg/ffprobe, samples up to64 frames, applies decoder display rotation,
-scales the long side to at most1280 by default, and writes inventory.json plus JPEGs.
+It uses existing FFmpeg/ffprobe, samples up to 64 frames, applies decoder display rotation,
+scales the long side to at most 1280 by default, and writes inventory.json plus JPEGs.
 Each image has actual decoded presentation time and time relative to the selected video's start.
 Frames are not necessarily equally spaced or exactly at requested times. Inspect the manifest's
 first/last sample and gaps; use a separate bounded tail/detail pass when needed.

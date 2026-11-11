@@ -1,8 +1,22 @@
 # SigmaStudioz Visualizer
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.3.1.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.4.0.
 
 Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.
+
+## Changes in 1.4.0
+
+Folds the remaining local video workflow into this package: reference-to-timed-spec,
+character and world consistency, montage and compositing, and media in 3D (with its optional
+offline study adapter and tests). Adds a [motion vocabulary](skills/visualizer/references/motion-vocabulary.md)
+that turns named effects into constructions, reuse candidates and review targets;
+[beat maps and word timing](skills/visualizer/references/timing-maps.md); look presets in the
+art-direction reference; motion tokens in the timed spec; an engine-discovery note; and a
+contact-sheet check before full export. Also adds optional renderer notes for raea and
+HyperFrames (telemetry off, never `skills update`), 31 more motion-vocabulary entries with the
+name + duration/strength/subject rule, and an independent critique loop (fresh critic per round when
+delegation is authorized, three rounds by default). These additions came from reviewing saved motion-design
+posts; they are guidance, not efficacy claims.
 
 ## Changes in 1.3.1
 
