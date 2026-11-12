@@ -304,3 +304,10 @@ Checks: `python3 -B -m unittest discover -s tests` — 139 passed in 14.446s, no
 `git diff --check` — passed. Cadence, database persistence and app mounts are not changed.
 No tests or implementation for held-back plugins are included. Provider update outcomes belong
 to the existing marketplace receipt, with their actual observation times preserved.
+
+## Follow-up to the November 11 existing-skill release (local)
+
+On top of aa78e30: ui-foundation-reuse 1.2.1 (critique loop in the skill; bundle rebuilt from ui-foundation 2530792),
+video-analysis README "Python 3.10+", docs/visual-skills-validation.md spacing, catalog builder skips tool folders
+(.venv, caches) with a test, .venv ignored, tools/hooks/pre-push with its PUBLISHING note. New plugins stay on the
+local `new-plugins` branch. Checks: unittest discover OK; build_catalogs --check passes.

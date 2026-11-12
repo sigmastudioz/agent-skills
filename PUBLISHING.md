@@ -10,7 +10,9 @@ Copyright (c) 2026 Lex from SigmaStudioz.
 
 The collection contains six independently versioned plugins. The latest release scope is recorded below;
 older sections preserve historical publication context. Regenerate catalogs with `python3 tools/build_catalogs.py`, verify with `--check`,
-and run `python3 -m unittest discover -s tests` before publishing changes. Include each plugin's
+and run `python3 -m unittest discover -s tests` before publishing changes. Install the pre-push
+hook once per clone (`ln -s ../../tools/hooks/pre-push .git/hooks/pre-push`): it refuses a push
+while a generated catalog is stale or regenerated but not committed. Include each plugin's
 license in its own folder so cached distributions preserve the notice.
 
 Only the clean distribution is published. Private session logs, global settings, authentication
