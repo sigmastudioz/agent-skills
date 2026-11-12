@@ -342,6 +342,21 @@
         "skills/app-retention/references/distribution-levers.md": "58f0e770492ea6aa731c79b3dfbd57855bd197e6fbed243b6101f1ec117ec3b9",
         "skills/app-retention/references/patterns.md": "0adb4a037a5e92588901a4029af20a03b440350a3e945ad41520fe240a71a7a7"
       }
+    },
+    "delegating-to-agents": {
+      "version": "1.0.0",
+      "files": {
+        ".claude-plugin/plugin.json": "1d36b37f70614ceccae8029375b5affee6cc3b3694682a3f24feaf733bf262cd",
+        ".codex-plugin/plugin.json": "fdaed67e74738fbb04194e3fa047c680856c2c2db7bdbdd6818425ee0f2fb918",
+        ".cursor-plugin/plugin.json": "302172df32ce95b844484abe7284cdd9fb35c75ec95ba5738885c699808bbecb",
+        "LICENSE": "857dcf318e3b2f4fa93af6cbaf93ce8b6c4245f44ffd811bb08381286dfbcf45",
+        "README.md": "0e79a64cab5eced49d929dfb22c6dfafcba55e1cc429030f7e8f362e6343ef7f",
+        "assets/icon.svg": "f1f048326ec85150e54e05c2a719bd066739701469667b698f7a7c1fe951ffda",
+        "plugin.json": "a535a18766a52ad02dd412c25b409fcb7cbb5ad614cd7ef7247554ee16e2ea27",
+        "skills/delegating-to-agents/LICENSE": "857dcf318e3b2f4fa93af6cbaf93ce8b6c4245f44ffd811bb08381286dfbcf45",
+        "skills/delegating-to-agents/SKILL.md": "54423b6f0b74c2c9e14415ec93ce42b06bb29794a9cc3a6551961b2060b3fb0d",
+        "skills/delegating-to-agents/agents/openai.yaml": "1ec61aa658cac7c22b43a509e076cb4975c3fa11aaa0176b7b8d3da58654d890"
+      }
     }
   }
 }

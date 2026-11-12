@@ -45,6 +45,11 @@
       "name": "app-retention",
       "source": "./plugins/app-retention",
       "description": "Design fair retention and ranking for apps: return likelihood, habit-timed nudges, per-item ranking, results-based asset choice and upgrade timing, built from the product's own data with privacy guardrails and no dark patterns. By Lex from SigmaStudioz."
+    },
+    {
+      "name": "delegating-to-agents",
+      "source": "./plugins/delegating-to-agents",
+      "description": "Hand bounded work to another AI agent CLI or TUI (Codex, Cursor, Pi, Claude Code, Hermes) with a complete brief, an isolated workspace, watchable progress and results reported back up the chain. Adapted by Lex from SigmaStudioz from davidondrej/skills (MIT)."
     }
   ]
 }

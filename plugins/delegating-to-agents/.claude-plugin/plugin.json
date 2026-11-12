@@ -1,0 +1,23 @@
+{
+  "license": "MIT",
+  "name": "delegating-to-agents",
+  "version": "1.0.0",
+  "description": "Hand bounded work to another AI agent CLI or TUI (Codex, Cursor, Pi, Claude Code, Hermes) with a complete brief, an isolated workspace, watchable progress and results reported back up the chain. Adapted by Lex from SigmaStudioz from davidondrej/skills (MIT).",
+  "author": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "displayName": "Delegating to Agents",
+  "keywords": [
+    "agents",
+    "delegation",
+    "orchestration",
+    "codex",
+    "cursor",
+    "handoff"
+  ],
+  "icon": "./assets/icon.svg",
+  "documentationUrl": "https://github.com/sigmastudioz/agent-skills/blob/main/plugins/delegating-to-agents/README.md"
+}

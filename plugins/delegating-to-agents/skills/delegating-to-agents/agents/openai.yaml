@@ -1,0 +1,6 @@
+interface:
+  display_name: "Delegating to Agents"
+  short_description: "Hand work to another agent CLI and get progress back"
+  default_prompt: "Use $delegating-to-agents to hand this task to another agent with a full brief, an isolated workspace and progress updates reported back to me."
+policy:
+  allow_implicit_invocation: true
