@@ -9,6 +9,7 @@ they were all adopted or independently retested.
 
 - [delegation-brief](baseline-delegation-brief.md)
 - [quick-fix-shared-formatter](baseline-quick-fix-shared-formatter.md)
+- [observed-cli-delegation](observed-cli-delegation.md) (observed in a real session, 2026-11-12)
 
 ## Repeat a scenario
 

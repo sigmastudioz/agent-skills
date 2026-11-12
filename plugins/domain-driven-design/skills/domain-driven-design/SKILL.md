@@ -50,7 +50,8 @@ and to sessions started through the desktop app's session tool, which the guard 
 
 Before delegating, resuming a handoff, or coordinating concurrent agents, read
 [handoffs](references/handoffs.md) in full: delegation budgets and how the guard parses them, guard
-behaviour, `isolation` declarations, concurrent work and file ownership, interruption and resume,
+behaviour, `isolation` declarations, shell-started workers, pattern-versus-component examples,
+reporting back up the chain, concurrent work and file ownership, interruption and resume,
 and installation discovery. Those rules apply with the same authority as this file.
 
 ## Principal engineering contract

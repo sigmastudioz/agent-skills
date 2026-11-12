@@ -70,6 +70,36 @@ object with `confirmed: true`, the matching absolute `workspace`, and a nonblank
 coordinator must verify that checkout and its authority; an isolation keyword in prose is not
 confirmation. These declarations do not authorize a new workspace, branch, or external action.
 
+### Examples: pattern or component
+
+When a brief cites existing code as an example, say whether it is a pattern to copy or a component
+to reuse, and state the invariant the worker must not break. Workers tend to reuse whatever is
+named. Observed: a brief that cited an account-keyed rate-limit collection as "the pattern" for an
+anonymous counter led the worker to write hashed anonymous IDs into that collection's `userId`
+field, breaking the rule that anonymous identifiers never enter account-keyed records.
+
+### Workers started from a shell
+
+The guard sees only the agent and session tools above. An agent CLI launched through a shell
+command (for example `cursor-agent -p`, `codex exec`, `claude --print`) is not intercepted, so the
+coordinator enforces the contract: write every handoff field into the brief file and keep the
+brief, progress log and report outside the worker's workspace. When the checkout holds anyone's
+uncommitted work, give the worker a worktree cut from a committed base that already contains its
+inputs; if dependency folders are linked from the main checkout, forbid installs. Prefer the
+CLI's sandboxed mode; run-everything flags need the user's approval and may be refused by the host.
+
+### Reporting back up the chain
+
+Reporting travels the whole chain: worker to coordinator, coordinator to the user, and coordinator
+to whoever delegated the task to it. In the brief, require a progress line per named milestone,
+a `BLOCKED` line for decisions the worker cannot make, a final report file and a `DONE` marker.
+Watch the progress file with the host's event or monitor facility rather than repeated sleeps.
+Forward each `BLOCKED` question promptly to the party that owns the decision, as one question.
+Relay results upward only after reviewing the diff and re-running checks; report the worker's
+claims and your verification separately, including what remains unverified.
+
+### Paths and concurrency
+
 Use actual paths on the receiving agent's host; include the necessary content when paths differ or
 are inaccessible. Give commands their working directory and required non-secret configuration names.
 Never place credentials or private runtime payloads in handoff notes. A branch name alone is not

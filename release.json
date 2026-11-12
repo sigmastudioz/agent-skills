@@ -2,25 +2,25 @@
   "catalog": "sigmastudioz",
   "plugins": {
     "domain-driven-design": {
-      "version": "1.4.2",
+      "version": "1.4.3",
       "files": {
-        ".claude-plugin/plugin.json": "2b64bf57cfbd07cc2f2244402248c46e092126ae011cd8780d1561bd182c9cd7",
-        ".codex-plugin/plugin.json": "00d190a0ba8a868ebb646721d7f87197676df2e7b10e5eb861a8476349257b61",
-        ".cursor-plugin/plugin.json": "78dc41179f52aac73ee2d875c36fb749dea7027b3e7fb17514581b78959d23a6",
+        ".claude-plugin/plugin.json": "db25e709bebd39141f29ea27ce3fe4f10368bd5ce54db0a9610f579d58bac7ee",
+        ".codex-plugin/plugin.json": "48840abc53308fff88cd7de2197a392b6caec8d07c19e6b6a77f9bf48faef469",
+        ".cursor-plugin/plugin.json": "48d9e5e60be804ab43fe96ca09de6b3b07273752614062e0266e2113b72c3a49",
         "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
-        "README.md": "7f5350d1b215f5433ff46b196d2d829e6544a7e77635fff19a1e09eea83207c4",
+        "README.md": "f348d54e27be3320ecf04dde23d010517a93afb5bc001e3ae80478e699e60826",
         "assets/icon.svg": "ecc444f42595ddaac663925c73dfd64b306fa0f2172a96fd49e4a2810dde348c",
-        "plugin.json": "8ea7b42ad5fae0a887c4a72e3585ba0ea1b383ca1ffb89eb52fb57fe96c18551",
-        "skills/domain-driven-design/SKILL.md": "9c888cc907707fc9dda0c10694d4d153003206653905a35a67f2d34aca8ef52b",
+        "plugin.json": "dd1858d9a142fc93e3ae0e821a5949f0be3fb38d9d6abbee13216174f7662ed1",
+        "skills/domain-driven-design/SKILL.md": "5859117914c1d081b40cc446342fae5f4768d3498a91ec9562b856b18630584c",
         "skills/domain-driven-design/agents/openai.yaml": "81c161c20c997ded13ce15be615f5cc2a5b163f1036e44d88745c4f0894eff8e",
         "skills/domain-driven-design/references/architecture.md": "00dd97a633d875fe851a3ec9eda60d58b22f7956f4f6a2ae7992209901eecedc",
         "skills/domain-driven-design/references/gap-tracing.md": "65dc330b62cfbb9d1e046c1358428c61451343bc072df522e6bb4587314546c4",
-        "skills/domain-driven-design/references/handoffs.md": "d66c2fb7d722847f2b867c22ab6089b52be80b98f5afab8c0cbb5f32480bb946",
+        "skills/domain-driven-design/references/handoffs.md": "ec1695d2f3835400faf04e2e6c7e03b9baf26a9f28ac3add4fbce637c41a8274",
         "skills/domain-driven-design/references/project-records.md": "7e47a9fbcf49be2655085b6cf284f34fac4a0519a3e281bab384cc5edcdc59f4",
         "skills/domain-driven-design/references/verification.md": "38148cd5bdc477c95267a9e4ee3c0b8a6a9fd30325a60c8b199baed40c3ea89a",
         "skills/domain-driven-design/scripts/guard_handoff.py": "0e3ef2edb9ad8a492aac35899f886d707b75ca413c9338097d8d5b35d883c023",
         "skills/domain-driven-design/scripts/test_guard_handoff.py": "dd7a855cc1c71cb2dc51195c0b3f99e9b75eb1b287b608a8986c4b2a7cdfbc32",
-        "skills/domain-driven-design/tests/README.md": "548e098f09bcc28e36299b37237baca1d66b96665f3ca1d412899d520cfe1977",
+        "skills/domain-driven-design/tests/README.md": "280d2e270fb9ff8d7013d31d427870f7d78e6063395d273cc39dab0adaa5fe9c",
         "skills/domain-driven-design/tests/baseline-delegation-brief.md": "8fcc59a56689dfd95b05bb93a95223692a30d3babe365d04d163e5eaf62f4cbc",
         "skills/domain-driven-design/tests/baseline-quick-fix-shared-formatter.md": "c0d6e403bcdceebed4a32d87ddb3625faabcd5e424a27e58d1e092908b03aa6a",
         "skills/domain-driven-design/tests/fixtures/ddd-delegation/README.md": "c498854ba5a6827448753b9da20716e8419392ec22f039d9c3307d0310705111",
@@ -40,7 +40,8 @@
         "skills/domain-driven-design/tests/fixtures/ddd-scope/src/notifications/receiptEmail.js": "69a368d515970802a0dcd5643577ccb3c85a84fd63c6c36d1e29872a3385c7b7",
         "skills/domain-driven-design/tests/fixtures/ddd-scope/src/reports/csvExport.js": "2b309ad540f9f9a58386b5f831e688cf3ac5436d5d26d7e72fbc1deb51c1d7c9",
         "skills/domain-driven-design/tests/fixtures/ddd-scope/test/csv.test.js": "38dadd129ef45a682ebdee4dd023710256357c1b2ed87443ba6946ba4420f10e",
-        "skills/domain-driven-design/tests/fixtures/ddd-scope/test/invoice.test.js": "7477cc1bdda769e4bc80c12e973ab18c46e8db53c2bb648f01828ebe6f4139e8"
+        "skills/domain-driven-design/tests/fixtures/ddd-scope/test/invoice.test.js": "7477cc1bdda769e4bc80c12e973ab18c46e8db53c2bb648f01828ebe6f4139e8",
+        "skills/domain-driven-design/tests/observed-cli-delegation.md": "584f168d0399eb23c2725bd07a346dba4cfb89f23ce7e0db3c408e72c39d9b15"
       }
     },
     "visualizer": {

@@ -15,6 +15,10 @@ rules into focused references. Small fixes stay small; read-only reviews stay re
 The baseline does not authorize extra agents, unrelated restructuring or deployment.
 
 
+## Changes in 1.4.3
+
+Handoffs now cover agent CLIs started from a shell (the guard doesn't see them, so the brief carries every field; sandboxed modes; worktree isolation), labelling cited code as a pattern to copy or a component to reuse, and reporting back up the chain: progress lines, `BLOCKED` questions forwarded to the decision owner, and reviewed results relayed to whoever delegated. One observed case is recorded in the tests folder.
+
 ## Changes in 1.4.2
 
 Verification now covers local fakes of external services (fast, deterministic iteration, with one check against the real adapter or contract) and keeping agent instruction files lean by removing rules that newer models make redundant.
