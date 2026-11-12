@@ -15,6 +15,10 @@ rules into focused references. Small fixes stay small; read-only reviews stay re
 The baseline does not authorize extra agents, unrelated restructuring or deployment.
 
 
+## Changes in 1.4.2
+
+Verification now covers local fakes of external services (fast, deterministic iteration, with one check against the real adapter or contract) and keeping agent instruction files lean by removing rules that newer models make redundant.
+
 ## Changes in 1.4.1
 
 Handoff briefs now state the exact command and output behind each library or runtime claim, and briefs written for people carry the same handoff fields in prose.

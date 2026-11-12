@@ -14,6 +14,11 @@ A name alone is ambiguous. Pair it with a duration, a strength and a subject ("o
 0.6 s, soft, on the logo"); when a brief gives only the name, choose those three and state
 them in the shot plan so a reviewer can check them.
 
+For a looping asset (an icon, a card, a logo animation), brief it as: the loop length first, then
+one verb per element (float, shimmer, pulse), then what must stay fixed. For interactive assets, ask
+for named states (for example Ambient and Focused) instead of one animation. The loop length must
+divide the timeline's loop under the timing contract below.
+
 ## Reuse first
 
 Before building an entry, discover the installed `ui-foundation-reuse` companion and check the

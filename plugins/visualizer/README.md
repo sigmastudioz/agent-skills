@@ -1,8 +1,12 @@
 # SigmaStudioz Visualizer
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.4.0.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.4.1.
 
 Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.
+
+## Changes in 1.4.1
+
+Adds a brief pattern for looping and interactive assets to the motion vocabulary: loop length first, one verb per element, what stays fixed, and named states such as Ambient and Focused.
 
 ## Changes in 1.4.0
 

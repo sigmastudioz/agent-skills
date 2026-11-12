@@ -19,6 +19,8 @@ Choose verification proportional to the changed behavior and risk:
 
 - Domain tests establish important invariants, state transitions, and boundary cases.
 - Integration tests establish persistence, constraints, authorization, and relevant external adapters.
+- Local fakes of external services give fast, deterministic feedback while iterating; keep at least one
+  check against the real adapter or its published contract before claiming the integration works.
 - Contract tests or compatibility checks establish cross-domain and cross-app payload behavior.
 - A focused end-to-end check establishes the affected user or job workflow, including failure handling.
 - Existing lint, type, build, workspace, or dependency checks establish changed package boundaries.
@@ -51,3 +53,8 @@ Report the resulting structure, important decisions and tradeoffs, checks perfor
 limitations. For architecture reviews, give actionable findings with paths, impact, and the smallest
 fix; do not manufacture findings or perform a redesign unless requested. Stop when the scoped
 acceptance conditions are met. Do not promise that architecture alone guarantees performance or scale.
+
+Keep agent instruction files lean. When a repeated agent mistake earns a rule, record the failure it
+prevents; when newer models or tooling make a rule redundant, confirm the failure no longer occurs,
+then remove it rather than letting rules accumulate.
+
