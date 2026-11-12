@@ -1,11 +1,18 @@
 # UI Foundation Reuse
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.2.0.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.2.1.
 
 Reuse compatible React effects and scene infrastructure without a library download. This
 plugin includes the complete `ui-foundation-reuse` skill and the bundled
 `@sigmastudioz/ui-foundation` 0.11.0 runtime: CJS/ESM modules, TypeScript declarations,
 original source and license notices. React and optional rendering peers are external.
+
+## Changes in 1.2.1
+
+Adds the independent critique loop to the skill: real screenshots of rest, mid-animation,
+reduced-motion, light and dark states reviewed by a fresh critic each round, three rounds by
+default, with a change of approach when a defect returns. The bundled runtime is rebuilt from
+the same 0.11.0 release with that guide.
 
 ## Changes in 1.2.0
 

@@ -8,6 +8,8 @@ import re
 
 # OS metadata files that git ignores and must never be hashed into a release.
 JUNK_FILES = {'.DS_Store', 'Thumbs.db', 'desktop.ini'}
+# Local tool folders (git-ignored) that never ship: virtualenvs, package and test caches.
+JUNK_DIRS = {'.venv', 'venv', 'node_modules', '__pycache__', '.pytest_cache', '.mypy_cache', '.ruff_cache'}
 
 
 def cursor_identity(author):
@@ -49,6 +51,8 @@ def render(root):
                       'category': entry.get('category', 'Productivity')})
         files = {}
         for path in sorted(manifest_path.parent.rglob('*')):
+            if JUNK_DIRS.intersection(path.relative_to(manifest_path.parent).parts):
+                continue
             if path.is_symlink():
                 raise ValueError('Distribution must be self-contained: ' + str(path))
             if (path.is_file() and '__pycache__' not in path.parts and path.suffix != '.pyc'

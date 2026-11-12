@@ -1,0 +1,14 @@
+#!/bin/sh
+# Refuse a push while a generated catalog (release.json, catalog-derived marketplace files) is stale.
+# Install once per clone:  ln -s ../../tools/hooks/pre-push .git/hooks/pre-push
+# Checks the working tree; commit the regenerated files before pushing. Skip once with --no-verify.
+root=$(git rev-parse --show-toplevel) || exit 1
+if ! out=$(python3 "$root/tools/build_catalogs.py" --check 2>&1); then
+  echo "$out" >&2
+  echo "pre-push: run python3 tools/build_catalogs.py, commit the result, then push." >&2
+  exit 1
+fi
+if ! git -C "$root" diff --quiet HEAD -- release.json catalog.json .claude-plugin .cursor-plugin .agents/plugins; then
+  echo "pre-push: catalogs are current in the working tree but not committed; commit them, then push." >&2
+  exit 1
+fi

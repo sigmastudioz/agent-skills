@@ -46,6 +46,18 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(json.loads((self.root / 'plugins/first/plugin.json').read_text())['version'], '1.0.0')
         self.assertEqual(json.loads((self.root / 'plugins/second/plugin.json').read_text())['version'], '2.3.4')
 
+    def test_local_tool_folders_are_skipped_even_with_symlinks(self):
+        venv = self.root / 'plugins/first/scripts/.venv/bin'
+        venv.mkdir(parents=True)
+        (venv / 'python').symlink_to('/usr/bin/python3')
+        (self.root / 'plugins/first/scripts/.pytest_cache').mkdir()
+        (self.root / 'plugins/first/scripts/.pytest_cache/v').write_text('x')
+        (self.root / 'plugins/first/scripts/tool.py').write_text('print(1)')
+        self.save()
+        files = catalogs.render(self.root)['release.json']['plugins']['first']['files']
+        self.assertIn('scripts/tool.py', files)
+        self.assertFalse([f for f in files if '.venv' in f or '.pytest_cache' in f])
+
     def test_os_metadata_files_are_not_released(self):
         (self.root / 'plugins/first/.DS_Store').write_bytes(b'junk')
         (self.root / 'plugins/first/README.md').write_text('readme')

@@ -47,7 +47,7 @@ It supports native media understanding when available, or local FFmpeg sampling 
 presentation timestamps. It separates visible evidence, audible content, transcript hypotheses
 and interpretation; sparse sampling is never advertised as exhaustive viewing.
 
-The optional Python3.10+ sampler requires existing ffprobe/FFmpeg. It has no auto-installer,
+The optional Python 3.10+ sampler requires existing ffprobe/FFmpeg. It has no auto-installer,
 model download, cloud fallback or transcription dependency. Whisper is optional; external
 transcription and large model downloads need an appropriate user-authorized destination/budget.
 See the skill references for commands, timing conventions and audio-only/partial-evidence cases.

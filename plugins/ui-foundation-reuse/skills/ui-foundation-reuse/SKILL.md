@@ -451,6 +451,30 @@ question, not a quota. Change only what the actual task and evidence support.
 - **Parkinson:** do intros and autoplay take only as long as they need?
 - **Occam:** can a static image, `Pixelate` or CSS do the job instead of a heavier effect?
 
+## Independent critique loop
+
+Run this on what you build with the library, after its tests pass. Critique sits on top
+of tests, type checks and browser checks; it never replaces them.
+
+1. **Capture real frames** of the rendered component, not mock-ups: at rest, mid-animation,
+   reduced motion, and light and dark colour schemes (plus a narrow viewport when layout
+   matters). A Playwright page, the app's own browser tests or the library's
+   `npm run critique:capture` (maintainers) all work.
+2. **Brief a separate critic** when the user has authorized delegation and subagents are
+   available: give it only the frames, the brief (intent, audience, states shown, known
+   constraints such as reduced motion or no WebGL) and nothing of your reasoning. Pass no
+   credentials, tokens or private data. Ask for ranked defects, each with state, what and
+   where, not a score.
+3. **Fix** the material defects, re-capture the same states, and use a **fresh** critic for
+   the next round so it carries no memory of earlier fixes.
+4. **Stop** when a round finds no material defect, after 3 rounds unless the user set a
+   different budget, or when the user's budget is spent.
+5. If a defect **returns after a fix**, change the approach (structure, technique or
+   export) instead of tuning the same value again.
+
+Report fixed and unfixed defects with the round each was found in. Without authorization to
+delegate, or without subagents, run the same pass yourself and say it was a self-review.
+
 ## Integrate generated 3D assets correctly
 
 Inspect the installed `/three` declarations for `Scene`, `World`, `Model`, and `useSceneMotion` before choosing a host. Confirm the following contracts against that version:
