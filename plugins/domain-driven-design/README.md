@@ -1,6 +1,6 @@
 # Principal Driven Domain Design
 
-By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.4.4**, [MIT](LICENSE).
+By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.4.5**, [MIT](LICENSE).
 
 **Principal-level domain-driven design for AI coding agents.**
 
@@ -75,8 +75,8 @@ hook matcher includes this tool. Noncoding prose requests remain outside the han
 The helper cannot validate host permissions, actual isolated-checkout authority or every possible
 wording; those remain coordinator responsibilities.
 
-[Pressure scenarios](skills/domain-driven-design/tests/README.md) include portable synthetic
-inputs and historical comparisons. The original DDD baseline already had the skill text in
+[Pressure scenarios](skills/domain-driven-design/tests/README.md) link to portable synthetic
+inputs in the collection test area and retain historical comparisons. The original DDD baseline already had the skill text in
 context, so those records cannot establish causal efficacy. Raw host sessions are not distributed.
 Fresh native-agent evaluation was not run for 1.4.0. The historical coding evidence below remains
 tied to 1.0.5, and automated guard/package checks do not establish model adherence or marketplace
@@ -110,3 +110,10 @@ reads the host-provided transcript locally; the agent provider handles prompts a
 settings. See [data handling](https://github.com/sigmastudioz/agent-skills/blob/main/PRIVACY.md).
 Support: [GitHub Issues](https://github.com/sigmastudioz/agent-skills/issues). Do not post secrets,
 private code or raw session logs. The MIT copyright notice credits Lex from SigmaStudioz.
+
+## Distribution boundary
+
+The runtime skill retains its guidance and functional helpers. Executable synthetic evaluation
+fixtures live in the collection’s [test area](https://github.com/sigmastudioz/agent-skills/tree/main/tests/fixtures/domain-driven-design), outside this installable plugin.
+Historical scenario summaries retain their original dates and hashes. This packaging change does
+not establish Anthropic organization verification or clearance of separate directory findings.

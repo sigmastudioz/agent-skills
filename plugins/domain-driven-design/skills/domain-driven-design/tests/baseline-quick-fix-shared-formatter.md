@@ -3,6 +3,9 @@
 Skill under test: `domain-driven-design/SKILL.md`
 (SHA-256 at test time `ae1c5b6a51f169b93d4d98df5ccfc47b72a61b168ba264ca9ab984f97fb5f10a`).
 Recorded 2026-11-01. Summarized observations below; raw host reports are not distributed.
+Current runnable input: [collection fixture](https://github.com/sigmastudioz/agent-skills/tree/main/tests/fixtures/domain-driven-design/ddd-scope).
+Historical fixture paths below describe the original recorded run.
+
 Fixture: `fixtures/ddd-scope/`. Harness and host limitation: `README.md`.
 
 **Read the host limitation first.** Both arms had this skill's full text in context through

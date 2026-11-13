@@ -1,6 +1,6 @@
 # Does It Make Sense?
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.0.2.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.0.3.
 
 Understand what was actually built and whether the intended user can achieve the original
 end goal. Trace from the problem through real entry points, implementation, state changes
@@ -59,3 +59,10 @@ tracking system. No private evidence is sent to the publisher. See [Privacy](../
 [Skill instructions](skills/does-it-make-sense/SKILL.md) are the operative contract. Structure,
 metadata, distribution and authored scenario review can be checked locally; these do not
 establish fresh native-agent adherence, complete product verification or directory approval.
+
+## Distribution boundary
+
+The installed skill retains its full guidance. Executable synthetic evaluation
+fixtures live in the collection’s [test area](https://github.com/sigmastudioz/agent-skills/tree/main/tests/fixtures/does-it-make-sense), outside this installable plugin.
+Historical scenario summaries retain their original dates and hashes. This packaging change does
+not establish Anthropic organization verification or clearance of separate directory findings.
