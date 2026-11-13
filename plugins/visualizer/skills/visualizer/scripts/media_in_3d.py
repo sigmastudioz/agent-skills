@@ -9,15 +9,18 @@ import hashlib
 import json
 import math
 from pathlib import Path
+import shutil
 import subprocess
 import wave
 
 import numpy as np
 from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFont
+from tool_runtime import tool_environment
 
 
 def run(args):
-    return subprocess.run(args, check=True, capture_output=True).stdout
+    return subprocess.run(args, check=True, capture_output=True,
+                          env=tool_environment(shutil.which(str(args[0])))).stdout
 
 
 def probe(path):
@@ -318,7 +321,8 @@ def main():
     process = subprocess.Popen(['ffmpeg', '-hide_banner', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24',
                                 '-s', f'{args.width}x{args.height}', '-r', '30', '-i', 'pipe:0', '-i', str(args.audio),
                                 '-map', '0:v', '-map', '1:a', '-t', str(args.duration), '-c:v', 'libx264', '-preset', 'medium',
-                                '-crf', '18', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', str(final)], stdin=subprocess.PIPE)
+                                '-crf', '18', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', str(final)],
+                               stdin=subprocess.PIPE, env=tool_environment(shutil.which('ffmpeg')))
     try:
         for n in range(count):
             picture = study.render(n)

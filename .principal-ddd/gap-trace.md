@@ -1,5 +1,48 @@
 # Collection catalog trace
 
+## Credential boundaries — November 13
+
+CRED-01 (bug, fixed-and-verified): the storyboard and media-in-3D CLIs passed
+the full caller environment to FFmpeg/ffprobe. No credential transmission was observed,
+but child tools unnecessarily received host keys, proxy/authentication settings and
+Python/loader/report overrides. Existing sound children used an allowlist; its remaining
+OS/temp/locale reads were not credential reads, but the provider labels sound_design.py
+as MCP_FORWARDS_CREDENTIAL_ENV. All three now reuse scripts/tool_runtime.py. It constructs
+an environment from selected tool directories, OS defaults, fixed locale and no-user-site
+settings; sound adds fixed offline flags. No caller environment values are copied.
+
+| Cluster | Connected path and failure boundary | Evidence / remaining scope |
+| --- | --- | --- |
+| Media child environment | documented render.py / media_in_3d.py CLI → selected local FFmpeg/ffprobe → shared tool environment → encode/probe result or existing process failure | Real child sentinel tests and storyboard encode cover credential exclusion and preserved output; media composition rendering retains existing behavior tests. Fresh full media-in-3D export is not claimed. |
+| Sound runtime | documented config/doctor/generate/mix → pinned local tool validation → shared environment + fixed offline flags → subprocess → result/provenance | Existing revision/rights/output/decoder/proxy tests plus real child tests; no fresh live Openverse, Earshot or Real SFX operation. |
+| UI native configuration | marketplace entry → .claude-plugin/plugin.json → empty inline MCP server map → no registered server, env, hook or secret input | CRED-02 below; native validator and regression assertions. UI staging helper reads only local metadata/archive/app manifest and has no network/process/env API. Existing archive/staging checks reused only if runtime bytes match. |
+| Distribution | nine existing identities → two version bumps → four host manifests each → release.json → self-contained ZIPs | Other seven inventories must remain byte-identical; helper must ship beside all three callers. No installed/global/development checkout change. |
+
+CRED-02 (unverified provider finding): UI1.2.2/583d79b and Visualizer1.4.3/e9ce3d0
+both name .claude-plugin/plugin.json for MCP_FORWARDS_CREDENTIAL_ENV. Those exact JSON
+manifests contain only listing metadata: no server, env, hook, interpolation or credential.
+The former has one warning; the latter also names the sound script. Inspected UI archive
+has no process.env or token/API-key lookup; explicit browser image CORS options are app
+configuration, not native host credential forwarding. No confirmed manifest credential
+defect exists. Empty mcpServers maps make absence explicit without inventing a credential
+request or service. Only a new provider scan/reviewer can establish warning removal.
+
+Consumer/registration, default, rejection, snapshot and package edges require the final
+checks below. No app mount, persistence/schema, recurring cadence, webhook or legal change.
+Windows system-directory lookup uses the native OS API; Windows runtime is unavailable
+and remains unverified. Keep real scripts/runtime archive and cross-host manifests.
+
+Verification on the final runtime/manifest content: `python3 -B -m unittest discover -s tests`
+passed 198 tests in 44.357s, no skips. Both targeted `claude plugin validate` commands passed,
+with only the existing README install-line advice. Real baseline children launched by the
+old sound default runner and media runner inherited a synthetic credential; patched real
+children do not. The storyboard CLI's actual FFmpeg wrapper records no sentinel credential,
+proxy, Python-path or FFREPORT settings while producing the expected frames/audio/captions.
+The existing sound configured-child, anonymous downloader, decoder/rights/output rejection
+tests pass. UI archive SHA-256 stays a433d9eea8e91681cf8c1e7af86d520f0979840b900887a71b82942772b02d1a;
+all seven other plugin inventories match public b661947 exactly. Caller/registration/default
+and rejection edges pass; Windows and remote directory scan remain unverified, not green.
+
 ## Delegating to Agents local contract — November 13
 
 DEL-01 (integration gap): the 1.0.0 skill's operative handoff links fetched mutable remote

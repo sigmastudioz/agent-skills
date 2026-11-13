@@ -1,5 +1,19 @@
 # Publication plan
 
+## Credential-boundary patch — November 13
+
+Update only Visualizer to 1.4.4 and UI Foundation Reuse to 1.2.3 on the nine-plugin
+public base b661947. Keep all seven other inventories and all held-back additions unchanged.
+Visualizer's three local tool entrypoints share an environment constructed without caller
+values; sound no longer reads its former OS/temp/locale allowlist. Both Claude manifests
+explicitly declare an empty MCP server map. UI's runtime archive/source/API are unchanged.
+The provider's manifest warnings did not correspond to an actual declared MCP credential;
+new source and local validation do not prove their removal by the directory scanner.
+Preserve functional scripts, local runtime archive and cross-host manifests. No new native
+identity, legal declaration, account verification, auto-publish or webhook change is involved.
+
+---
+
 Publisher: **Lex from SigmaStudioz**. Catalog: `sigmastudioz`. Plugins: `domain-driven-design`, `visualizer`, `video-analysis`, `engineering-spikes`, `ui-foundation-reuse`, `does-it-make-sense`, `what-if-tony-stark-built-this`.
 Publisher profile: https://github.com/sigmastudioz.
 Public repository: https://github.com/sigmastudioz/agent-skills.

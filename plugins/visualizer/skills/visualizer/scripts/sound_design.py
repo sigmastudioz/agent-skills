@@ -4,7 +4,6 @@ import argparse
 import hashlib
 import json
 import math
-import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -13,6 +12,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from tool_runtime import tool_environment
 
 DEFAULT_CONFIG = Path.home() / '.local/share/sigmastudioz/visualization-sound-tools/config.json'
 AUDIO_SUFFIXES = {'.wav', '.mp3', '.flac', '.ogg', '.opus', '.m4a', '.aac', '.aif', '.aiff', '.webm'}
@@ -68,16 +68,10 @@ def runtime(path):
     c = load(path)
     for key in ('python', 'ffmpeg', 'ffprobe', 'real_sfx_root', 'earshot_root'):
         require(Path(c[key]).exists(), f'Missing runtime {key}: {c[key]}')
-    # This anonymous/local workflow needs no API keys, proxy credentials or MCP env.
-    env = {'EARSHOT_OFFLINE': '1', 'HF_HUB_OFFLINE': '1', 'TRANSFORMERS_OFFLINE': '1',
-           'PYTHONNOUSERSITE': '1',
-           'PATH': os.pathsep.join(dict.fromkeys((str(Path(c['ffmpeg']).parent),
-                                                str(Path(c['python']).parent), os.defpath)))}
-    for key in ('SYSTEMROOT', 'WINDIR', 'TMPDIR', 'TEMP', 'TMP', 'LANG', 'LC_ALL'):
-        if os.environ.get(key):
-            env[key] = os.environ[key]
     git = shutil.which('git')
     require(git is not None, 'Missing runtime git')
+    env = tool_environment(c['ffmpeg'], c['ffprobe'], c['python'], git)
+    env.update(EARSHOT_OFFLINE='1', HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1')
     for name, root in (('earshot', Path(c['earshot_root'])), ('real_sfx', Path(c['real_sfx_root']).parents[1])):
         head = run([git, '-C', root, 'rev-parse', 'HEAD'], env).strip()
         require(head == c['revisions'][name], f'{name} revision differs from the runtime config')
@@ -86,6 +80,8 @@ def runtime(path):
 
 
 def run(args, env=None, timeout=180):
+    if env is None:
+        env = tool_environment(shutil.which(str(args[0])))
     p = subprocess.run([str(x) for x in args], env=env, capture_output=True,
                        text=True, timeout=timeout)
     require(p.returncode == 0, f'Command failed ({p.returncode}): {args[0]}\n{p.stderr[-2000:]}\n{p.stdout[-1000:]}')

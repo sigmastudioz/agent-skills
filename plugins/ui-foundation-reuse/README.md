@@ -1,11 +1,24 @@
 # UI Foundation Reuse
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.2.2.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.2.3.
 
 Reuse compatible React effects and scene infrastructure without a library download. This
 plugin includes the complete `ui-foundation-reuse` skill and the bundled
 `@sigmastudioz/ui-foundation` 0.11.0 runtime: CJS/ESM modules, TypeScript declarations,
 original source and license notices. React and optional rendering peers are external.
+
+## Changes in 1.2.3
+
+Explicitly declares an empty MCP server map in the Claude manifest. This skill has no
+MCP server, credential variable, hook or secret input. The staging helper reads only
+the local bundle metadata/archive and the selected application's manifest; it neither
+reads a credential store nor opens a network connection. Credential-boundary regressions
+protect that contract. The bundled 0.11.0 runtime and its checksum are unchanged.
+
+Anthropic previously reported `MCP_FORWARDS_CREDENTIAL_ENV` against this metadata-only
+manifest despite its having no server or environment configuration. An explicit empty map
+documents the actual behavior; it does not establish removal of the remote warning.
+The separate archive-inspection and Verified-organization restrictions still require review.
 
 ## Changes in 1.2.1
 

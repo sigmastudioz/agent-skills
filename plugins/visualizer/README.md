@@ -1,8 +1,21 @@
 # SigmaStudioz Visualizer
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.4.3.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.4.4.
 
 Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.
+
+## Changes in 1.4.4
+
+Uses one credential-free environment policy for the sound bridge, storyboard encoder and
+media-in-3D decoder/encoder. Child tools receive selected executable directories, fixed locale
+and offline flags where appropriate, with no copied host environment, credential/proxy variables,
+home-directory setting, Python injection variables or FFmpeg report setting. The sound bridge
+no longer reads even the previous OS/temp/locale environment allowlist. Windows' system directory
+is queried from the OS. Existing local tool configuration and anonymous downloads remain.
+
+The Claude manifest explicitly declares no MCP servers. Regression checks exercise real child
+processes and an actual storyboard encode with sentinel credentials in the caller. Anthropic's
+scanner must independently verify warning clearance; this does not resolve organization eligibility.
 
 ## Changes in 1.4.3
 

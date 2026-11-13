@@ -11,6 +11,7 @@ import sys
 import tempfile
 import wave
 from PIL import Image, ImageDraw, ImageFont
+from tool_runtime import tool_environment
 
 BG, FG, MUTED = '#101216', '#F3F0E8', '#ABB0BB'
 COLORS = {'accent': '#B59AFF', 'good': '#89E5C1', 'gap': '#FFAA97'}
@@ -250,7 +251,8 @@ def main():
             score(audio, data['scenes']); command += ['-i', str(audio), '-af', 'loudnorm=I=-20:TP=-2:LRA=9', '-c:a', 'aac', '-b:a', '128k']
         command += ['-c:v', 'libx264', '-preset', 'fast', '-crf', '21', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-t', str(elapsed), str(video)]
         with (tmp/'encoder.log').open('w+') as log:
-            proc = subprocess.Popen(command, stdin=subprocess.PIPE, stderr=log)
+            proc = subprocess.Popen(command, stdin=subprocess.PIPE, stderr=log,
+                                    env=tool_environment(shutil.which(command[0])))
             try:
                 for i in range(round(elapsed*args.fps)): proc.stdin.write(renderer.frame(i/args.fps).tobytes())
                 proc.stdin.close(); require(proc.wait()==0, 'FFmpeg failed')
