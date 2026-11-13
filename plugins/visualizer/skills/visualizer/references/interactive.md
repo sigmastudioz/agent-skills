@@ -60,3 +60,62 @@ Test every meaningful control through model and visual consequence: initial stat
 extremes, keyboard interaction, reset, rapid changes, empty/error cases, resize and cleanup.
 Add numeric invariants and meaningful regression cases where calculation or integration is at risk.
 Do not substitute a static screenshot test for behavioral verification.
+
+## Recipe: explainer controls for a 3D subject
+For a spatial explanation that someone presents or studies: a section through the object, named
+camera shots, a rewind to the current beat, and notes pinned to parts. These sit on top of
+pause, seek, replay, step and keyboard support above. Checked 2026-11-13 on a small vane-pump scene
+with React 18, Three.js 0.160 and React Three Fiber 8 in headless Chromium, with and without
+reduced motion; treat other versions as unverified.
+
+**One clock.** Keep scene seconds in one place and make every moving part a pure function of it
+(`poseAt(seconds)`). Controls only change the clock or a view setting, so seeking to the same time
+always draws the same picture, in any order.
+
+**Beats and rewind.** List beats as `{ id, start, title }`. "Next" and "previous" jump to beat
+starts. "Rewind to beat" follows the media-player rule: go to the start of the current beat, or to
+the beat before when pressed within about 0.6 s of that start. Do nothing at the last beat rather
+than wrapping. Show "Beat 2 of 3: title · time" in a status line.
+
+```ts
+function rewindTarget(t: number, beats: { start: number }[], grace = 0.6) {
+  let i = 0
+  beats.forEach((b, n) => { if (t >= b.start) i = n })
+  return t - beats[i].start <= grace && i > 0 ? beats[i - 1].start : beats[i].start
+}
+```
+
+**Cutaway.** Turn on `renderer.localClippingEnabled`, keep one `THREE.Plane`, and pass it in
+`clippingPlanes` only to the materials of the shell being opened, with `side: DoubleSide`. Parts
+inside stay whole. Toggle by passing an empty array. A clipped shell is hollow at the cut: add a
+cap only if the wall thickness matters to the explanation. State it on the button with
+`aria-pressed`.
+
+**Camera shots.** Name each shot `{ key, name, position, target }` and bind the keys 1–9. Ease toward
+the shot with a frame-rate independent factor, `1 - Math.exp(-6 * delta)`, applied to both
+position and look-at target. Under reduced motion use a factor of 1: a cut. Show the active shot on
+its button.
+
+**Notes pinned to parts.** Each note has an anchor, text and a time window. Keep the labels as DOM
+elements over the canvas and, once per frame, project the anchor to pixels and write a transform
+on the element (no React state per frame). Three rules found while checking this:
+- The anchor of a moving part must be a function of scene seconds; a fixed point soon labels empty space.
+- Hide a note whose part is hidden, for example inside a closed casing, and say so in the text list.
+- Hide a note whose anchor leaves the view or goes behind the camera.
+
+Give the same notes as an ordered text list for the current moment, so the meaning does not
+depend on the overlay. A "Notes" toggle hides the overlay only.
+
+**Hotkeys.** One `keydown` listener on the window. Ignore the event when a modifier is held or the
+target is an input, textarea, select or editable element; let Space on a focused button press that
+button. Give every hotkey a visible button with the key in its label and `aria-keyshortcuts`.
+Suggested set: Space play/pause, `[` and `]` previous/next beat, B rewind to beat, C cutaway,
+A notes, 1–9 shots, R reset. Reset restores time, shot, cutaway and notes.
+
+Verify before delivery: next/previous land exactly on beat starts; rewind obeys the grace rule;
+the same seek twice gives the same pose; play advances time and pause holds it; the cutaway
+changes the picture and reveals the inside notes; each shot key brings the camera to its named
+position, at once under reduced motion; a moving part's note stays within 2 px of it; typing
+`abc 123 []` in a text field changes nothing; reset restores everything. All of these passed in
+the check above. Captured canvas pixels omit DOM notes: for a film, composite them or draw the
+text in the scene, as the React Three Fiber reference says.
