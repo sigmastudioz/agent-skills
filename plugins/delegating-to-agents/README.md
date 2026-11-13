@@ -1,7 +1,7 @@
 # Delegating to Agents
 
 Adapted by **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** from
-[davidondrej/skills](https://github.com/davidondrej/skills) · MIT · version 1.0.0.
+[davidondrej/skills](https://github.com/davidondrej/skills) · MIT · version 1.0.1.
 
 Hand bounded work to another AI agent CLI or TUI (Codex, Cursor, Pi, Claude Code, Hermes) and
 keep control of it: a complete brief, an isolated git worktree when others have uncommitted
@@ -9,8 +9,14 @@ work, progress lines you can watch as events, `BLOCKED` questions forwarded to w
 decision, and results reviewed before they are reported back up the chain.
 
 What a brief must contain comes from the
-[domain-driven-design handoff guide](../domain-driven-design/skills/domain-driven-design/references/handoffs.md);
+[bundled handoff contract](skills/delegating-to-agents/references/handoff-contract.md);
 this skill covers the mechanics of driving each agent.
+
+## Changes in 1.0.1
+
+Bundles the handoff contract inside the installed skill and resolves every operative guide link
+locally. The versioned adaptation preserves authorization, briefs, isolation, evidence and
+reporting rules without a mutable remote instruction dependency. No helper or service added.
 
 ## Changes in 1.0.0
 

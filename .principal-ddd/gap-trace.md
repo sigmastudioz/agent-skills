@@ -1,5 +1,19 @@
 # Collection catalog trace
 
+## Delegating to Agents local contract — November 13
+
+DEL-01 (integration gap): the 1.0.0 skill's operative handoff links fetched mutable remote
+instructions. The public skills.sh Snyk audit reports W012/medium for that dependency.
+Entrypoint -> local references/handoff-contract.md -> authorized brief/isolation/reporting;
+README and the two section links now resolve inside the installed package. The bundled
+versioned adaptation derives from unchanged DDD1.4.5; its source identity/hash is recorded
+in the reference. No guard, executable, account or service is added. Host authorization,
+budgets and existing engineering baselines remain controlling. The other eight public
+plugin inventories and upstream MIT attribution/licenses remain unchanged. Existing1.0.0
+release and the single AgenticSkills intake remain historical/complete, never overwritten
+or resubmitted. Provider warning clearance and native activation require fresh observations.
+
+
 ## Directory package boundaries — November 13
 
 Scope: existing Claude feedback for DDD, UI Foundation Reuse, Does It Make Sense?,

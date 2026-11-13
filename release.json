@@ -283,18 +283,19 @@
       }
     },
     "delegating-to-agents": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "files": {
-        ".claude-plugin/plugin.json": "1d36b37f70614ceccae8029375b5affee6cc3b3694682a3f24feaf733bf262cd",
-        ".codex-plugin/plugin.json": "fdaed67e74738fbb04194e3fa047c680856c2c2db7bdbdd6818425ee0f2fb918",
-        ".cursor-plugin/plugin.json": "302172df32ce95b844484abe7284cdd9fb35c75ec95ba5738885c699808bbecb",
+        ".claude-plugin/plugin.json": "7b849255e81c79d8e6d72f5a68776c9f238bac1330bbf10330dd60d27eaf4127",
+        ".codex-plugin/plugin.json": "b636dd71666eb144bb60d28c835191f4dca3ea82383566fcdd78f5b053a5b448",
+        ".cursor-plugin/plugin.json": "249d2afadbb174641f8f90e2da1b09da11ec17cf21dcf2abc9a79a1bd55b5cf7",
         "LICENSE": "857dcf318e3b2f4fa93af6cbaf93ce8b6c4245f44ffd811bb08381286dfbcf45",
-        "README.md": "0e79a64cab5eced49d929dfb22c6dfafcba55e1cc429030f7e8f362e6343ef7f",
+        "README.md": "8b9b0e4b0b438db3217cddda4b4539617b2f1fac2b84cf55aaaca2cae10c7305",
         "assets/icon.svg": "f1f048326ec85150e54e05c2a719bd066739701469667b698f7a7c1fe951ffda",
-        "plugin.json": "a535a18766a52ad02dd412c25b409fcb7cbb5ad614cd7ef7247554ee16e2ea27",
+        "plugin.json": "ee8d7c392c92079f8826468d008e537accf549cb0e21c2a4f28e05b7b84931cc",
         "skills/delegating-to-agents/LICENSE": "857dcf318e3b2f4fa93af6cbaf93ce8b6c4245f44ffd811bb08381286dfbcf45",
-        "skills/delegating-to-agents/SKILL.md": "54423b6f0b74c2c9e14415ec93ce42b06bb29794a9cc3a6551961b2060b3fb0d",
-        "skills/delegating-to-agents/agents/openai.yaml": "1ec61aa658cac7c22b43a509e076cb4975c3fa11aaa0176b7b8d3da58654d890"
+        "skills/delegating-to-agents/SKILL.md": "8adff0d4f72db4ee5e9d28f12676821018e50c32b434b168a96db72730bd1527",
+        "skills/delegating-to-agents/agents/openai.yaml": "1ec61aa658cac7c22b43a509e076cb4975c3fa11aaa0176b7b8d3da58654d890",
+        "skills/delegating-to-agents/references/handoff-contract.md": "7d230df396025818b9892c66c0eaf7922594d8af10903e1e9668720ea08f2b4a"
       }
     }
   }
