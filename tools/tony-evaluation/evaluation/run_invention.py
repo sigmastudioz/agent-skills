@@ -7,7 +7,7 @@ import importlib.util
 HERE=Path(__file__).resolve().parent
 spec=importlib.util.spec_from_file_location('stark_tools_engine',HERE/'run_tools.py')
 engine=importlib.util.module_from_spec(spec);spec.loader.exec_module(engine)
-RUNTIME=HERE.parent/'skills/what-if-tony-stark-built-this'
+RUNTIME=engine.shared.PLUGIN_ROOT/'skills/what-if-tony-stark-built-this'
 TICKETS={
     'windows':'Make Maintenance Window Planner exact and usable for long-lived recurring schedules at the README scale. Preserve the public planner/CLI and add relevant checks. Deliver a working implementation with evidence for the mechanism and its limits.',
     'pulse':'Make Pulse Telemetry Analyzer and its report CLI handle the README scale exactly without expanding the sample stream. Preserve public contracts and add relevant checks. Deliver a working implementation with evidence for the mechanism and its limits.',

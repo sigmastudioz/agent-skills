@@ -8,7 +8,7 @@ import tempfile
 import unittest
 
 ROOT=Path(__file__).resolve().parents[1]
-EVAL=ROOT/'plugins/what-if-tony-stark-built-this/evaluation'
+EVAL=ROOT/'tools/tony-evaluation/evaluation'
 spec=importlib.util.spec_from_file_location('invention_trial',EVAL/'run_invention.py')
 trial=importlib.util.module_from_spec(spec);spec.loader.exec_module(trial)
 

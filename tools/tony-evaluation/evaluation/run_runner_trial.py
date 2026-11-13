@@ -7,7 +7,7 @@ import importlib.util
 HERE=Path(__file__).resolve().parent
 spec=importlib.util.spec_from_file_location('stark_runner_dispatch',HERE/'run_tools.py')
 engine=importlib.util.module_from_spec(spec);spec.loader.exec_module(engine)
-RUNTIME=HERE.parent/'skills/what-if-tony-stark-built-this'
+RUNTIME=engine.shared.PLUGIN_ROOT/'skills/what-if-tony-stark-built-this'
 TICKETS={
     'lookup':'Make a measured implementation recommendation for the supplied lookup API, following the README measurement contract. Preserve all supplied inputs/code. Deliver decision.json and executed measurement evidence.',
     'codec':'Make a measured implementation recommendation for the bounded-memory decoder, following the README measurement contract. Preserve all supplied inputs/code. Deliver decision.json and executed measurement evidence.',

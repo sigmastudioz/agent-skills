@@ -8,7 +8,7 @@ HERE = Path(__file__).resolve().parent
 spec = importlib.util.spec_from_file_location('stark_coding_dispatch', HERE / 'run_tools.py')
 engine = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(engine)
-RUNTIME = HERE.parent / 'skills/what-if-tony-stark-built-this'
+RUNTIME = engine.shared.PLUGIN_ROOT / 'skills/what-if-tony-stark-built-this'
 TICKETS = {
     'catalog': 'Implement the release catalog scaling ticket in README.md, create your own comparison inputs and adapters, execute the before/after comparison and verify the connected consumers.',
     'sequencing': 'Implement the exact album sequencing scaling ticket in README.md, create your own comparison inputs and adapters, execute the before/after comparison and verify both public entrypoints.',

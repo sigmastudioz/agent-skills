@@ -8,9 +8,9 @@ the input hashes. A separate scorer gets the criteria afterward. Use only author
 No additional agent, account, paid model or external service is required by this package.
 
 For an explicitly requested live model comparison, maintainers use that trial's frozen protocol.
-The current [engineering-invention protocol](../../../evaluation/INVENTION_PROTOCOL.md) supplies the
+The current [engineering-invention protocol](https://github.com/sigmastudioz/agent-skills/blob/main/tools/tony-evaluation/evaluation/INVENTION_PROTOCOL.md) supplies the
 actual entrypoint and one relevant reference; its packet transformation differs from the authored-case
-copy above. Historical [pilot protocol](../../../evaluation/PROTOCOL.md) remains separate.
+copy above. Historical [pilot protocol](https://github.com/sigmastudioz/agent-skills/blob/main/tools/tony-evaluation/evaluation/PROTOCOL.md) remains separate.
 The evaluator is outside this runtime skill folder; do not expose it or its criteria to an agent
 under evaluation. Authored cases below remain distinct from recorded empirical results.
 

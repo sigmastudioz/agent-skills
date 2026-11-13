@@ -6,7 +6,7 @@ import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-PATH = ROOT / "plugins/what-if-tony-stark-built-this/evaluation/grade_tools.py"
+PATH = ROOT / "tools/tony-evaluation/evaluation/grade_tools.py"
 spec = importlib.util.spec_from_file_location("stark_tool_grading", PATH)
 grading = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(grading)

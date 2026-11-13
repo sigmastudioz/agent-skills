@@ -79,7 +79,7 @@ def prepare(output, models, profile=None):
     model_count = profile.get("model_count", 2)
     if len(models) != model_count or len(set(models)) != model_count:
         raise ValueError("Profile requires " + str(model_count) + " distinct explicit model IDs")
-    guide_paths = profile.get("guides", [HERE.parent / "skills/what-if-tony-stark-built-this/references/coding-loop.md"])
+    guide_paths = profile.get("guides", [shared.PLUGIN_ROOT / "skills/what-if-tony-stark-built-this/references/coding-loop.md"])
     guide = b"\n\n".join(path.read_bytes() for path in guide_paths)
     tickets = profile.get("tickets", TICKETS)
     fixtures = profile.get("fixtures", HERE / "tool-fixtures")
@@ -165,10 +165,10 @@ def prepare(output, models, profile=None):
                          "guidance_file": guidance_file, "supplied_assets": asset_hashes if treatment else {}})
     manifest = {"protocol": profile.get("name", "tools-enabled-selected-guidance-v1"), "maximum_calls": len(jobs), "maximum_active": profile.get("maximum_active", 3),
                 "attempts_per_cell": 1, "timeout_seconds": profile.get("timeout_seconds", 1200), "bases": bases, "jobs": jobs,
-                "guide_sha256": digest(guide), "guide_source": [str(path.relative_to(HERE.parent)) for path in guide_paths],
-                "guidance_sources": {str(path.relative_to(HERE.parent)): digest(path.read_bytes()) for path in guide_paths},
+                "guide_sha256": digest(guide), "guide_source": [str(path.relative_to(shared.PLUGIN_ROOT)) for path in guide_paths],
+                "guidance_sources": {str(path.relative_to(shared.PLUGIN_ROOT)): digest(path.read_bytes()) for path in guide_paths},
                 "checker_source": checker.name, "checker_sha256": digest(checker.read_bytes()),
-                "asset_sources": {str(item["source"].relative_to(HERE.parent)): digest(item["source"].read_bytes()) for item in assets},
+                "asset_sources": {str(item["source"].relative_to(shared.PLUGIN_ROOT)): digest(item["source"].read_bytes()) for item in assets},
                 "protocol_sha256": digest(protocol.read_bytes())}
     write_json(output / "control/manifest.json", manifest)
     write_json(output / "control/state.json", {job["id"]: "prepared" for job in jobs})
