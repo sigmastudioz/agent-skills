@@ -344,3 +344,27 @@ history; UI1.2.1, Video1.0.1, Sense1.0.2 and Engineering1.0.0 inventories match 
 file hash. Extracted Visualizer ZIP: 23 sound tests pass in 0.288s, no skips.
 Tony Stark ships reusable protocols, fixtures and summarized results; raw local
 evaluation-session archives are excluded. The source development folder is untouched.
+
+## Tony Stark 2.1.0 and App Retention 1.1.0 release — November 13
+
+Scope: start from public e9ce3d0, freeze only these two development plugins and
+their Tony harness tests. Preserve the six established public plugin inventories.
+Exactly eight registry identities; all other development plugins and history remain private.
+
+| Cluster | Connected path | Evidence and boundary |
+| --- | --- | --- |
+| Discovery | catalog.json → portable and three host manifests → generated catalogs and release hashes → plugin ZIPs | Identity/version/author, contained paths, links, licenses and exact inventory checks. Official directory approval remains external. |
+| Tony comparison | SKILL.md → comparison-runner reference and example manifest → compare_designs CLI → contained source validation and identities → worker subprocess → exact JSON correctness, separate timing/allocation trials → conservative decision → exclusive report publication | Tests cover incorrect variants, nonfinite/bool values, escapes, timeouts/crashes, memory caps, input changes, sibling imports, process cleanup, concurrent report writer and ties. Executes inspected authorized local code; process separation is not a security sandbox. No model/API trial rerun or efficacy claim. |
+| Optional evaluation | README → frozen protocols/results → matched trial preparation, private evaluator checks and synthetic fixtures | The sequencing fixture retains its source hash and reference copy; its source plugin is deliberately absent. The public test now verifies frozen provenance and exclusion instead of requiring a held-back plugin. Catalog fixture still matches the included maintained tool. No raw sessions/archives ship. |
+| App Retention | host discovery → SKILL.md → patterns/distribution references → product-specific implementation handoff | Guidance only, no runtime service/helper. Frontmatter, reference resolution, manifest consistency and package inventory checked; no product efficacy or native activation inferred. |
+
+Consumer, contract, registration, default, snapshot and concurrent-writer edges are
+covered by runtime/contract tests and release inventory review. No application mount,
+schema migration or recurring task cadence changes. The original development tree is
+read-only for this task; release edits and evidence belong to this isolated checkout.
+
+Final behavior gate: 193 collection tests passed in 37.161s, no skips. Extracted
+Tony ZIP: all 25 comparison-runner tests passed in 11.342s, no skips. Both skill
+metadata validators passed with isolated PyYAML 6.0.3; native validator passed
+with five advisory README installation suggestions. Final diff review normalized
+one App Retention trailing blank line before regenerating its inventory and ZIP.

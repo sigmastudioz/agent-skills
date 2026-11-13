@@ -54,6 +54,11 @@ When an invention crosses a consequential boundary, load only the needed support
 [adoption and recovery](references/repair-and-delivery.md).
 [Tech entry points](references/tech-entry-points.md) explain composition with existing workflows.
 
+When comparing two or more inspected local implementations on the same acceptance
+workload, use the Manifest v1 [comparison runner](references/comparison-runner.md)
+(`scripts/compare_designs.py`) and keep its report with the experiment evidence. Do not
+treat medians or a winner label as statistical proof or product efficacy.
+
 Lead the result with the enabled outcome, the assumption changed and the mechanism. Give actual
 checks against the constraints, the connected consumer and the remaining limits. Keep speculative
 ideas separate from executed work. A shorter implementation, an ordinary method, or a rejected idea

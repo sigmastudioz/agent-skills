@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "baseline": "base",
+  "variants": [
+    {"id": "base", "path": "base.py", "function": "run"},
+    {"id": "candidate", "path": "candidate.py", "function": "run"}
+  ],
+  "cases": [
+    {
+      "id": "small",
+      "input": {"n": 3},
+      "expected": {"sum": 6, "setup_marker": 1999000},
+      "measure": false
+    },
+    {
+      "id": "workload",
+      "input": {"n": 10},
+      "expected": {"sum": 55, "setup_marker": 1999000},
+      "measure": true
+    }
+  ],
+  "dependencies": [],
+  "repeats": 3,
+  "timeout_seconds": 10,
+  "memory_limit_bytes": null,
+  "tie_fraction": 0.05
+}

@@ -35,7 +35,7 @@ def audit_stream(stream, workspace):
                 if kind == "readToolCall":
                     path = args.get("path", "")
                     reads.append(path)
-                    if Path(path).name in (".stark-coding-guidance.md", ".stark-invention-guidance.md"):
+                    if Path(path).name in (".stark-coding-guidance.md", ".stark-invention-guidance.md", ".stark-comparison-guidance.md"):
                         guide_reads += 1
                 if kind == "shellToolCall":
                     commands.append(args.get("command", ""))
