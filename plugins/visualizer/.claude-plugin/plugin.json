@@ -1,7 +1,7 @@
 {
   "license": "MIT",
   "name": "visualizer",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "mcpServers": {},
   "description": "Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.",
   "author": {

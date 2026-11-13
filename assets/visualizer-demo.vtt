@@ -1,26 +1,19 @@
 WEBVTT
 
-1
-00:00:00.000 --> 00:00:04.000
-An original, code-rendered visual explanation.
+00:00:00.000 --> 00:00:04.800
+An original, code-rendered visual explanation. The title words land on the beat.
 
-2
-00:00:04.000 --> 00:00:09.000
-The same illustrative flow drives the live scene and the film.
+00:00:04.800 --> 00:00:12.000
+Picture events sit on a beat grid measured from the final mix, at 100 beats per minute.
 
-3
-00:00:09.000 --> 00:00:15.000
-Increase the arrival rate. Watch the queue build, then recover.
+00:00:12.000 --> 00:00:16.800
+Named motion: nodes pop in, then a parcel winds up before it moves.
 
-4
-00:00:15.000 --> 00:00:21.000
-Turn a controlled scenario into deterministic shots, captions and sound.
+00:00:16.800 --> 00:00:20.400
+Follow-through: the tail settles after the body stops. Then a label decodes and locks.
 
-5
-00:00:21.000 --> 00:00:26.000
-Check state, controls, render, audio and the exported file.
+00:00:20.400 --> 00:00:27.600
+A looping asset, four beats long: float, shimmer and pulse return exactly to the first frame.
 
-6
-00:00:26.000 --> 00:00:32.000
+00:00:27.600 --> 00:00:32.000
 Interactive visuals + visualization videos. By Lex from SigmaStudioz.
-

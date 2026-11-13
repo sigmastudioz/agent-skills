@@ -47,14 +47,19 @@ Reproduction needs Python 3.10+, NumPy, FFmpeg/ffprobe and a WebGL2-capable brow
 The archive includes pinned Three.js 0.186.1 with its MIT license, original mastered audio,
 storyboards, shaders, captions, evidence and export checks. It installs nothing automatically.
 
-Visualizer illustrates a deterministic fluid queue and the model-to-scene-to-export workflow.
+The Visualizer film was re-cut on 2026-11-13 to show three later additions: picture events on
+the beat grid of the score (the grid is measured from the final mix and the film prints the
+measured values), motion asked for by name (pop-in, anticipation, follow-through, text scramble)
+and a four-beat looping asset whose first and last frames match. There is no narration, so there
+is no word-level speech timing; the title words land on beats. The first cut explained an
+illustrative fluid queue and remains in this repository's history.
 Video Analysis displays six actual timestamped samples from our original six-second synthetic
 clip; the released sampler returned eleven frames within a twelve-frame budget. Sparse frames
 do not establish exhaustive viewing or audio understanding. Both films are authored
 demonstrations, not recordings of fresh agent sessions or production performance benchmarks.
 
 Both exports passed full decoding, frame-count and browser-playback checks. Measured encoded
-loudness is −16.2 LUFS for each; true peaks are −1.53 dBTP and −1.40 dBTP respectively.
+loudness is −16.2 LUFS for each; true peaks are −1.46 dBTP and −1.40 dBTP respectively.
 These structural measurements do not substitute for a listening review.
 The original visuals, music, synthesized effects and source are MIT by Lex from SigmaStudioz;
 Three.js retains its included MIT notice. No private media, reference footage or session logs
@@ -63,16 +68,21 @@ are redistributed. Files live outside plugin folders to keep skill distributions
 
 ## React Three Fiber Visualizer film
 
-The current Visualizer demo is a new 36-second 1920×1080/60fps material study by
-**Lex from SigmaStudioz**. [Watch/download MP4](visualizer-r3f-demo.mp4?raw=true) ·
+The current Visualizer demo is a 36-second 1920×1080/60fps React Three Fiber film by
+**Lex from SigmaStudioz**, re-cut on 2026-11-13 around the data-city recipe and the explainer controls. [Watch/download MP4](visualizer-r3f-demo.mp4?raw=true) ·
 [Captions: SRT](visualizer-r3f-demo.srt) / [VTT](visualizer-r3f-demo.vtt) ·
 [Poster](visualizer-r3f-demo-poster.png) ·
 [Editable source ZIP](visualizer-r3f-demo-source.zip?raw=true) ·
 [Validation](visualizer-r3f-validation.json). The earlier films above remain available.
 
-Original refractive geometry, procedural GLSL, studio lighting, smooth transitions and a stereo
-score share one deterministic model and clock. The live preview includes keyboard ranges,
-selection, reduced motion, mute/volume and bounded user-gesture feedback. Inspiration from the
+A data city of 37 seeded synthetic repositories (height is commits, shade is open issues, with a
+selection read-out and a plan view) is followed by a vane pump with a cutaway, three named camera
+shots, notes pinned to parts and a rewind to the current beat. The opening and closing material
+study keeps the original refractive geometry and procedural GLSL. Picture and score share one
+deterministic clock; vane ticks in the score follow the mechanism's own rate. The key presses in
+the film are authored events, and the same keys work in the live preview, which also has selection,
+reduced motion, mute/volume and bounded user-gesture feedback. The first cut, a material study
+with an illustrative queue, remains in this repository's history. Inspiration from the
 pmndrs examples informed lighting, materials and flow; no example code, artwork or media was copied.
 
 Extract the source ZIP and read `visualizer-r3f-demo/README.md`. It includes source, lockfile,
@@ -82,8 +92,10 @@ recreates it. Reproduction needs compatible Node, Python with NumPy/Pillow, FFmp
 Nothing is installed automatically. All browser dependencies and Manrope font assets build locally.
 
 The final MP4 passed full decode: 2160 frames, 36 seconds, H.264/yuv420p and stereo AAC.
-Encoded sound measured −15.35 LUFS and −1.67 dBTP. TypeScript, analytic-model regressions,
-keyboard controls, compiled preview, native playback and actual GPU-loss recovery were checked.
+Encoded sound measured −15.36 LUFS and −1.63 dBTP. For the re-cut, TypeScript, the model checks
+and the preview's keyboard controls were run again, and one independent critique round on stills
+was followed by fixes and a re-export. The compiled preview, native playback and GPU-loss
+recovery were checked for the first cut and were not re-run.
 Offline 60fps is not a realtime performance promise. This is an authored demonstration, not a
 fresh-agent efficacy test; captions are scene summaries without voiceover. Subjective listening
 was not performed by the agent. Original work is MIT by Lex from SigmaStudioz; dependencies

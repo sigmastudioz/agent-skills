@@ -1,8 +1,15 @@
 # SigmaStudioz Visualizer
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.4.5.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.4.6.
 
 Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.
+
+## Changes in 1.4.6
+
+Demo films only; the skill's instructions are unchanged. The React Three Fiber film below is
+re-cut around the data-city recipe and the explainer controls, and the Three.js Visualizer film
+in [assets](../../assets/README.md) is re-cut around beat-synced picture, motion asked for by name
+and a looping asset. Posters, captions, validation and editable sources are regenerated.
 
 ## Changes in 1.4.5
 
@@ -65,10 +72,12 @@ and historical results with explicit limits, not a new efficacy claim.
 
 https://github.com/user-attachments/assets/7bb28e63-35e4-40de-b639-f50430f04ab4
 
-A 36-second React Three Fiber film by **Lex from SigmaStudioz**: refractive glass, brushed
-alloy and a procedural pigment surface reveal one shared illustrative model. Smooth 1080p60
-animation is paired with an original stereo score and synchronized synthesized effects.
-The editable preview adds keyboard controls, object selection, motion settings and sound feedback.
+A 36-second React Three Fiber film by **Lex from SigmaStudioz**. A data city turns 37 synthetic
+repositories into towers grouped by team, with a selection read-out and a plan view. A vane pump
+then shows the explainer controls: a cutaway, named camera shots, notes pinned to parts and a
+rewind to the current beat. Smooth 1080p60 animation is paired with an original stereo score and
+synchronized synthesized effects. The editable preview has the same keyboard controls, plus
+selection, motion settings and sound feedback.
 
 [Download MP4](../../assets/visualizer-r3f-demo.mp4?raw=true) ·
 [Captions: SRT](../../assets/visualizer-r3f-demo.srt) / [VTT](../../assets/visualizer-r3f-demo.vtt) ·

@@ -1,19 +1,22 @@
 WEBVTT
 
-00:00:00.000 --> 00:00:05.500
+00:00:00.000 --> 00:00:05.400
 An original React Three Fiber demonstration by Lex from SigmaStudioz.
 
-00:00:05.500 --> 00:00:11.500
-One deterministic model supplies the scene, its controls and the exported film.
+00:00:05.400 --> 00:00:09.600
+A data city: one tower per repository, grouped by team. Height is commits; shade is open issues. Synthetic, seeded sample.
 
-00:00:11.500 --> 00:00:19.000
-Arrivals rise from 2 to 5 items/s against 3 items/s service. At 16 seconds arrivals fall to 1; the queue clears at 19.
+00:00:09.600 --> 00:00:15.000
+Selecting a tower reads its exact values. Plan view removes height from the picture.
 
-00:00:19.000 --> 00:00:25.000
-Original geometry and shaders react to the measured soundtrack envelope; no reference media is reused.
+00:00:15.000 --> 00:00:19.200
+Explainer controls on a vane pump: the C key opens a cutaway, and notes label the parts inside.
 
-00:00:25.000 --> 00:00:31.000
-Interactive and film views sample the same state and time. The authored export renders at 60 frames per second.
+00:00:19.200 --> 00:00:24.000
+Number keys move the camera between named shots. Notes follow the parts they describe.
 
-00:00:31.000 --> 00:00:36.000
+00:00:24.000 --> 00:00:29.400
+The B key rewinds to the start of the current beat. The same time always draws the same picture.
+
+00:00:29.400 --> 00:00:36.000
 SigmaStudioz Visualizer. Interactive visuals and visualization videos. By Lex from SigmaStudioz.
