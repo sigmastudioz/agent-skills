@@ -1,5 +1,41 @@
 # Collection catalog trace
 
+## Directory package boundaries — November 13
+
+Scope: existing Claude feedback for DDD, UI Foundation Reuse, Does It Make Sense?,
+Visualizer and Video Analysis. Base bb410682f70c9621e480eba6ff8588ddafccf73d includes
+nine public identities; preserve the concurrent Delegating to Agents publication.
+
+DIR-01 (integration gap): DDD/UI/Sense installed skill folders included synthetic
+application fixtures, so their application package.json scripts/dependencies and source
+files were also scanned as plugin runtime. Move all 61 fixture files, without byte changes,
+to collection-owned tests/fixtures/<skill>. Historical scenario summaries stay packaged;
+their current links reach the collection fixtures and their original paths/dates/hashes
+remain explicitly historical. No collection runner imports those old fixture paths.
+
+Trace: plugin manifests -> catalog builder -> release inventory and full-plugin ZIP ->
+marketplace install boundary. Separate scenario path: packaged tests/README -> public
+collection fixture -> isolated authorized evaluation workspace. Preserve the DDD handoff
+guard, UI staging helper/runtime archive/source/licenses and all runtime instructions.
+No new feature, model evaluation, global installation or application change is included.
+
+DIR-02 (external policy): real DDD/UI/Visualizer/Video code and the UI archive still require
+Anthropic's Verified-organization allowance. The portal says Anthropic chooses those
+organizations and has no application route yet. Do not remove or disguise runtime files.
+The existing verification inquiry remains sent once. Current UI/Visualizer manifests have
+no MCP/env/hook declarations; Visualizer's real subprocess callers already use an explicit
+allowlisted environment and its downloader is anonymous. No new reachable credential
+forwarding defect was established; conditional provider warnings require provider review.
+
+Validation: 193 collection tests pass, no skips (42.070s); the three skill metadata checks,
+native nine-plugin validator and catalog/hash checks pass. All 61 moved files match the
+base byte for byte; all six untargeted plugin inventories and actual runtime files are unchanged.
+No new causal efficacy, visual rendering or provider approval claim is made.
+
+Verification and publication identities are recorded in the owning human-task receipt;
+remote approval, warning clearance and native activation require fresh provider evidence.
+
+
 ## Maintained skill releases — November 1
 
 Scope: synchronize four maintained skills from the existing six-plugin collection at

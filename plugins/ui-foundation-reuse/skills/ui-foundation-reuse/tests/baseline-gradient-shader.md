@@ -3,6 +3,9 @@
 Skill under test: `ui-foundation-reuse/SKILL.md`
 (SHA-256 at test time `ef778f9223eff19ba413f24c13c6f24ba3cafcc4bbdf6a98f8bab247481f045e`).
 Recorded 2026-11-01. Summarized observations below; raw host reports are not distributed.
+Current runnable input: [collection fixture](https://github.com/sigmastudioz/agent-skills/tree/main/tests/fixtures/ui-foundation-reuse/uif-gradient).
+Historical fixture paths below describe the original recorded run.
+
 Fixture: `fixtures/uif-gradient/` (see `README.md` for staging the bundled runtime). Harness,
 prompt wording and the host limitation are in `README.md`.
 

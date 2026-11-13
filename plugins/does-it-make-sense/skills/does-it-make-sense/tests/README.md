@@ -1,6 +1,6 @@
 # Pressure scenarios for does-it-make-sense
 
-These are portable synthetic fixture inputs and summarized observations recorded on 2026-11-01
+These are historical scenario summaries and observations recorded on 2026-11-01
 against the maintained local does-it-make-sense skill. They are historical evidence, not fresh evaluations
 of this public release. Each case retains the original tested instruction hash and its verdict.
 Raw host session reports, personal configuration and the host-specific fixture generator are
@@ -12,7 +12,8 @@ they were all adopted or independently retested.
 
 ## Repeat a scenario
 
-Copy the corresponding `fixtures/` directory into an isolated scratch workspace. Read its
+The executable fixtures live in the collection’s [test area](https://github.com/sigmastudioz/agent-skills/tree/main/tests/fixtures/does-it-make-sense),
+outside the installable plugin. Copy the corresponding fixture into an isolated scratch workspace. Read its
 `TASK.body.md` as the synthetic task. If comparing with/without skill behavior, use two pristine
 copies, the same task and tools, and an explicitly authorized evaluation host. For the with-skill
 arm supply the real installed `does-it-make-sense/SKILL.md` path and relevant references. Do not treat this
@@ -28,3 +29,6 @@ Its DDD without-skill arm was therefore contaminated; UI baselines also had the 
 A baseline that already passes is not evidence that a skill prevented a failure. Use a clean
 profile for causal comparisons and report partial results without turning them into efficacy claims.
 Public Visualizer retains interactive/data/3D modes beyond the local video-only skill tested here.
+
+The recorded cases below retain their original fixture paths and instruction hashes.
+Their historical paths refer to the recorded run; use the collection test area for a new run.

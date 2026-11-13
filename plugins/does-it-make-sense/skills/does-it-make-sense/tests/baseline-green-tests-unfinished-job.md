@@ -3,6 +3,9 @@
 Skill under test: `does-it-make-sense/SKILL.md`
 (SHA-256 at test time `6d22b8874f4504ef87d2383f2fa266445938f9cdc43c85744e703ea1f34c024e`).
 Recorded 2026-11-01. Summarized observations below; raw host reports are not distributed.
+Current runnable input: [collection fixture](https://github.com/sigmastudioz/agent-skills/tree/main/tests/fixtures/does-it-make-sense/dims-statement).
+Historical fixture paths below describe the original recorded run.
+
 Fixture: `fixtures/dims-statement/`. Harness and host limitation: `README.md`.
 
 ## Scenario

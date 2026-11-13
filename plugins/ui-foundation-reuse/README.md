@@ -1,6 +1,6 @@
 # UI Foundation Reuse
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.2.1.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.2.2.
 
 Reuse compatible React effects and scene infrastructure without a library download. This
 plugin includes the complete `ui-foundation-reuse` skill and the bundled
@@ -90,3 +90,10 @@ its CC BY notices; MIT does not replace them. Preserve [LICENSE](LICENSE) and
 [third-party attribution](skills/ui-foundation-reuse/references/third-party-notices.md).
 The runtime's metadata records its exact version and SHA-256. Publication/package checks
 are distinct from native-agent efficacy or visual correctness in a consuming application.
+
+## Distribution boundary
+
+The runtime skill retains its guidance and functional helpers. Executable synthetic evaluation
+fixtures live in the collection’s [test area](https://github.com/sigmastudioz/agent-skills/tree/main/tests/fixtures/ui-foundation-reuse), outside this installable plugin.
+Historical scenario summaries retain their original dates and hashes. This packaging change does
+not establish Anthropic organization verification or clearance of separate directory findings.
