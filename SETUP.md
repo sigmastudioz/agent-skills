@@ -39,7 +39,15 @@ backup. Host-managed settings or disabled user instructions can limit applicatio
 
 ## Optional Claude handoff guard
 
-Requires Python 3 and a complete skill directory. Merge this hook into existing Claude settings;
+Requires Python 3, a complete installed skill directory, and the separately installed
+[handoff guard](tools/handoff-guard/README.md). The marketplace plugin contains guidance only;
+it does not ship, fetch or activate the guard. In a reviewed repository checkout, copy
+`tools/handoff-guard/guard_handoff.py` into the installed skill's `scripts/` directory only
+when the user has requested this optional setup. Inspect an existing destination and preserve
+its changes; do not overwrite or remove an existing guard as part of a marketplace update.
+Existing installations with the guard at that path continue to work without migration.
+
+Merge this hook into existing Claude settings;
 do not replace the settings file or its unrelated hooks. This shell example uses a POSIX host and
 a canonical installation under the user's own home; adapt the interpreter/path on other systems.
 
@@ -75,10 +83,10 @@ A handoff into a different workspace must include an `isolation` object with `co
 the matching absolute `workspace`, and a nonblank `reason`. Verify the actual checkout and its
 authority before making that declaration. Missing history, unsupported wording, permissions and
 semantic correctness remain coordinator responsibilities. The guard preserves other tool arguments
-and native permission decisions. Run the packaged regressions with:
+and native permission decisions. Run the separate tool regressions with:
 
 ```sh
-python3 -B plugins/domain-driven-design/skills/domain-driven-design/scripts/test_guard_handoff.py
+python3 -B tools/handoff-guard/test_guard_handoff.py
 ```
 
 Start fresh sessions after setup. Test an ordinary coding request without the skill name and inspect

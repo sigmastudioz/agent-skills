@@ -1,5 +1,17 @@
 # Publication plan
 
+## DDD guidance-only package — November 13
+
+DDD1.4.6 contains the full baseline and local references, with no executable guard or tests.
+The optional guard remains byte-identical in tools/handoff-guard and is installed separately
+only when the host owner requests it. No automatic fetch, installer or hook ships in the
+plugin. Preserve the current nine public identities, all eight other plugin inventories
+(including concurrent Visualizer1.4.5), existing installed/global guards and historical releases.
+This fixes the submitted package's file-type boundary; only a remote scan/reviewer can
+establish directory clearance or activation. Use the existing DDD submission identity.
+
+---
+
 ## Credential-boundary patch — November 13
 
 Update only Visualizer to 1.4.4 and UI Foundation Reuse to 1.2.3 on the nine-plugin
