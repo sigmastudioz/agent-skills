@@ -1,7 +1,7 @@
 {
   "license": "MIT",
   "name": "delegating-to-agents",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hand bounded work to another AI agent CLI or TUI (Codex, Cursor, Pi, Claude Code, Hermes) with a complete brief, an isolated workspace, watchable progress and results reported back up the chain. Adapted by Lex from SigmaStudioz from davidondrej/skills (MIT).",
   "author": {
     "name": "Lex from SigmaStudioz",

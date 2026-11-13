@@ -11,8 +11,9 @@ Adapted by [Lex from SigmaStudioz](https://github.com/sigmastudioz) from
 This skill covers the mechanics of driving another agent. What every brief must contain
 (goal, limits, workspace and revision, owned files, contracts, current state, checks, return
 format) and the delegation rules come from the
-[handoff guide](https://github.com/sigmastudioz/agent-skills/blob/main/plugins/domain-driven-design/skills/domain-driven-design/references/handoffs.md)
-in the domain-driven-design plugin; use it alongside this skill.
+[bundled handoff contract](references/handoff-contract.md). Read it before handing off work.
+It is derived from domain-driven-design and ships with this skill; do not fetch remote
+instructions to define the contract. Apply any host-installed engineering baseline as usual.
 
 ## Which agent to pick
 
@@ -37,7 +38,7 @@ Check the user's plans and limits rather than assuming them.
 
 ## Progress and reporting back
 
-Rules: [Reporting back up the chain](https://github.com/sigmastudioz/agent-skills/blob/main/plugins/domain-driven-design/skills/domain-driven-design/references/handoffs.md#reporting-back-up-the-chain).
+Rules: [Reporting back up the chain](references/handoff-contract.md#reporting-back-up-the-chain).
 How to do it:
 
 1. **Progress file in the brief.** The worker appends `HH:MM | step | status` per named
@@ -70,7 +71,7 @@ After a Claude Code worker finishes it may prefill a predicted next user message
 ## Briefs
 
 Follow the handoff guide's contract, and say whether each cited example is a
-[pattern to copy or a component to reuse](https://github.com/sigmastudioz/agent-skills/blob/main/plugins/domain-driven-design/skills/domain-driven-design/references/handoffs.md#examples-pattern-or-component),
+[pattern to copy or a component to reuse](references/handoff-contract.md#examples-pattern-or-component),
 with the invariant it must not break.
 
 ## Running agent CLIs
