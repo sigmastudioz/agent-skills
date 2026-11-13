@@ -68,5 +68,6 @@ name into decisions the build can verify, then confirm it against the brief and 
 | Vintage engraving collage | Line-engraved cut-outs, paper shadows | Snappy cut-in and out | Sepia or two-colour | Static or slow drift |
 | Worn print or xerox | Toner noise, misregistration, halftone | Jittered holds | One or two inks | Static, with frame jitter |
 | Paper or felt craft | Fibres, stitch lines, soft shadows | Stop-motion on 2s | Muted, tactile | Tabletop, shallow depth |
+| Mirror ink | A two-tone blot: seeded fractal noise, thresholded to a hard edge, mirrored about the vertical centre line, with a falloff that keeps it inside the frame | Slow drift of the noise; no cuts mid-shape | Near-black ink on white; no mid-tones, no outline | Static, centred on the mirror line |
 
 Record the chosen look and its decisions in the timed spec so every shot inherits them.

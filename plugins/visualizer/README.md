@@ -1,8 +1,16 @@
 # SigmaStudioz Visualizer
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.4.6.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.4.7.
 
 Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.
+
+## Changes in 1.4.7
+
+Adds a [baked lighting](skills/visualizer/references/baked-lighting.md) reference for static 3D
+scenes on a browser budget: when to bake, the Blender lightmap steps, the Three.js settings that
+made the page match an offline render, baked reflections, card-based light shafts, the
+fixed-camera trade-off and a verification step. It was built and measured as a working demo first.
+Also adds a Mirror ink look preset.
 
 ## Changes in 1.4.6
 

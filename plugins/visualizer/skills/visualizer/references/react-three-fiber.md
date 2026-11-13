@@ -100,6 +100,10 @@ Use Drei only where it reduces real work: controls, environments, text, bounds, 
 Use postprocessing selectively and give the composer one render owner; positive `useFrame`
 priority takes over automatic rendering. Recheck APIs and supported backends for pinned versions.
 
+For a static scene that should look softly lit on a browser budget, bake the lighting offline and
+apply it as a lightmap: see [baked lighting](baked-lighting.md) for when to bake, the Blender steps,
+the three settings that matter in Three.js, reflections, light shafts and how to verify the result.
+
 ## Schedule, interact and release resources
 Use `frameloop="demand"` for settled scenes. Imperative camera/uniform/store changes must invalidate;
 `invalidate()` requests a frame, not an immediate capture. Continue invalidating while a transition
