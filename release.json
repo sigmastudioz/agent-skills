@@ -327,18 +327,18 @@
       }
     },
     "app-retention": {
-      "version": "1.1.0",
+      "version": "1.1.1",
       "files": {
-        ".claude-plugin/plugin.json": "531eac2a41431e78c8f7b8270dd57bc3521503ace34c2e8c8c93d0eb60fe977a",
-        ".codex-plugin/plugin.json": "64fea3e2034a5a1a47dfb2ccc770904904ef19406738b7190bb15d7a122e9f8a",
-        ".cursor-plugin/plugin.json": "3caddf748cc0d701a934804bb06ca385056f45d8e43694891060c2c35bd36fca",
+        ".claude-plugin/plugin.json": "da3cbb30e8e259d4765ddf9ec37e1f35a35582a1095d517f4883105c9c85ecc6",
+        ".codex-plugin/plugin.json": "43d4d1cf479361409a4e5947a3a18c4a43d8c677cfad87fe7ba998e85bea708c",
+        ".cursor-plugin/plugin.json": "dee0d2c8be6869fc583a0c86b74ef53f9156afdf186a315495a28674d413ddaf",
         "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
-        "README.md": "2ade822fc61a617309e95424ae67a2d880cdf7ce18069fe2e1f887a1685af5ca",
+        "README.md": "de785c3c31bb47fcd62ae0bdf02fe78cf3eb42f8fd7fb6e1a59584eb99efe177",
         "assets/icon.svg": "103f2ef83916648dbbf56f1bdd6cffd7c48d2bf3b2928ced4b8789bd0aef7d32",
-        "plugin.json": "cef0bb6ec7ddf79028ddfab6a4ab8034c30fcf7f25e062e44213a45ee5bdc9b5",
+        "plugin.json": "863459a1d8c682bd7582ea531b16491da6c4939e117ee079c02cf583e9def186",
         "skills/app-retention/LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
-        "skills/app-retention/SKILL.md": "c75bccf3228e4c09409c40bf4144a7b5fef21b464487e189d739b497d774e575",
-        "skills/app-retention/agents/openai.yaml": "a4fae4b41542e983dd3bb0fefd5fa1f1e12daa370f3a97c73db88563004b43ef",
+        "skills/app-retention/SKILL.md": "6aa7023a052db030744302b4c8ceb3596cbf1b788172f3440daf8e3f04d38ff6",
+        "skills/app-retention/agents/openai.yaml": "056e8a4aa36f5de0e2d0b264e46bd24bf9836b1a39bde71d4426db14c42da5d7",
         "skills/app-retention/references/distribution-levers.md": "58f0e770492ea6aa731c79b3dfbd57855bd197e6fbed243b6101f1ec117ec3b9",
         "skills/app-retention/references/patterns.md": "0adb4a037a5e92588901a4029af20a03b440350a3e945ad41520fe240a71a7a7"
       }

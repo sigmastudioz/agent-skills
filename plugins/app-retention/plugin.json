@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "license": "MIT",
   "name": "app-retention",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Design fair retention and ranking for apps: return likelihood, habit-timed nudges, per-item ranking, results-based asset choice and upgrade timing, built from the product's own data with privacy guardrails and no dark patterns. By Lex from SigmaStudioz.",
   "author": {
     "name": "Lex from SigmaStudioz",
@@ -13,7 +13,7 @@
   "extensions": {
     "com.openai": {
       "interface": {
-        "displayName": "App Retention",
+        "displayName": "Returncraft",
         "shortDescription": "Fair retention and ranking from your own app data",
         "longDescription": "Design fair retention and ranking for apps: return likelihood, habit-timed nudges, per-item ranking, results-based asset choice and upgrade timing, built from the product's own data with privacy guardrails and no dark patterns. By Lex from SigmaStudioz. Guidance only: no executable helper, tracker or required service.",
         "developerName": "Lex from SigmaStudioz",

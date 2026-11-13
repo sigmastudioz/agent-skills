@@ -368,3 +368,13 @@ Tony ZIP: all 25 comparison-runner tests passed in 11.342s, no skips. Both skill
 metadata validators passed with isolated PyYAML 6.0.3; native validator passed
 with five advisory README installation suggestions. Final diff review normalized
 one App Retention trailing blank line before regenerating its inventory and ZIP.
+
+### Requested creative title: Returncraft
+
+App Retention 1.1.0 was already published when the user requested a creative name.
+Rename display metadata, README and skill title to Returncraft in 1.1.1, retaining
+`app-retention` as the stable plugin/skill identifier. No runtime behavior changes,
+new identity, or edits to the other seven plugins; historical 1.1.0 assets remain.
+Trace: catalog → four native/portable display fields → skill UI metadata/title →
+README and existing installation identifier. Rebuild release hashes and verify
+frontmatter, independent versions, native catalogs and artifact inventory.

@@ -1,14 +1,14 @@
 {
   "license": "MIT",
   "name": "app-retention",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Design fair retention and ranking for apps: return likelihood, habit-timed nudges, per-item ranking, results-based asset choice and upgrade timing, built from the product's own data with privacy guardrails and no dark patterns. By Lex from SigmaStudioz.",
   "author": {
     "name": "Lex from SigmaStudioz"
   },
   "homepage": "https://github.com/sigmastudioz",
   "repository": "https://github.com/sigmastudioz/agent-skills",
-  "displayName": "App Retention",
+  "displayName": "Returncraft",
   "publisher": "SigmaStudioz",
   "keywords": [
     "retention",
