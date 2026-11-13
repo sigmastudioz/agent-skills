@@ -311,3 +311,36 @@ On top of aa78e30: ui-foundation-reuse 1.2.1 (critique loop in the skill; bundle
 video-analysis README "Python 3.10+", docs/visual-skills-validation.md spacing, catalog builder skips tool folders
 (.venv, caches) with a test, .venv ignored, tools/hooks/pre-push with its PUBLISHING note. New plugins stay on the
 local `new-plugins` branch. Checks: unittest discover OK; build_catalogs --check passes.
+
+## Tony Stark and maintained-skill release — November 12
+
+Authorized scope: six existing public plugin identities plus what-if-tony-stark-built-this.
+Start from public 9593865; freeze selected development folders, preserve newer public UI
+1.2.1, and integrate the earlier isolated Visualizer sound-runtime fixes as 1.4.3.
+The original development checkout and other local skills are not modified or published.
+
+| Cluster | Entry, consumers and effects | Verification and limits |
+| --- | --- | --- |
+| Discovery and package | catalog.json → seven portable/Claude/Cursor/Codex manifests → generated catalogs/release.json → complete plugin ZIPs | Validate identity/version/author/link/hash contracts; native review and index activation remain external. |
+| Tony Stark guidance | host discovery → SKILL.md → invention-methods and optional scoped references → proposal or authorized working slice | Runtime guidance has no required service, hook or telemetry. Optional evaluation CLIs remain outside skills/; deterministic harness tests exercise matched inputs, isolation, graders and fixture failure paths. Fresh model trials are not run or claimed. |
+| DDD guidance | SKILL.md → handoffs → observed batch coordination cases → actor/scope/revision checks | Preserve guard implementation and caller contract. New prose has static link/consistency coverage, not universal host adherence proof. |
+| Visualizer sound | sound_design.py runtime/get/fetch/probe/mix → explicitly provisioned local tools → bounded audio and provenance | Regression tests cover child-secret isolation, anonymous proxy boundary, invalid output/code/playlist refusal and valid WAV provenance. Live providers and fresh full Earshot mixes remain outside this release check. |
+| Unchanged/public reuse | public UI1.2.1 bundle → staging helper and export checks; Video/Sense/Engineering existing entrypoints | Preserve public UI inventory and earlier release identities; no global skill installation or application changes. |
+
+Consumer, contract, registration and snapshot edges are checked by the selected tests and
+release inventory verification. No app mount, schema migration or scheduled task changes;
+mount/back-compat/cadence edges are not applicable. Final gate and exact revision results
+are recorded below after execution. Release artifacts belong to this release checkout.
+
+Collection gate: `python3 -B -m unittest discover -s tests` — 162 passed in 25.028s,
+no skips. Native `claude plugin validate .` passed with four advisory install-line
+suggestions. Initial diff check found a trailing blank line in the new Visualizer
+README section; normalized before final catalog/package hashing. No live model
+evaluation, provider credential flow, native publication or installation was run.
+
+Release scope checks: exactly seven registry entries/folders, no held-back plugin files or
+history; UI1.2.1, Video1.0.1, Sense1.0.2 and Engineering1.0.0 inventories match public
+9593865 exactly. Four complete ZIPs are re-read against release.json, including each
+file hash. Extracted Visualizer ZIP: 23 sound tests pass in 0.288s, no skips.
+Tony Stark ships reusable protocols, fixtures and summarized results; raw local
+evaluation-session archives are excluded. The source development folder is untouched.

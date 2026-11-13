@@ -1,0 +1,30 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "license": "MIT",
+  "name": "what-if-tony-stark-built-this",
+  "version": "2.0.0",
+  "description": "Invent and prove better engineering mechanisms when the existing approach hits a consequential constraint. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "What If Tony Stark Built This",
+        "shortDescription": "Find a better mechanism and prove it works",
+        "longDescription": "Engineering invention for technical breakthroughs, ambitious product mechanisms and structural resource limits. Keeps six supporting capabilities; routine coding uses existing engineering workflows. Turns a viable idea into an early working slice, checks hard constraints and follows it through the real consumer. No required external service or background process. Local availability is separate from publication and marketplace review.",
+        "developerName": "Lex from SigmaStudioz",
+        "websiteURL": "https://github.com/sigmastudioz",
+        "supportURL": "https://github.com/sigmastudioz/agent-skills/issues",
+        "privacyPolicyURL": "https://github.com/sigmastudioz/agent-skills/blob/main/PRIVACY.md",
+        "category": "Developer Tools",
+        "capabilities": [],
+        "logo": "./assets/icon.svg",
+        "composerIcon": "./assets/icon.svg"
+      }
+    }
+  }
+}

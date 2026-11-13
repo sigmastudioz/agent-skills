@@ -83,7 +83,7 @@ await reviewer activation. Cursor, Codex and Antigravity publication is not yet 
 
 | Plugin | Purpose | Version |
 | --- | --- | --- |
-| [Principal Driven Domain Design](plugins/domain-driven-design/README.md) | Domain ownership, reusable engines, gap tracing and agent handoffs | 1.4.3 |
+| [Principal Driven Domain Design](plugins/domain-driven-design/README.md) | Domain ownership, reusable engines, gap tracing and agent handoffs | 1.4.4 |
 | [Engineering Spikes](plugins/engineering-spikes/README.md) | Timeboxed research, evidence and gap tracing, separate stakeholder and technical documents | 1.0.0 |
 | [Does It Make Sense?](plugins/does-it-make-sense/README.md) | Trace an actual build back to its end goal and recommend bounded, evidence-backed refinements | 1.0.2 |
 
@@ -91,9 +91,10 @@ await reviewer activation. Cursor, Codex and Antigravity publication is not yet 
 
 | Plugin | Purpose | Version |
 | --- | --- | --- |
-| [SigmaStudioz Visualizer](plugins/visualizer/README.md) | React Three Fiber scenes, interactive visuals, simulations and visualization videos | 1.4.1 |
+| [SigmaStudioz Visualizer](plugins/visualizer/README.md) | React Three Fiber scenes, interactive visuals, simulations and visualization videos | 1.4.3 |
 | [SigmaStudioz Video Analysis](plugins/video-analysis/README.md) | Timestamped visual/audio evidence, adaptive frame inspection and transcript correlation | 1.0.1 |
 | [UI Foundation Reuse](plugins/ui-foundation-reuse/README.md) | Bundled React effects, lifecycle and scene helpers with local runtime staging | 1.2.1 |
+| [What If Tony Stark Built This](plugins/what-if-tony-stark-built-this/README.md) | Engineering invention: better mechanisms, six supporting capabilities and working proof | 2.0.0 |
 
 Install the outcome-review skill with `npx skills add sigmastudioz/agent-skills --skill does-it-make-sense`.
 

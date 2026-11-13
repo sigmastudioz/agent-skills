@@ -36,6 +36,11 @@
       "name": "does-it-make-sense",
       "path": "./plugins/does-it-make-sense",
       "category": "Productivity"
+    },
+    {
+      "name": "what-if-tony-stark-built-this",
+      "path": "./plugins/what-if-tony-stark-built-this",
+      "category": "Productivity"
     }
   ]
 }

@@ -1,0 +1,1 @@
+"""Persistent CSV-import fixture."""

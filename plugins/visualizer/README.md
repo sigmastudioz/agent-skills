@@ -1,8 +1,17 @@
 # SigmaStudioz Visualizer
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.4.1.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.4.3.
 
 Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.
+
+## Changes in 1.4.3
+
+Isolates local sound-tool environments from host credentials and proxy settings, restricts
+audio-download output types and decoders, and preserves valid audio provenance.
+
+## Changes in 1.4.2
+
+Sound design: derive a mechanism's pulse rate from the mechanism (a V8 fires RPM / 60 × 4 times a second, with uneven spacing per exhaust bank) and keep the formula in the cue sheet.
 
 ## Changes in 1.4.1
 
@@ -179,3 +188,20 @@ See [the skill](skills/visualizer/SKILL.md), [collection validation](../../docs/
 and [Privacy](../../PRIVACY.md). Packaging checks are distinct from fresh-agent efficacy.
 Report issues without private media, credentials or transcripts. No universal performance or
 automatic activation claim is made.
+
+### Credential and execution boundaries
+
+The sound bridge requires no API credentials. Version 1.4.3 replaces inherited
+subprocess environments with explicit tool paths, offline flags and OS/temp/locale
+settings. Anonymous downloads do not use host proxy credentials. Fetch writes audio
+data only; downloaded-audio decoding rejects playlist demuxers and network protocols.
+Downloaded audio is never run as code. Earshot and Real SFX remain separately
+provisioned, revision-checked local tools; installation examples are not automatic
+plugin execution. See the [runtime contract](skills/visualizer/references/sound-runtime.md).
+
+The Claude manifest is `.claude-plugin/plugin.json`; it registers no MCP server,
+credential environment, hook or secret input. The root `plugin.json` supports other
+hosts. Claude directory notes about that file, `icon` and `documentationUrl` do not
+require removing cross-host metadata. The directory's Verified-organization gate
+for bundled scripts remains separate from these runtime fixes; no directory
+acceptance or live activation is implied.

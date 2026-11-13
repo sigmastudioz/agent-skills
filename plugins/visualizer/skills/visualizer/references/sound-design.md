@@ -17,6 +17,12 @@ cut, character, cursor move or detected motion. Detection and beat grids propose
 candidates; inspect the picture before accepting them. Repeated effects should not
 compete with reading, narration or the main payoff. Silence is a valid final choice.
 
+When a sound comes from a mechanism (an engine, a gear, a rotor, a heartbeat), derive its pulse rate
+from that mechanism rather than the edit grid: a four-stroke V8 fires 4 times per crank revolution,
+so pulses per second = RPM / 60 × 4 (about 53 Hz at 800 RPM idle). Uneven spacing per exhaust bank
+(the cross-plane crank) is what gives the rumble; an even flat-plane pattern loses it. Keep the
+formula and its source in the cue sheet so a later revision can change RPM and stay true.
+
 ## Keep an editable cue sheet
 
 Use the project's existing timeline/cue format rather than introducing a second

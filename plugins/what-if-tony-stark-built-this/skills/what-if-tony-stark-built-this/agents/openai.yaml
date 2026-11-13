@@ -1,0 +1,4 @@
+interface:
+  display_name: "What If Tony Stark Built This"
+  short_description: "Find a better mechanism and prove it works"
+  default_prompt: "Use $what-if-tony-stark-built-this to challenge the limiting assumption, invent a better engineering mechanism, and prove a working slice within my constraints."
