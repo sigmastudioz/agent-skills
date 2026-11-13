@@ -6,7 +6,7 @@ DDD1.4.6 contains the full baseline and local references, with no executable gua
 The optional guard remains byte-identical in tools/handoff-guard and is installed separately
 only when the host owner requests it. No automatic fetch, installer or hook ships in the
 plugin. Preserve the current nine public identities, all eight other plugin inventories
-(including concurrent Visualizer1.4.5), existing installed/global guards and historical releases.
+(including concurrent Visualizer1.4.6 from8d2beee), existing installed/global guards and historical releases.
 This fixes the submitted package's file-type boundary; only a remote scan/reviewer can
 establish directory clearance or activation. Use the existing DDD submission identity.
 

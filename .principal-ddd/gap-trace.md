@@ -38,6 +38,12 @@ and targeted native validator pass; only the existing README install-line advice
 All eight other release inventories match378be95, and the moved guard bytes match the
 original SHA-256 above. These prove local boundary/compatibility, not a remote policy pass.
 
+Concurrent public PR30/8d2beee updated Visualizer to1.4.6 and its root demo assets after the
+initial gate. Merged that public base without conflicts; DDD package and guard bytes are
+unchanged. The final release preserves all eight other inventories against8d2beee, including
+Visualizer1.4.6. Recheck the final merged tree before publication; no other skill is republished
+by this task. The initial378be95/Visualizer1.4.5 comparison above remains historical evidence.
+
 ## Credential boundaries — November 13
 
 CRED-01 (bug, fixed-and-verified): the storyboard and media-in-3D CLIs passed
