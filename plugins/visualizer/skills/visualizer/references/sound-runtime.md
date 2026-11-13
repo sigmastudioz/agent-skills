@@ -5,6 +5,13 @@ SFX together. The [bridge](../scripts/sound_design.py) owns only discovery/downl
 generation, cue adaptation and verification; keep the existing picture renderer.
 It uses argument arrays, new outputs, bounded public downloads and offline Earshot
 commands. It does not install software, create accounts or configure MCP on its own.
+The supported workflow uses anonymous Openverse access and local DSP/mixing; it
+requires no API key or token. Child processes receive explicit tool paths, offline
+flags and selected OS/temp/locale settings, not the caller's complete environment.
+Host credential variables, Python injection variables and authenticated proxy
+settings are not forwarded. Downloads use a direct anonymous HTTPS connection;
+hosts that require an authenticated proxy need a separately reviewed explicit
+integration rather than automatic credential discovery.
 
 ## Runtime discovery and setup
 
@@ -70,7 +77,16 @@ python3 scripts/sound_design.py fetch /project/browse.json --id ITEM_UUID --outp
 python3 scripts/sound_design.py generate whoosh_fast/crisp --output /project/audio/whoosh.wav --duration 0.8 --apex 0.32 --seed 42
 ```
 
-Each asset gets a `.provenance.json` with hash and source/recipe details. Inspect
+Treat downloads as audio data, never as programs: the fetch command accepts only
+supported audio output extensions. Its ffprobe check permits local file/pipe input
+and a fixed set of media demuxers. A downloaded playlist cannot fetch further
+resources or be treated as audio. The downloaded file is never used as a
+Python/shell command or imported.
+The bridge invokes only the separately provisioned, revision-checked local tools;
+setup examples above are instructions for an authorized installation, not runtime
+download-and-execute behavior.
+
+Each asset's provenance records its hash and source/recipe details. Inspect
 Earshot's checks and actual sync points. Generated sounds are not recorded foley.
 For an existing approved local file, provide the same provenance fields: `kind`
 `local`, `sha256`, `rights_status` `reviewed`, and a meaningful `rights_note` with

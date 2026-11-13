@@ -1,0 +1,23 @@
+{
+  "license": "MIT",
+  "name": "what-if-tony-stark-built-this",
+  "version": "2.0.0",
+  "description": "Invent and prove better engineering mechanisms when the existing approach hits a consequential constraint. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "displayName": "What If Tony Stark Built This",
+  "publisher": "SigmaStudioz",
+  "keywords": [
+    "technology-invention",
+    "engineering",
+    "gap-tracing",
+    "counterexamples",
+    "system-design",
+    "verified-delivery"
+  ],
+  "logo": "assets/icon.svg",
+  "category": "Developer Tools"
+}

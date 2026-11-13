@@ -35,6 +35,11 @@
       "name": "does-it-make-sense",
       "source": "./plugins/does-it-make-sense",
       "description": "Explain an existing build, trace actual behavior back to the end goal, and recommend evidence-backed refinements within scope. By Lex from SigmaStudioz."
+    },
+    {
+      "name": "what-if-tony-stark-built-this",
+      "source": "./plugins/what-if-tony-stark-built-this",
+      "description": "Invent and prove better engineering mechanisms when the existing approach hits a consequential constraint. By Lex from SigmaStudioz."
     }
   ]
 }

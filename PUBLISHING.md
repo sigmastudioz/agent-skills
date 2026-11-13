@@ -1,6 +1,6 @@
 # Publication plan
 
-Publisher: **Lex from SigmaStudioz**. Catalog: `sigmastudioz`. Plugins: `domain-driven-design`, `visualizer`, `video-analysis`, `engineering-spikes`, `ui-foundation-reuse`, `does-it-make-sense`.
+Publisher: **Lex from SigmaStudioz**. Catalog: `sigmastudioz`. Plugins: `domain-driven-design`, `visualizer`, `video-analysis`, `engineering-spikes`, `ui-foundation-reuse`, `does-it-make-sense`, `what-if-tony-stark-built-this`.
 Publisher profile: https://github.com/sigmastudioz.
 Public repository: https://github.com/sigmastudioz/agent-skills.
 MIT was selected by the publisher on 2026-10-18; root and plugin LICENSE files carry the notice
@@ -8,7 +8,7 @@ Copyright (c) 2026 Lex from SigmaStudioz.
 
 ## Repository release
 
-The collection contains six independently versioned plugins. The latest release scope is recorded below;
+The collection contains seven independently versioned plugins. The latest release scope is recorded below;
 older sections preserve historical publication context. Regenerate catalogs with `python3 tools/build_catalogs.py`, verify with `--check`,
 and run `python3 -m unittest discover -s tests` before publishing changes. Install the pre-push
 hook once per clone (`ln -s ../../tools/hooks/pre-push .git/hooks/pre-push`): it refuses a push
@@ -112,3 +112,18 @@ Use the existing directory identities and supported update paths. Publication on
 does not prove provider review approval, native activation or a current index snapshot.
 Retain prior sent-once requests and actual observation times. AgenticSkills' accepted
 Visualizer listing follows the repository; its provider requested no version-update emails.
+
+## Tony Stark and maintained-skill release — November 12
+
+The authorized collection contains exactly seven identities: the six previously published
+plugins plus What If Tony Stark Built This 2.0.0. DDD 1.4.4 adds multi-stage batch handoff
+and review-evidence guidance. Visualizer 1.4.3 combines the looping-asset and mechanism-rate
+guidance with isolated sound-tool environments and anonymous audio-decoding boundaries.
+UI Foundation Reuse 1.2.1 preserves its public critique-loop guidance and runtime 0.11.0.
+Video Analysis 1.0.1, Does It Make Sense? 1.0.2 and Engineering Spikes 1.0.0 are retained.
+Other local additions are excluded from this release's files, catalogs and commit history.
+
+Publish complete plugin ZIPs for the new or unreleased versions. Preserve earlier tags and
+release assets. GitHub availability establishes neither a fresh skills.sh snapshot nor
+native marketplace approval. Tony Stark has no native directory submission identity in
+this task; no new legal declarations, account changes or support messages are implied.

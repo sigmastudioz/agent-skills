@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="What If Tony Stark Built This by Lex from SigmaStudioz">
+  <rect width="256" height="256" rx="44" fill="#12242c"/>
+  <g fill="none" stroke="#b5f3ee" stroke-width="8">
+    <circle cx="128" cy="128" r="65"/>
+    <path d="M128 28v27m0 146v27M28 128h27m146 0h27M57 57l20 20m102 102 20 20M57 199l20-20M179 77l20-20"/>
+    <path d="m128 82 40 23v46l-40 23-40-23v-46zM88 105l40 23 40-23m-40 23v46" stroke-linejoin="round"/>
+  </g>
+  <circle cx="128" cy="128" r="9" fill="#edb65c"/>
+</svg>

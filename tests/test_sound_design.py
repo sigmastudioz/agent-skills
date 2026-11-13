@@ -2,9 +2,13 @@
 import importlib.util
 import io
 import json
+import os
 from pathlib import Path
+import shutil
+import sys
 import tempfile
 import unittest
+import wave
 from unittest.mock import patch
 import urllib.error
 
@@ -131,16 +135,123 @@ class SoundDesignTests(unittest.TestCase):
     def test_download_size_is_bounded(self):
         response = io.BytesIO(b'123456')
         response.headers = {}
-        with patch.object(sound.urllib.request, 'urlopen', return_value=response):
+        with patch.object(sound.urllib.request.OpenerDirector, 'open', return_value=response):
             with self.assertRaisesRegex(ValueError, 'too large'):
                 sound.get('https://example.org/audio.wav', limit=5)
 
     def test_rate_limit_does_not_trigger_unbounded_retries(self):
         error = urllib.error.HTTPError('https://example.org', 429, 'limited', {'Retry-After': '60'}, None)
-        with patch.object(sound.urllib.request, 'urlopen', side_effect=error) as request:
+        with patch.object(sound.urllib.request.OpenerDirector, 'open', side_effect=error) as request:
             with self.assertRaisesRegex(ValueError, 'longer wait'):
                 sound.get('https://example.org/audio.wav')
         self.assertEqual(request.call_count, 1)
+
+    def test_credentials_do_not_reach_runtime_children(self):
+        for directory in ('earshot', 'clipwing/skills/real-sfx'):
+            (self.root / directory).mkdir(parents=True)
+        config = {'python': sys.executable, 'ffmpeg': sys.executable, 'ffprobe': sys.executable,
+                  'earshot_root': str(self.root / 'earshot'),
+                  'real_sfx_root': str(self.root / 'clipwing/skills/real-sfx'),
+                  'revisions': {'earshot': 'earshot-pin', 'real_sfx': 'sfx-pin'}}
+        sound.save(self.root / 'runtime.json', config)
+        secrets = {'OPENAI_API_KEY': 'sentinel-openai', 'HF_TOKEN': 'sentinel-hf',
+                   'AWS_SESSION_TOKEN': 'sentinel-aws', 'HTTPS_PROXY': 'https://secret:secret@invalid',
+                   'PYTHONPATH': '/untrusted/python', 'UNRELATED_SECRET': 'sentinel-other'}
+        with patch.dict(os.environ, secrets), patch.object(shutil, 'which', return_value='/tools/git'), \
+                patch.object(sound, 'run', side_effect=['earshot-pin\n', '', 'sfx-pin\n', '']) as run:
+            _, env = sound.runtime(self.root / 'runtime.json')
+            for call in run.call_args_list:
+                self.assertTrue(set(secrets).isdisjoint(call.args[1]))
+            self.assertEqual(run.call_args_list[0].args[0][0], '/tools/git')
+        # Exercise a real child, rather than only checking the constructed dictionary.
+        output = sound.run([sys.executable, '-c', 'import os,json; print(json.dumps(dict(os.environ)))'], env)
+        child = json.loads(output)
+        self.assertTrue(set(secrets).isdisjoint(child))
+        for key in ('EARSHOT_OFFLINE', 'HF_HUB_OFFLINE', 'TRANSFORMERS_OFFLINE', 'PYTHONNOUSERSITE'):
+            self.assertEqual(child[key], '1')
+        self.assertIn(str(Path(sys.executable).parent), child['PATH'].split(os.pathsep))
+
+    def test_anonymous_download_does_not_discover_host_proxy_credentials(self):
+        response = io.BytesIO(b'public-audio')
+        response.headers = {}
+        opener = sound.urllib.request.build_opener(sound.urllib.request.ProxyHandler({}))
+        with patch.dict(os.environ, {'HTTPS_PROXY': 'https://secret:secret@invalid'}), \
+                patch.object(sound.urllib.request, 'build_opener', return_value=opener) as build, \
+                patch.object(opener, 'open', return_value=response) as request:
+            self.assertEqual(sound.get('https://example.org/audio.wav'), b'public-audio')
+        self.assertEqual(build.call_args.args[0].proxies, {})
+        self.assertNotIn('Authorization', request.call_args.args[0].headers)
+
+    def test_credential_url_is_rejected_before_opening_network(self):
+        with patch.object(sound.urllib.request, 'build_opener') as build:
+            with self.assertRaisesRegex(ValueError, 'Credential-bearing'):
+                sound.get('https://user:secret@example.org/audio.wav')
+            build.assert_not_called()
+
+    def test_download_cannot_write_a_script_or_package_configuration(self):
+        item = {'id': 'sound', 'foreign_landing_url': 'https://example.org/item',
+                'url': 'https://example.org/audio.wav', 'license': 'cc0',
+                'license_url': 'https://creativecommons.org/publicdomain/zero/1.0/'}
+        sound.save(self.root / 'results.json', {'response': {'results': [item]},
+                                              'request_url': 'https://api.openverse.org/v1/audio/'})
+        with patch.object(sound, 'get', return_value=b'audio-data') as request, \
+                patch.object(sound, 'probe', return_value={'streams': [{'codec_type': 'audio'}]}):
+            for name in ('setup.py', 'setup.sh', 'package.json', 'payload', 'asset.svg'):
+                with self.subTest(name=name), self.assertRaisesRegex(ValueError, 'audio extension'):
+                    sound.fetch(self.root / 'results.json', 'sound', self.root / name, 'Cleared', {}, {})
+                self.assertFalse((self.root / name).exists())
+            request.assert_not_called()
+
+    @unittest.skipUnless(shutil.which('ffprobe'), 'ffprobe is required for the local decoder boundary')
+    def test_probe_accepts_audio_but_refuses_playlist_disguised_as_audio(self):
+        audio = self.root / 'tone.wav'
+        with wave.open(str(audio), 'wb') as wav:
+            wav.setnchannels(1); wav.setsampwidth(2); wav.setframerate(8000)
+            wav.writeframes(b'\0\0' * 800)
+        config = {'ffprobe': shutil.which('ffprobe')}
+        self.assertEqual(sound.probe(audio, config, {}, downloaded=True)['streams'][0]['codec_type'], 'audio')
+        playlist = self.root / 'playlist.mp3'
+        playlist.write_text(f'ffconcat version 1.0\nfile {audio}\n')
+        with self.assertRaisesRegex(ValueError, 'not on whitelist'):
+            sound.probe(playlist, config, {}, downloaded=True)
+
+    @unittest.skipUnless(shutil.which('ffprobe'), 'ffprobe is required for the download consumer')
+    def test_public_audio_download_still_probes_and_records_provenance(self):
+        data = io.BytesIO()
+        with wave.open(data, 'wb') as wav:
+            wav.setnchannels(1); wav.setsampwidth(2); wav.setframerate(8000)
+            wav.writeframes(b'\0\0' * 800)
+        item = {'id': 'sound', 'foreign_landing_url': 'https://example.org/item',
+                'url': 'https://example.org/audio.wav', 'license': 'cc0',
+                'license_url': 'https://creativecommons.org/publicdomain/zero/1.0/'}
+        sound.save(self.root / 'results.json', {'response': {'results': [item]},
+                                              'request_url': 'https://api.openverse.org/v1/audio/'})
+        output = self.root / 'download.wav'
+        with patch.object(sound, 'get', return_value=data.getvalue()):
+            result = sound.fetch(self.root / 'results.json', 'sound', output, 'Reviewed CC0 source',
+                                 {'ffprobe': shutil.which('ffprobe')}, {})
+        self.assertEqual(output.read_bytes(), data.getvalue())
+        proof = sound.load(result['provenance'])
+        self.assertEqual(proof['sha256'], sound.sha(output))
+        self.assertEqual(proof['source'], item)
+        self.assertEqual(proof['rights_status'], 'reviewed')
+
+    @unittest.skipUnless(shutil.which('ffprobe'), 'ffprobe is required for the download consumer')
+    def test_code_disguised_as_audio_is_deleted_without_execution(self):
+        item = {'id': 'sound', 'foreign_landing_url': 'https://example.org/item',
+                'url': 'https://example.org/audio.mp3', 'license': 'cc0',
+                'license_url': 'https://creativecommons.org/publicdomain/zero/1.0/'}
+        sound.save(self.root / 'results.json', {'response': {'results': [item]}})
+        marker = self.root / 'executed'
+        payload = f'from pathlib import Path; Path({str(marker)!r}).touch()'.encode()
+        output = self.root / 'download.mp3'
+        with patch.object(sound, 'get', return_value=payload):
+            with self.assertRaisesRegex(ValueError, 'Command failed'):
+                sound.fetch(self.root / 'results.json', 'sound', output, 'Reviewed item',
+                            {'ffprobe': shutil.which('ffprobe')}, {})
+        self.assertFalse(marker.exists())
+        self.assertFalse(output.exists())
+        self.assertFalse(Path(str(output) + '.provenance.json').exists())
 
 
 if __name__ == '__main__':

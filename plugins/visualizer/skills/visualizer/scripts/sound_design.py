@@ -6,6 +6,7 @@ import json
 import math
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import time
@@ -14,6 +15,8 @@ import urllib.parse
 import urllib.request
 
 DEFAULT_CONFIG = Path.home() / '.local/share/sigmastudioz/visualization-sound-tools/config.json'
+AUDIO_SUFFIXES = {'.wav', '.mp3', '.flac', '.ogg', '.opus', '.m4a', '.aac', '.aif', '.aiff', '.webm'}
+MEDIA_FORMATS = 'wav,mp3,flac,ogg,mov,aac,aiff,matroska,webm'
 
 
 def require(ok, message):
@@ -65,12 +68,20 @@ def runtime(path):
     c = load(path)
     for key in ('python', 'ffmpeg', 'ffprobe', 'real_sfx_root', 'earshot_root'):
         require(Path(c[key]).exists(), f'Missing runtime {key}: {c[key]}')
-    env = dict(os.environ, EARSHOT_OFFLINE='1', HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1')
-    env['PATH'] = str(Path(c['ffmpeg']).parent) + os.pathsep + env.get('PATH', '')
+    # This anonymous/local workflow needs no API keys, proxy credentials or MCP env.
+    env = {'EARSHOT_OFFLINE': '1', 'HF_HUB_OFFLINE': '1', 'TRANSFORMERS_OFFLINE': '1',
+           'PYTHONNOUSERSITE': '1',
+           'PATH': os.pathsep.join(dict.fromkeys((str(Path(c['ffmpeg']).parent),
+                                                str(Path(c['python']).parent), os.defpath)))}
+    for key in ('SYSTEMROOT', 'WINDIR', 'TMPDIR', 'TEMP', 'TMP', 'LANG', 'LC_ALL'):
+        if os.environ.get(key):
+            env[key] = os.environ[key]
+    git = shutil.which('git')
+    require(git is not None, 'Missing runtime git')
     for name, root in (('earshot', Path(c['earshot_root'])), ('real_sfx', Path(c['real_sfx_root']).parents[1])):
-        head = run(['git', '-C', root, 'rev-parse', 'HEAD'], env).strip()
+        head = run([git, '-C', root, 'rev-parse', 'HEAD'], env).strip()
         require(head == c['revisions'][name], f'{name} revision differs from the runtime config')
-        run(['git', '-C', root, 'diff', '--exit-code', '--quiet', 'HEAD'], env)
+        run([git, '-C', root, 'diff', '--exit-code', '--quiet', 'HEAD'], env)
     return c, env
 
 
@@ -81,18 +92,25 @@ def run(args, env=None, timeout=180):
     return p.stdout
 
 
-def probe(path, c, env):
-    return json.loads(run([c['ffprobe'], '-v', 'error', '-show_format', '-show_streams',
+def probe(path, c, env, *, downloaded=False):
+    options = ['-protocol_whitelist', 'file,pipe']
+    if downloaded:
+        options += ['-format_whitelist', MEDIA_FORMATS]
+    return json.loads(run([c['ffprobe'], '-v', 'error', *options, '-show_format', '-show_streams',
                            '-of', 'json', path], env))
 
 
 def get(url, limit=4 * 1024 * 1024, attempts=2):
-    require(urllib.parse.urlparse(url).scheme == 'https', 'Only HTTPS downloads are supported')
+    parsed = urllib.parse.urlparse(url)
+    require(parsed.scheme == 'https' and parsed.hostname, 'Only HTTPS downloads are supported')
+    require(parsed.username is None and parsed.password is None, 'Credential-bearing URLs are not supported')
+    # Do not discover or forward authenticated proxies from the host environment.
+    opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
     for attempt in range(attempts):
         try:
             req = urllib.request.Request(url, headers={'User-Agent': 'SigmaStudioz-Visualization/1.0',
                                                        'Accept': '*/*'})
-            with urllib.request.urlopen(req, timeout=25) as response:
+            with opener.open(req, timeout=25) as response:
                 if response.headers.get('Content-Length'):
                     require(int(response.headers['Content-Length']) <= limit, 'Download too large')
                 data = response.read(limit + 1)
@@ -136,11 +154,13 @@ def fetch(results, item_id, output, rights_note, c, env):
     require(item is not None, 'Item ID is absent from these search results')
     require(all(item.get(k) for k in ('foreign_landing_url', 'url', 'license', 'license_url')),
             'Source item lacks required rights fields')
+    require(Path(output).suffix.lower() in AUDIO_SUFFIXES, 'Download output must use a supported audio extension')
     out = fresh(output)
     prov = fresh(str(out) + '.provenance.json')
     try:
         out.write_bytes(get(item['url'], limit=50 * 1024 * 1024))
-        require(any(s['codec_type'] == 'audio' for s in probe(out, c, env)['streams']), 'Downloaded file has no audio')
+        require(any(s['codec_type'] == 'audio' for s in probe(out, c, env, downloaded=True)['streams']),
+                'Downloaded file has no audio')
     except Exception:
         out.unlink(missing_ok=True)
         raise
@@ -254,7 +274,8 @@ def mix(plan_path, output, c, env):
         require(r['start'] + r['seg'] <= sheet['duration'] + .002, 'Sound tail exceeds picture; extend picture or choose a shorter sound')
         anchor = {'start': r['onset_shift_ms'] / 1000, 'peak': r['peak_time'], 'end': r['seg']}[r['anchor']]
         require(r['start'] > 0 or r['t'] - anchor >= -.002, 'Cue needs pre-roll; do not silently truncate it')
-    run([c['ffmpeg'], '-v', 'error', '-i', out, '-f', 'null', '-'], env)
+    run([c['ffmpeg'], '-v', 'error', '-protocol_whitelist', 'file,pipe',
+         '-format_whitelist', MEDIA_FORMATS, '-i', out, '-f', 'null', '-'], env)
     final_meta = probe(out, c, env)
     require(any(s['codec_type'] == 'audio' for s in final_meta['streams']), 'Export is missing audio')
     require(abs(float(final_meta['format']['duration']) - sheet['duration']) < .1, 'Export duration changed')

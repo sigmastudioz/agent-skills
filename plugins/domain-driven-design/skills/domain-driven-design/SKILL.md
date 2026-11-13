@@ -52,7 +52,9 @@ Before delegating, resuming a handoff, or coordinating concurrent agents, read
 [handoffs](references/handoffs.md) in full: delegation budgets and how the guard parses them, guard
 behaviour, `isolation` declarations, shell-started workers, pattern-versus-component examples,
 reporting back up the chain, concurrent work and file ownership, interruption and resume,
-and installation discovery. Those rules apply with the same authority as this file.
+and installation discovery. For multi-stage batches, it also covers frozen input roles, stage-specific
+acceptance, review disagreements, changing instructions and queue reconciliation. Those rules apply
+with the same authority as this file.
 
 ## Principal engineering contract
 - Start with business capabilities, invariants, user workflows, and operational constraints.

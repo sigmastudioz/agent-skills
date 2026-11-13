@@ -1,6 +1,6 @@
 # Principal Driven Domain Design
 
-By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.4.1**, [MIT](LICENSE).
+By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.4.4**, [MIT](LICENSE).
 
 **Principal-level domain-driven design for AI coding agents.**
 
@@ -14,6 +14,15 @@ The short entrypoint routes conditional architecture, handoff, gap-tracing, reco
 rules into focused references. Small fixes stay small; read-only reviews stay read-only.
 The baseline does not authorize extra agents, unrelated restructuring or deployment.
 
+
+## Changes in 1.4.4
+
+Batch handoffs now distinguish source advice, exact-output acceptance and consumer verification;
+check copied input roles before dispatch; reconcile all assigned reviews before a limited correction;
+and carry changed user requirements, cumulative attempts and stage-specific queue counts forward.
+Read-only reviewers may use isolated input packets while write-capable workers retain checkout and
+resource ownership boundaries. The optional guard and its schema are unchanged. A sanitized observed
+case is included; no fresh native-agent efficacy result is claimed.
 
 ## Changes in 1.4.3
 
