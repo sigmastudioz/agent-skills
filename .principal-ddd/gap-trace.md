@@ -1,5 +1,49 @@
 # Collection catalog trace
 
+## DDD guidance-only marketplace package — November 13
+
+DDD-PKG-01 (integration gap): the existing DDD plugin includes an optional Python
+handoff guard and its executable regressions, although the current directory accepts
+only guidance/listing files from an unverified publisher. The human supplied the exact
+current file-type refusal after authenticated browser control became unavailable.
+This is a package-boundary issue, not a guard algorithm failure or human rejection.
+
+Move the real guard and its regressions to tools/handoff-guard, outside every plugin.
+The guard implementation remains byte-identical to public378be95, SHA-256
+0e3ef2edb9ad8a492aac35899f886d707b75ca413c9338097d8d5b35d883c023. It still trusts only
+SKILL.md beside the installed scripts directory; source execution from the tools folder
+is deliberately unsupported. Tests now construct private installed layouts instead of
+depending on the public plugin carrying executable code. SETUP.md retains the same
+user-installed hook path and documents the explicit opt-in copy. No installer, auto-fetch,
+MCP server or hook is added to the marketplace package. Existing global files are untouched.
+
+| Cluster | Entry, effects and trace | Closure evidence / boundary |
+| --- | --- | --- |
+| Guidance discovery | existing catalog → four manifests → skills/domain-driven-design/SKILL.md → local handoffs/architecture/verification references | Guidance/JSON handoff contract remains usable without code; no script link or runtime download. Package allowlist, UTF-8/NUL/shebang and registration regressions. |
+| Optional guard | user-authorized setup → separately reviewed tools/handoff-guard source → copy into installed skill/scripts → existing PreToolUse hook → baseline identity/budgets/isolated brief → accepted/rejected invocation | Same runtime bytes and hook path; temporary installed-layout subprocess regressions exercise all existing behavior. No agent/provider efficacy or actual global installation claimed. |
+| Collection consumers | tests/test_handoff_guard.py → moved regressions → isolated full skill copy + guard | Repository test discovery and documented standalone command use the same guard suite; historical evidence remains historical. |
+| Release | public378be95 → DDD1.4.6 and19-file package → regenerated release hashes → complete plugin ZIP | Eight other plugin inventories, including concurrent Visualizer1.4.5, must remain byte-identical. No new catalog identity or held-back additions. |
+
+Rollback: inverse move of the two Python sources, reverting setup/test-loader links and
+guard-free guidance/version metadata; preserve newer source edits before rollback.
+Historical DDD1.4.5 release and installed helper paths remain available unchanged. The
+marketplace plugin legitimately ships no program; code is neither renamed as text nor
+fetched/executed indirectly. Remote policy/scan outcome and DDD native activation remain
+unverified until the existing submission detects this patch. No new identity/declarations.
+No schema, app mount, scheduler or permission change; those edges are not applicable.
+
+Final runtime/content checks: standalone moved guard suite58 passed in9.538s; collection
+`python3 -B -m unittest discover -s tests` passed200 in53.115s, no skips. Metadata validator
+and targeted native validator pass; only the existing README install-line advice remains.
+All eight other release inventories match378be95, and the moved guard bytes match the
+original SHA-256 above. These prove local boundary/compatibility, not a remote policy pass.
+
+Concurrent public PR30/8d2beee updated Visualizer to1.4.6 and its root demo assets after the
+initial gate. Merged that public base without conflicts; DDD package and guard bytes are
+unchanged. The final release preserves all eight other inventories against8d2beee, including
+Visualizer1.4.6. Recheck the final merged tree before publication; no other skill is republished
+by this task. The initial378be95/Visualizer1.4.5 comparison above remains historical evidence.
+
 ## Credential boundaries — November 13
 
 CRED-01 (bug, fixed-and-verified): the storyboard and media-in-3D CLIs passed

@@ -1,6 +1,6 @@
 # Principal Driven Domain Design
 
-By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.4.5**, [MIT](LICENSE).
+By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.4.6**, [MIT](LICENSE).
 
 **Principal-level domain-driven design for AI coding agents.**
 
@@ -14,6 +14,20 @@ The short entrypoint routes conditional architecture, handoff, gap-tracing, reco
 rules into focused references. Small fixes stay small; read-only reviews stay read-only.
 The baseline does not authorize extra agents, unrelated restructuring or deployment.
 
+
+## Changes in 1.4.6
+
+The marketplace plugin is now guidance-only: no Python, executable helper, hook or
+automatic download ships in this folder. The optional handoff guard remains available
+as a [separate opt-in repository tool](https://github.com/sigmastudioz/agent-skills/tree/main/tools/handoff-guard),
+with its implementation unchanged. The handoff rules and JSON contract remain local to
+this skill and work without a guard. Native directory scanning and approval are separate
+from publication; removing these scripts does not establish organization verification.
+
+This release does not edit installed skills or global hooks. Existing guard installations
+continue at their existing path. Before a later skill upgrade that replaces its directory,
+back up any separately installed guard and review the optional setup again; do not assume
+a third-party installer preserves extra local files.
 
 ## Changes in 1.4.4
 
@@ -57,7 +71,7 @@ trace obligations, checks and expected return format to already-authorized teamm
 integrated result. Task briefs and pseudocode are proposals, not proof of algorithm correctness.
 User teammate limits override optional workflow steps, including extra review agents.
 
-The optional Claude helper validates handoff structure and adds a compact reminder to read the
+The separately installed optional Claude helper validates handoff structure and adds a compact reminder to read the
 installed baseline and relevant linked guidance. It recognizes more coding workspaces, rejects
 malformed inputs, and preserves cumulative explicit agent budgets across repeated limits. Only an
 explicit new-budget instruction resets usage. Quoted or negated examples cannot expand a limit;
@@ -113,7 +127,8 @@ private code or raw session logs. The MIT copyright notice credits Lex from Sigm
 
 ## Distribution boundary
 
-The runtime skill retains its guidance and functional helpers. Executable synthetic evaluation
+The runtime skill contains guidance and no executable helper. The optional guard and its
+regressions live in the collection's separate opt-in tool area. Executable synthetic evaluation
 fixtures live in the collection’s [test area](https://github.com/sigmastudioz/agent-skills/tree/main/tests/fixtures/domain-driven-design), outside this installable plugin.
 Historical scenario summaries retain their original dates and hashes. This packaging change does
 not establish Anthropic organization verification or clearance of separate directory findings.

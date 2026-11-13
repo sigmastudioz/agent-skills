@@ -37,7 +37,9 @@ person (a Markdown file, ticket or message), carry the same fields in prose: wor
 and their cause, acceptance checks with their commands, and the return format. The `HANDOFF_JSON=`
 prefix below applies only to agent and session tools.
 
-Hosts may enforce this contract with [the delegation guard](../scripts/guard_handoff.py).
+Hosts may enforce this contract with a separately installed delegation guard. This guidance-only
+skill contains no executable guard and does not download or enable one. The written handoff
+contract applies whether or not a guard is installed.
 The optional Claude guard supplies this baseline path and checks explicit numeric agent limits in the
 native user turns (`Use N teammates/agents/workers` and common polite forms). Quoted, fenced or
 negated examples cannot increase the cap. The first explicit cap starts a budget; repeating or

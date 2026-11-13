@@ -1,13 +1,14 @@
 """Isolated subprocess regressions; these fixtures never launch agents or project jobs."""
 import json
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import tempfile
 import unittest
 
-GUARD = Path(__file__).with_name('guard_handoff.py').resolve()
-SKILL = GUARD.parents[1] / 'SKILL.md'
+SOURCE_GUARD = Path(__file__).with_name('guard_handoff.py').resolve()
+SOURCE_SKILL = SOURCE_GUARD.parents[2] / 'plugins/domain-driven-design/skills/domain-driven-design'
 
 
 class HandoffGuardTests(unittest.TestCase):
@@ -15,6 +16,13 @@ class HandoffGuardTests(unittest.TestCase):
         self.temporary = tempfile.TemporaryDirectory(prefix='ddd-guard-')
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name)
+        # Exercise the separately installed tool in its supported legacy layout.
+        installed = self.root / 'installed-domain-driven-design'
+        shutil.copytree(SOURCE_SKILL, installed)
+        (installed / 'scripts').mkdir()
+        self.guard = installed / 'scripts/guard_handoff.py'
+        shutil.copy2(SOURCE_GUARD, self.guard)
+        self.skill = installed / 'SKILL.md'
         self.workspace = self.root / 'project'
         self.workspace.mkdir()
         (self.workspace / 'package.json').write_text('{}')
@@ -33,7 +41,7 @@ class HandoffGuardTests(unittest.TestCase):
             'return': {k: 'Report actual evidence or remaining limits' for k in
                        ('paths', 'contracts', 'checks', 'gaps', 'remaining')},
             'trace': 'CLI -> invoice module -> returned total; rejection paths',
-            'checks': 'Run the affected invoice regressions', 'baseline': str(SKILL),
+            'checks': 'Run the affected invoice regressions', 'baseline': str(self.skill),
         }
         value.update(changes)
         return value
@@ -49,7 +57,7 @@ class HandoffGuardTests(unittest.TestCase):
                            'description': 'Invoice fix', 'subagent_type': 'worker'},
         }
         payload.update(changes)
-        return subprocess.run([sys.executable, str(GUARD)], input=json.dumps(payload),
+        return subprocess.run([sys.executable, str(self.guard)], input=json.dumps(payload),
                               text=True, capture_output=True, timeout=10)
 
     def events(self, *events):
@@ -132,7 +140,7 @@ class HandoffGuardTests(unittest.TestCase):
         self.assertTrue(updated['prompt'].endswith(prompt))
         self.assertEqual(updated['description'], 'Invoice fix')
         self.assertEqual(updated['subagent_type'], 'worker')
-        self.assertIn(str(SKILL), updated['prompt'])
+        self.assertIn(str(self.skill), updated['prompt'])
 
     def test_context_is_bounded_and_does_not_embed_entire_skill(self):
         prompt = self.prompt()
@@ -140,7 +148,7 @@ class HandoffGuardTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         updated = json.loads(result.stdout)['hookSpecificOutput']['updatedInput']['prompt']
         self.assertLess(len(updated) - len(prompt), 1800)
-        self.assertNotIn(SKILL.read_text(), updated)
+        self.assertNotIn(self.skill.read_text(), updated)
 
     def test_repeated_guard_pass_does_not_duplicate_context(self):
         first = self.run_guard()
@@ -349,7 +357,7 @@ class HandoffGuardTests(unittest.TestCase):
     def test_malformed_hook_json_blocks_cleanly(self):
         for payload in ['{', '[]', 'null']:
             with self.subTest(payload=payload):
-                result = subprocess.run([sys.executable, str(GUARD)], input=payload,
+                result = subprocess.run([sys.executable, str(self.guard)], input=payload,
                                         text=True, capture_output=True, timeout=10)
                 self.assertEqual(result.returncode, 2, result.stderr)
                 self.assertNotIn('Traceback', result.stderr)

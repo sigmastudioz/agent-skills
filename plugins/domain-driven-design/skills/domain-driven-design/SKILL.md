@@ -41,7 +41,9 @@ Every authorized agent assignment or resumable handoff must identify:
 | Evidence | Commands and results, trace-ledger path/IDs, verified revision, unavailable environments |
 | Next action | Concrete next step, blockers, required inputs, and expected return format |
 
-When [the delegation guard](scripts/guard_handoff.py) is installed, prefix the assignment with
+The marketplace skill contains guidance only. An optional handoff guard can be installed
+separately by the host owner; do not download, install or enable it merely to use this skill.
+When that guard is already installed, prefix the assignment with
 `HANDOFF_JSON=` and a JSON object containing `goal`, `limits`, `workspace`, `revision`, `owns`,
 `interfaces`, `state`, `evidence`, `next`, `return`, `trace`, `checks`, and `baseline`. `return` must
 be an object with nonempty `paths`, `contracts`, `checks`, `gaps`, and `remaining` instructions.
