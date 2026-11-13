@@ -12,6 +12,7 @@ import uuid
 
 HERE = Path(__file__).resolve().parent
 SLUG = "what-if-tony-stark-built-this"
+PLUGIN_ROOT = HERE.parents[2] / "plugins" / SLUG
 COMMON = """Use only the inline synthetic task and supplied instructions. No tools, file reads,
 shell commands, global skill/plugin loading, network research, installs, extra agents or writes.
 You are not alone; other isolated runs and the coordinator are active. Own no shared files.
@@ -61,7 +62,7 @@ def prepare(output, models, seed=20261112):
     tasks = json.loads((HERE / "tasks.json").read_text())
     if len(tasks) != 4 or len({t["id"] for t in tasks}) != 4:
         raise ValueError("Review protocol before changing the four-task design")
-    payload, hashes = runtime_payload(HERE.parent / "skills" / SLUG)
+    payload, hashes = runtime_payload(PLUGIN_ROOT / "skills" / SLUG)
     output.mkdir(parents=True)
     for name in ("control", "packets", "outputs"):
         (output / name).mkdir()

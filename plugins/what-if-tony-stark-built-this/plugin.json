@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "license": "MIT",
   "name": "what-if-tony-stark-built-this",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Invent and prove better engineering mechanisms when the existing approach hits a consequential constraint. By Lex from SigmaStudioz.",
   "author": {
     "name": "Lex from SigmaStudioz",

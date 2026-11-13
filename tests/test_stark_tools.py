@@ -8,7 +8,7 @@ import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-EVALUATION = ROOT / "plugins/what-if-tony-stark-built-this/evaluation"
+EVALUATION = ROOT / "tools/tony-evaluation/evaluation"
 spec = importlib.util.spec_from_file_location("stark_tools", EVALUATION / "run_tools.py")
 tools_trial = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(tools_trial)

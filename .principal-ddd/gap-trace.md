@@ -1,3 +1,38 @@
+# Remaining Claude package findings — November 13
+
+CLAUDE-REST-01 (integration gap): Tony's installed plugin included75 maintainer evaluation
+files, including a synthetic lookup experiment the provider could not inspect. None is a
+consumer dependency of the user-facing comparison runner. Move the coherent suite to
+`tools/tony-evaluation/evaluation/`; retain frozen fixture bytes, dates, hashes and results.
+
+| Cluster | Connected path and failure cases | Closure / boundary |
+| --- | --- | --- |
+| Runtime package | Existing catalog/manifests → SKILL.md → compare_designs.py + variant_worker.py → contained example sources/manifest → correctness/timing/report | Runtime scripts, examples and operative guidance unchanged; run example from a private installed-plugin copy without collection tools. Missing fixture suite must not affect this path. |
+| Maintainer evaluation | Collection test loaders → moved trial profiles → shared run_pilot.PLUGIN_ROOT → current public skill inputs → isolated preparation/hidden checks | Adapter changes only; provenance remains relative to the plugin root, fixture/checker containment unchanged. Existing offline regression suite covers preparation, permissions, grading and failure paths; no live models dispatched. |
+| Published evidence | Plugin README/maintainer test pointer → public moved protocols/results; local suite links → same semantic targets | Relative-link and frozen fixture hash checks; no historical evaluation claim renewed. |
+| Other packages | Eight existing identities and manifests → unchanged runtime inventories | Byte equality against publicf44641f, including UI archive and Visualizer1.4.7. No global skill or app change. |
+
+CLAUDE-REST-02 (external blocker): UI/Visualizer/Video/Tony need Anthropic's Verified
+organization allowance for real bundled programs. The human prefers preserving package
+capability. No code stripping, hidden fetch or new identity is a resolution. Fresh UI and
+Visualizer checks requested once in this human task; only actual remote evidence establishes
+warning clearance. Current Visualizer1.4.7/f44641f is detected, policy fails and security scan
+is pending. No credential-clearance claim. Source path is immutable for existing submissions;
+Edit permits only branch/tag, currently locked during review. Do not create duplicate intake.
+
+Rollback is the inverse suite move plus adapter/test/documentation/version restoration; preserve
+newer edits and historical releases. No scheduler, application mount, persistence schema or
+permissions changed. Consumer, registration, provenance, snapshot and concurrent-writer edges
+are in scope; live model efficacy and provider approval remain outside local proof.
+
+Checks on the prepared snapshot:201 collection tests passed in41.021seconds, no skips;
+46 focused evaluation/runner tests passed; isolated installed-plugin example passed.
+Native manifest validation and all four generated catalog/release checks pass. All51
+frozen fixture files and all operative runtime/example files are byte-identical; eight
+other plugin inventories equal publicf44641f. No live model, install or credential flow run.
+
+---
+
 # Collection catalog trace
 
 ## DDD guidance-only marketplace package — November 13

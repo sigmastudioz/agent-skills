@@ -27,7 +27,7 @@ Impact Trace, Repair Loop and Evidence Memory remain its six capabilities, selec
 Runtime guidance now routes coding to one 560-word, 3,776-byte reference. Other references load
 only for a named uncertainty; existing applicable specialist guidance should not be repeated.
 
-The selected [coding loop](../skills/what-if-tony-stark-built-this/references/coding-loop.md) emphasizes
+The selected [coding loop](../../../plugins/what-if-tony-stark-built-this/skills/what-if-tony-stark-built-this/references/coding-loop.md) emphasizes
 actions: follow an actual consumer, identify a broken contract, reproduce it on the unchanged code,
 repair its authoritative owner, and check the final path/recovery. It asks for runnable evidence
 instead of substituting a report or proposed test for authorized execution. The guide was frozen

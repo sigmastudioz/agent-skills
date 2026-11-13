@@ -1,6 +1,6 @@
 # What If Tony Stark Built This
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 2.1.0.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 2.1.1.
 
 Engineering invention for a consequential constraint: challenge the inherited approach, find a
 better mechanism, and prove a working slice. The name supplies ambition; a useful breakthrough
@@ -93,7 +93,7 @@ Execute inspected authorized local code only. Process isolation is for measureme
 sandbox; Python allocations are not RSS and the result covers supplied cases on the recorded host.
 The tool leaves candidate generation and case/workload design to the user or existing workflow.
 
-The [self-review](evaluation/RUNNER_SELF_REVIEW.md) records actual counterexamples and fixes after the
+The [self-review](https://github.com/sigmastudioz/agent-skills/blob/main/tools/tony-evaluation/evaluation/RUNNER_SELF_REVIEW.md) records actual counterexamples and fixes after the
 Cursor build. A new matched trial tests whether supplying the tool helps versus normal standard-library
 tools; local variant speedup by itself is not evidence that the skill helps an agent.
 
@@ -102,17 +102,19 @@ tools; local variant speedup by itself is not evidence that the skill helps an a
 The first two trials found little added general-coding value, including guided Grok timeouts.
 Those results motivated the narrower purpose; they remain historical evidence:
 
-- [1.1 no-tool pilot](evaluation/RESULTS.md)
-- [1.2 tools-enabled coding comparison](evaluation/TOOLS_RESULTS.md)
-- [2.0 frozen engineering-invention protocol](evaluation/INVENTION_PROTOCOL.md)
-- [2.0 engineering-invention trial record](evaluation/INVENTION_RESULTS.md)
-- [Runner utility trial protocol](evaluation/RUNNER_PROTOCOL.md)
-- [Runner utility trial results](evaluation/RUNNER_RESULTS.md)
-- [Coding tasks with setup included: frozen protocol](evaluation/CODING_PROTOCOL.md)
-- [Coding tasks with setup included: results and limits](evaluation/CODING_RESULTS.md)
+- [1.1 no-tool pilot](https://github.com/sigmastudioz/agent-skills/blob/main/tools/tony-evaluation/evaluation/RESULTS.md)
+- [1.2 tools-enabled coding comparison](https://github.com/sigmastudioz/agent-skills/blob/main/tools/tony-evaluation/evaluation/TOOLS_RESULTS.md)
+- [2.0 frozen engineering-invention protocol](https://github.com/sigmastudioz/agent-skills/blob/main/tools/tony-evaluation/evaluation/INVENTION_PROTOCOL.md)
+- [2.0 engineering-invention trial record](https://github.com/sigmastudioz/agent-skills/blob/main/tools/tony-evaluation/evaluation/INVENTION_RESULTS.md)
+- [Runner utility trial protocol](https://github.com/sigmastudioz/agent-skills/blob/main/tools/tony-evaluation/evaluation/RUNNER_PROTOCOL.md)
+- [Runner utility trial results](https://github.com/sigmastudioz/agent-skills/blob/main/tools/tony-evaluation/evaluation/RUNNER_RESULTS.md)
+- [Coding tasks with setup included: frozen protocol](https://github.com/sigmastudioz/agent-skills/blob/main/tools/tony-evaluation/evaluation/CODING_PROTOCOL.md)
+- [Coding tasks with setup included: results and limits](https://github.com/sigmastudioz/agent-skills/blob/main/tools/tony-evaluation/evaluation/CODING_RESULTS.md)
 - [Portable authored behavioral cases](skills/what-if-tony-stark-built-this/tests/README.md)
 
-The optional standard-library Python evaluation tools live outside the runtime skill. Live trials
+The optional standard-library Python evaluation tools now live outside all installable plugins,
+in the collection’s `tools/tony-evaluation/evaluation/` folder. Runtime scripts and runnable
+comparison examples remain included and unchanged in this plugin. Live trials
 require Git and an authenticated Cursor `agent` CLI with the selected models; ordinary skill use
 requires neither. The invention trial supplies only the new entrypoint and invention-methods file.
 Hidden checks, previous outputs and all other skill resources stay outside worker checkouts.

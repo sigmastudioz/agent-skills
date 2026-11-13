@@ -6,7 +6,7 @@ import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-EVALUATION = ROOT / "plugins/what-if-tony-stark-built-this/evaluation"
+EVALUATION = ROOT / "tools/tony-evaluation/evaluation"
 
 
 def module(name, file):
@@ -25,7 +25,7 @@ class PilotChecks(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "pilot"
             manifest = pilot.prepare(output, ["grok-test", "fable-test"])
-            payload, _ = pilot.runtime_payload(EVALUATION.parent / "skills/what-if-tony-stark-built-this")
+            payload, _ = pilot.runtime_payload(pilot.PLUGIN_ROOT / "skills/what-if-tony-stark-built-this")
             self.assertEqual(len(manifest["jobs"]), 16)
             for model in ("grok-test", "fable-test"):
                 for task in ("inventory", "sorting", "offline-design", "replan"):

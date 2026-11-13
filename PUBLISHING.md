@@ -1,3 +1,19 @@
+# Remaining Claude review items — November 13
+
+Preserve full runtime packages, existing native identities and the UI runtime archive.
+The current four blocked submissions require Anthropic Verified-organization eligibility
+for bundled code. Do not disguise code or remove working features to claim clearance.
+
+Tony2.1.1 moves its maintainer evaluation suite outside the installable plugin to
+`tools/tony-evaluation/evaluation/`. Its real comparison scripts and example implementations
+remain included byte-identically. Existing test consumers and provenance paths are adapted;
+fixture bytes and historical result identities are preserved. Publish only this patch;
+all eight other plugin inventories, including concurrent Visualizer1.4.7, are retained.
+The fixture-inspection finding may clear only after a new native scan. The code-type gate
+remains a distinct external blocker. No account, declaration, webhook or Publish change.
+
+---
+
 # Publication plan
 
 ## DDD guidance-only package — November 13
