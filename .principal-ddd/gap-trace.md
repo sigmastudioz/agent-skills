@@ -471,3 +471,22 @@ new identity, or edits to the other seven plugins; historical 1.1.0 assets remai
 Trace: catalog → four native/portable display fields → skill UI metadata/title →
 README and existing installation identifier. Rebuild release hashes and verify
 frontmatter, independent versions, native catalogs and artifact inventory.
+
+### Visualizer 1.4.5: data-city and explainer-control recipes
+
+Two recipes held for the owner's approval, added to existing references (no new files): a data
+city in `references/data.md` and explainer controls (cutaway, camera-shot hotkeys, rewind to a
+beat, pinned notes) in `references/interactive.md`. Each was built first as a small React Three
+Fiber demo outside the repository and checked in headless Chromium (React 18, Three.js 0.160,
+R3F 8): three browser tests covering height/value proportion, rejected and no-data records,
+picking by stable id, plan view, beat jumps, the rewind grace rule, seek determinism, cutaway,
+shot keys with and without reduced motion, a note following a moving part, and the typing guard.
+Two defects found in the demos shaped the text: a note anchored to a fixed point drifted off a
+moving part, and notes pointed at parts hidden by the casing. Demo sources and screenshots are
+not distributed with the skill. Trace: SKILL.md routing rows → data.md / interactive.md (unchanged
+links) → React Three Fiber reference for capture of DOM notes. Checks on this branch:
+`build_catalogs.py --check` verified, unittest discover 193 OK, `claude plugin validate` passed
+for the plugin and the marketplace. Unverified: other React/Three/R3F versions, real GPUs, touch
+input, screen readers, and whether an agent applies the recipes unprompted.
+First prepared as 1.4.4; renumbered to 1.4.5 and re-applied on top of main after main published
+its own 1.4.4 (credential-free tool environments) while this work was in progress.

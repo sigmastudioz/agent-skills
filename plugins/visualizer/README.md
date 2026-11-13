@@ -1,8 +1,16 @@
 # SigmaStudioz Visualizer
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.4.4.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.4.5.
 
 Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.
+
+## Changes in 1.4.5
+
+Two recipes, each built and checked as a small working demo first. The data reference gains a
+data city: grouped 3D bars with an orthographic camera, a no-data state, selection by stable id,
+and the table and plan view that keep it honest. The interactive reference gains explainer controls
+for a 3D subject: a cutaway toggle, camera-shot hotkeys, rewind to a beat, and notes pinned to
+parts, with a text list and reduced-motion behaviour.
 
 ## Changes in 1.4.4
 
