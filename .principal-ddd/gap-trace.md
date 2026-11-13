@@ -490,3 +490,39 @@ for the plugin and the marketplace. Unverified: other React/Three/R3F versions, 
 input, screen readers, and whether an agent applies the recipes unprompted.
 First prepared as 1.4.4; renumbered to 1.4.5 and re-applied on top of main after main published
 its own 1.4.4 (credential-free tool environments) while this work was in progress.
+
+### Visualizer 1.4.6: both demo films re-cut
+
+The owner asked for the repository's Visualizer videos to show the latest work, and chose to re-cut
+both films. No skill instructions change; the version moves because the plugin README does.
+`assets/visualizer-r3f-demo.*` (React Three Fiber, 36 s) now shows the data-city recipe and the
+explainer controls. `assets/visualizer-demo.*` (Three.js, 32 s) now shows picture on a beat grid
+measured from the final mix, motion asked for by name and a four-beat looping asset. Each was
+built from its existing source ZIP with the existing manual-frame export, and its poster, SRT,
+VTT, validation and source ZIP were regenerated. `visual-skills-demo-source.zip` changes because
+it holds the Three.js film's source; every Video Analysis file inside it is byte-identical
+(`exports/video-analysis.mp4` 63ef965d…, `audio/video-analysis.wav` 078b3826…). The UI Foundation
+film is untouched.
+
+Trace per film: timeline (scenes, events, cues) → pure models → scene and in-picture type → frame
+export at explicit times → encoder → MP4 → verifier (frame count, full decode, loudness, distinct
+neighbouring frames; for the Three.js film also loop closure and the beat-map hash). One
+independent critic, given frames and a brief only, found five material defects (a note pointing at
+a hidden part, an install command drawn with one dash, list highlighting that lagged the action, a
+follow-through that happened before its scene, pulsing rings too thin to see) and about two dozen
+minor ones; all five and most minor ones were fixed and both films re-exported. The check after the
+fixes was the author's own on decoded frames, not a second independent round. Effects were
+measured against the music stem and key-press clicks raised about 10 dB.
+
+Results: R3F 36.0 s, 2,160 frames, 10.26 MB → 6.94 MB, −15.36 LUFS, −1.63 dBTP. Three.js 32.0 s,
+1,920 frames, 5.39 MB → 5.05 MB, −16.22 LUFS, −1.46 dBTP; frames one loop apart differ by 0.28
+luma levels against 4.77 a quarter-loop apart; fitted 99.997 BPM, mean beat offset −6.1 ms, largest
+26 ms. Both sampled with the video-analysis sampler (23 frames each at decoded timestamps); a
+local transcription returned only a stock phrase on the music, consistent with no speech.
+One R3F export was discarded because the canvas was resized mid-export; the exporter now holds
+the export size.
+
+Open: the README players are GitHub upload URLs, so the plugin README still plays the first R3F
+cut until the owner uploads the new MP4 and replaces the URL. Unverified: listening review,
+browsers other than headless Chromium on Apple M1 Max, word-level speech timing (there is no
+narration), and whether either film changes how an agent uses the skill.
