@@ -570,3 +570,31 @@ Open: the README players are GitHub upload URLs, so the plugin README still play
 cut until the owner uploads the new MP4 and replaces the URL. Unverified: listening review,
 browsers other than headless Chromium on Apple M1 Max, word-level speech timing (there is no
 narration), and whether either film changes how an agent uses the skill.
+
+### Visualizer 1.4.7: baked-lighting reference and Mirror ink look
+
+Gap: no visualizer reference covered lightmaps, baked reflections or cheap light shafts (a search
+for those terms found only unrelated uses of "bake"). Added `references/baked-lighting.md`, linked
+from the SKILL.md routing table and from the React Three Fiber reference, and one row in the
+art-direction look presets. The source was a creator's video about browser 3D demos; his cost
+figures are his claims and his prompts were not used. No Blender bake steps exist in a published
+companion skill to link, so the reference carries its own.
+
+Built first as a demo outside the repository: a Blender 5.2.3 script that builds a small room, bakes
+a 1024 px lighting-only lightmap to a second UV set, exports GLB, an equirectangular reflection
+source and a Cycles reference frame; and a React Three Fiber page (Three.js 0.186, R3F 9, Drei 10)
+with baked, real-time and accumulative-shadow modes, measured in headless Chromium on an Apple M1
+Max. Three defects found on the way are now rules in the reference: a scene-wide environment map
+lit the room a second time; the bake image must be non-colour data or the saved file is
+display-encoded (the page read 30-130 % too bright while Blender's own preview looked right); and
+an EXR's rows ran the other way up from a Radiance HDR's. Result: the baked page differs from the
+Cycles reference by a mean of 3.6 of 255 per channel (regions within 3-9 % in linear light at
+lightMapIntensity pi) against 21.0 for two shadow-casting point lights; 7 draw calls and about
+0.7 ms a frame against 57 and 2-3 ms. Mirror ink: three seeds or times rendered with zero
+left-right difference, under 1 % mid-tones and a white border.
+
+Not verified: Drei's AccumulativeShadows in a suitable open scene (two configurations in the
+enclosed room rendered the floor dark, and the reference says so); other Blender, Three.js or GPU
+combinations; a lightmap seen up close or from outside the baked camera range; phones.
+Version note: rebased onto main after the 1.4.6 demo-film re-cut merged; checks re-run on the
+rebased content.
