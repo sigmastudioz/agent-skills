@@ -40,6 +40,11 @@
       "name": "what-if-tony-stark-built-this",
       "source": "./plugins/what-if-tony-stark-built-this",
       "description": "Invent and prove better engineering mechanisms when the existing approach hits a consequential constraint. By Lex from SigmaStudioz."
+    },
+    {
+      "name": "app-retention",
+      "source": "./plugins/app-retention",
+      "description": "Design fair retention and ranking for apps: return likelihood, habit-timed nudges, per-item ranking, results-based asset choice and upgrade timing, built from the product's own data with privacy guardrails and no dark patterns. By Lex from SigmaStudioz."
     }
   ]
 }

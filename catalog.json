@@ -41,6 +41,11 @@
       "name": "what-if-tony-stark-built-this",
       "path": "./plugins/what-if-tony-stark-built-this",
       "category": "Productivity"
+    },
+    {
+      "name": "app-retention",
+      "path": "./plugins/app-retention",
+      "category": "Productivity"
     }
   ]
 }

@@ -1,0 +1,6 @@
+interface:
+  display_name: "App Retention"
+  short_description: "Fair retention and ranking from your own app data"
+  default_prompt: "Use $app-retention to design return-likelihood, habit-timed nudges and ranked suggestions for this app from its own data, with privacy guardrails and no dark patterns."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,6 @@
+{
+  "source_repository": "sigmastudioz/agent-skills",
+  "source_path": "plugins/record-label/skills/record-label/scripts/music/sequence.py",
+  "sha256": "b279fc586bbdef3c4a17c46e061042d271be081974dd5b6c5f57ca0ce2cb81fa",
+  "note": "Exact maintained source copied for an isolated optimization experiment; not a deployed change."
+}

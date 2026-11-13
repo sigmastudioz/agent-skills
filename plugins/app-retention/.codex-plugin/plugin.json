@@ -1,0 +1,26 @@
+{
+  "license": "MIT",
+  "name": "app-retention",
+  "version": "1.1.0",
+  "description": "Design fair retention and ranking for apps: return likelihood, habit-timed nudges, per-item ranking, results-based asset choice and upgrade timing, built from the product's own data with privacy guardrails and no dark patterns. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "App Retention",
+    "shortDescription": "Fair retention and ranking from your own app data",
+    "longDescription": "Explain an existing build, trace actual behavior back to the end goal, and recommend evidence-backed refinements within scope. By Lex from SigmaStudioz. Assessment is read-only unless fixes are authorized. No executable helper, required service or automatic account changes. Repository availability is separate from native marketplace review.",
+    "developerName": "Lex from SigmaStudioz",
+    "websiteURL": "https://github.com/sigmastudioz",
+    "supportURL": "https://github.com/sigmastudioz/agent-skills/issues",
+    "privacyPolicyURL": "https://github.com/sigmastudioz/agent-skills/blob/main/PRIVACY.md",
+    "category": "Developer Tools",
+    "capabilities": [],
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg"
+  }
+}

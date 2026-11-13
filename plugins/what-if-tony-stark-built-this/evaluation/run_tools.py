@@ -48,8 +48,15 @@ TICKETS = {
 
 
 def files_in(root):
-    return [p for p in sorted(root.rglob("*")) if p.is_file()
-            and not SKIP.intersection(p.relative_to(root).parts) and p.suffix != ".pyc"]
+    files = []
+    for path in sorted(root.rglob("*")):
+        if SKIP.intersection(path.relative_to(root).parts) or path.suffix == ".pyc":
+            continue
+        if path.is_symlink():
+            raise ValueError("Refusing to follow a supplied or worker-created symlink: " + str(path))
+        if path.is_file():
+            files.append(path)
+    return files
 
 
 def hashes(root):
@@ -68,9 +75,10 @@ def cursor_command(job):
 def prepare(output, models, profile=None):
     if output.exists():
         raise ValueError("Refusing to overwrite a trial")
-    if len(models) != 2 or len(set(models)) != 2:
-        raise ValueError("Exactly two distinct explicit model IDs required")
     profile = profile or {}
+    model_count = profile.get("model_count", 2)
+    if len(models) != model_count or len(set(models)) != model_count:
+        raise ValueError("Profile requires " + str(model_count) + " distinct explicit model IDs")
     guide_paths = profile.get("guides", [HERE.parent / "skills/what-if-tony-stark-built-this/references/coding-loop.md"])
     guide = b"\n\n".join(path.read_bytes() for path in guide_paths)
     tickets = profile.get("tickets", TICKETS)
@@ -79,6 +87,10 @@ def prepare(output, models, profile=None):
     protocol = profile.get("protocol", HERE / "TOOLS_PROTOCOL.md")
     common = profile.get("common", COMMON)
     guidance_file = profile.get("guidance_file", ".stark-coding-guidance.md")
+    assets = profile.get("assets", [])
+    asset_hashes = {item["target"]: digest(item["source"].read_bytes()) for item in assets}
+    if len(asset_hashes) != len(assets):
+        raise ValueError("Duplicate supplied asset target")
     if len(tickets) != 2 or Path(guidance_file).name != guidance_file:
         raise ValueError("Two tasks and a contained guidance filename required")
     output.mkdir(parents=True)
@@ -116,9 +128,17 @@ def prepare(output, models, profile=None):
             if treatment:
                 (workspace / guidance_file).write_bytes(guide)
                 (workspace / guidance_file).chmod(0o444)
+                for item in assets:
+                    target = workspace / item["target"]
+                    if (target.is_absolute() and workspace.resolve() not in target.resolve().parents
+                            or ".git" in Path(item["target"]).parts or target.exists()):
+                        raise ValueError("Supplied asset must be new and contained in the workspace")
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    target.write_bytes(item["source"].read_bytes())
+                    target.chmod(0o444)
             handoff = {
                 "goal": tickets[task], "limits": common, "workspace": str(workspace),
-                "revision": bases[task]["revision"], "owns": "This checkout's package and added regression tests; no other checkout or shared inputs",
+                "revision": bases[task]["revision"], "owns": profile.get("owns", "This checkout's package and added regression tests; no other checkout or shared inputs"),
                 "interfaces": "Authoritative public APIs, consumers and contracts are in this checkout's README and source",
                 "state": profile.get("state", "Committed synthetic base; original public checks pass (relay 3, importer 2); no proposed fix or hidden tests supplied"),
                 "evidence": "Only README, source, public tests and local observations; no prior model results supplied",
@@ -127,29 +147,32 @@ def prepare(output, models, profile=None):
                            "checks": "Report commands and actual results", "gaps": "Name remaining defects or uncertainty",
                            "remaining": "Give precise missing proof and stop state"},
                 "trace": "Follow the real CLI/service input, state owner, effects and terminal consumer, including relevant failure/recovery",
-                "checks": "Run python3 -m unittest discover -s tests -v; add relevant regressions without changing existing expectations",
+                "checks": profile.get("checks", "Run python3 -m unittest discover -s tests -v; add relevant regressions without changing existing expectations"),
                 "baseline": str(workspace / "AGENTS.md"),
                 "isolation": {"confirmed": True, "workspace": str(workspace),
                               "reason": "Independent writable clone of the identified committed synthetic base; no shared source owner"},
             }
             condition = ("Also read and apply " + guidance_file + ". It is the only supplied Stark guidance; do not load any other skill resource."
                          if treatment else "Use your normal engineering reasoning and the shared defaults. No additional skill guidance is supplied.")
+            if treatment and profile.get("asset_instruction"):
+                condition += " " + profile["asset_instruction"]
             prompt = "HANDOFF_JSON=" + json.dumps(handoff) + "\n\n" + common + "\n" + condition + "\n\nTICKET: " + tickets[task] + "\n"
             (output / "control" / (identifier + ".prompt.txt")).write_text(prompt)
             jobs.append({"id": identifier, "model": model, "task": task, "condition": "relevant" if treatment else "none",
                          "workspace": str(workspace), "base_revision": bases[task]["revision"],
                          "ticket_sha256": digest(tickets[task].encode()), "prompt_sha256": digest(prompt.encode()),
                          "prompt_bytes": len(prompt.encode()), "guidance_bytes": len(guide) if treatment else 0,
-                         "guidance_file": guidance_file})
-    manifest = {"protocol": profile.get("name", "tools-enabled-selected-guidance-v1"), "maximum_calls": 8, "maximum_active": 3,
-                "attempts_per_cell": 1, "timeout_seconds": 1200, "bases": bases, "jobs": jobs,
+                         "guidance_file": guidance_file, "supplied_assets": asset_hashes if treatment else {}})
+    manifest = {"protocol": profile.get("name", "tools-enabled-selected-guidance-v1"), "maximum_calls": len(jobs), "maximum_active": profile.get("maximum_active", 3),
+                "attempts_per_cell": 1, "timeout_seconds": profile.get("timeout_seconds", 1200), "bases": bases, "jobs": jobs,
                 "guide_sha256": digest(guide), "guide_source": [str(path.relative_to(HERE.parent)) for path in guide_paths],
                 "guidance_sources": {str(path.relative_to(HERE.parent)): digest(path.read_bytes()) for path in guide_paths},
                 "checker_source": checker.name, "checker_sha256": digest(checker.read_bytes()),
+                "asset_sources": {str(item["source"].relative_to(HERE.parent)): digest(item["source"].read_bytes()) for item in assets},
                 "protocol_sha256": digest(protocol.read_bytes())}
     write_json(output / "control/manifest.json", manifest)
     write_json(output / "control/state.json", {job["id"]: "prepared" for job in jobs})
-    print("Prepared eight isolated coding cells; one selected guide, no evaluator files supplied", flush=True)
+    print("Prepared " + str(len(jobs)) + " isolated cells; selected guidance/assets, no evaluator files supplied", flush=True)
     return manifest
 
 
@@ -211,6 +234,8 @@ def run(output, workers=3):
     if not 1 <= workers <= 3:
         raise ValueError("At most three concurrent cells")
     manifest = json.loads((output / "control/manifest.json").read_text())
+    if workers > manifest.get("maximum_active", 3):
+        raise ValueError("Concurrency exceeds this trial's frozen limit")
     checker = HERE / manifest.get("checker_source", "tool_checks.py")
     assert checker.parent.resolve() == HERE.resolve()
     assert digest(checker.read_bytes()) == manifest["checker_sha256"]
