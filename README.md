@@ -86,7 +86,7 @@ await reviewer activation. Cursor, Codex and Antigravity publication is not yet 
 | [Principal Driven Domain Design](plugins/domain-driven-design/README.md) | Domain ownership, reusable engines, gap tracing and agent handoffs | 1.4.4 |
 | [Engineering Spikes](plugins/engineering-spikes/README.md) | Timeboxed research, evidence and gap tracing, separate stakeholder and technical documents | 1.0.0 |
 | [Does It Make Sense?](plugins/does-it-make-sense/README.md) | Trace an actual build back to its end goal and recommend bounded, evidence-backed refinements | 1.0.2 |
-| [App Retention](plugins/app-retention/README.md) | Fair onboarding, return habits, ranking, upgrade timing and measured retention experiments | 1.1.0 |
+| [Returncraft](plugins/app-retention/README.md) | Fair onboarding, return habits, ranking, upgrade timing and measured retention experiments | 1.1.1 |
 
 ### Visual creation and analysis
 
@@ -102,9 +102,9 @@ Install the outcome-review skill with `npx skills add sigmastudioz/agent-skills 
 Install UI Foundation Reuse with `npx skills add sigmastudioz/agent-skills --skill ui-foundation-reuse`.
 
 Install Tony Stark with `npx skills add sigmastudioz/agent-skills --skill what-if-tony-stark-built-this`
-or App Retention with `npx skills add sigmastudioz/agent-skills --skill app-retention`.
+or Returncraft with `npx skills add sigmastudioz/agent-skills --skill app-retention`.
 Tony Stark's optional comparison runner requires Python 3.10+ and inspected, authorized local code.
-App Retention is guidance only. Official directory review and activation are separate.
+Returncraft is guidance only. Official directory review and activation are separate.
 
 Install either visual skill with `npx skills add sigmastudioz/agent-skills --skill visualizer` or
 `npx skills add sigmastudioz/agent-skills --skill video-analysis`. Both are by **Lex from SigmaStudioz**.

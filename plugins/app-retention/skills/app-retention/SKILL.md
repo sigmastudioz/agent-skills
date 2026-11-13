@@ -4,7 +4,7 @@ description: Design fair retention and ranking for a product from its own data -
 license: MIT
 ---
 
-# SigmaStudioz App Retention
+# Returncraft
 By [Lex from SigmaStudioz](https://github.com/sigmastudioz).
 
 Help people come back because the product is useful to them, not because it nags or tricks them.
