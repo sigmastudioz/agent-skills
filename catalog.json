@@ -46,6 +46,11 @@
       "name": "app-retention",
       "path": "./plugins/app-retention",
       "category": "Productivity"
+    },
+    {
+      "name": "delegating-to-agents",
+      "path": "./plugins/delegating-to-agents",
+      "category": "Developer Tools"
     }
   ]
 }

@@ -5,7 +5,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
 ROOT = REPO / "plugins"
-CHECKED = ["visualizer"]
+CHECKED = ["visualizer", "delegating-to-agents"]
 LINK = re.compile(r"\]\(([^)#\s]+)(?:#[^)]*)?\)")
 
 
