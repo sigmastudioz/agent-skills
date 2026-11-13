@@ -15,7 +15,11 @@ import urllib.error
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('sound_bridge', ROOT / 'plugins/visualizer/skills/visualizer/scripts/sound_design.py')
 sound = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(sound)
+sys.path.insert(0, str(Path(spec.origin).parent))
+try:
+    spec.loader.exec_module(sound)
+finally:
+    sys.path.pop(0)
 
 
 class SoundDesignTests(unittest.TestCase):

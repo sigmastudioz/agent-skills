@@ -7,7 +7,11 @@ It uses argument arrays, new outputs, bounded public downloads and offline Earsh
 commands. It does not install software, create accounts or configure MCP on its own.
 The supported workflow uses anonymous Openverse access and local DSP/mixing; it
 requires no API key or token. Child processes receive explicit tool paths, offline
-flags and selected OS/temp/locale settings, not the caller's complete environment.
+flags and fixed locale settings, not the caller's environment. The shared
+[local-tool policy](../scripts/tool_runtime.py) also covers storyboard and media-in-3D
+encoders. It reads no environment values: tool directories come from explicit paths
+or executable discovery; Windows' system directory comes from the OS API.
+OS temporary-directory defaults replace caller overrides, and `LANG`/`LC_ALL` use `C`.
 Host credential variables, Python injection variables and authenticated proxy
 settings are not forwarded. Downloads use a direct anonymous HTTPS connection;
 hosts that require an authenticated proxy need a separately reviewed explicit

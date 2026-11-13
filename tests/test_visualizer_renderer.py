@@ -9,13 +9,18 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT/'plugins/visualizer/skills/visualizer/scripts/render.py'
 spec = importlib.util.spec_from_file_location('renderer', SCRIPT)
 render = importlib.util.module_from_spec(spec)
 try:
-    spec.loader.exec_module(render)
+    sys.path.insert(0, str(SCRIPT.parent))
+    try:
+        spec.loader.exec_module(render)
+    finally:
+        sys.path.pop(0)
 except ModuleNotFoundError as error:
     if error.name == 'PIL': raise unittest.SkipTest('Pillow is required for renderer behavior tests')
     raise
@@ -83,8 +88,21 @@ class RendererBehavior(unittest.TestCase):
         board['scenes'][0]['duration'] = 2
         with tempfile.TemporaryDirectory() as tmp:
             p = Path(tmp); output = p/'smoke.mp4'
-            result = self.run_cli(board, p, '--output', str(output), '--poster', str(p/'poster.png'), '--score')
+            # Observe the real encoder's environment at the supported CLI boundary.
+            tools = p/'tools'; tools.mkdir(); record = p/'encoder-env.json'
+            real_ffmpeg = shutil.which('ffmpeg')
+            wrapper = tools/'ffmpeg'
+            wrapper.write_text(f'#!{sys.executable}\nimport json,os,sys\nfrom pathlib import Path\n'
+                               f'Path({str(record)!r}).write_text(json.dumps(dict(os.environ)))\n'
+                               f'os.execv({real_ffmpeg!r}, [{real_ffmpeg!r}, *sys.argv[1:]])\n')
+            wrapper.chmod(0o755)
+            secrets = {'OPENAI_API_KEY':'sentinel-openai', 'AWS_SESSION_TOKEN':'sentinel-aws',
+                       'HTTPS_PROXY':'https://sentinel:secret@invalid', 'FFREPORT':'sentinel-report',
+                       'PYTHONPATH':'/nonexistent/injected-python', 'UNRELATED_SECRET':'sentinel-other'}
+            with patch.dict(os.environ, {**secrets, 'PATH':str(tools)+os.pathsep+os.environ['PATH']}):
+                result = self.run_cli(board, p, '--output', str(output), '--poster', str(p/'poster.png'), '--score')
             self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertTrue(set(secrets).isdisjoint(json.loads(record.read_text())))
             streams = json.loads(subprocess.check_output(['ffprobe', '-v', 'error', '-show_streams', '-of', 'json', str(output)]))['streams']
             video = next(s for s in streams if s['codec_type']=='video')
             self.assertEqual((video['width'], video['height'], int(video['nb_frames'])), (720,1280,60))

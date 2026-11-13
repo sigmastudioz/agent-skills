@@ -10,11 +10,15 @@ try:
     import PIL  # noqa: F401
 except ImportError:
     raise unittest.SkipTest('numpy/Pillow not installed; see requirements-media-3d.txt')
-# Register the adapter under its import name without putting scripts/ on sys.path,
-# which would shadow same-named test modules in this folder.
+# Register the adapter under its import name, then remove the temporary scripts/
+# search path so it cannot shadow same-named collection test modules.
 _adapter = importlib.util.spec_from_file_location('media_in_3d', scripts / 'media_in_3d.py')
 sys.modules['media_in_3d'] = importlib.util.module_from_spec(_adapter)
-_adapter.loader.exec_module(sys.modules['media_in_3d'])
+sys.path.insert(0, str(scripts))
+try:
+    _adapter.loader.exec_module(sys.modules['media_in_3d'])
+finally:
+    sys.path.pop(0)
 spec = importlib.util.spec_from_file_location('packaged_media_in_3d_tests', scripts / 'test_media_in_3d.py')
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
