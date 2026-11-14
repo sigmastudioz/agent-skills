@@ -13,6 +13,7 @@ owners. A reference application's controls are evidence, not a requirement to in
 | Depth relief | Aligned depth or an explicitly authored/photometric proxy | One visible surface with limited camera travel; label a proxy as illustrative |
 | Point/glyph field | Source colors/alpha, sample grid, positions and mark size | Marks occupy actual projected positions; more points alone do not supply geometry |
 | Time stack | Selected decoded frames and source timestamps | Space represents time, not simultaneous people or a recovered world |
+| Image collection field | One record per image: stable ID, file, source metadata and the field each layout encodes | Each card is one catalogued item at a layout position; arrangement shows the chosen field, not similarity unless measured. Untested here: pack thumbnails into a texture atlas or array, draw instanced quads with per-instance UV offsets, and load full resolution only for a revealed hero card |
 | Scanned point cloud | PLY/LAS positions and colours, units and up-axis from a lidar or photogrammetry capture | Measured geometry at capture density; holes are unscanned areas, never filled in. Untested here: decimate with a seeded voxel grid to a fixed budget and render as size-attenuated points on a camera spline |
 | Independent 3D geometry | Meshes/rigs with appropriate views | Use the existing scene/DCC owner when new viewpoints or articulation require it |
 
@@ -21,6 +22,13 @@ Brightness is not distance. A hidden background, rear surface or hand outside th
 be recovered by rotating a relief. Narrow the camera or use authorized additional views rather
 than filling missing geometry without disclosure. Keep logos, exact type and evidence labels in
 a controlled layer; do not convert them into illegible points unless that transformation is wanted.
+
+For an image collection, compute each layout (tunnel, cluster spheres, wall) as a pure function
+from record to position, and transition by interpolating the same record ID between layouts so
+items never trade identity. State what a cluster means (date range, box, catalogue subject or a
+model's tags) and label model-assigned tags as machine output. Hero-card captions come from the
+record's own metadata. Budget texture memory from item count × thumbnail size before choosing an
+atlas, and check rights per item: a library hosting a scan does not make every item free to reuse.
 
 Define source range/PTS, display orientation, alpha/depth alignment, sample dimensions and depth
 units, origin, axis direction, camera path, near/far limits and protected subject margins. Preserve

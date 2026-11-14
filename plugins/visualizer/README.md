@@ -1,8 +1,16 @@
 # SigmaStudioz Visualizer
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.4.7.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.4.8.
 
 Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.
+
+## Changes in 1.4.8
+
+Adds an "image collection field" to the [media in 3D](skills/visualizer/references/media-in-3d.md)
+mechanisms: many catalogued images arranged as one field (tunnel, cluster spheres, wall) with a
+stable record ID kept across layouts, a stated meaning for each cluster, machine-assigned tags
+labelled as such, a texture-memory budget before choosing an atlas, and a per-item rights check.
+The atlas and instancing route is marked untested until a working build confirms it.
 
 ## Changes in 1.4.7
 
