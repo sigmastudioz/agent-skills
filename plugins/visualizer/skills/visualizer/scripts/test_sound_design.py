@@ -151,5 +151,71 @@ class SearchTests(TempDirCase):
         self.assertIn('Not an Openverse results response', str(caught.exception))
 
 
+class RedirectTests(unittest.TestCase):
+    """The HTTPS-only rule must hold for every hop, not only the first URL."""
+
+    def redirect(self, target):
+        request = sound_design.urllib.request.Request('https://example.org/a.wav')
+        return sound_design.HttpsOnlyRedirects().redirect_request(request, None, 302, 'Found', {}, target)
+
+    def test_follows_https_redirect(self):
+        self.assertEqual(self.redirect('https://cdn.example.org/a.wav').full_url, 'https://cdn.example.org/a.wav')
+
+    def test_refuses_downgrade_and_credentials(self):
+        for target in ('http://example.org/a.wav', 'ftp://example.org/a.wav', 'https://user:pw@example.org/a.wav'):
+            with self.subTest(target=target), self.assertRaises(ValueError):
+                self.redirect(target)
+
+    def test_opener_uses_the_checked_handler(self):
+        with mock.patch.object(sound_design.urllib.request, 'build_opener') as build:
+            build.return_value.open.side_effect = ValueError('stop')
+            with self.assertRaises(ValueError):
+                sound_design.get('https://example.org/a.wav')
+        self.assertTrue(any(isinstance(h, sound_design.HttpsOnlyRedirects) for h in build.call_args.args))
+
+
+@unittest.skipUnless(shutil.which('git'), 'git is not installed')
+class PinnedRuntimeTests(TempDirCase):
+    """runtime() accepts only the recorded revisions with nothing added or changed."""
+
+    def repo(self, name):
+        root = self.tmp / name
+        (root / 'pkg' / 'scripts').mkdir(parents=True)
+        (root / 'pkg' / 'scripts' / 'mix.py').write_text('print(1)\n')
+        git = ['git', '-C', str(root), '-c', 'user.name=t', '-c', 'user.email=t@example.invalid']
+        for args in (['init', '-q'], ['add', '-A'], ['commit', '-q', '-m', 'init']):
+            sound_design.run(git + args)
+        return root, sound_design.run(git + ['rev-parse', 'HEAD']).strip()
+
+    def config(self):
+        earshot, earshot_head = self.repo('earshot')
+        real, real_head = self.repo('real')
+        path = self.tmp / 'config.json'
+        path.write_text(json.dumps({
+            'python': sys.executable, 'ffmpeg': sys.executable, 'ffprobe': sys.executable,
+            'earshot_root': str(earshot), 'real_sfx_root': str(real / 'pkg' / 'scripts'),
+            'revisions': {'earshot': earshot_head, 'real_sfx': real_head}}))
+        return path, earshot, real
+
+    def test_accepts_clean_pinned_checkouts(self):
+        path, _, _ = self.config()
+        config, env = sound_design.runtime(path)
+        self.assertEqual(env['EARSHOT_OFFLINE'], '1')
+        self.assertIn('revisions', config)
+
+    def test_refuses_untracked_and_modified_files_by_name(self):
+        path, earshot, real = self.config()
+        (earshot / 'sitecustomize.py').write_text('x = 1\n')
+        with self.assertRaises(ValueError) as caught:
+            sound_design.runtime(path)
+        self.assertIn('earshot checkout', str(caught.exception))
+        self.assertIn('sitecustomize.py', str(caught.exception))
+        (earshot / 'sitecustomize.py').unlink()
+        (real / 'pkg' / 'scripts' / 'mix.py').write_text('print(2)\n')
+        with self.assertRaises(ValueError) as caught:
+            sound_design.runtime(path)
+        self.assertIn('real_sfx checkout', str(caught.exception))
+
+
 if __name__ == '__main__':
     unittest.main()

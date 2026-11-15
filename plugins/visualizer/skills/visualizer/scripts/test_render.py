@@ -91,6 +91,20 @@ class ValidateTests(unittest.TestCase):
         render.validate(storyboard(*scenes[:10]))  # exactly 300 s is allowed
 
 
+class CaptionTests(unittest.TestCase):
+    def test_caption_text_cannot_end_or_restart_a_cue(self):
+        scene = example_scene()
+        scene['caption'] = 'First line\n\n2\n00:00:09,000 --> 00:00:10,000\nlast'
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'out.srt'
+            render.captions(storyboard(scene), path)
+            cues = path.read_text(encoding='utf-8').strip().split('\n\n')
+        self.assertEqual(len(cues), 1)
+        self.assertEqual(cues[0].count('-->'), 1)
+        self.assertIn('First line', cues[0])
+        self.assertIn('last', cues[0])
+
+
 class SizeRuleTests(unittest.TestCase):
     def assert_rejects(self, text):
         with self.assertRaises(ValueError) as caught:

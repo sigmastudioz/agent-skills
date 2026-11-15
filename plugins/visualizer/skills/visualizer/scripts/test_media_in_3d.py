@@ -1,6 +1,9 @@
 """Behavioral checks for the optional media-in-3D audio adapter."""
+import subprocess
 import unittest
+from unittest import mock
 import numpy as np
+import media_in_3d
 from media_in_3d import audio_features, audio_onsets, audio_signals, MediaStudy
 
 
@@ -117,6 +120,28 @@ class AudioBindingTests(unittest.TestCase):
         mono = .4 * np.sin(2 * np.pi * 80 * t)
         np.testing.assert_allclose(audio_features(np.column_stack([mono, mono]), 48000, 30, 60),
                                    audio_features(mono, 48000, 30, 60), atol=1e-12)
+
+
+class LocalInputTests(unittest.TestCase):
+    def test_probe_and_decode_restrict_ffmpeg_to_local_protocols(self):
+        with mock.patch.object(media_in_3d, 'run', return_value=b'{"streams": []}') as run:
+            media_in_3d.probe('clip.mp4')
+        args = run.call_args.args[0]
+        self.assertEqual(args[args.index('-protocol_whitelist') + 1], 'file,pipe')
+        formats = args[args.index('-format_whitelist') + 1].split(',')
+        self.assertIn('mov', formats)
+        self.assertFalse({'concat', 'hls', 'applehttp', 'dash', 'image2'} & set(formats))
+        frames = bytes(432 * 768 * 3 * 2)
+        with mock.patch.object(media_in_3d, 'run', return_value=frames) as run:
+            self.assertEqual(media_in_3d.load_frames('clip.mp4', 0, 1).shape, (2, 768, 432, 3))
+        args = run.call_args.args[0]
+        self.assertLess(args.index('-protocol_whitelist'), args.index('-i'))
+
+    def test_failures_are_reported_in_one_line(self):
+        failed = subprocess.CalledProcessError(1, ['/opt/bin/ffprobe', 'x'], stderr=b'x: Protocol not on whitelist\n')
+        self.assertEqual(media_in_3d.report_failure(failed), 'ffprobe failed (1): x: Protocol not on whitelist')
+        self.assertIn('no video', media_in_3d.report_failure(StopIteration()))
+        self.assertEqual(media_in_3d.report_failure(ValueError('Missing input: a.mp4')), 'Missing input: a.mp4')
 
 
 if __name__ == '__main__':

@@ -209,7 +209,9 @@ def captions(data, path):
         return f'{ms//3600000:02d}:{ms//60000%60:02d}:{ms//1000%60:02d},{ms%1000:03d}'
     rows, t = [], 0
     for i, s in enumerate(data['scenes']):
-        rows.append(f'{i+1}\n{stamp(t)} --> {stamp(t+s["duration"])}\n{s["caption"]}\n')
+        # A blank line ends an SRT cue and '-->' starts a timing line, so neither may sit in the text.
+        text = '\n'.join(line for line in s['caption'].splitlines() if line.strip()).replace('-->', '->')
+        rows.append(f'{i+1}\n{stamp(t)} --> {stamp(t+s["duration"])}\n{text}\n')
         t += s['duration']
     path.write_text('\n'.join(rows), encoding='utf-8')
 

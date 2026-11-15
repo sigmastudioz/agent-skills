@@ -633,3 +633,32 @@ enclosed room rendered the floor dark, and the reference says so); other Blender
 combinations; a lightmap seen up close or from outside the baked camera range; phones.
 Version note: rebased onto main after the 1.4.6 demo-film re-cut merged; checks re-run on the
 rebased content.
+
+### Visualizer 1.4.9: script hardening from a code review
+
+Source: a read-only review of the three scripts (2026-11-14). Gaps and fixes:
+
+- `sound_design.get()` enforced HTTPS and no credentials on the first URL only; Python's default
+  redirect handler follows to `http://` (checked directly against the handler). A redirect handler
+  now applies the same rule to every hop.
+- `sound_design.runtime()` compared `HEAD` and tracked changes, so an untracked module in a pinned
+  checkout passed. It now requires an empty `git status --porcelain --untracked-files=all` and
+  names up to five offending paths. The installed Earshot and Real SFX checkouts on this host
+  report zero entries, so the stricter check does not break the working setup here.
+- `media_in_3d.py` passed `--source`, `--matte` and `--audio` to FFmpeg without a protocol
+  whitelist, unlike `sound_design.py`, and had no top-level error handling. Inputs now use
+  `-protocol_whitelist file,pipe` and failures print one line.
+- `render.captions()` wrote caption text verbatim; a blank line or `-->` inside it broke the cue.
+
+Checks: 48 script tests (8 new); a real `media_in_3d.py` run (2 s test source, 6 s film at
+720x1280) completed and passed its own decode and frame-count checks; an ffconcat playlist
+pointing at an HTTPS URL and a missing input each exit 1 with one line. Two suspected slow paths
+were measured and left alone: `render.score()` (1.08 s for 20 s of audio with 10 scenes) and the
+point renderer (0.55 s a frame at 1080x1920).
+After the first commit an automated security check asked for the remaining gap to be closed: a
+local playlist could still name other local files. Inputs now also carry a container allowlist
+(`mov,matroska,webm,avi,mpegts,mpeg,gif,wav`), so the concat and HLS demuxers cannot be chosen.
+A local ffconcat file naming a local video is refused; MP4, MKV and WebM sources still probe.
+Not verified: Windows, a live redirect from a real server, and containers outside the allowlist
+(they are refused with a one-line error).
+

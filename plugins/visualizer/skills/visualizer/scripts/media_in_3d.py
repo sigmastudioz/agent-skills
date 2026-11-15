@@ -11,6 +11,7 @@ import math
 from pathlib import Path
 import shutil
 import subprocess
+import sys
 import wave
 
 import numpy as np
@@ -23,8 +24,14 @@ def run(args):
                           env=tool_environment(shutil.which(str(args[0])))).stdout
 
 
+# Inputs are local media files. FFmpeg must not follow one to a network or nested protocol,
+# and playlist demuxers (concat, HLS) must not be chosen: they name other files to read.
+MEDIA_FORMATS = 'mov,matroska,webm,avi,mpegts,mpeg,gif,wav'
+LOCAL_ONLY = ['-protocol_whitelist', 'file,pipe', '-format_whitelist', MEDIA_FORMATS]
+
+
 def probe(path):
-    return json.loads(run(['ffprobe', '-v', 'error', '-show_streams', '-show_format',
+    return json.loads(run(['ffprobe', '-v', 'error', *LOCAL_ONLY, '-show_streams', '-show_format',
                            '-of', 'json', str(path)]))
 
 
@@ -104,7 +111,7 @@ def load_frames(path, start, duration, gray=False):
     # 24 fps bounds memory at about 359 MB for a 15 s RGB source; no full-resolution cache.
     filters = ('fps=24,scale=432:768:force_original_aspect_ratio=decrease,'
                'pad=432:768:(ow-iw)/2:(oh-ih)/2:color=black,setsar=1')
-    raw = run(['ffmpeg', '-v', 'error', '-ss', str(start), '-i', str(path), '-t', str(duration),
+    raw = run(['ffmpeg', '-v', 'error', *LOCAL_ONLY, '-ss', str(start), '-i', str(path), '-t', str(duration),
                '-an', '-vf', filters, '-f', 'rawvideo', '-pix_fmt', 'gray' if gray else 'rgb24', 'pipe:1'])
     channels = 1 if gray else 3
     count = len(raw) // (432 * 768 * channels)
@@ -319,7 +326,7 @@ def main():
     args.output.mkdir(parents=True)
     final = args.output / 'media-in-3d.mp4'
     process = subprocess.Popen(['ffmpeg', '-hide_banner', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24',
-                                '-s', f'{args.width}x{args.height}', '-r', '30', '-i', 'pipe:0', '-i', str(args.audio),
+                                '-s', f'{args.width}x{args.height}', '-r', '30', '-i', 'pipe:0', *LOCAL_ONLY, '-i', str(args.audio),
                                 '-map', '0:v', '-map', '1:a', '-t', str(args.duration), '-c:v', 'libx264', '-preset', 'medium',
                                 '-crf', '18', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', str(final)],
                                stdin=subprocess.PIPE, env=tool_environment(shutil.which('ffmpeg')))
@@ -336,7 +343,7 @@ def main():
         code = process.wait()
     if code:
         raise RuntimeError('Encoder failed; preserve partial output for diagnosis')
-    run(['ffmpeg', '-v', 'error', '-i', str(final), '-f', 'null', '-'])
+    run(['ffmpeg', '-v', 'error', *LOCAL_ONLY, '-i', str(final), '-f', 'null', '-'])
     result = probe(final)
     streams = result['streams']
     v = next(s for s in streams if s['codec_type'] == 'video')
@@ -364,5 +371,20 @@ def main():
     print(str(final), flush=True)
 
 
+def report_failure(error):
+    """One line for the person running the tool, not a traceback."""
+    if isinstance(error, subprocess.CalledProcessError):
+        detail = (error.stderr or b'').decode(errors='replace').strip()[-2000:]
+        return f'{Path(str(error.cmd[0])).name} failed ({error.returncode}): {detail}'
+    if isinstance(error, StopIteration):
+        return 'An input has no video (or the export has no audio) stream'
+    if isinstance(error, KeyError):
+        return f'Missing field {error} in the media description'
+    return str(error)
+
+
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except (ValueError, OSError, KeyError, RuntimeError, StopIteration, subprocess.CalledProcessError) as error:
+        sys.exit(f'media-in-3d: {report_failure(error)}')
