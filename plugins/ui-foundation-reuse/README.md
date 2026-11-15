@@ -1,11 +1,31 @@
 # UI Foundation Reuse
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.2.3.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.3.0.
 
 Reuse compatible React effects and scene infrastructure without a library download. This
 plugin includes the complete `ui-foundation-reuse` skill and the bundled
-`@sigmastudioz/ui-foundation` 0.11.0 runtime: CJS/ESM modules, TypeScript declarations,
+`@sigmastudioz/ui-foundation` 0.13.0 runtime: CJS/ESM modules, TypeScript declarations,
 original source and license notices. React and optional rendering peers are external.
+
+## Changes in 1.3.0
+
+Refresh the bundled runtime to 0.13.0 (103 public export entries, 2,986 files) and its
+matching source, types, checksum metadata and skill guide. This moves the plugin forward two
+library releases:
+
+- 0.12.0 adds `/page-flip` (`PageFlip`), `/card-ring` (`CardRing`), `/type-refraction`
+  (`TypeRefraction`), `/shard-burst` (`ShardBurst`) and `/swing-rail` (`SwingRail`).
+- 0.13.0 adds `/core` `useDragGesture` (one press-drag-release gesture with a cancel that is
+  never mistaken for a tap) and `/three` `Model lightmap` (baked lighting from a lighting-only
+  OpenEXR bake, with `applyLightmap`). `PageFlip` and `CardRing` write animation frames
+  straight to the DOM.
+- Fixes carried in the runtime: a touch that becomes a page scroll no longer turns a
+  `PageFlip` page, its mid-turn copies are inert, `TypeRefraction` follows a CSS theme change,
+  a controlled `CardRing` follows `index`, `Portal` content stays in place on a scaled surface
+  under recent Three.js, and the 3D peers load in Node from the CommonJS build.
+
+The runtime is built and tested against Three.js 0.187; its peer range is unchanged
+(`three >= 0.160`). The staging helper and its credential boundary are unchanged.
 
 ## Changes in 1.2.3
 
