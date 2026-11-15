@@ -1,8 +1,16 @@
 # SigmaStudioz Visualizer
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.4.9.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.5.0.
 
 Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.
+
+## Changes in 1.5.0
+
+Adds `scripts/compare_render.py`: it compares a page screenshot with an offline render of the
+same camera, region by region in linear light, and writes a report and a side-by-side picture
+with the difference. The [baked lighting](skills/visualizer/references/baked-lighting.md)
+reference now uses it for verification. The same reference's lighter path is now verified:
+Drei's `AccumulativeShadows` needs its light at intensity π, or it dims all the ground it covers.
 
 ## Changes in 1.4.9
 

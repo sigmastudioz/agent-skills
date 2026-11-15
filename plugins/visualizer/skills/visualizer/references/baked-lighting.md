@@ -90,16 +90,39 @@ baking, and clamp the camera controls to it.
 
 ## A lighter path
 For objects on an open ground plane that only need a soft shadow, Drei's `AccumulativeShadows`
-with `RandomizedLight`, or `BakeShadows` to freeze ordinary shadow maps, avoid the Blender step.
-They add no bounce light or glow. Not verified here: two configurations in the enclosed test room
-rendered the whole floor dark, because that helper expects open ground. Check it in a scene of the
-right kind before relying on it.
+with `RandomizedLight` avoids the Blender step (`BakeShadows` freezes ordinary shadow maps
+instead). It adds no bounce light or glow.
+
+```tsx
+<AccumulativeShadows temporal={false} frames={100} scale={12} position={[0, 0.004, 0]}
+  opacity={0.75} color="#3f3a33" alphaTest={0.85}>
+  <RandomizedLight amount={8} radius={1.1} ambient={0.5} intensity={Math.PI} position={light} bias={0.001} />
+</AccumulativeShadows>
+```
+
+- **Set `intensity={Math.PI}`.** At the default of 1 the helper's plane dims all the ground it
+  covers: measured against the same frame with no shadows, open floor fell to 0.58 of its
+  brightness. At π it stayed at 1.00 and only the shadows darkened.
+- Raise `alphaTest` for a tighter, darker contact shadow (beside a box: 0.48 of the unshadowed
+  floor at 0.55, 0.30 at 0.85). `ambient={0}` gives one hard-edged direction (0.08).
+- It expects open ground. In an enclosed room the walls and ceiling shadow the whole floor.
+- Cost here: 5 draw calls and about 1.3 ms a frame once accumulated, against 7 and 1.5 ms for one
+  2048 px shadow map. The accumulation itself runs once, over `frames` renders at start.
 
 ## Verify
-1. Screenshot the page at the bake's camera and compare it with the Cycles reference: the same
-   regions (a wall, the floor, a face in shadow) should be within about 10 % in linear light.
-   Here the baked page differed from the reference by a mean of 3.6 of 255 per channel, against
-   21.0 for the same scene lit with two shadow-casting point lights.
+1. Screenshot the page at the bake's camera, at the reference's size and device scale 1, and
+   compare it with the Cycles reference:
+
+   ```bash
+   python3 scripts/compare_render.py page.png reference.png --sheet compare.png --report compare.json
+   ```
+
+   It compares brightness in linear light region by region (a 4x3 grid, or named rectangles with
+   `--regions`), exits 1 when any region is more than 10 % off, and draws both pictures beside
+   their difference. Here the baked page passed with a mean difference of 3.6 of 255 per channel
+   and every region within 7 %; the same scene lit with two shadow-casting point lights failed
+   with 21.0. Needs Pillow and NumPy (`scripts/requirements-media-3d.txt`). A pass covers
+   brightness, not colour, sharpness or taste.
 2. Screenshot the same camera with real-time lights instead of the bake, and show both to the user.
 3. Measure the frame: time a few hundred renders with a one-pixel read-back after each (so the GPU
    finishes), and read `renderer.info.render.calls`. Here: 7 draw calls and about 0.7 ms a frame
