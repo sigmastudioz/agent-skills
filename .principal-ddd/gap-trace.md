@@ -662,3 +662,21 @@ A local ffconcat file naming a local video is refused; MP4, MKV and WebM sources
 Not verified: Windows, a live redirect from a real server, and containers outside the allowlist
 (they are refused with a one-line error).
 
+### Visualizer 1.5.0: render comparison tool and verified accumulative shadows
+
+Gap: the baked-lighting reference told agents to compare a page with the offline render, but the
+comparison had been done by hand, and its lighter path (`AccumulativeShadows`) was marked
+unverified. Added `scripts/compare_render.py` (NumPy and Pillow, no network) with 10 tests. It
+refuses resized or transparent pictures, compares mean luminance per region in linear light,
+judges near-black regions by screen difference, and exits 0, 1 (a region is off) or 2 (bad input).
+
+Evidence: run on the earlier demo's own pictures it reproduces the hand figures (baked 3.62 of 255,
+pass, regions 0.93 to 0.97; two point lights 20.97, fail; `lightMapIntensity` 1 59.48, fail).
+Accumulative shadows were rebuilt on open ground (three objects, React Three Fiber 9, Drei 10,
+Three.js 0.186, headless Chromium on Apple M1 Max) and measured with the tool against the same
+frame without shadows: `RandomizedLight` at intensity 1 left open floor at 0.58; at pi, 1.00 in
+three open regions, with the shadow beside the box at 0.48 (`alphaTest` 0.55), 0.30 (0.85) or 0.08
+(`ambient` 0). So the earlier dark floor had two causes: the enclosed room and the light unit.
+Not verified: other library versions or GPUs, phones, `temporal` accumulation, and the tool on
+HDR or wide-gamut pictures (it reads 8-bit sRGB).
+
