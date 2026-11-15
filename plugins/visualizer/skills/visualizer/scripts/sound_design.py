@@ -75,7 +75,10 @@ def runtime(path):
     for name, root in (('earshot', Path(c['earshot_root'])), ('real_sfx', Path(c['real_sfx_root']).parents[1])):
         head = run([git, '-C', root, 'rev-parse', 'HEAD'], env).strip()
         require(head == c['revisions'][name], f'{name} revision differs from the runtime config')
-        run([git, '-C', root, 'diff', '--exit-code', '--quiet', 'HEAD'], env)
+        # Untracked files count too: a pinned revision with extra modules is not that revision.
+        changed = run([git, '-C', root, 'status', '--porcelain', '--untracked-files=all'], env).splitlines()
+        require(not changed, f'{name} checkout at {root} has local changes or untracked files '
+                             f'({len(changed)}): ' + ', '.join(line[3:] for line in changed[:5]))
     return c, env
 
 
@@ -96,12 +99,23 @@ def probe(path, c, env, *, downloaded=False):
                            '-of', 'json', path], env))
 
 
-def get(url, limit=4 * 1024 * 1024, attempts=2):
+def https_only(url):
     parsed = urllib.parse.urlparse(url)
     require(parsed.scheme == 'https' and parsed.hostname, 'Only HTTPS downloads are supported')
     require(parsed.username is None and parsed.password is None, 'Credential-bearing URLs are not supported')
+
+
+class HttpsOnlyRedirects(urllib.request.HTTPRedirectHandler):
+    """A redirect is held to the same rule as the first URL; the default handler follows to http."""
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        https_only(newurl)
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
+def get(url, limit=4 * 1024 * 1024, attempts=2):
+    https_only(url)
     # Do not discover or forward authenticated proxies from the host environment.
-    opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+    opener = urllib.request.build_opener(urllib.request.ProxyHandler({}), HttpsOnlyRedirects())
     for attempt in range(attempts):
         try:
             req = urllib.request.Request(url, headers={'User-Agent': 'SigmaStudioz-Visualization/1.0',
