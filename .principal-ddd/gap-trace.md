@@ -655,6 +655,10 @@ Checks: 48 script tests (8 new); a real `media_in_3d.py` run (2 s test source, 6
 pointing at an HTTPS URL and a missing input each exit 1 with one line. Two suspected slow paths
 were measured and left alone: `render.score()` (1.08 s for 20 s of audio with 10 scenes) and the
 point renderer (0.55 s a frame at 1080x1920).
-Not verified: Windows, a non-HLS local playlist that names other local files (the file protocol
-stays allowed), and a live redirect from a real server.
+After the first commit an automated security check asked for the remaining gap to be closed: a
+local playlist could still name other local files. Inputs now also carry a container allowlist
+(`mov,matroska,webm,avi,mpegts,mpeg,gif,wav`), so the concat and HLS demuxers cannot be chosen.
+A local ffconcat file naming a local video is refused; MP4, MKV and WebM sources still probe.
+Not verified: Windows, a live redirect from a real server, and containers outside the allowlist
+(they are refused with a one-line error).
 

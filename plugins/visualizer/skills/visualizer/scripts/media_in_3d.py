@@ -24,8 +24,10 @@ def run(args):
                           env=tool_environment(shutil.which(str(args[0])))).stdout
 
 
-# Inputs are local files. FFmpeg must not follow one to a network or nested protocol.
-LOCAL_ONLY = ['-protocol_whitelist', 'file,pipe']
+# Inputs are local media files. FFmpeg must not follow one to a network or nested protocol,
+# and playlist demuxers (concat, HLS) must not be chosen: they name other files to read.
+MEDIA_FORMATS = 'mov,matroska,webm,avi,mpegts,mpeg,gif,wav'
+LOCAL_ONLY = ['-protocol_whitelist', 'file,pipe', '-format_whitelist', MEDIA_FORMATS]
 
 
 def probe(path):

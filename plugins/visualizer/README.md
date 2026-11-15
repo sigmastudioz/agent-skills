@@ -11,8 +11,9 @@ Script fixes from a code review; no instructions change.
 - `sound_design.py`: a download redirect must also be HTTPS without credentials (the first URL
   was checked, a redirect was not), and the pinned sound-tool checkouts are refused when they
   hold untracked or modified files, naming them.
-- `media_in_3d.py`: FFmpeg and ffprobe read inputs through local file protocols only, and
-  failures print one line instead of a traceback.
+- `media_in_3d.py`: FFmpeg and ffprobe read inputs through local file protocols only and accept
+  only media containers (MP4/MOV, Matroska/WebM, AVI, MPEG-TS/PS, GIF, WAV), never playlists.
+  Failures print one line instead of a traceback.
 - `render.py`: a caption cannot end or restart its own subtitle cue.
 
 ## Changes in 1.4.8

@@ -128,6 +128,9 @@ class LocalInputTests(unittest.TestCase):
             media_in_3d.probe('clip.mp4')
         args = run.call_args.args[0]
         self.assertEqual(args[args.index('-protocol_whitelist') + 1], 'file,pipe')
+        formats = args[args.index('-format_whitelist') + 1].split(',')
+        self.assertIn('mov', formats)
+        self.assertFalse({'concat', 'hls', 'applehttp', 'dash', 'image2'} & set(formats))
         frames = bytes(432 * 768 * 3 * 2)
         with mock.patch.object(media_in_3d, 'run', return_value=frames) as run:
             self.assertEqual(media_in_3d.load_frames('clip.mp4', 0, 1).shape, (2, 768, 432, 3))
