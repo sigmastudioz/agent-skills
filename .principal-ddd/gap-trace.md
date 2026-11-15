@@ -680,3 +680,16 @@ three open regions, with the shadow beside the box at 0.48 (`alphaTest` 0.55), 0
 Not verified: other library versions or GPUs, phones, `temporal` accumulation, and the tool on
 HDR or wide-gamut pictures (it reads 8-bit sRGB).
 
+### UI Foundation Reuse 1.3.0: bundled runtime 0.13.0
+
+The plugin copy still carried the 0.11.0 runtime and the skill guide from that release; the
+library has since merged 0.12.0 and 0.13.0. `SKILL.md`, `assets/bundle.json` and
+`assets/ui-foundation.tgz` are copied unchanged from ui-foundation main (91f059e, built there
+with `npm run build` and verified with `check:skill`): 0.13.0, 103 export entries,
+2,986 files. `references/`, `scripts/` and `LICENSE` were already identical; the
+plugin-only `agents/` and `tests/` are untouched. Before this, the plugin's guide was
+byte-identical to the library's at 2530792, which confirms the copy is a straight sync.
+Not verified here: that 0.13.0 has been published to the private registry (this host cannot
+read it, and no `v0.13.0` tag had appeared on the remote when this was prepared). The bundle
+is self-contained and does not depend on the registry.
+

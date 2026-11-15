@@ -67,6 +67,11 @@ Subpaths below are relative to `@sigmastudioz/ui-foundation`. Confirm availabili
 | Blob-tracking HUD: bracketed boxes, IDs, crosshairs and links over moving or bright subjects | `/blob-track`: `BlobTrack`, `findBlobs`, `matchBlobs`, `signalField`, `motionField` (image or muted video; needs CORS-readable media) |
 | Cursor-following gooey reveal of a second image | `/gooey-reveal`: `GooeyReveal`, `stepTrail`, `trailRadii` (SVG mask + goo filter, no WebGL) |
 | Two-sided flip cards and a lanyard badge that swings when dragged | `/flip-card`: `FlipCard`, `LanyardBadge`, `stepPendulum`, `dragAngle` |
+| Book whose pages turn in 3D with a curl (drag, keys, buttons or scroll) | `/page-flip`: `PageFlip`, `curlAngles`, `spreadLabel` |
+| Cards around a rotating 3D cylinder with one focusable front card | `/card-ring`: `CardRing`, `ringRadius`, `frontIndex`, `angleForIndex` |
+| A lens (jelly orb or crystal) bending a live DOM headline | `/type-refraction`: `TypeRefraction` (WebGL 1; text stays real DOM) |
+| An image shattering into 3D shards and reassembling on scroll | `/shard-burst`: `ShardBurst`, `buildShards`, `scrollBurst` (CSS 3D, no WebGL) |
+| Swing rail: tags, cards or photos hanging from a rail that swing when brushed or scrolled | `/swing-rail`: `SwingRail`, `stepSwingRail`, `resolveNeighbours`, `brushImpulse`, `scrollImpulse`, `MAX_SWING_ANGLE` |
 | LED dot-matrix sign or marquee | `/dot-matrix`: `DotMatrix`, `textColumns`, `matrixFrame`, `marqueeOffset` (built-in 5×7 font) |
 | Radial zoom or spin blur with highlight glow | `/zoom-blur`: `ZoomBlur`; also `ImageFilter kind="zoom-blur"` with `blurMode` |
 | Reaction-diffusion, Turing patterns and slime-mould (physarum) tiles | `/reaction-diffusion`: `ReactionDiffusion`, `GRAY_SCOTT_PRESETS`, `stepGrayScott`, `stepPhysarum`, `seededRandom` |
@@ -81,9 +86,9 @@ Subpaths below are relative to `@sigmastudioz/ui-foundation`. Confirm availabili
 | Audio-reactive and environmental effects | `/visualizer`, `/cymatics`, `/weather`; React Native: `/visualizer/native`: `Visualizer`, `createSmoothedAudioSource`, `EffectsProvider` (Skia renderer, no DOM or microphone access) |
 | React Native blur surfaces and remote images, with web counterparts | `/frosted-blur`, `/frosted-blur/native`: `FrostedBlur`, `resolveFrostedBlurType`; `/remote-image`, `/remote-image/native`: `RemoteImage`, `AnimatedRemoteImage`. Native entries accept app-injected blur/image backends; web entries render through the optional `react-native-web` peer and stay SSR-safe without it |
 | Rain beads and sliding drops refracting a blurred still image | `/rain-on-glass`: `RainOnGlass` |
-| 3D hosting, staging and models | `/three`: `Scene`, `World`, `Model`, `Float`, `GlassMaterial`, `Portal`, `ReflectiveFloor`, `SoftShadows`, `Bloom`, `Caustics`, `ExplodedAssembly`, `useSceneMotion`. `Model` and `Float` accept `onError` when their runtime cannot load. `World` then shows its install fallback. |
+| 3D hosting, staging and models | `/three`: `Scene`, `World`, `Model`, `Float`, `GlassMaterial`, `Portal`, `ReflectiveFloor`, `SoftShadows`, `Bloom`, `Caustics`, `ExplodedAssembly`, `useSceneMotion`, `applyLightmap`. `Model` takes a baked `lightmap`. `Model` and `Float` accept `onError` when their runtime cannot load. `World` then shows its install fallback. |
 | Rigid-body scene content | `/physics`: `BallPit` loads `@react-three/rapier` on mount and accepts `onError`. `/physics/rapier`: `Physics`, `RigidBody`, `CuboidCollider`, `BallCollider`, `CapsuleCollider` (this subpath evaluates the peer at import). |
-| Shared lifecycle, visibility, interaction and quality policy | `/core`: `EffectsProvider`, `useEffectsSettings`, `useRafLoop`, `useReducedMotion`, `useInView`, `usePageVisible`, `useWebGLEffect`, `useScrollProgress`, `useInteraction`, `useAdaptiveQuality` |
+| Shared lifecycle, visibility, interaction and quality policy | `/core`: `EffectsProvider`, `useEffectsSettings`, `useRafLoop`, `useReducedMotion`, `useInView`, `usePageVisible`, `useWebGLEffect`, `useScrollProgress`, `useInteraction`, `useAdaptiveQuality`, `useDragGesture` |
 
 Every `/native` subpath (`/visualizer/native`, `/foil-surface/native`, `/frosted-blur/native`, `/remote-image/native`) requires the optional `react-native` peer (>=0.77) and the host app's native build; `/visualizer/native` and `/foil-surface/native` also lazy-load the optional `@shopify/react-native-skia` peer and keep a static fallback without it. The remaining subpaths are web React DOM entries that need no native or Three peers unless their row says so.
 
@@ -346,7 +351,102 @@ frosted glass and `onError` reports it. `GlassLens` outside `RefractiveGlass` is
 Pure helpers: `resolveRefractiveGlassConfig`, `lensRect`, `packLenses`, `lensKey`,
 `parseTint`, `MAX_GLASS_LENSES`; renderer: `createRefractiveGlassRenderer`.
 
-## Apply alongside each design skill
+### Page flip, card ring, type refraction and shard burst
+
+All four are React DOM >=18.2 with no Three peers, SSR-safe (the server renders the
+readable resting state), and honour reduced motion.
+
+- `/page-flip` `PageFlip`: `pages` (ReactNodes in reading order; page 1 sits alone on the
+  right). The book fills its container, two pages wide; `aspectRatio` is page height ÷ width
+  (1.35). Turn by dragging or clicking a page, ←/→/PageUp/PageDown/Home/End on the focused
+  book, or the built-in buttons (`controls`); `spread`/`defaultSpread`/`onSpreadChange`
+  (0 = closed, 1 = pages 2–3). Scroll-linked: `progress` 0–1, or `scrollTrack` (e.g.
+  '400vh') to pin it and turn with page scroll; both disable drag, keys and buttons.
+  `curl` 0–1 (.6) and `segments` 2–16 (8) shape the curl, drawn as hinged strips
+  (aria-hidden copies) only while a leaf turns; at rest each page is one real DOM face, and
+  covered faces are `visibility: hidden` so they cannot take focus. A polite live region
+  announces "Pages 2 and 3 of 8". Style pages with `pageClassName` and the
+  `--page-flip-paper` colour. Interactive elements inside pages do not start drags (or
+  mark any element `data-page-flip-ignore`). Only leaves within two of the open spread are
+  mounted, so long books stay light; pages that move out of that window unmount and lose
+  local state. Reduced motion turns instantly. Touch swipes work (`touch-action: pan-y`
+  keeps vertical page scroll); a touch the browser takes for a scroll never turns a page.
+  A turn writes strip angles straight to the DOM: React renders only when a different leaf
+  starts or stops turning. CSS 3D only.
+- `/card-ring` `CardRing`: `items` (`{ id, content, label? }`) around a cylinder sized from
+  `cardWidth` (260), `gap` (28) and the item count; `aspectRatio` (1.35), `tilt` −30–30°
+  (−8). Rotate by dragging, ←/→/Home/End, the buttons, or scroll (`progress` 0–1 from the
+  first card to the last, or `scrollTrack`). `index`/`defaultIndex`/`onIndexChange`; it
+  always rests with one card in front and turns the short way round. Only the front card is
+  reachable: the others are `inert` and `aria-hidden`, with backfaces hidden; the front card
+  is announced politely ("Project 2, 2 of 8"). Controlled (`index` set), the ring moves only
+  when `index` changes: answer `onIndexChange` or it settles back. Spinning writes transforms
+  straight to the DOM; React renders only when the front card changes. Reduced motion snaps.
+  CSS 3D only.
+- `/type-refraction` `TypeRefraction`: `text` (plain string) or inline `children` (`<em>`,
+  `<span>`, links; each text node is drawn with its own computed font and colour), `as`
+  heading tag. The heading
+  stays real DOM text (screen readers, selection, SEO); while the effect draws, only its glyph
+  fill (`-webkit-text-fill-color`) is transparent and a WebGL 1 copy, measured word by word from the browser's own layout
+  (wrapping, font, `letter-spacing`, `text-transform`), is bent by a lens. `lens` `orb`
+  (wobbling jelly bulge) or `crystal` (faceted hexagonal prism); `size` .1–2 (.6, in units
+  of twice the font size), `strength`, `chromatic`, `wobble` 0–1, `speed` 0–3 (drift across
+  the inked words; 0 parks it), `followPointer` (mouse/pen), `tint`, `color` (default the
+  computed colour). Without WebGL, under forced colours or until the copy is ready, the plain
+  heading shows; `onError` reports failures. Reduced motion parks the lens in the middle.
+  The orb draws as clear glass (Fresnel rim, glints). The lens is a 2D refraction look, not a
+  3D model (pair with `/three` for real geometry). Keep children inline; block children,
+  images and form controls are not drawn into the refraction layer.
+- `/shard-burst` `ShardBurst`: `src`, `alt`, `aspectRatio` (16/10; the image covers the box).
+  A seeded jittered triangulation (`columns` × `rows` × 2 shards, default 70) flies apart in
+  3D (`spread`, `depth`, `spin`, `fade`, `seed`) and back. Driven by scroll (`mode`: `both`
+  assembles on the way in and breaks on the way out, `burst`, `assemble`) or a controlled
+  `progress`. While whole it is one real `<img>`; shards exist only while broken, each a
+  bounding-box-sized layer (keeps GPU memory near two images). Images only: arbitrary panels
+  would need their DOM duplicated per shard. Reduced motion stays whole. No CORS needed.
+
+### Swing rail
+
+Import `SwingRail` from `@sigmastudioz/ui-foundation/swing-rail`. React DOM >=18.2, no
+WebGL or Three peers, SSR renders the still rail. Pass `items` (`{ id, content }`); each
+hangs on a string (`length` 0–400 px, default 64) below a rail, `gap` px apart, as a
+labelled list (`label`). Moving the pointer across an item swings it (`push` 0–3, 1);
+page scroll swings the row in alternating directions (`scrollSwing` 0–3, .4; 0 ignores
+scroll); neighbours knock each other (`bounce` 0–1, .6; 0 passes through); `damping`
+.9–.999 (.985). Swings are capped at `MAX_SWING_ANGLE` (~55°). `rail`/`strings` toggle the
+lines, `color` styles both, `itemClassName` the item wrapper. Each item is the `/flip-card`
+`stepPendulum`; transforms are written directly, the loop sleeps at rest and pauses
+off-screen, and reduced motion hangs everything still and ignores input. Pointer brushing
+needs a hovering pointer; touch users get the scroll swing. Keep each item one focus stop
+or none. It is not `/force-2d`: that springs circles toward a home point with no pivot or
+string, so it cannot swing hanging items. Pure helpers: `stepSwingRail`, `resolveNeighbours`,
+`brushImpulse`, `scrollImpulse`, `itemAt`, `bottomSpan`, `swingOffset`, `railAtRest`.
+
+### Drag gestures
+
+`/core` `useDragGesture(options)` returns `{ handlers, pressed }`; spread `handlers` on the
+draggable element. It owns the rules every press-drag-release surface needs: one pointer at a
+time, a movement threshold (`slop`, 5 px on `axis` 'x' | 'y' | 'both') that separates a tap from
+a drag, pointer capture, a swallowed click after a drag, and descendants that keep their own
+clicks (`ignore`, default `DRAG_IGNORE`: links, buttons, form fields, `[data-drag-ignore]`).
+Callbacks: `onStart(sample, event)` (return `false` to refuse), `onMove`, `onEnd` (a tap when
+`sample.dragged` is false) and `onCancel`. A cancelled pointer (a touch the browser takes for
+a page scroll) or a lost capture calls `onCancel` and never `onEnd`, so it cannot be mistaken
+for a tap. `sample` carries `x`, `y`, `dx`, `dy`, `elapsedMs`, mean `velocityX`/`velocityY` in
+px/s, `dragged` and `pointerType`. `PageFlip` and `CardRing` use it; reach for it before writing
+pointer handlers for a new draggable surface. Keyboard control stays with the component.
+
+### Portfolio set-pieces (app-level recipe, no export)
+
+A periodic-table skills grid, bento wall or similar portfolio set-piece is app layout and
+content, so it stays in the app (AGENTS.md: no app-specific layout, tokens or content in
+the library). Compose it: a CSS grid places each tile (`grid-template-columns:
+repeat(18, 1fr)`, then `grid-column: <group>; grid-row: <period>` per tile; collapse to
+`repeat(auto-fill, minmax(5rem, 1fr))` on narrow screens), `Reveal as="ol" stagger={30}`
+(`/scroll-reveal`) brings tiles in, `FlipCard` (`/flip-card`) shows detail on the back,
+and `SwingRail` suits a shorter row of hanging skill tags. Keep tiles as list items with
+real text (symbol, name, level) and give the category colour a text label too.
+
 
 The maintainer playground's `?studio=1` route offers app-owned **Art direction**
 recipes (Powerful, Bold, Rich) on its six material effects. Select a palette,
@@ -481,6 +581,7 @@ Inspect the installed `/three` declarations for `Scene`, `World`, `Model`, and `
 
 - A procedural `THREE.Group` factory is consumer-owned content. Create its instance on the client and mount it as an R3F `primitive` within a compatible existing Canvas or the library's `Scene`. Do not create a nested or second Canvas for it.
 - `Model` loads `.glb`/`.gltf` URLs; it does not accept a `THREE.Group` or a factory. Use it for an actual exported model asset when that export is part of the requested workflow. Do not bypass img2threejs's code-only reconstruction or validation by substituting a downloaded asset.
+- **Baked lighting.** `Model lightmap="/room.exr"` (or `{ src, intensity, channel, unlit }`) draws a static model from colour × a lighting-only OpenEXR bake made for its second UV set (`uv1`): Blender Cycles, Bake type Diffuse with Direct and Indirect on and Color off, into an image created as 32-bit float, non-colour data. Defaults: `intensity` π (Three.js divides a lightmap by π; at 1 the page shows about 0.3 of the bake), `unlit` true (baked surfaces ignore scene lights and environment, which would otherwise light them twice; emissive materials show their own emission). Use `flat` on the canvas (`canvasProps={{ flat: true }}`) to match an offline render made without a tone curve. Measured on the playground's `baked-room` page against its Cycles frame: mean difference 2.25 of 255, in Chromium and WebKit. Only `.exr` is accepted; a file that cannot load, or a model with no `uv1`, is reported through `onError` and the model renders unbaked. Materials are replaced and restored, never edited. `applyLightmap(three, root, texture, config)` with `prepareLightmap` and `resolveLightmapConfig` do the same for a scene you load yourself. Not for moving lights or objects that change the lighting.
 - For an authored rig driven by custom controls, place `Model animation={false}` in a consumer-owned R3F group and resolve the asset's named bones/pivots from that group's ref after loading. Preserve rest quaternions and apply sampled offsets; do not accumulate rotations or run a baked mixer over the same joints. The consumer owns joint names, choreography and controls. `Model` clones the hierarchy/skeleton for each instance, shares cached geometry/materials, and releases instance bone textures on teardown; do not dispose the shared asset resources from custom pose code.
 - Use `Float` for generic ambient floating, supported staging helpers for their effects, and `ExplodedAssembly` for authored part offsets. Keep custom pivots, geometry, interaction and storytelling in the app/model.
 - Custom motion inside a library scene must honor the exported `useSceneMotion()` signal when available. Scene pause and demand-render policy alone does not make arbitrary child `useFrame` code obey reduced motion. For versions without that signal, inspect the supported pause/reduced-motion integration rather than inventing an import. Dispose resources owned by the generated instance on teardown; preserve shared/cached resources owned elsewhere.
