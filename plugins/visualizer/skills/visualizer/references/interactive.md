@@ -221,6 +221,9 @@ staging steps. Aliasing its subpaths to an extracted copy also works in Vite, wi
   A/D or ←/→ turn, Q/E sidestep. Listen on that region, not the window, so held movement keys never
   fire while someone types elsewhere. This differs from the explainer recipe's window hotkeys, which
   are single presses. Call `preventDefault` on the movement keys, or the arrows scroll the page.
+- After a click on the plan, move focus back to the 3D view (`focus({ preventScroll: true })`), so
+  the walk keys work at once. Clicking the plan otherwise leaves focus on the page body, and the keys
+  silently do nothing. Leave focus on the "Go to" buttons, which keyboard users reach with Tab.
 - A key-up always releases its key, whatever modifiers are down. When a key goes down with Cmd, Ctrl
   or Alt, drop every held key: macOS sends no key-up for keys released while Cmd is held, so the
   walk would carry on. Clear held keys when the region or the window loses focus.
@@ -249,6 +252,7 @@ Verify before delivery:
   position and yaw, and the view cone matches the canvas aspect after each resize.
 - Walking into a wall for 3 s keeps the player at least radius plus half a wall (0.31 m here) from
   the wall's centre line. A click on furniture is refused.
+- After a click on the plan, W walks straight away.
 - "Go to" works for a room whose centre is under furniture, and works from the keyboard. Keys pressed
   with focus elsewhere do nothing. Holding W, pressing Cmd, then releasing both leaves the player still.
 - With the 3D view scrolled offscreen on a phone, "Go to" and a click on the plan still move the
