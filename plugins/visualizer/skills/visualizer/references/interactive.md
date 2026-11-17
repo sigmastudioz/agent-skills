@@ -119,3 +119,152 @@ position, at once under reduced motion; a moving part's note stays within 2 px o
 `abc 123 []` in a text field changes nothing; reset restores everything. All of these passed in
 the check above. Captured canvas pixels omit DOM notes: for a film, composite them or draw the
 text in the scene, as the React Three Fiber reference says.
+
+## Recipe: live floor-plan map beside a walkable 3D space
+For a walkthrough of a home, venue or site: a first-person 3D view with the 2D plan beside it,
+showing where the viewer stands and which way they face, live. Clicking the plan moves the viewer
+there; hovering a room lights it in both views. Checked 2026-11-17 with React 19.3, Three.js 0.186,
+React Three Fiber 9.8 and ui-foundation 0.13.2 in headless Chromium at 1280×720, 900×700, 390×844
+and 667×375, with reduced motion and with WebGL blocked; treat other versions as unverified. Two
+fresh agents, each given only the recipe at that time and a different four-room layout, built
+versions that passed an independent checker.
+
+**One layout, validated.** Rooms, doors, furniture and poses live in one JSON layout, in metres:
+- A room or piece of furniture is `{ x, z, w, d }`, where `x, z` is the corner with the smallest
+  x and z. Furniture also has a height `h`. Each room has an `entry` pose `{ x, z, yaw }` for its
+  "Go to" button; the layout has a `start` pose. Do not aim at the room centre: furniture often stands there.
+- A door is `{ x, z, width }`, centred on a wall line. It must lie on exactly one wall line, inside a
+  stretch still solid after earlier doors are cut (so doors cannot overlap), with no crossing or
+  touching wall inside its opening (a T or corner junction), and it must join two rooms: probe a
+  few centimetres either side of it and require a different room on each side.
+- A pose is standable when it is inside a room and the player's circle touches no wall or furniture.
+  A point on a shared wall line or in a doorway belongs to whichever room the walker was last in,
+  so the status does not flicker.
+
+Build the plan in a pure function. Round coordinates to millimetres first, so `0.1 + 0.2` and `0.3`
+key the same wall line. Every room edge becomes a span on its line, spans on one line merge so
+shared walls appear once, and door widths are cut out. Reject the layout with a named reason when a
+value is not finite, a size is not positive, rooms overlap, furniture is not inside one room, a door
+breaks the rules above, a room cannot be reached from the start through doors, or a pose is not
+standable. The 3D walls, the SVG plan lines and collision all read the output, so the views cannot
+drift. A wall is one segment left after door cuts. Test the model on its own: the fixture's wall
+count and total wall length (merged line lengths minus door widths), no two walls overlapping on a
+line, and one invalid layout per rejection reason.
+
+**Plan units are world units.** Give the SVG `viewBox` the layout's bounds in metres and map world
+x → plan x, world z → plan y (both grow the same way). Placing the marker then needs no screen
+maths: write `translate(x z) rotate(-yaw°)` on the marker group with `setAttribute`, with no React
+state. Resizing, CSS scaling and letterboxing are handled by the SVG itself.
+
+**The player controller owns the walk and the plan sync, not the 3D frame loop.** Send every change
+of pose (a walking step, a drag, a click on the plan, "Go to", reset) through one `commit(pose)`
+that stores the pose, writes the marker transform, updates the room status when the room changes,
+and requests a 3D frame. Step the walk in the controller's own `requestAnimationFrame` loop, which
+runs only while a key or button is held. The 3D view only reads the pose. A canvas host stops
+rendering when it is offscreen or the tab is hidden (ui-foundation `Scene` sets
+`frameloop="never"`), and without WebGL there is no frame loop at all. Anything driven from
+`useFrame` (the marker, the status or the walk itself) stops exactly when a phone user has scrolled
+to the plan and presses the walk buttons.
+
+**Click to teleport by inverting the SVG's own matrix.** This stays right after any resize:
+
+```ts
+const m = svg.getScreenCTM()                        // null when not rendered
+const p = new DOMPoint(e.clientX, e.clientY).matrixTransform(m!.inverse())
+teleport(p.x, p.y)                                  // plan y is world z
+```
+
+Refuse a target outside every room or on furniture, and say why in the status line. Pull an
+accepted point inside its room by the player radius plus half a wall, so the viewer never lands in a
+wall. Refuse it if the pulled point touches furniture. Keep the heading on teleport.
+
+**Heading and view cone.** With Three's default camera, yaw 0 faces −z, so forward is
+`(-sin yaw, -cos yaw)` and the plan arrow (drawn pointing up) rotates by `-yaw`. Put a dot centred
+on the origin in the marker group: its bounding-box centre is the viewer's position, which tests
+measure (the arrow and cone make the group's box lopsided). The cone, about 1.6 m long, has the
+horizontal field of view, `2·atan(tan(fov/2) · aspect)`, which changes with the canvas shape:
+redraw it when `camera.aspect` changes, not only on mount.
+
+**Walking.** These defaults gave a comfortable walk: speed 2.2 m/s, turn 1.8 rad/s, player radius
+0.25 m, eye height 1.6 m, vertical field of view 70°, pitch from a drag at 0.004 rad per pixel,
+clamped to ±1.1 rad. Collide against walls as rectangles extending half the wall thickness each
+side of the centre line, and against furniture rectangles. Move one axis at a time and undo an axis
+that would hit, so the viewer slides along walls. Split a long frame into sub-steps of at most
+50 ms, so no single step can cross a wall, and cap the total catch-up at about 0.25 s for a tab
+returning from the background. Clamping the whole frame to 50 ms instead makes a slow device walk
+at half speed. Show the room in an `aria-live="polite"` status line ("In Kitchen."), updated only
+when the room changes; put a refusal reason or "Moved to …" after it on the same line.
+
+**Host and failure.** ui-foundation's `/three` `Scene` hosts the canvas and stops rendering
+offscreen or in a hidden tab. With reduced motion it renders only on demand, which would freeze a
+walk the user is driving. Store `invalidate` from `useThree` and call it from `commit`, so every
+step of the controller's loop requests a frame. Without that, the view stopped following the walk
+under reduced motion. Do not use `World` here: it adds
+orbit controls, lighting and a ground of its own. `Scene` renders a wrapper `div`: give it an explicit
+size (for example `position: absolute; inset: 0` inside the view). Wrap `Scene` in an error boundary that shows
+a short message in place of the view. A blocked or lost WebGL context throws to that boundary, and
+`Scene`'s `fallback` covers only a failed import. Because `commit` owns the plan, the plan, "Go to"
+buttons and status keep working without WebGL. Only the view cone, which needs the camera, is lost.
+If the package cannot be installed (an offline sandbox), follow the `ui-foundation-reuse` skill's
+staging steps. Aliasing its subpaths to an extracted copy also works in Vite, with these settings:
+- `resolve.dedupe` for React, Three.js and React Three Fiber, so only one copy of each loads.
+- `server.fs.allow` for the extracted folder and the real path of a symlinked `node_modules`.
+- A `cacheDir` you can write, when `node_modules` is read-only.
+- `optimizeDeps.include` for `three`, `@react-three/fiber` and the JSX runtime, so the lazily
+  loaded renderer does not trigger a reload.
+
+**Controls and access.**
+- Look by dragging with pointer capture. Set `touch-action: pan-y` on the canvas: a horizontal touch
+  drag turns, and a vertical swipe still scrolls the page. Pitch follows a mouse or pen drag only. Do
+  not use pointer lock: it hides and traps the pointer, and fails in many embeds.
+- Make the 3D view a focusable region with the keys in its accessible name: W/S or ↑/↓ walk,
+  A/D or ←/→ turn, Q/E sidestep. Listen on that region, not the window, so held movement keys never
+  fire while someone types elsewhere. This differs from the explainer recipe's window hotkeys, which
+  are single presses. Call `preventDefault` on the movement keys, or the arrows scroll the page.
+- After a click on the plan, move focus back to the 3D view (`focus({ preventScroll: true })`), so
+  the walk keys work at once. Clicking the plan otherwise leaves focus on the page body, and the keys
+  silently do nothing. Leave focus on the "Go to" buttons, which keyboard users reach with Tab.
+- A key-up always releases its key, whatever modifiers are down. When a key goes down with Cmd, Ctrl
+  or Alt, drop every held key: macOS sends no key-up for keys released while Cmd is held, so the
+  walk would carry on. Clear held keys when the region or the window loses focus.
+- Keep keyboard holds and on-screen button holds in separate state. Pressing a button moves focus off
+  the region, and its blur handler must not cancel the button's own hold.
+- Offer hold-to-move buttons (pointer down/up/cancel, Enter/Space), a "Go to <room>" button per room
+  using its entry pose, and a Reset that restores the start pose, pitch, held input, hover and status.
+  Hover is a mouse extra; the buttons and the status line carry the same information.
+- On a narrow screen, stack the plan under the view and size the view row so the two cannot overlap
+  in landscape, for example `grid-template-rows: max(180px, 55vh) auto` with no fixed minimum height
+  on the view.
+- A first-person view is still hard for screen-reader users and can cause motion sickness: the
+  plan, the room buttons and the status line must be enough on their own. Keep turning at a steady
+  rate with no camera bob.
+
+For furniture with options and prices, use ui-foundation's `/product-config`. This recipe models
+interior doors only and gives doorways full-height openings with no ceiling; add lintels, a ceiling
+and outside doors as scene detail.
+
+Verify before delivery:
+- The model tests above pass.
+- The marker's transform equals the player within 0.01 m and 0.05° after walking, turning,
+  teleporting, "Go to", reset and resizing.
+- A click on the plan moves the player to the world point under that pixel, and the marker is drawn
+  within 1 px of it, at desktop, tablet and stacked phone widths. The 3D camera sits at the player's
+  position and yaw, and the view cone matches the canvas aspect after each resize.
+- Walking into a wall for 3 s keeps the player at least radius plus half a wall (0.31 m here) from
+  the wall's centre line. A click on furniture is refused.
+- After a click on the plan, W walks straight away.
+- "Go to" works for a room whose centre is under furniture, and works from the keyboard. Keys pressed
+  with focus elsewhere do nothing. Holding W, pressing Cmd, then releasing both leaves the player still.
+- With the 3D view scrolled offscreen on a phone, "Go to" and a click on the plan still move the
+  marker and the status. With WebGL blocked, the message replaces the view and the plan and "Go to"
+  still work.
+- Walking still works with reduced motion. At 667×375 the view does not overlap the plan.
+
+How to test it: block WebGL by launching Chromium with `--disable-webgl --disable-3d-apis` (or by
+making `getContext` return `null` for WebGL), and expect R3F to log the context error. To push the
+view offscreen at phone size, insert a tall spacer above the panel in the test. Give the page an
+icon (`<link rel="icon" href="data:,">`) so a missing favicon is not reported as a console error.
+Also check that a hold-to-walk button still walks with the view offscreen and with WebGL blocked.
+
+In the check above, every one of these passed. Run against the first version of this recipe, the
+offscreen, WebGL-blocked, stuck-key, "Go to"-under-furniture and landscape checks each failed.

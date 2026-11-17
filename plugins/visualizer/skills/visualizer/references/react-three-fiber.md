@@ -103,6 +103,8 @@ priority takes over automatic rendering. Recheck APIs and supported backends for
 For a static scene that should look softly lit on a browser budget, bake the lighting offline and
 apply it as a lightmap: see [baked lighting](baked-lighting.md) for when to bake, the Blender steps,
 the three settings that matter in Three.js, reflections, light shafts and how to verify the result.
+For a walkable first-person space with a live 2D map beside it (position, heading, click to
+teleport), see the floor-plan recipe in [interactive](interactive.md#recipe-live-floor-plan-map-beside-a-walkable-3d-space).
 
 ## Schedule, interact and release resources
 Use `frameloop="demand"` for settled scenes. Imperative camera/uniform/store changes must invalidate;
@@ -114,8 +116,11 @@ Avoid remounting expensive resources during every scene change, but do not retai
 
 Use a Suspense loading state and an error boundary with a useful retry/static alternative.
 DOM elements belong outside Canvas or in an explicit HTML integration; Suspense inside Canvas
-must use valid scene elements. Canvas fallback handles unavailable GL, not every later loader or
-shader failure. Handle asset failures, unsupported contexts, context loss/restoration and resize.
+must use valid scene elements. In R3F 9 the Canvas `fallback` is only the `<canvas>` element's
+content for browsers without canvas support: a failed WebGL context throws to the nearest error
+boundary. Wrap the canvas in a boundary that keeps DOM companions (tables, plans, controls) working,
+and keep those companions independent of rendered frames. Handle asset failures, context
+loss/restoration and resize.
 Cached GLTFs/textures are shared: clone scene instances when required and do not dispose a cache
 while another consumer uses it. R3F disposes owned declarative resources; external primitives,
 custom render targets, loaders, listeners and caches need explicit ownership and cleanup.
