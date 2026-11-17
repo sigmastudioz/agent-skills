@@ -257,9 +257,9 @@ automatic activation claim is made.
 
 ### Credential and execution boundaries
 
-The sound bridge requires no API credentials. Version 1.4.3 replaces inherited
-subprocess environments with explicit tool paths, offline flags and OS/temp/locale
-settings. Anonymous downloads do not use host proxy credentials. Fetch writes audio
+The sound bridge requires no API credentials. Since 1.4.4, child tools receive
+explicit tool paths, fixed locale and offline flags; no host environment is copied
+(1.4.3's OS/temp/locale allowlist was removed). Anonymous downloads do not use host proxy credentials. Fetch writes audio
 data only; downloaded-audio decoding rejects playlist demuxers and network protocols.
 Downloaded audio is never run as code. Earshot and Real SFX remain separately
 provisioned, revision-checked local tools; installation examples are not automatic
