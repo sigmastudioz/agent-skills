@@ -709,3 +709,23 @@ the registry, so byte-identity with the published 0.13.2 package was not checked
 is the tagged commit's. The 0.13.1 note rests on the tag history: `v0.13.1` points at the
 gesture-and-graphics merge.
 
+### Visualizer 1.6.0: live floor-plan map recipe
+
+Gap: no visualizer reference or ui-foundation export covered a 2D map synced with a walkable 3D
+view (a search for minimap, floor plan and 2D/3D sync found none). Added the recipe to
+`references/interactive.md`, reusing ui-foundation `/three` `Scene` as the host.
+
+Evidence: a reference demo (React 19.3, Three.js 0.186, React Three Fiber 9.8, ui-foundation 0.13.2,
+headless Chromium) passes 11 model tests and 40 browser checks at 1280x720, 900x700, 390x844 and
+667x375, with reduced motion, the view offscreen and WebGL blocked. A read-only review found that
+the plan was driven by the 3D frame loop and froze offscreen, blanked without WebGL, let keys stick
+under Cmd, and accepted invalid layouts. The fixes are checked: run against the first demo, the
+new checks fail. Two fresh agents, each given only the recipe, built versions for different
+layouts; an independent checker passed 25 of 25 and 31 of 32 (the miss was a missing favicon).
+The second retest also found walking driven by `useFrame`, which stopped the walk buttons offscreen;
+that is fixed and checked. Also corrected the R3F Canvas `fallback` claim and stale 1.4.3 README
+wording.
+
+Not verified: real touch devices, real macOS key events (simulated), Safari and Firefox, and loss
+and restore of a WebGL context mid-session.
+

@@ -1,8 +1,21 @@
 # SigmaStudioz Visualizer
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.5.0.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.6.0.
 
 Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.
+
+## Changes in 1.6.0
+
+Adds a [live floor-plan map](skills/visualizer/references/interactive.md#recipe-live-floor-plan-map-beside-a-walkable-3d-space)
+recipe: a walkable first-person 3D space with its 2D plan beside it, showing where the viewer
+stands and which way they face, with click-to-teleport and a room highlighted in both views. One
+validated layout drives the walls, the plan and collision. The plan, status and walk controls keep
+working with the 3D view offscreen or WebGL unavailable. Two fresh agents built working versions
+from the recipe alone, each passing an independent browser checker.
+
+Corrects the [React Three Fiber](skills/visualizer/references/react-three-fiber.md) reference: in
+React Three Fiber 9 the Canvas `fallback` does not handle a failed WebGL context; an error boundary
+does.
 
 ## Changes in 1.5.0
 
