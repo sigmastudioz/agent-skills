@@ -119,3 +119,76 @@ position, at once under reduced motion; a moving part's note stays within 2 px o
 `abc 123 []` in a text field changes nothing; reset restores everything. All of these passed in
 the check above. Captured canvas pixels omit DOM notes: for a film, composite them or draw the
 text in the scene, as the React Three Fiber reference says.
+
+## Recipe: live floor-plan map beside a walkable 3D space
+For a walkthrough of a home, venue or site: a first-person 3D view with the 2D plan beside it,
+showing where the viewer stands and which way they face, live. Clicking the plan moves the viewer
+there; hovering a room lights it in both views. Checked 2026-11-17 on a three-room plan with
+React 19.3, Three.js 0.186, React Three Fiber 9.8 and ui-foundation 0.13.2 in headless Chromium,
+at 1280×720, 900×700 and 390×844 and with reduced motion; treat other versions as unverified.
+
+**One layout, two drawings.** Describe rooms (axis-aligned rectangles in metres), doors (a centre
+point and width on a wall line) and furniture in one JSON layout. A pure function turns it into
+walls: every room edge becomes a span on its wall line, spans on the same line are merged so shared
+walls appear once, and door widths are cut out. The 3D walls, the SVG plan lines and collision all
+read that output, so the two views cannot drift. Check that the plan draws exactly as many wall
+lines as the model has walls.
+
+**Plan units are world units.** Give the SVG `viewBox` the layout's bounds in metres and map world
+x → plan x, world z → plan y (both grow the same way). Then each frame needs no screen maths: write
+`translate(x z) rotate(-yaw°)` on the marker group with `setAttribute`, from inside the frame loop,
+with no React state. Resizing, CSS scaling and letterboxing are handled by the SVG itself.
+
+**Click to teleport by inverting the SVG's own matrix.** This stays right after any resize:
+
+```ts
+const m = svg.getScreenCTM()                        // null when not rendered
+const p = new DOMPoint(e.clientX, e.clientY).matrixTransform(m!.inverse())
+teleport(p.x, p.y)                                  // plan y is world z
+```
+
+Refuse a target outside every room or on furniture and say why in the status line. Pull an
+accepted point inside its room by the player radius plus half a wall, so the viewer never lands in
+a wall. Keep the heading on teleport.
+
+**Heading and view cone.** With Three's default camera, yaw 0 faces −z, so forward is
+`(-sin yaw, -cos yaw)` and the plan arrow (drawn pointing up) rotates by `-yaw`. The cone's width
+is the horizontal field of view, `2·atan(tan(fov/2) · aspect)`, which changes with the canvas
+shape: redraw the cone when `camera.aspect` changes, not only on mount.
+
+**Walking.** Move one axis at a time and undo an axis that would hit a wall or furniture
+rectangle (walls widened by their thickness), so the viewer slides along walls. Cap the frame step
+(about 50 ms) so a hidden tab does not jump the viewer through a wall on return. Update the
+"In Kitchen" status only when the room changes, through an `aria-live="polite"` line.
+
+**Host.** ui-foundation's `/three` `Scene` hosts the canvas and stops rendering offscreen or in a
+hidden tab. With reduced motion it renders on demand, which would freeze a walk the user is
+driving: store `invalidate` from `useThree` and call it from every key, drag and button handler,
+and keep calling it inside the frame loop while a key or button is held. In the check above,
+removing those calls made the walk under reduced motion stop moving. `World` is not suitable
+here: it adds orbit controls and its own lighting and ground.
+
+**Controls and access.**
+- Look by dragging with pointer capture (mouse, pen and touch) and `touch-action: none` on the
+  canvas. Do not use pointer lock: it hides the pointer and traps it, and fails in many embeds.
+- Make the 3D view a focusable region with the keys in its accessible name: W/S or ↑/↓ walk,
+  A/D or ←/→ turn, Q/E sidestep. Listen for keys on that region only, so typing elsewhere does
+  not walk, and clear held keys on blur.
+- Give hold-to-move buttons (pointer down/up/cancel and Enter/Space) for touch and switch users,
+  and a "Go to <room>" button per room as the keyboard way to teleport. Hover is an extra for a
+  mouse; the buttons and the status line carry the same information.
+- A first-person view is still hard for screen-reader users and can cause motion sickness: the
+  plan, the room buttons and the status line must be enough on their own, and turning stays a
+  steady rate with no camera bob.
+
+For furniture with options and prices, use ui-foundation's `/product-config`. This recipe gives
+the doorway full-height openings and no ceiling; add lintels and a ceiling as scene detail.
+
+Verify before delivery: the marker's transform equals the player within 0.01 m and 0.05° after
+walking, turning, teleporting and resizing; a click on the plan moves the player to the world
+point under that pixel and the marker is drawn within 1 px of it, at desktop, tablet and stacked
+phone widths; the 3D camera sits at the player's position and yaw; the view cone matches the
+canvas aspect after each resize; walking into a wall for 3 s keeps the viewer inside the room; a
+click on furniture is refused; hovering a room lights it in the plan and the 3D floor; a "Go to"
+button works from the keyboard; keys pressed with focus elsewhere do nothing; and walking still
+works with reduced motion. All of these passed in the check above.

@@ -103,6 +103,8 @@ priority takes over automatic rendering. Recheck APIs and supported backends for
 For a static scene that should look softly lit on a browser budget, bake the lighting offline and
 apply it as a lightmap: see [baked lighting](baked-lighting.md) for when to bake, the Blender steps,
 the three settings that matter in Three.js, reflections, light shafts and how to verify the result.
+For a walkable first-person space with a live 2D map beside it (position, heading, click to
+teleport), see the floor-plan recipe in [interactive](interactive.md#recipe-live-floor-plan-map-beside-a-walkable-3d-space).
 
 ## Schedule, interact and release resources
 Use `frameloop="demand"` for settled scenes. Imperative camera/uniform/store changes must invalidate;
