@@ -693,3 +693,19 @@ Not verified here: that 0.13.0 has been published to the private registry (this 
 read it, and no `v0.13.0` tag had appeared on the remote when this was prepared). The bundle
 is self-contained and does not depend on the registry.
 
+### UI Foundation Reuse 1.4.0: bundled runtime 0.13.2
+
+The plugin carried 0.13.0; the library has since published 0.13.2 with the 3D product
+configurator. `SKILL.md`, `assets/bundle.json` and `assets/ui-foundation.tgz` come from
+ui-foundation at tag `v0.13.2` (6258d1e): 0.13.2, 104 export entries, 3,011 files.
+`references/`, `scripts/` and `LICENSE` are identical there; plugin-only `agents/` and `tests/`
+are untouched.
+
+Version note: ui-foundation's committed `package.json` and bundle metadata at that tag still
+read 0.13.0, because its pipeline sets the release version only at publish time. The bundle
+here was therefore built from the tagged commit with the version set to 0.13.2, the same way
+the pipeline does (`npm run build`, verified with `check:skill`). It was not downloaded from
+the registry, so byte-identity with the published 0.13.2 package was not checked; the source
+is the tagged commit's. The 0.13.1 note rests on the tag history: `v0.13.1` points at the
+gesture-and-graphics merge.
+

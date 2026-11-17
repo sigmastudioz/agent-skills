@@ -1,11 +1,28 @@
 # UI Foundation Reuse
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.3.0.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.4.0.
 
 Reuse compatible React effects and scene infrastructure without a library download. This
 plugin includes the complete `ui-foundation-reuse` skill and the bundled
-`@sigmastudioz/ui-foundation` 0.13.0 runtime: CJS/ESM modules, TypeScript declarations,
+`@sigmastudioz/ui-foundation` 0.13.2 runtime: CJS/ESM modules, TypeScript declarations,
 original source and license notices. React and optional rendering peers are external.
+
+## Changes in 1.4.0
+
+Refresh the bundled runtime to 0.13.2 (104 public export entries, 3,011 files) and its
+matching source, types, checksum metadata and skill guide. 0.13.2 adds the pieces for a 3D
+product configurator:
+
+- `/three` `Model materials` recolours named parts of a loaded model per option, with
+  `createMaterialVariants` and `resolveMaterialOverride` for a scene loaded another way.
+- `/product-config` (React only, no Three peer): `useProductConfig`, `priceConfiguration`,
+  `resolveSelection`, `selectionMaterials`, `defaultOptionFor` and `formatPrice`. Prices are
+  whole minor units and are display values; charge from the server's own price list.
+- The skill guide gains a product configurator section covering spin, recolour, price and
+  page structure.
+
+0.13.1 changed no source: it was the release of the gesture, baked-lighting and Three.js 0.187
+work already described under 1.3.0. The staging helper and its credential boundary are unchanged.
 
 ## Changes in 1.3.0
 

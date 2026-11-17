@@ -72,6 +72,7 @@ Subpaths below are relative to `@sigmastudioz/ui-foundation`. Confirm availabili
 | A lens (jelly orb or crystal) bending a live DOM headline | `/type-refraction`: `TypeRefraction` (WebGL 1; text stays real DOM) |
 | An image shattering into 3D shards and reassembling on scroll | `/shard-burst`: `ShardBurst`, `buildShards`, `scrollBurst` (CSS 3D, no WebGL) |
 | Swing rail: tags, cards or photos hanging from a rail that swing when brushed or scrolled | `/swing-rail`: `SwingRail`, `stepSwingRail`, `resolveNeighbours`, `brushImpulse`, `scrollImpulse`, `MAX_SWING_ANGLE` |
+| 3D product configurator / product page: spin a model, recolour parts per option, price updating per option | `/three` `Model materials` (recolour) with `orbit`/`autoRotate` (spin); `/product-config`: `useProductConfig`, `priceConfiguration`, `resolveSelection`, `selectionMaterials`, `formatPrice` |
 | LED dot-matrix sign or marquee | `/dot-matrix`: `DotMatrix`, `textColumns`, `matrixFrame`, `marqueeOffset` (built-in 5×7 font) |
 | Radial zoom or spin blur with highlight glow | `/zoom-blur`: `ZoomBlur`; also `ImageFilter kind="zoom-blur"` with `blurMode` |
 | Reaction-diffusion, Turing patterns and slime-mould (physarum) tiles | `/reaction-diffusion`: `ReactionDiffusion`, `GRAY_SCOTT_PRESETS`, `stepGrayScott`, `stepPhysarum`, `seededRandom` |
@@ -86,7 +87,7 @@ Subpaths below are relative to `@sigmastudioz/ui-foundation`. Confirm availabili
 | Audio-reactive and environmental effects | `/visualizer`, `/cymatics`, `/weather`; React Native: `/visualizer/native`: `Visualizer`, `createSmoothedAudioSource`, `EffectsProvider` (Skia renderer, no DOM or microphone access) |
 | React Native blur surfaces and remote images, with web counterparts | `/frosted-blur`, `/frosted-blur/native`: `FrostedBlur`, `resolveFrostedBlurType`; `/remote-image`, `/remote-image/native`: `RemoteImage`, `AnimatedRemoteImage`. Native entries accept app-injected blur/image backends; web entries render through the optional `react-native-web` peer and stay SSR-safe without it |
 | Rain beads and sliding drops refracting a blurred still image | `/rain-on-glass`: `RainOnGlass` |
-| 3D hosting, staging and models | `/three`: `Scene`, `World`, `Model`, `Float`, `GlassMaterial`, `Portal`, `ReflectiveFloor`, `SoftShadows`, `Bloom`, `Caustics`, `ExplodedAssembly`, `useSceneMotion`, `applyLightmap`. `Model` takes a baked `lightmap`. `Model` and `Float` accept `onError` when their runtime cannot load. `World` then shows its install fallback. |
+| 3D hosting, staging and models | `/three`: `Scene`, `World`, `Model`, `Float`, `GlassMaterial`, `Portal`, `ReflectiveFloor`, `SoftShadows`, `Bloom`, `Caustics`, `ExplodedAssembly`, `useSceneMotion`, `applyLightmap`. `Model` takes a baked `lightmap`, or `materials` to recolour named parts (`createMaterialVariants` for a scene you load yourself). `Model` and `Float` accept `onError` when their runtime cannot load. `World` then shows its install fallback. |
 | Rigid-body scene content | `/physics`: `BallPit` loads `@react-three/rapier` on mount and accepts `onError`. `/physics/rapier`: `Physics`, `RigidBody`, `CuboidCollider`, `BallCollider`, `CapsuleCollider` (this subpath evaluates the peer at import). |
 | Shared lifecycle, visibility, interaction and quality policy | `/core`: `EffectsProvider`, `useEffectsSettings`, `useRafLoop`, `useReducedMotion`, `useInView`, `usePageVisible`, `useWebGLEffect`, `useScrollProgress`, `useInteraction`, `useAdaptiveQuality`, `useDragGesture` |
 
@@ -435,6 +436,45 @@ a page scroll) or a lost capture calls `onCancel` and never `onEnd`, so it canno
 for a tap. `sample` carries `x`, `y`, `dx`, `dy`, `elapsedMs`, mean `velocityX`/`velocityY` in
 px/s, `dragged` and `pointerType`. `PageFlip` and `CardRing` use it; reach for it before writing
 pointer handlers for a new draggable surface. Keyboard control stays with the component.
+
+### Product configurator
+
+A product page that spins a 3D model, recolours it per option and keeps the price current is
+three existing or small pieces; the page, options, prices and copy stay in the app.
+
+- **Spin.** `/three` `Model src="/product.glb" fit orbit autoRotate={.35}` inside `Scene`:
+  OrbitControls turns the camera, auto-rotation stops while the shopper drags, and reduced
+  motion, off-screen and hidden-tab states hold a still frame. Light the scene yourself
+  (hemisphere plus one or two directional lights); `SoftShadows` grounds it. There is no
+  environment map, so fully metallic finishes render near black: keep `metalness` at about .6
+  or bring your own environment.
+- **Recolour.** `Model materials={{ Shell: { color, metalness, roughness, emissive,
+  emissiveIntensity, opacity } }}`, keyed by glTF material name, else mesh name, so author the
+  asset with one named material per recolourable part. Matched parts get their own material
+  copies (other instances of the same asset keep theirs, cached materials are never edited);
+  each change resets the copy from the authored finish, so dropping a key restores it. Keys
+  that match nothing are reported through `onError`. Real-time-lit models only: do not combine
+  with `lightmap`. `createMaterialVariants(root)` returns `{ apply(overrides) → unmatched keys,
+  restore() }` for a scene loaded outside `Model`; `resolveMaterialOverride` clamps values.
+- **Price and selection.** `/product-config` (React only, no Three peer, SSR-safe):
+  `useProductConfig(product, { selection?, defaultSelection?, onSelectionChange? })` returns
+  `{ selection, select(groupId, optionId), quote, materials }`. `product` is `{ basePrice,
+  currency, groups: [{ id, label, defaultOption?, options: [{ id, label, priceDelta?,
+  materials?, available? }] }] }`; every group is single-choice and always has an available
+  option chosen (the default is `defaultOption` if available, else the first available one).
+  Prices are whole numbers of the currency's minor unit (cents); a fractional price throws
+  rather than drift. `quote` is `{ total, currency, lines }` with one line per group;
+  `materials` merges the chosen options' recolouring in group order (later groups win) and is
+  passed straight to `Model materials`. Unknown or unavailable options are ignored by `select`
+  and replaced by the default when they arrive through `selection`. `formatPrice(minor,
+  currency, locale?, signed?)` formats in the currency's own precision (+$20.00, ¥1,500). The
+  pure `priceConfiguration`, `resolveSelection`, `selectionMaterials` and `defaultOptionFor`
+  do the same without React. Prices shown here are display values: charge from the server's
+  own price list, never from a total the browser sends.
+- **Page.** Render each group as a `fieldset` of radio inputs (a disabled radio for sold-out),
+  put the total in an `aria-live="polite"` element, and keep line items as text. The
+  playground's `product-configurator.html` is a worked example; its headphones asset is
+  generated by `playground/asset-sources/product/build-headphones.mjs`.
 
 ### Portfolio set-pieces (app-level recipe, no export)
 
