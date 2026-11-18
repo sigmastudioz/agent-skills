@@ -1,11 +1,32 @@
 # UI Foundation Reuse
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.4.0.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.5.0.
 
 Reuse compatible React effects and scene infrastructure without a library download. This
 plugin includes the complete `ui-foundation-reuse` skill and the bundled
-`@sigmastudioz/ui-foundation` 0.13.2 runtime: CJS/ESM modules, TypeScript declarations,
+`@sigmastudioz/ui-foundation` 0.14.0 runtime: CJS/ESM modules, TypeScript declarations,
 original source and license notices. React and optional rendering peers are external.
+
+## Changes in 1.5.0
+
+Refresh the bundled runtime to 0.14.0 (104 public export entries, 3,056 files) and its
+matching source, types, checksum metadata and skill guide. 0.14.0 adds, for 3D scenes:
+
+- `/three` `Environment`: lights a scene from a built-in studio room or an equirectangular
+  `.hdr`/`.exr`, so metal and gloss have something to reflect. `Finish` sets the renderer's
+  tone curve and exposure.
+- `/three` `PostEffects`: ambient occlusion, depth of field and bloom on one chain.
+
+Fixes and speed carried in the runtime:
+
+- A click now reaches its target while a drag surface is active: with gestures on, a
+  neighbouring disc in `DiscCarousel` could not be selected by clicking, and a mouse click
+  never flipped a `LanyardBadge`. `/core` `useDragGesture` gains a `capture` option.
+- WebGL effects built on the shared fullscreen pass compile their shaders in the background
+  where the browser allows it.
+- Frame sequences and the paper effects hold frame rate while scrolling on slow processors.
+
+The guide documents each of these. The staging helper and its credential boundary are unchanged.
 
 ## Changes in 1.4.0
 
