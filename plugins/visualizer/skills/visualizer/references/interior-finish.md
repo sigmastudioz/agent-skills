@@ -129,14 +129,18 @@ each floor an ordinary validated plan and add, around them:
   `stairs: [{ x, z, w, d, up }]`, where `up` is the direction you walk to climb, `open` lists the
   upper wall lines drawn as glass balustrade, and `doubleHeight` names the lower rooms that rise to
   the roof.
-- Validation per stair: it is wide enough to walk, its foot is reachable on the lower floor, and
-  its top lands in an upper room. A tracing mistake should name the stair, not fail later as "the
+- Validation per stair: it is wide enough to walk, it stands clear of every wall face (like
+  furniture; a first trace ran 5 mm into a wall and the treads cut into it), its foot is reachable on
+  the lower floor, and its top lands in an upper room. A tracing mistake should name the stair, not fail later as "the
   start is not in a room".
 - Walking: the walker carries a level. On a stair the floor height follows the flight, so the
   camera rises with it; the level flips at the halfway point. A stair can be entered only at its
   foot from below or its top from above; its sides are solid. Upstairs, collide with the upper
   plan's walls (balustrades stay solid) and with the stair hole, open only at its top edge, and
   refuse any step that leaves the upper rooms.
+- Treat each stair as a tall obstacle for wall decoration: no art on a wall the stair runs along
+  (the automatic placement hung a canvas there and the treads passed through it). On a side
+  against a wall, draw a wall-mounted handrail, not the glass side and rail of the open side.
 - Drawing: lower walls take the height of what is above them (the roof beside a double-height
   room, the upper floor elsewhere), so split wall runs at every room edge on both floors. Cut the
   stair hole out of the upper floor, put a deep fascia under each open edge, roof the single-storey

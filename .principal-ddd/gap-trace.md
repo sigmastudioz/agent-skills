@@ -773,3 +773,8 @@ and nothing checked on-foot reachability, so furniture sealed five rooms in thre
 apartments. Fixed the collision rule and the layouts, added a 5 cm grid flood-fill check; demo
 tests now 19/19 two-storey and route tests, 14/14 model, 41/41 browser, and a keyboard walk through
 the reported gap.
+User-reported ("the stairs is inside the wall"): loft B's stair was traced 5 mm into the bedroom wall,
+its glass side drew on the wall face, and automatic art was hung on the wall the stair runs along
+(it ignored stairs). Fixed the trace, added a stair-clear-of-walls validation (tested), excluded
+stair walls from art, and drew a wall-mounted rail on wall sides. 20/20 two-storey and route tests,
+41/41 browser checks.
