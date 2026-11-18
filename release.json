@@ -225,6 +225,29 @@
         "skills/delegating-to-agents/agents/openai.yaml": "1ec61aa658cac7c22b43a509e076cb4975c3fa11aaa0176b7b8d3da58654d890",
         "skills/delegating-to-agents/references/handoff-contract.md": "7d230df396025818b9892c66c0eaf7922594d8af10903e1e9668720ea08f2b4a"
       }
+    },
+    "senior-digital-skills": {
+      "version": "1.0.0",
+      "files": {
+        ".claude-plugin/plugin.json": "f1024f1ccb577058639181574db217c8ba537a7be1b6f19a243be67f336cfde3",
+        ".codex-plugin/plugin.json": "c3a18f592a3364e60cb6516b8fb4c61a6efc109109a69d9f347a85092fbadbad",
+        ".cursor-plugin/plugin.json": "8e3cb0612509a362df6cfd9c83753f8b3215f2f6a234c69e52829f83ae22a0c3",
+        "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
+        "README.md": "6248e9a40dc65409d36767f7b90455cfdc8caa7bb36e423649782454d267802d",
+        "assets/icon.svg": "e439f429ebe381cbbc485c51d6c8c57ec82616683ca914cd59506a921aaf0f10",
+        "plugin.json": "e67b5ea6e0ec75a5b66bc18fd159f3a0a6ed15f9d2c46777acb72c44ae97111e",
+        "skills/senior-digital-skills/LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
+        "skills/senior-digital-skills/SKILL.md": "e24c7c472b3b48b2f54e5ad2733b81d8e4d86881a9cd08d5b9c0695966e5cb3a",
+        "skills/senior-digital-skills/agents/openai.yaml": "86959065ebc292662c690e6b38faf2773a40605115c6e4b534d8a9afa48ac47f",
+        "skills/senior-digital-skills/references/curriculum.md": "f5815fb1a31abb5fa9a8721273ed56369ba00930ca61fe19f3fdb98ed7eef165",
+        "skills/senior-digital-skills/references/funding-and-partners.md": "74018230273aa706fbb877ea34483c6d29fd8da0c4b8d3700702b16fca5c3bd2",
+        "skills/senior-digital-skills/references/learner-safety.md": "9da92903c98100c721471b893b4d6abf9b5dc203a81a88dca05859d2f4e8f2ed",
+        "skills/senior-digital-skills/references/outcomes.md": "b6a1fba8b7a3e99451f5ae751d7c4beb1f2aa7b0a9166b9917b007c997ec3901",
+        "skills/senior-digital-skills/references/planning-checklist.md": "8d5de08759f63a3a2a5b94c05eeb5ccf8929b1f95c74bc40f2b0e9a8bb0cf0e6",
+        "skills/senior-digital-skills/references/pricing-and-costs.md": "01ea52e744812b2f6e62fd0adba743e59b96494e1e656a6370fa7439094d2d35",
+        "skills/senior-digital-skills/references/teaching-older-adults.md": "aa365f45f178ac37748821960f639028d8a1ec8577d0cc64dc9040013d400c7a",
+        "skills/senior-digital-skills/tests/README.md": "96d75ecadf6e6afa64eb65d2fd9d6ce6ed05381cfb3c48fd45ee9e3c016cc33a"
+      }
     }
   }
 }

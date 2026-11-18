@@ -50,6 +50,11 @@
       "name": "delegating-to-agents",
       "source": "./plugins/delegating-to-agents",
       "description": "Hand bounded work to another AI agent CLI or TUI (Codex, Cursor, Pi, Claude Code, Hermes) with a complete brief, an isolated workspace, watchable progress and results reported back up the chain. Adapted by Lex from SigmaStudioz from davidondrej/skills (MIT)."
+    },
+    {
+      "name": "senior-digital-skills",
+      "source": "./plugins/senior-digital-skills",
+      "description": "Plan, fund, run and measure a hands-on digital-skills class for older adults: phone basics, QR menus, parking and transit apps, wallet passes, store app deals, video calls, photos and scam safety, with learner-safety boundaries, honest funding leads, a cost sheet and pre/post outcomes. By Lex from SigmaStudioz."
     }
   ]
 }

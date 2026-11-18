@@ -1,0 +1,23 @@
+{
+  "license": "MIT",
+  "name": "senior-digital-skills",
+  "version": "1.0.0",
+  "description": "Plan, fund, run and measure a hands-on digital-skills class for older adults: phone basics, QR menus, parking and transit apps, wallet passes, store app deals, video calls, photos and scam safety, with learner-safety boundaries, honest funding leads, a cost sheet and pre/post outcomes. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "displayName": "Senior Digital Skills Class",
+  "keywords": [
+    "older-adults",
+    "digital-literacy",
+    "senior-tech-class",
+    "lesson-plans",
+    "scam-safety",
+    "community-programs"
+  ],
+  "icon": "./assets/icon.svg",
+  "documentationUrl": "https://github.com/sigmastudioz/agent-skills/blob/main/plugins/senior-digital-skills/README.md"
+}

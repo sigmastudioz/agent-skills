@@ -1,0 +1,6 @@
+interface:
+  display_name: "Senior Digital Skills Class"
+  short_description: "Plan, fund and run a phone-skills class for older adults"
+  default_prompt: "Use $senior-digital-skills to plan a hands-on phone-skills class for older adults: pick modules, write step cards, set learner-safety rules, cost it and list funding leads to verify."
+policy:
+  allow_implicit_invocation: true
