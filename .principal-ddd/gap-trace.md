@@ -756,3 +756,13 @@ ui-foundation 0.13.2 has no environment, AO, tone-mapping or material exports, s
 Drei and @react-three/postprocessing; those library gaps are recorded for ui-foundation, not fixed
 here. Not verified: real phones, Safari, Firefox, long-session texture memory.
 
+### Visualizer 1.9.0: interior finish on ui-foundation 0.14.0
+
+Gap closed: ui-foundation 0.13.2 had no environment, tone curve or AO, so the recipe used Drei and
+@react-three/postprocessing. 0.14.0 adds `Environment`, `Finish` and `PostEffects`; the reference
+demo and the recipe now use them (Drei kept for `Sky` and `RoundedBox`). Evidence: same views
+measured before and after (frame brightness and colourfulness within about 5% after tuning),
+41/41 browser checks, 14 model and 13 two-storey tests. Found and recorded: the studio environment
+needs intensity about 0.2 in interiors, GTAO halos at radius 0.5 / intensity 2, bloom haze at
+strength 0.5. Remaining ui-foundation gaps: no anti-aliasing or vignette in `PostEffects`; `Model`
+still has no fit-to-box or rotation. Frame time not re-measured reliably (load average 75–145).

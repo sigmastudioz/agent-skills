@@ -1,8 +1,15 @@
 # SigmaStudioz Visualizer
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.8.0.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.9.0.
 
 Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.
+
+## Changes in 1.9.0
+
+[Finishing a walkable interior](skills/visualizer/references/interior-finish.md) now lights and
+finishes with ui-foundation 0.14.0 (`Environment`, `Finish`, `PostEffects`) instead of Drei's
+environment and @react-three/postprocessing, with the settings that matched the earlier look and
+the ones that caused washed-out frames, AO halos and haze.
 
 ## Changes in 1.8.0
 
