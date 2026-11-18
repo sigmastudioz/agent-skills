@@ -22,7 +22,9 @@ instead; that is cheaper on phones and gives true bounce light.
 
 ## Layout additions
 The finish needs four more fields in the layout. Validate them in the same pure model as the rest:
-- **Windows** `{ x, z, width, sill, head }`, centred on a wall line like a door. Reject a window
+- **Windows** `{ x, z, width, sill, head }`, centred on a wall line like a door, under the door's
+  rules: on exactly one wall line, with no crossing or touching wall inside the opening, and not
+  overlapping a door or another window. Reject a window
   that is not on an *exterior* wall (a room on one side only), that is not inside a stretch left
   solid after door cuts, or whose sill is below 0 or head not above the sill. Keep the head below
   the wall height (2.6 m here). A window is visual only: collision keeps the full wall, so no one walks out through the glass.
@@ -32,15 +34,21 @@ The finish needs four more fields in the layout. Validate them in the same pure 
 - **`solid: false`** for walk-over decor such as rugs. Collision and "standable" checks skip it;
   the plan and the 3D view still draw it. Without it, a rug blocks the room it lies in.
 
-Keep the plan's furniture rule (inside one room) for rugs too.
+- **A default `facing` of `'s'`** (front toward +z) when a piece omits it.
+- **A ceiling height** (`ceiling`, default 2.6 m) when the plan states one; lofts often run 3.3–3.6 m.
+
+Keep the plan's furniture rule (inside one room) for rugs too, and tighten it: furniture must clear
+the wall faces, so inside the room minus half the wall thickness on each side. A wardrobe drawn to
+the room edge otherwise sits 7 cm into the wall.
 
 ## Architecture from the plan
 Generate every architectural mesh from the plan output, never by hand, so the 3D view, the SVG and
 collision cannot drift:
 - **Walls with windows.** For each wall segment, subtract its window spans to get solid stretches,
-  which run full height. Each window adds a piece below the sill and one above the head. Extend only
-  the segment's two outer ends by half the wall thickness, so corners close without overlapping
-  faces. Add a slim dark frame (four sides and a mullion), a thin glass pane, an inside and outside
+  which run full height. Each window adds a piece below the sill and one above the head. At a corner or
+  T, fill the junction square once: extend the free ends of runs along x by half the wall thickness
+  and leave runs along z flush. Extending both makes the two volumes overlap with coplanar faces. Never
+  extend an end that is a door or window jamb. Add a slim dark frame (four sides and a mullion), a thin glass pane, an inside and outside
   sill, and skirting (about 9 cm) on both faces of every floor-level piece.
 - **Doors.** A lintel fills the wall above the opening (doors about 2.1 m, walls 2.6 m), with a
   painted casing on both faces. The door itself can stay open and undrawn; the plan shows its swing.
@@ -53,20 +61,51 @@ collision cannot drift:
 Round-cornered boxes (Drei `RoundedBox`) for furniture and trim catch highlights on their edges and
 stop the scene reading as CG; keep the radius below half the smallest side.
 
+## Luxury finish
+The checked finish reads as a tidy show home. For a luxury apartment, these additions made the
+largest difference, in order (checked on four traced apartment plans, same versions as above):
+- **Height and windows.** Use the stated ceiling (lofts are often 3.3–3.6 m) and run windows nearly
+  floor to ceiling (sill about 0.4 m, head 0.35 m below the ceiling) with steel divided lights: bars
+  about every 0.42 m across and 0.5 m up, 22 mm wide, in the black frame material.
+- **Drapes.** Two floor-to-ceiling linen panels per window on the room side, each about 0.42 m wide,
+  pulled past the window edges, with a slim black rod. Find the room side by probing 0.3 m either
+  side of the wall line. Fold them with a sine displacement on a subdivided plane so they catch
+  the window light, and use a sheen material, not flat colour.
+- **Mouldings.** Crown moulding in two stepped strips at the ceiling, and skirting 16 cm tall.
+- **Materials.** Wide-plank light ash (24 cm boards, longer lengths) for living rooms and bedrooms;
+  polished marble (soft blurred veins plus a few crisp ones, roughness about 0.15, clearcoat) for
+  bathroom floors in 60 cm tiles, and for worktops, the island, vanity tops, the coffee table and
+  the dining table. Give upholstery `MeshPhysicalMaterial` sheen so velvet reads at grazing angles.
+  Use deep colours (bottle green, cognac) against the pale shell, and brass for legs and fittings.
+- **Light fittings.** A brass ring chandelier over each dining table, hung above eye height (about
+  1.8 m): at 1.6 m it reads as a flat line. Pendants over the island hang from the actual ceiling.
+- **Art.** One large framed canvas per room, on the longest wall stretch with no window, door or
+  furniture taller than 1.2 m within 0.9 m of it, about 60% of that stretch wide (at most 1.6 m),
+  centred at 1.55 m. Generated soft colour fields in a muted palette avoid any image licence.
+- **Stairs.** Open walnut treads with steel stringers and a brass rail, not a block.
+
+Fit the outdoor context to the layout: shadow camera, sun distance, ground size and tree positions
+from the bounds. A demo that hardcodes them for one house puts trees inside the next.
+
+What still limits the look is furniture built from primitives. Poly Haven (CC0) offers sofas,
+chairs, tables, cabinets, lamps, chandeliers, plants and vases as glTF, at about 0.4–3 MB each for
+1k textures; it has no toilets, baths, basins or kitchen units, so those stay generated. Download
+only with the user's approval, and load with ui-foundation `Model`, scaled to each footprint.
+
 ## Light
 Ceilings and walls facing away from the windows get no direct light, and realtime Three.js has no
 bounce. Fake the parts that matter:
 
 | Light | Settings that worked | Why |
 | --- | --- | --- |
-| Sun: one `directionalLight` with shadows | Intensity 3.4, warm white. Direction about 31° above the horizon. Shadow map 4096, bias −0.0003, normal bias 0.025. Fit the shadow camera to the house bounds plus a margin, and aim the target at the house centre (add the target to the scene). | A low sun reaches through the windows and draws patches on the floor. A loose shadow camera wastes resolution and makes edges soft and blotchy. |
-| Image-based fill | Drei `Environment` with `frames={1}` and `resolution={256}`, holding three `Lightformer` panels: a large warm one overhead, a cool one on the window side, a dim warm one opposite. | Gives every surface soft light and gives metal and glass something to reflect, without downloading an HDRI. Rendered once, so it costs nothing per frame. |
+| Sun: one `directionalLight` with shadows | Intensity 3.4, warm white. Direction about 31° above the horizon, turned to face the main living windows. One sun cannot reach windows on opposite walls, so check sun only where windows face it. Shadow map 4096, bias −0.0003, normal bias 0.025. Fit the shadow camera to the house bounds plus a margin, and aim the target at the house centre (add the target to the scene). | A low sun reaches through the windows and draws patches on the floor. A loose shadow camera wastes resolution and makes edges soft and blotchy. |
+| Image-based fill | Drei `Environment` with `frames={1}` and `resolution={256}`, holding `Lightformer` panels: a warm one overhead at least twice the house's size, a dim cool one on the main window side and dim warm ones on the other three sides. Three panels on one axis (overhead, window side, opposite) leave walls at right angles to it dark brown and turn walls facing the cool panel blue-grey; that was fine for the checked layout only because all its windows faced one way. | Gives every surface soft light and gives metal and glass something to reflect, without downloading an HDRI. Rendered once, so it costs nothing per frame. |
 | Sky and ground tint | `hemisphereLight`, sky blue-white over warm ground, intensity about 0.35. | Lifts the shadow side without flattening it. |
 | Ceiling "bounce" | Emissive on the ceiling material, about 0.32 of a warm white. | Without it the ceiling renders dark brown and the rooms feel like caves. |
 | Room fill | One point light per room at about 1.5 m, not near the ceiling, intensity 0.7, distance 8, decay 1.6. | A fill near the ceiling leaves a hot spot on it. |
 | Practical lights | Lamp shades and downlight discs with emissive above 1, and a small point light inside each lamp. | Gives bloom something real to catch, and warm pools by the furniture. |
 
-Turn shadows on the canvas (`shadows: 'soft'`) and mark walls, floors, furniture and the roof as
+Turn shadows on the canvas (`shadows: true`; `'soft'` asks for `PCFSoftShadowMap`, which Three.js 0.186 has removed, so it logs a warning and falls back to the same PCF shadows) and mark walls, floors, furniture and the roof as
 both casting and receiving. Glass casts nothing.
 
 ## Surfaces
@@ -83,10 +122,12 @@ Size one texture tile in metres and set the repeat from the surface size: a 1.2 
 | Oak or walnut floor | 8 staggered planks per tile, faint wavy grain, few knots, dark seams | 0.5 | 0.4 |
 | Porcelain tile floor | 60 cm squares, faint veining, 6 px grout | 0.28 | 0.4 |
 | Plaster wall | Hundreds of faint specks below 1% opacity | 0.92 | 0.08 |
-| Subway splashback | 7.5 × 15 cm bricks, offset rows | 0.25 | 0.5 |
+| Subway splashback | 7.5 × 15 cm bricks, offset rows; stop it below any window sill above the counter (a low upstand there) | 0.25 | 0.5 |
 | Upholstery | Fine weave tinted by the material colour | 0.95 | 0.8 |
 | Stone worktop or ceramic | Plain colour, `MeshPhysicalMaterial` with clearcoat 0.4–0.6 | 0.22–0.25 | none |
-| Glass | `MeshPhysicalMaterial`, transmission 0.92, low opacity, `depthWrite: false` | 0.02 | none |
+| Glass | `MeshPhysicalMaterial` with opacity about 0.25, `depthWrite: false` and no transmission | 0.02 | none |
+
+Transmission on glass makes Three.js render every opaque object a second time for the refraction pass; a fresh build that used it measured more than twice the draw calls. Plain transparency looks the same through a window.
 
 Keep variation small. Plaster specks above about 1% opacity look like leopard spots on a large wall,
 and plank-to-plank lightness swings above about ±3% make a dark wood floor look patchy.
@@ -97,8 +138,9 @@ Write one small generator per `kind`, in a local frame: width along x, depth alo
 w = −π/2), swapping width and depth for east and west, so the piece fills exactly the rectangle the
 plan and collision use. Build from rounded boxes, cylinders and a few shapes: a sofa is a base,
 back, arms, seat and back cushions and two angled throw cushions; a plant is a pot, soil, a stem and
-about 30 leaf shapes from a seeded random. Draw an unknown kind as a plain rounded box of its
-footprint, so a new layout never fails to render.
+about 30 leaf shapes from a seeded random. Write generators for every kind you know when building, including kinds the layout uses but this
+recipe does not name (bookshelf, bathtub, vanity). Keep the plain rounded box, and a plain outlined
+rectangle on the plan, for a kind nobody wrote a generator for, so a new layout never fails to render.
 
 Real models look better, but need a source whose licence allows the use, approved before download.
 Load them with ui-foundation `Model` and scale each to its footprint.
@@ -107,7 +149,7 @@ Load them with ui-foundation `Model` and scale each to its footprint.
 Use one composer, and let it own tone mapping:
 
 ```tsx
-<Scene canvasProps={{ flat: true, shadows: 'soft', gl: { antialias: false } }}>  {/* flat: no renderer tone mapping */}
+<Scene canvasProps={{ flat: true, shadows: true, gl: { antialias: false } }}>  {/* flat: no renderer tone mapping */}
   …
   <EffectComposer multisampling={0} enableNormalPass={false}>
     <N8AO aoRadius={0.55} distanceFalloff={0.6} intensity={2.4} halfRes quality="high" />
@@ -140,11 +182,15 @@ A room jump (click or "Go to") reads as a cut rather than a glitch with a short 
 320 ms, on an overlay above the view. Skip it under reduced motion.
 
 ## Budget and how to measure it
-On the checked layout, with headless Chromium and vsync off: 1440×810 at 2x took a median of 9.9 ms
-per frame (95th percentile 14.3 ms), 3.9 ms at 1x, and 3.7 ms at 390×844. That is about 480–540
-draw calls and 90k triangles per frame, with 55 textures. Most of the draw calls are separate
+On the checked layout, with headless Chromium and vsync off: 1440×810 at 2x took a median of 6.5 ms
+per frame (95th percentile 9.1 ms), 2.7 ms at 1x, and 2.6 ms at 390×844, with plain transparent
+glass. That is about 410–460 draw calls and 75–90k triangles per frame, with 54 textures. With
+transmission glass the same scene took 9.9 ms at 2x. Most of the draw calls are separate
 rounded boxes in furniture. Before targeting phones, merge each static piece's geometry by material
-or instance repeated parts, and drop the shadow map to 2048.
+or instance repeated parts, and drop the shadow map to 2048. These numbers do not transfer between
+builds: a fresh build of a different layout from this recipe measured 1,060–1,330 draw calls and
+310–380k triangles at about the same frame time, mostly from transmission glass and rounded-box
+subdivision. Measure your own.
 
 Two traps give false numbers:
 - Headless Chromium caps `requestAnimationFrame` at 30 fps, so every size reads 33.3 ms. Launch it

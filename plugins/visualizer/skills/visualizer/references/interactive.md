@@ -169,6 +169,8 @@ to the plan and presses the walk buttons.
 **Click to teleport by inverting the SVG's own matrix.** This stays right after any resize:
 
 ```ts
+// Read the point from pointerdown/pointerup: a click event's clientX/Y are rounded to whole pixels,
+// about 3 cm on a desktop-sized plan.
 const m = svg.getScreenCTM()                        // null when not rendered
 const p = new DOMPoint(e.clientX, e.clientY).matrixTransform(m!.inverse())
 teleport(p.x, p.y)                                  // plan y is world z
@@ -186,7 +188,7 @@ horizontal field of view, `2·atan(tan(fov/2) · aspect)`, which changes with th
 redraw it when `camera.aspect` changes, not only on mount.
 
 **Walking.** These defaults gave a comfortable walk: speed 2.2 m/s, turn 1.8 rad/s, player radius
-0.25 m, eye height 1.6 m, vertical field of view 70°, pitch from a drag at 0.004 rad per pixel,
+0.25 m, eye height 1.6 m, vertical field of view 70°, yaw and pitch from a drag at 0.004 rad per pixel,
 clamped to ±1.1 rad. Collide against walls as rectangles extending half the wall thickness each
 side of the centre line, and against furniture rectangles. Move one axis at a time and undo an axis
 that would hit, so the viewer slides along walls. Split a long frame into sub-steps of at most
@@ -260,9 +262,23 @@ Verify before delivery:
   still work.
 - Walking still works with reduced motion. At 667×375 the view does not overlap the plan.
 
+**From a floor-plan image.** A marketing plan (PNG or PDF) can be traced into this layout by hand
+or by an agent reading the image; checked 2026-11-17 on four real apartment plans. Take the scale
+from the printed room sizes: compute pixels per metre from two or three rooms and expect them to
+agree within about 5% (labels are often depth × width, not width × depth). Put the origin at the
+inside of one corner and convert every edge to metres, rounded to 5 cm. Model each space as a
+rectangle: split an L-shaped living area or a hall into rectangles joined by a wide opening (a door
+as wide as the shared wall minus about 20 cm). Leave closets, laundry niches and columns as voids or
+solid furniture, and leave out the front door, which joins no room. Let the validator find the
+mistakes; in the check, every rejection was a real tracing error (a start pose inside the sofa,
+rooms overlapping by 7 cm, an opening touching a T junction). Trace furniture from the drawn
+symbols. A plan with a mezzanine or stairs needs a level per floor, which this model does not have:
+trace the lower level and say what was left out.
+
 How to test it: block WebGL by launching Chromium with `--disable-webgl --disable-3d-apis` (or by
 making `getContext` return `null` for WebGL), and expect R3F to log the context error. To push the
-view offscreen at phone size, insert a tall spacer above the panel in the test. Give the page an
+view offscreen at phone size, insert a tall spacer above the panel in the test. Keep the view cone out of the marker group, or check the marker's dot rather than the group's
+bounding box, whose centre moves with the cone. Give the page an
 icon (`<link rel="icon" href="data:,">`) so a missing favicon is not reported as a console error.
 Also check that a hold-to-walk button still walks with the view offscreen and with WebGL blocked.
 

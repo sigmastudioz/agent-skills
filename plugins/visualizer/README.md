@@ -17,7 +17,9 @@ Adds [finishing a walkable interior](skills/visualizer/references/interior-finis
 same layout into a lit, furnished room live in the browser, with windows the sun shines through,
 generated wood, tile and plaster, furniture fitted to each footprint, image-based fill light,
 ambient occlusion and bloom, an architectural plan, and how to measure frame time without the two
-headless traps that give false numbers.
+headless traps that give false numbers. It also covers a luxury finish (tall divided windows, drapes,
+mouldings, ash and marble, brass, art) and tracing a marketing floor-plan image into a layout. A fresh
+agent built a working version from the recipes alone.
 
 Corrects the [React Three Fiber](skills/visualizer/references/react-three-fiber.md) reference: in
 React Three Fiber 9 the Canvas `fallback` does not handle a failed WebGL context; an error boundary
