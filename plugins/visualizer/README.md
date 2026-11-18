@@ -1,8 +1,26 @@
 # SigmaStudioz Visualizer
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.6.0.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.7.0.
 
 Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.
+
+## Changes in 1.7.0
+
+Adds [finishing a walkable interior](skills/visualizer/references/interior-finish.md), which turns
+the floor-plan map's layout into a lit, furnished interior live in the browser:
+- windows the sun shines through, generated wood, tile, plaster and marble, and furniture fitted to
+  each footprint;
+- image-based fill light, ambient occlusion, bloom and an architectural plan;
+- a luxury finish: tall divided windows, drapes, mouldings, ash and marble, brass and art;
+- real CC0 models (Poly Haven) loaded through ui-foundation `Model`, chosen by look, fitted in the
+  piece's own frame, with shadows drawn once (92 ms to 13–16 ms per frame on the checked plan);
+- how to measure frame time without the two headless traps that give false numbers.
+
+The [floor-plan map](skills/visualizer/references/interactive.md#recipe-live-floor-plan-map-beside-a-walkable-3d-space)
+recipe gains tracing a marketing floor-plan image into a layout (checked on four real plans; one
+level each), sub-pixel click coordinates and a yaw drag rate. A fresh agent built a working
+finished walkthrough from the two recipes alone; an independent checker passed it 34/34, and its
+14 reported gaps are fixed.
 
 ## Changes in 1.6.0
 
@@ -12,14 +30,6 @@ stands and which way they face, with click-to-teleport and a room highlighted in
 validated layout drives the walls, the plan and collision. The plan, status and walk controls keep
 working with the 3D view offscreen or WebGL unavailable. Two fresh agents built working versions
 from the recipe alone, each passing an independent browser checker.
-
-Adds [finishing a walkable interior](skills/visualizer/references/interior-finish.md): turns the
-same layout into a lit, furnished room live in the browser, with windows the sun shines through,
-generated wood, tile and plaster, furniture fitted to each footprint, image-based fill light,
-ambient occlusion and bloom, an architectural plan, and how to measure frame time without the two
-headless traps that give false numbers. It also covers a luxury finish (tall divided windows, drapes,
-mouldings, ash and marble, brass, art) and tracing a marketing floor-plan image into a layout. A fresh
-agent built a working version from the recipes alone.
 
 Corrects the [React Three Fiber](skills/visualizer/references/react-three-fiber.md) reference: in
 React Three Fiber 9 the Canvas `fallback` does not handle a failed WebGL context; an error boundary

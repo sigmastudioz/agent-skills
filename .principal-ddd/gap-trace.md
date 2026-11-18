@@ -729,7 +729,7 @@ wording.
 Not verified: real touch devices, real macOS key events (simulated), Safari and Firefox, and loss
 and restore of a WebGL context mid-session.
 
-Follow-up gap, same release: nothing covered a live, browser-only interior look; the recipe gave
+Follow-up gap, released as 1.7.0 (PR #39 had merged at 58c61ad first): nothing covered a live, browser-only interior look; the recipe gave
 grey boxes and baked lighting covers only the Blender path. Added `references/interior-finish.md`
 (windows, surfaces, fitted furniture, light, post-processing, architectural plan, frame-time
 measurement), linked from SKILL.md, the floor-plan recipe, baked lighting and verification. Evidence:
