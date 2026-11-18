@@ -56,7 +56,8 @@ slides shown or hours billed.
 
 ## Hand off to neighbouring skills when installed
 
-- Grant or RFP response: the small-business **grant-rfp-writer** skill. Client proposal or quote:
+- Grant or RFP response: ask for the actual RFP or guidelines first (sections, scoring, forms,
+  deadline), then the small-business **grant-rfp-writer** skill. Client proposal or quote:
   the small-business **proposal-builder** skill. Feed them this skill's curriculum, cost sheet and
   outcomes plan; keep the honest-claims rule.
 - Promoting sessions (flyers, sign-ups, library/senior-center calendars): the marketing **events**

@@ -24,6 +24,12 @@ exact habit scammers exploit.
 - **Privacy screen moments.** When a learner types a password or code, helpers look away and say so.
 - **Forgotten passwords.** Show where the official "forgot password" option is; the learner resets
   it themselves, now or at home with someone they trust. Do not guess or invent passwords for them.
+  Passwords never go on step cards, name tags or other class materials, even in the learner's own
+  hand; a learner who keeps passwords on paper uses a private notebook kept at home.
+- **Recovery dead ends.** If recovery needs a code sent to an old number or email the learner can't
+  reach, they finish later through the provider's official recovery page, at home or with
+  someone they trust. Meanwhile they follow the lesson on a class demo, so they are not left out,
+  and hear that this happens to many people and nothing is broken.
 - **Demo accounts.** Use the instructor's own test accounts, demo menus and sample passes for
   anything involving money, health or identity.
 - **Help in the shared room.** Avoid one-to-one help out of others' sight.

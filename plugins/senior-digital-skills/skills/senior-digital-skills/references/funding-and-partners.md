@@ -54,6 +54,18 @@ certificates, affirmative-action paperwork (the Employee Information Report, for
 equivalent) and any background-check requirement before quoting. These rules change; do not
 quote thresholds from memory.
 
+## Sponsors
+
+A sponsor may fund seats, loaner phones, printing or venue costs. Put the terms in writing:
+- Credit on flyers, the welcome slide and the final report.
+- Optional brochures on a side table, or a separate, clearly labelled event outside class time,
+  if the venue partner allows it.
+- No sales talk, sign-ups or referral fees during sessions.
+- No sharing of learner names or contacts.
+- The curriculum stays brand-neutral and teaches free built-in features first.
+
+A sponsor that insists on pitching inside a session is one to decline.
+
 ## Partner pitch checklist
 
 - The problem in the partner's words (residents who cannot use app-only parking, QR menus, patient
