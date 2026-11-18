@@ -123,20 +123,20 @@
       }
     },
     "ui-foundation-reuse": {
-      "version": "1.4.0",
+      "version": "1.5.0",
       "files": {
-        ".claude-plugin/plugin.json": "c6a367e1eafe22a281b8e500f84a612ff531347637719311477413c086a506b0",
-        ".codex-plugin/plugin.json": "82691a85c3610cd750260935c537a706c2d210ca4c633b95ae35c015ae29f8af",
-        ".cursor-plugin/plugin.json": "eb2bf448c8981775d63404bc659511db647a52d8c2327fbd8a83f7861dd6d905",
+        ".claude-plugin/plugin.json": "0b5641c6ebf78cb472e807ad7070af4b35be28586651b118012475dc675aff6a",
+        ".codex-plugin/plugin.json": "fe0cbb0bee712c8fa4a8f6a7a60229e640e9eef2f23c119846c1be45a003ee39",
+        ".cursor-plugin/plugin.json": "9e03129fd7fe7760c8386634781db86e155989c6a771aa55d1e33b7bc08db968",
         "LICENSE": "7b83ecb33262b1eb1520aba2d0ff0705b835c988c89e94b0284769f2d8a0ab99",
-        "README.md": "248828518f5c32ea06068d245677093dba6f98a88ef86e16b3de6d5d0d778d81",
+        "README.md": "f829b9b0c96eca9adfb6bc5f8ab6f20c6edd056c41c8dc8d7ca6f94f6e2b4a00",
         "assets/icon.svg": "ffabdeda1fb856ba322eb678ce765d6c359aec73d8ee5fb5951d15e0cb941699",
-        "plugin.json": "80be5dcec491d0f5fdcd54ab005a0af5b51014e096feffad8d76801844556663",
+        "plugin.json": "967ce009c48a5c926319f1086835cfd815902a8d7973c11f1c7b8fb5281eacbf",
         "skills/ui-foundation-reuse/LICENSE": "7b83ecb33262b1eb1520aba2d0ff0705b835c988c89e94b0284769f2d8a0ab99",
-        "skills/ui-foundation-reuse/SKILL.md": "d46531145919b6025c8a40d335a6a5fcbbcb25ae49f021db0d475d0c438d0bb2",
+        "skills/ui-foundation-reuse/SKILL.md": "6739bf23ee0bc8046b3e03dc8cc31caa4b7bbc7ff70400fc57633f6948552853",
         "skills/ui-foundation-reuse/agents/openai.yaml": "aae7dd31c55b82568950f77072a7b3a32741884a14b3542a08db516ae741906e",
-        "skills/ui-foundation-reuse/assets/bundle.json": "0a9221a592d58364bb6d97f8888a1b3d2d9228f9b087dea0a2f762500fc971b9",
-        "skills/ui-foundation-reuse/assets/ui-foundation.tgz": "6596adc9099121cb3a24f079d0f400ada9598e800096cf2b342826d158bb8b1c",
+        "skills/ui-foundation-reuse/assets/bundle.json": "b4c02eb25fa09c11e9288306ea2637795beef5007a95438b9edfe9d9e9af58a4",
+        "skills/ui-foundation-reuse/assets/ui-foundation.tgz": "346501a0e15ef9d6ec1873a626a58014d6afc30d167faa320db771e43400a0c4",
         "skills/ui-foundation-reuse/references/setup.md": "ca6fac0b6ec67e4ef40a7478294c7d9dc6ef42712c366ca96b642d1d680b8f5f",
         "skills/ui-foundation-reuse/references/third-party-notices.md": "49d7b7130ceb9f0fc1afd0653945029bdd4a4b13c45cffe1325d2deb30d4c072",
         "skills/ui-foundation-reuse/scripts/stage-runtime.mjs": "c7cb60700223fbfbbfc5a1e71e3acf9a99b01729c51b49f0a0ed5f8a8a25947e",
@@ -224,6 +224,29 @@
         "skills/delegating-to-agents/SKILL.md": "8adff0d4f72db4ee5e9d28f12676821018e50c32b434b168a96db72730bd1527",
         "skills/delegating-to-agents/agents/openai.yaml": "1ec61aa658cac7c22b43a509e076cb4975c3fa11aaa0176b7b8d3da58654d890",
         "skills/delegating-to-agents/references/handoff-contract.md": "7d230df396025818b9892c66c0eaf7922594d8af10903e1e9668720ea08f2b4a"
+      }
+    },
+    "senior-digital-skills": {
+      "version": "1.0.0",
+      "files": {
+        ".claude-plugin/plugin.json": "f1024f1ccb577058639181574db217c8ba537a7be1b6f19a243be67f336cfde3",
+        ".codex-plugin/plugin.json": "c3a18f592a3364e60cb6516b8fb4c61a6efc109109a69d9f347a85092fbadbad",
+        ".cursor-plugin/plugin.json": "8e3cb0612509a362df6cfd9c83753f8b3215f2f6a234c69e52829f83ae22a0c3",
+        "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
+        "README.md": "6248e9a40dc65409d36767f7b90455cfdc8caa7bb36e423649782454d267802d",
+        "assets/icon.svg": "e439f429ebe381cbbc485c51d6c8c57ec82616683ca914cd59506a921aaf0f10",
+        "plugin.json": "e67b5ea6e0ec75a5b66bc18fd159f3a0a6ed15f9d2c46777acb72c44ae97111e",
+        "skills/senior-digital-skills/LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
+        "skills/senior-digital-skills/SKILL.md": "5030c7df8c50a634019e590a2b2bbc17ebbf00861fdcd7cf295b115876c5b4a8",
+        "skills/senior-digital-skills/agents/openai.yaml": "86959065ebc292662c690e6b38faf2773a40605115c6e4b534d8a9afa48ac47f",
+        "skills/senior-digital-skills/references/curriculum.md": "f5815fb1a31abb5fa9a8721273ed56369ba00930ca61fe19f3fdb98ed7eef165",
+        "skills/senior-digital-skills/references/funding-and-partners.md": "4ae23618c2737d6de1cf3ccd181c6d783f6f669636e2dbffca057cba4ad372ab",
+        "skills/senior-digital-skills/references/learner-safety.md": "51c21e3acf429995edd8bc85b2cee1ba95c8a63b0cfb6ccb2cdd4c95373b0334",
+        "skills/senior-digital-skills/references/outcomes.md": "b6a1fba8b7a3e99451f5ae751d7c4beb1f2aa7b0a9166b9917b007c997ec3901",
+        "skills/senior-digital-skills/references/planning-checklist.md": "8d5de08759f63a3a2a5b94c05eeb5ccf8929b1f95c74bc40f2b0e9a8bb0cf0e6",
+        "skills/senior-digital-skills/references/pricing-and-costs.md": "01ea52e744812b2f6e62fd0adba743e59b96494e1e656a6370fa7439094d2d35",
+        "skills/senior-digital-skills/references/teaching-older-adults.md": "aa365f45f178ac37748821960f639028d8a1ec8577d0cc64dc9040013d400c7a",
+        "skills/senior-digital-skills/tests/README.md": "9eba6675d2bf8a602bab5f242cd7ddd9ed62618698945abc65771250a5605fd4"
       }
     }
   }

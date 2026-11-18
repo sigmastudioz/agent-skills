@@ -756,6 +756,16 @@ ui-foundation 0.13.2 has no environment, AO, tone-mapping or material exports, s
 Drei and @react-three/postprocessing; those library gaps are recorded for ui-foundation, not fixed
 here. Not verified: real phones, Safari, Firefox, long-session texture memory.
 
+### UI Foundation Reuse 1.5.0: bundled runtime 0.14.0
+
+The plugin carried 0.13.2; the library published 0.14.0 (tag `v0.14.0`, ade271a). `SKILL.md`,
+`assets/bundle.json` and `assets/ui-foundation.tgz` are copied unchanged from that tag and
+verified there with `check:skill`: 0.14.0, 104 export entries, 3,056 files. `references/`,
+`scripts/` and `LICENSE` are identical; plugin-only `agents/` and `tests/` are untouched. This
+time the tagged commit's `package.json` and bundle metadata already read 0.14.0, so no version
+was set by hand. The registry lists 0.14.0 as `latest` (checked from a consuming project).
+Byte-identity with the published package was not checked.
+
 ### Visualizer 1.9.0: interior finish on ui-foundation 0.14.0
 
 Gap closed: ui-foundation 0.13.2 had no environment, tone curve or AO, so the recipe used Drei and

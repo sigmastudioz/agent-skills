@@ -51,6 +51,11 @@
       "name": "delegating-to-agents",
       "path": "./plugins/delegating-to-agents",
       "category": "Developer Tools"
+    },
+    {
+      "name": "senior-digital-skills",
+      "path": "./plugins/senior-digital-skills",
+      "category": "Productivity"
     }
   ]
 }
