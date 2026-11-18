@@ -11,7 +11,8 @@ the floor-plan map's layout into a lit, furnished interior live in the browser:
 - windows the sun shines through, generated wood, tile, plaster and marble, and furniture fitted to
   each footprint;
 - image-based fill light, ambient occlusion, bloom and an architectural plan;
-- a luxury finish: tall divided windows, drapes, mouldings, ash and marble, brass and art;
+- a luxury finish: tall divided windows, drapes, mouldings, ash and marble, brass, art, and
+  bathrooms with marble cladding, a freestanding bath, a floating vanity and backlit mirrors;
 - real CC0 models (Poly Haven) loaded through ui-foundation `Model`, chosen by look, fitted in the
   piece's own frame, with shadows drawn once (92 ms to 13–16 ms per frame on the checked plan);
 - how to measure frame time without the two headless traps that give false numbers.

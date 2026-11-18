@@ -83,6 +83,20 @@ largest difference, in order (checked on four traced apartment plans, same versi
   furniture taller than 1.2 m within 0.9 m of it, about 60% of that stretch wide (at most 1.6 m),
   centred at 1.55 m. Generated soft colour fields in a muted palette avoid any image licence.
 - **Stairs.** Open walnut treads with steel stringers and a brass rail, not a block.
+- **Bathrooms.** Generated, since no CC0 library checked has modern fittings:
+  - polished marble cladding to 1.2 m on every wall with a brass cap rail, cut around doors and kept
+    below window sills, and no wall art there;
+  - a freestanding stadium-shaped bath (an extruded outline with a hole, bevelled) with a floor-standing
+    brass filler;
+  - a floating walnut vanity with a marble top, a lathe-turned vessel basin and a tall brass tap per
+    basin (two from 1.3 m wide);
+  - a round mirror per basin in a brass frame with a thin warm halo ring behind it, and a brass sconce
+    either side.
+
+  Make the mirror a mid-grey metal (about `#9aa2a9`, roughness 0.04): a pale one reflects the bright
+  fill light and reads as a glowing disc, and so does a full halo disc behind it. Put towels on the
+  vanity top, not on a rail placed relative to another fitting: such a rail ran across the vanity in
+  two of four bathrooms.
 
 Fit the outdoor context to the layout: shadow camera, sun distance, ground size and tree positions
 from the bounds. A demo that hardcodes them for one house puts trees inside the next.
