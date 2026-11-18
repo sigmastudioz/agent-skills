@@ -26,15 +26,15 @@
       }
     },
     "visualizer": {
-      "version": "1.7.0",
+      "version": "1.8.0",
       "files": {
-        ".claude-plugin/plugin.json": "e0e0205647d3e63dea159740f9fc1ed065c4f5344f01dde5e6051db96e7882c2",
-        ".codex-plugin/plugin.json": "2c5135ae89d02c0cf2f08c783e97a6872c011c0733f202c695c0b05f060203e0",
-        ".cursor-plugin/plugin.json": "7bfae6e49d7d6547d6c8d4db970923b9d5336ab052292b0b8b99e9d4ae2f4d0e",
+        ".claude-plugin/plugin.json": "4ee8716fe4d09db257c7a78839d33a03299f712ce41cfdce13aeb7089f40a907",
+        ".codex-plugin/plugin.json": "1598f4c1fac4112463b3cbd2f5c7724a4f9e24ce7fcb0ca5b956d485a3564f0a",
+        ".cursor-plugin/plugin.json": "d79b0e212902c980f51a108778b59a084c7cc1f4350117e45d0cfa5776d1020e",
         "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
-        "README.md": "aff9a3fcd86a243af942108ea843f99e33ea3c3bcd2279a27f0848242fe7117e",
+        "README.md": "eba56cedc5e3d87f60581180fb5c08d4586a10358a3e10d67662db71c87d9fdc",
         "assets/icon.svg": "f5189524ad356ee89798bae8327dbc293ac99f24a37cc0ada1a68a7d54541923",
-        "plugin.json": "7d110782824f7f4073c19486da6a00a059e93bd166ee76cd8301154ece64a7e6",
+        "plugin.json": "c7093ab4adffc69bca72f0c9149d4e0ea6469a4ad63dba20714def911445a544",
         "skills/visualizer/LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
         "skills/visualizer/SKILL.md": "a7844a07450d856b0d39b5402f73991a7957156b028644c86c7b9f0480e110fa",
         "skills/visualizer/agents/openai.yaml": "95f40c760e352bbe656ceb521e47dd1a6a7937e13ce85e5152df6e8cb86ad117",
