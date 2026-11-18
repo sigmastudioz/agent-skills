@@ -83,6 +83,21 @@ largest difference, in order (checked on four traced apartment plans, same versi
   furniture taller than 1.2 m within 0.9 m of it, about 60% of that stretch wide (at most 1.6 m),
   centred at 1.55 m. Generated soft colour fields in a muted palette avoid any image licence.
 - **Stairs.** Open walnut treads with steel stringers and a brass rail, not a block.
+- **Walls.** Picture-frame panelling in every room but the bathrooms: a chair rail at 0.9 m, a box
+  below it and a tall box above it in bays of about 1.1 m, cut 12–14 cm clear of doors and windows.
+  Build every strip as a box, merge them all into one geometry (`mergeGeometries`) and draw the
+  house's panelling as one mesh in the wall material; frame time did not move.
+- **Kitchens.** Two-tone joinery: deep sage shaker doors (a plate plus a raised frame) with brass
+  knobs, a 3 cm marble top and a marble splashback up to the wall cabinets, wall cabinets to about
+  2.9 m with an emissive under-cabinet strip and a warm point light, a plaster hood over the hob in
+  place of the cabinets there, an undermount sink with a brass gooseneck tap, and a panel-front
+  fridge with long brass pulls. Where a window is behind the run, drop the wall cabinets and keep a
+  low marble upstand. The island gets a fluted base (a striped colour and bump texture, not one
+  mesh per flute) and marble waterfall ends. Make the hob and sink matte (roughness 0.3 or more): a
+  glossy black glass top mirrors the sky and reads pale blue.
+- **Beds.** A channel-tufted headboard about 1.3 m tall spanning the bedsides, an upholstered base,
+  a duvet folded back, a bouclé throw at the foot, euro shams, pillows and a lumbar cushion, and a
+  rug that reaches past the foot and sides. Panel-door wardrobes with long brass pulls and a cornice.
 - **Bathrooms.** Generated, since no CC0 library checked has modern fittings:
   - polished marble cladding to 1.2 m on every wall with a brass cap rail, cut around doors and kept
     below window sills, and no wall art there;
