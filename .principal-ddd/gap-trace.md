@@ -766,3 +766,37 @@ time the tagged commit's `package.json` and bundle metadata already read 0.14.0,
 was set by hand. The registry lists 0.14.0 as `latest` (checked from a consuming project).
 Byte-identity with the published package was not checked.
 
+### Visualizer 1.9.0: interior finish on ui-foundation 0.14.0
+
+Gap closed: ui-foundation 0.13.2 had no environment, tone curve or AO, so the recipe used Drei and
+@react-three/postprocessing. 0.14.0 adds `Environment`, `Finish` and `PostEffects`; the reference
+demo and the recipe now use them (Drei kept for `Sky` and `RoundedBox`). Evidence: same views
+measured before and after (frame brightness and colourfulness within about 5% after tuning),
+41/41 browser checks, 14 model and 13 two-storey tests. Found and recorded: the studio environment
+needs intensity about 0.2 in interiors, GTAO halos at radius 0.5 / intensity 2, bloom haze at
+strength 0.5. Remaining ui-foundation gaps: no anti-aliasing or vignette in `PostEffects`; `Model`
+still has no fit-to-box or rotation. Frame time not re-measured reliably (load average 75–145).
+
+Also in 1.9.0 (user-reported: "can't fit between a couch and the stairs"): wall collision padded
+door jambs, so every doorway lost a wall thickness (0.7 m door -> 0.55 m clear for a 0.5 m walker);
+and nothing checked on-foot reachability, so furniture sealed five rooms in three traced
+apartments. Fixed the collision rule and the layouts, added a 5 cm grid flood-fill check; demo
+tests now 19/19 two-storey and route tests, 14/14 model, 41/41 browser, and a keyboard walk through
+the reported gap.
+User-reported ("the stairs is inside the wall"): loft B's stair was traced 5 mm into the bedroom wall,
+its glass side drew on the wall face, and automatic art was hung on the wall the stair runs along
+(it ignored stairs). Fixed the trace, added a stair-clear-of-walls validation (tested), excluded
+stair walls from art, and drew a wall-mounted rail on wall sides. 20/20 two-storey and route tests,
+41/41 browser checks.
+
+Independent critique loop (verification.md), run on request for the first time on this 3D work: 3
+rounds, a fresh critic each, 19 frames per round across four traced apartments. Round 1: 22
+defects; round 2: 21; round 3: 21. Confirmed and fixed: blank view on load, panelling floating over
+the mezzanine (decoration ran to the room height on walls that stop at the mezzanine), dashed
+mouldings (no anti-aliasing at DPR 1), door moulding z-fighting, stair fascia and glass, contact
+shadows, kitchen sparkles, marble, art, furniture spacing, start views, labels, controls. Not
+solved within the budget and recorded in the recipe: the stair head still reads as passing
+through the mezzanine edge, mirrors reflect nothing (capture taken before the room loaded), loft
+B toilet/vanity clearance, furniture spacing in loft B and three-bed, panelling edge light leaks,
+rug border aliasing, the exterior. Linked the critique loop from interactive.md and
+interior-finish.md. Browser checks 41/41, two-storey and route tests 20/20 after the fixes.

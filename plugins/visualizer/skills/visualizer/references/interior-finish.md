@@ -13,7 +13,10 @@ Checked 2026-11-17 on a three-room, 10 × 5 m layout (2 doors, 6 windows, 21 fur
 React 19.3, Three.js 0.186, React Three Fiber 9.8, Drei 10.7.9, @react-three/postprocessing 3.2.2
 (postprocessing 6.39.6, n8ao 2.1.0) and ui-foundation 0.13.2, in headless Chromium on an Apple
 M1 Max. Treat other versions, Safari, Firefox and real phones as unverified. The walkthrough
-checks from the floor-plan recipe all still passed with the finish applied.
+checks from the floor-plan recipe all still passed with the finish applied. The lighting and
+finishing below were then moved onto ui-foundation 0.14.0 (`Environment`, `Finish`,
+`PostEffects`), rechecked on the same views and on four traced apartments; Drei is still used for
+the sky and rounded boxes.
 
 ## When to use this, and when to bake
 Use it when the viewer walks freely and the sun, layout or furniture may change: everything here is
@@ -126,14 +129,18 @@ each floor an ordinary validated plan and add, around them:
   `stairs: [{ x, z, w, d, up }]`, where `up` is the direction you walk to climb, `open` lists the
   upper wall lines drawn as glass balustrade, and `doubleHeight` names the lower rooms that rise to
   the roof.
-- Validation per stair: it is wide enough to walk, its foot is reachable on the lower floor, and
-  its top lands in an upper room. A tracing mistake should name the stair, not fail later as "the
+- Validation per stair: it is wide enough to walk, it stands clear of every wall face (like
+  furniture; a first trace ran 5 mm into a wall and the treads cut into it), its foot is reachable on
+  the lower floor, and its top lands in an upper room. A tracing mistake should name the stair, not fail later as "the
   start is not in a room".
 - Walking: the walker carries a level. On a stair the floor height follows the flight, so the
   camera rises with it; the level flips at the halfway point. A stair can be entered only at its
   foot from below or its top from above; its sides are solid. Upstairs, collide with the upper
   plan's walls (balustrades stay solid) and with the stair hole, open only at its top edge, and
   refuse any step that leaves the upper rooms.
+- Treat each stair as a tall obstacle for wall decoration: no art on a wall the stair runs along
+  (the automatic placement hung a canvas there and the treads passed through it). On a side
+  against a wall, draw a wall-mounted handrail, not the glass side and rail of the open side.
 - Drawing: lower walls take the height of what is above them (the roof beside a double-height
   room, the upper floor elsewhere), so split wall runs at every room edge on both floors. Cut the
   stair hole out of the upper floor, put a deep fascia under each open edge, roof the single-storey
@@ -187,7 +194,7 @@ bounce. Fake the parts that matter:
 | Light | Settings that worked | Why |
 | --- | --- | --- |
 | Sun: one `directionalLight` with shadows | Intensity 3.4, warm white. Direction about 31° above the horizon, turned to face the main living windows. One sun cannot reach windows on opposite walls, so check sun only where windows face it. Shadow map 4096, bias −0.0003, normal bias 0.025. Fit the shadow camera to the house bounds plus a margin, and aim the target at the house centre (add the target to the scene). | A low sun reaches through the windows and draws patches on the floor. A loose shadow camera wastes resolution and makes edges soft and blotchy. |
-| Image-based fill | Drei `Environment` with `frames={1}` and `resolution={256}`, holding `Lightformer` panels: a warm one overhead at least twice the house's size, a dim cool one on the main window side and dim warm ones on the other three sides. Three panels on one axis (overhead, window side, opposite) leave walls at right angles to it dark brown and turn walls facing the cool panel blue-grey; that was fine for the checked layout only because all its windows faced one way. | Gives every surface soft light and gives metal and glass something to reflect, without downloading an HDRI. Rendered once, so it costs nothing per frame. |
+| Image-based fill | ui-foundation `<Environment intensity={0.2} />` (0.14+): its built-in neutral studio room, no asset. It is much brighter than a hand-built fill: 0.6 washed the rooms out (+40% frame brightness, colour flattened); 0.2 matched the earlier look within 5%. Without ui-foundation 0.14, use Drei `Environment frames={1}` with `Lightformer` panels on all sides (one on each axis leaves walls at right angles dark brown). | Gives every surface soft light and gives metal and glass something to reflect. Built once, so it costs nothing per frame. |
 | Sky and ground tint | `hemisphereLight`, sky blue-white over warm ground, intensity about 0.35. | Lifts the shadow side without flattening it. |
 | Ceiling "bounce" | Emissive on the ceiling material, about 0.32 of a warm white. | Without it the ceiling renders dark brown and the rooms feel like caves. |
 | Room fill | One point light per room at about 1.5 m, not near the ceiling, intensity 0.7, distance 8, decay 1.6. | A fill near the ceiling leaves a hot spot on it. |
@@ -234,27 +241,30 @@ Real models look better, but need a source whose licence allows the use, approve
 Load them with ui-foundation `Model` and scale each to its footprint.
 
 ## Post-processing
-Use one composer, and let it own tone mapping:
+Use ui-foundation 0.14's finishing (`/three`): one tone curve and one post chain.
 
 ```tsx
-<Scene canvasProps={{ flat: true, shadows: true, gl: { antialias: false } }}>  {/* flat: no renderer tone mapping */}
+<Scene canvasProps={{ flat: true, shadows: true, gl: { antialias: false } }}>
   …
-  <EffectComposer multisampling={0} enableNormalPass={false}>
-    <N8AO aoRadius={0.55} distanceFalloff={0.6} intensity={2.4} halfRes quality="high" />
-    <Bloom luminanceThreshold={1.1} intensity={0.55} mipmapBlur radius={0.7} />
-    <ToneMapping mode={ToneMappingMode.NEUTRAL} />
-    <Vignette offset={0.32} darkness={0.42} />
-    <SMAA />
-  </EffectComposer>
+  <Environment intensity={0.2} />
+  <Finish toneMapping="neutral" exposure={1} />
+  <PostEffects ambientOcclusion={{ radius: 0.25, intensity: 1 }} bloom={{ strength: 0.15, radius: 0.4, threshold: 1.4 }} />
 </Scene>
 ```
-- **AO** (N8AO) darkens corners, skirting lines and the floor under furniture: the biggest step
-  from "boxes" to "room". Half resolution is enough.
-- **Bloom** with a threshold above 1 blooms only emissive parts (lamps, downlights), not white walls.
-- **Neutral tone mapping** keeps the finishes close to their chosen colours.
-- **SMAA** smooths edges, since the composer runs with `multisampling={0}`. Leave canvas
-  antialiasing off too: the composer renders to its own targets, so it would only cost time.
-- Do not also mount ui-foundation's `Bloom`: it brings its own composer, and the two stack.
+- **AO** darkens corners, skirting lines and the floor under furniture: the biggest step from
+  "boxes" to "room". Keep it small in interiors: at radius 0.5 and intensity 2 it left grainy dark
+  halos along wall edges and blue fringes under the sideboard and coffee table; 0.25 and 1 gave
+  clean contact shading.
+- **Bloom** only on emissive parts: threshold 1.4 and strength about 0.15. At strength 0.5 the
+  whole frame hazed (+30% brightness).
+- **Neutral tone mapping** (`Finish`) keeps the finishes close to their chosen colours.
+- **Edges and vignette:** `PostEffects` has no anti-aliasing pass and no vignette. Edges were
+  acceptable at device pixel ratio 2; check them at 1x. If you need SMAA or a vignette, the
+  alternative is @react-three/postprocessing's `EffectComposer` instead of `PostEffects`, never
+  both: a Canvas has one post chain.
+- Do not also mount ui-foundation's `Bloom`: use `PostEffects`' `bloom`.
+- **Mirrors** reflect the environment: with this one a pale metal mirror reads as a glowing disc,
+  so use a dark grey metal (about `#5f666c`).
 - Mark overlays that must keep an exact colour, such as the hover glow on a floor, `toneMapped={false}`.
 
 ## The plan, finished to match
@@ -294,6 +304,53 @@ A hidden tab or hidden preview pane shows an empty canvas, because ui-foundation
 offscreen before the first frame is drawn. Show the pane before judging the look.
 
 ## Verify
+The checks below are yours; the look also needs eyes that did not build it. Run the
+[independent critique loop](verification.md#independent-critique-loop) on representative frames:
+the main rooms of each layout, a bathroom, the kitchen, the stairs from top and bottom, the whole
+page, and a phone-sized page. Give the critic the brief and the frames only. Your own review, and
+a fresh agent building from the recipe, test different things: neither replaces it.
+
+What three critique rounds on four traced apartments found, and the rule each one gave (checked
+2026-11-17; each fix confirmed in a re-render before the next round):
+- **A blank view on load.** On demand, nothing requested a frame once textures and models arrived,
+  so the canvas stayed empty until the first input. Request frames for the first 30 s after
+  mount (and when a model finishes fitting); 6 s was not enough with models loading.
+- **Dashed mouldings.** `PostEffects` has no anti-aliasing: a moulding's one-pixel highlight broke
+  into dashes at a device pixel ratio of 1. Render at 1.5x or more (`dpr: [1.5, 2]`) and give
+  mouldings real size (about 35 × 18 mm on doors, 40 mm strips on walls), standing 1.5 mm or more
+  proud of the surface beneath so they never z-fight.
+- **Decoration takes the wall's height, not the room's.** In a double-height room, panelling ran to
+  the roof line on walls that stop at the mezzanine floor and hung in mid-air there. Panel, hang
+  art and run mouldings only up to each wall's own top; never on an open (balustrade) edge, never
+  behind kitchen runs, fridges or tall pieces, and never on a wall a stair runs along.
+- **Stairs meeting a mezzanine.** Cut the edge fascia where the stair climbs through it; stop the
+  stair's own glass, rail and posts where the rail reaches the upper floor (the upper guard takes
+  over); trim the glass so its edge never drops below the stringer; give the open side posts.
+  Not solved here: in all three rounds the top of the flight still read as passing through the
+  mezzanine edge. Build a real landing and a trimmer beam at the stair head instead of a bare hole.
+- **Furniture that floats.** A soft dark contact shadow under each solid piece (a blurred rounded
+  rectangle, opacity about 0.6) grounds it where ambient occlusion alone did not.
+- **Sparkles and glowing discs.** Satin brass (roughness 0.45) on small hardware, honed marble
+  (roughness 0.2, clearcoat roughness 0.3) under downlights, downlights at emissive 2.5, bloom
+  threshold 2.2. A lit metal mirror disc either glows or goes black. A one-frame `CubeCamera`
+  capture taken at mount showed nothing (the room had not loaded yet); capture after models and
+  textures arrive, then check the mirror actually shows the room. Unsolved here.
+- **Fake marble.** Hand-drawn squiggles read as contour lines; vein it procedurally (sine of
+  coordinates plus multi-octave noise turbulence) with few soft drifts and many fine veins.
+- **Collisions a plan cannot show.** Cushions inside arms, a sectional's pieces at the corner, a
+  toilet under a vanity, chairs against a sofa back: re-check spacing after every layout change.
+- **First impressions.** Start each layout facing its best view (the windows), not a wall or a
+  picture at arm's length; shrink plan labels to fit their room; size buttons consistently.
+
+Remaining after round 3, the budget for one pass:
+- the stair head, mirrors, the loft B toilet and vanity, and furniture spacing in loft B and
+  three-bed came back after a fix, so they need a different construction, not more tuning;
+- panelling edges still catch light as if detached, and the inlaid rug border still aliases;
+- the exterior (flat lawn, simple trees, gradient sky) reads as a game behind tall windows and
+  needs an HDR backdrop or licensed tree models;
+- smaller gaps: an under-furnished upstairs bath, the kitchen hood and tall-unit joinery, the
+  art style, and plan labels that are too small on a phone.
+
 In addition to the floor-plan checks:
 - Sunlight falls through each window onto the floor, and nowhere else (check the roof slab).
 - Ceilings are pale, not brown; no hot spot on the ceiling above a fill light.
