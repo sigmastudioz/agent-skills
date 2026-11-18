@@ -14,6 +14,8 @@ the floor-plan map's layout into a lit, furnished interior live in the browser:
 - a luxury finish: tall divided windows, drapes, mouldings, ash and marble, brass, art, and
   bathrooms with marble cladding, a freestanding bath, a floating vanity and backlit mirrors,
   shaker kitchens with marble and a fluted island, tufted beds and picture-frame wall panelling;
+- panelled interior doors hung by one rule shared with the plan's swing arcs, and two-storey
+  lofts: a mezzanine level, walkable stairs, double-height rooms and a per-floor map;
 - real CC0 models (Poly Haven) loaded through ui-foundation `Model`, chosen by look, fitted in the
   piece's own frame, with shadows drawn once (92 ms to 13–16 ms per frame on the checked plan);
 - how to measure frame time without the two headless traps that give false numbers.

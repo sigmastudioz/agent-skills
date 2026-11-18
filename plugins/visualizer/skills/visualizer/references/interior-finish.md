@@ -113,6 +113,41 @@ largest difference, in order (checked on four traced apartment plans, same versi
   vanity top, not on a rail placed relative to another fitting: such a rail ran across the vanity in
   two of four bathrooms.
 
+**Doors.** A painted leaf with three raised panels a side and brass levers, standing open about 85°
+in every opening up to 1 m wide; wider openings stay open-plan with no leaf. Hang it by one rule
+that the 3D leaf and the plan's swing arc both read: open into a room rather than a hall or
+corridor, into the larger room between two rooms, hinged at the end nearer that room's corner so
+the open leaf rests near a wall. Merge each leaf's mouldings into one mesh. Draw swing arcs only for
+openings that get a leaf.
+
+**Two storeys.** A loft plan with a mezzanine needs a level per floor, not a taller ceiling. Keep
+each floor an ordinary validated plan and add, around them:
+- `upper: { elevation, rooms, doors, windows, furniture, open, doubleHeight }` and
+  `stairs: [{ x, z, w, d, up }]`, where `up` is the direction you walk to climb, `open` lists the
+  upper wall lines drawn as glass balustrade, and `doubleHeight` names the lower rooms that rise to
+  the roof.
+- Validation per stair: it is wide enough to walk, its foot is reachable on the lower floor, and
+  its top lands in an upper room. A tracing mistake should name the stair, not fail later as "the
+  start is not in a room".
+- Walking: the walker carries a level. On a stair the floor height follows the flight, so the
+  camera rises with it; the level flips at the halfway point. A stair can be entered only at its
+  foot from below or its top from above; its sides are solid. Upstairs, collide with the upper
+  plan's walls (balustrades stay solid) and with the stair hole, open only at its top edge, and
+  refuse any step that leaves the upper rooms.
+- Drawing: lower walls take the height of what is above them (the roof beside a double-height
+  room, the upper floor elsewhere), so split wall runs at every room edge on both floors. Cut the
+  stair hole out of the upper floor, put a deep fascia under each open edge, roof the single-storey
+  wing at the upper-floor level, and give each double-height room its tall windows (head about
+  5.2 m) while the upper floor gets its own.
+- The map shows one floor at a time with a Ground floor / Mezzanine switch. It follows the walker
+  once they step off the stairs, keeps the ground floor's bounds so it does not jump, draws the
+  ground floor faintly under the upper one, and lands plan clicks on the floor it shows. List every
+  room on both floors in "Go to".
+- Test it with the model (walk up, halfway height, walk down, no side entry, the mezzanine edge
+  holds, clicks land on the shown floor, a stair landing nowhere is rejected) and in the browser
+  by holding W from the foot of the stair. Checked 2026-11-17 on both traced lofts: the model
+  tests pass 13/13 and the browser climb reaches the mezzanine and comes back down, in both.
+
 Fit the outdoor context to the layout: shadow camera, sun distance, ground size and tree positions
 from the bounds. A demo that hardcodes them for one house puts trees inside the next.
 
