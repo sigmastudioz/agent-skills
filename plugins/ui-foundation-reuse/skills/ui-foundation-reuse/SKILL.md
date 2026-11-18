@@ -87,7 +87,7 @@ Subpaths below are relative to `@sigmastudioz/ui-foundation`. Confirm availabili
 | Audio-reactive and environmental effects | `/visualizer`, `/cymatics`, `/weather`; React Native: `/visualizer/native`: `Visualizer`, `createSmoothedAudioSource`, `EffectsProvider` (Skia renderer, no DOM or microphone access) |
 | React Native blur surfaces and remote images, with web counterparts | `/frosted-blur`, `/frosted-blur/native`: `FrostedBlur`, `resolveFrostedBlurType`; `/remote-image`, `/remote-image/native`: `RemoteImage`, `AnimatedRemoteImage`. Native entries accept app-injected blur/image backends; web entries render through the optional `react-native-web` peer and stay SSR-safe without it |
 | Rain beads and sliding drops refracting a blurred still image | `/rain-on-glass`: `RainOnGlass` |
-| 3D hosting, staging and models | `/three`: `Scene`, `World`, `Model`, `Float`, `GlassMaterial`, `Portal`, `ReflectiveFloor`, `SoftShadows`, `Bloom`, `Caustics`, `ExplodedAssembly`, `useSceneMotion`, `applyLightmap`. `Model` takes a baked `lightmap`, or `materials` to recolour named parts (`createMaterialVariants` for a scene you load yourself). `Model` and `Float` accept `onError` when their runtime cannot load. `World` then shows its install fallback. |
+| 3D hosting, staging and models | `/three`: `Scene`, `World`, `Model`, `Float`, `GlassMaterial`, `Portal`, `ReflectiveFloor`, `SoftShadows`, `Bloom`, `Caustics`, `ExplodedAssembly`, `Environment`, `Finish`, `PostEffects`, `useSceneMotion`, `applyLightmap`. `Model` takes a baked `lightmap`, or `materials` to recolour named parts (`createMaterialVariants` for a scene you load yourself). `Model` and `Float` accept `onError` when their runtime cannot load. `World` then shows its install fallback. |
 | Rigid-body scene content | `/physics`: `BallPit` loads `@react-three/rapier` on mount and accepts `onError`. `/physics/rapier`: `Physics`, `RigidBody`, `CuboidCollider`, `BallCollider`, `CapsuleCollider` (this subpath evaluates the peer at import). |
 | Shared lifecycle, visibility, interaction and quality policy | `/core`: `EffectsProvider`, `useEffectsSettings`, `useRafLoop`, `useReducedMotion`, `useInView`, `usePageVisible`, `useWebGLEffect`, `useScrollProgress`, `useInteraction`, `useAdaptiveQuality`, `useDragGesture` |
 
@@ -428,13 +428,15 @@ string, so it cannot swing hanging items. Pure helpers: `stepSwingRail`, `resolv
 `/core` `useDragGesture(options)` returns `{ handlers, pressed }`; spread `handlers` on the
 draggable element. It owns the rules every press-drag-release surface needs: one pointer at a
 time, a movement threshold (`slop`, 5 px on `axis` 'x' | 'y' | 'both') that separates a tap from
-a drag, pointer capture, a swallowed click after a drag, and descendants that keep their own
+a drag, pointer capture (`capture`: `'drag'` by default, so a tap's click still reaches a child
+control; `'press'` when children are replaced mid-gesture and the surface handles taps itself),
+a swallowed click after a drag, and descendants that keep their own
 clicks (`ignore`, default `DRAG_IGNORE`: links, buttons, form fields, `[data-drag-ignore]`).
 Callbacks: `onStart(sample, event)` (return `false` to refuse), `onMove`, `onEnd` (a tap when
 `sample.dragged` is false) and `onCancel`. A cancelled pointer (a touch the browser takes for
 a page scroll) or a lost capture calls `onCancel` and never `onEnd`, so it cannot be mistaken
 for a tap. `sample` carries `x`, `y`, `dx`, `dy`, `elapsedMs`, mean `velocityX`/`velocityY` in
-px/s, `dragged` and `pointerType`. `PageFlip` and `CardRing` use it; reach for it before writing
+px/s, `dragged` and `pointerType`. `PageFlip`, `CardRing`, `DiscCarousel` and `LanyardBadge` use it; reach for it before writing
 pointer handlers for a new draggable surface. Keyboard control stays with the component.
 
 ### Product configurator
@@ -444,10 +446,29 @@ three existing or small pieces; the page, options, prices and copy stay in the a
 
 - **Spin.** `/three` `Model src="/product.glb" fit orbit autoRotate={.35}` inside `Scene`:
   OrbitControls turns the camera, auto-rotation stops while the shopper drags, and reduced
-  motion, off-screen and hidden-tab states hold a still frame. Light the scene yourself
-  (hemisphere plus one or two directional lights); `SoftShadows` grounds it. There is no
-  environment map, so fully metallic finishes render near black: keep `metalness` at about .6
-  or bring your own environment.
+  motion, off-screen and hidden-tab states hold a still frame. `SoftShadows` grounds it.
+- **Light.** `<Environment />` lights the scene from a built-in neutral studio room (no asset),
+  or from your own equirectangular image with `src="/studio.hdr"` (`.hdr` or `.exr`):
+  `intensity` 0–10 (1), `background` to show it behind the scene with `blur` 0–1, `rotation`
+  in radians, `onError`. It is what gives metal and gloss something to reflect: a fully
+  metallic finish (`metalness: 1`) renders near black without it. It adds to the lights
+  already in the scene, so keep one or two directional lights for shape and lower them (the
+  playground uses 1.5 and .6 with `intensity={.9}`). `<Finish toneMapping="neutral" />` sets
+  the renderer's tone curve (`neutral` keeps brand colours closest to their swatches; `aces`
+  and `agx` are filmic; `none` clips) and `exposure` 0–8; one per scene. Both restore the
+  previous scene and renderer settings when removed. `<PostEffects ambientOcclusion
+  depthOfField={{ focus, aperture, maxBlur }} bloom />` adds lens finishing on one chain, in
+  that order, ending with the tone curve: ambient occlusion (`radius` in scene units, .4;
+  `intensity` 0–2) darkens creases and contact, depth of field keeps `focus` (distance from
+  the camera in scene units) sharp and blurs `aperture` of the frame per unit away from it up
+  to `maxBlur`, bloom glows around light above `threshold` (keep ordinary surfaces below 1
+  in linear light or raise it, or the whole frame washes out). `true` uses defaults;
+  `resolution` caps the buffers (2048). One per Canvas, at the root, and not together with
+  `<Bloom>` (use its `bloom` instead): a second chain reports through `onError`. With any
+  effect on, the tone curve also applies to the scene background, so a plain background
+  colour shifts slightly. Expensive: use `frameloop: 'demand'` for a still scene. Do not add `Environment` inside
+  `World`, which already has one, or over a `Model lightmap` scene you expect to match its
+  offline render (unlit baked surfaces ignore it; lit ones would be lit twice).
 - **Recolour.** `Model materials={{ Shell: { color, metalness, roughness, emissive,
   emissiveIntensity, opacity } }}`, keyed by glTF material name, else mesh name, so author the
   asset with one named material per recolourable part. Matched parts get their own material
