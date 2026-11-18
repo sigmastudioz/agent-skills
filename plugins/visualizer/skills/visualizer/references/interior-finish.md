@@ -304,6 +304,53 @@ A hidden tab or hidden preview pane shows an empty canvas, because ui-foundation
 offscreen before the first frame is drawn. Show the pane before judging the look.
 
 ## Verify
+The checks below are yours; the look also needs eyes that did not build it. Run the
+[independent critique loop](verification.md#independent-critique-loop) on representative frames:
+the main rooms of each layout, a bathroom, the kitchen, the stairs from top and bottom, the whole
+page, and a phone-sized page. Give the critic the brief and the frames only. Your own review, and
+a fresh agent building from the recipe, test different things: neither replaces it.
+
+What three critique rounds on four traced apartments found, and the rule each one gave (checked
+2026-11-17; each fix confirmed in a re-render before the next round):
+- **A blank view on load.** On demand, nothing requested a frame once textures and models arrived,
+  so the canvas stayed empty until the first input. Request frames for the first 30 s after
+  mount (and when a model finishes fitting); 6 s was not enough with models loading.
+- **Dashed mouldings.** `PostEffects` has no anti-aliasing: a moulding's one-pixel highlight broke
+  into dashes at a device pixel ratio of 1. Render at 1.5x or more (`dpr: [1.5, 2]`) and give
+  mouldings real size (about 35 × 18 mm on doors, 40 mm strips on walls), standing 1.5 mm or more
+  proud of the surface beneath so they never z-fight.
+- **Decoration takes the wall's height, not the room's.** In a double-height room, panelling ran to
+  the roof line on walls that stop at the mezzanine floor and hung in mid-air there. Panel, hang
+  art and run mouldings only up to each wall's own top; never on an open (balustrade) edge, never
+  behind kitchen runs, fridges or tall pieces, and never on a wall a stair runs along.
+- **Stairs meeting a mezzanine.** Cut the edge fascia where the stair climbs through it; stop the
+  stair's own glass, rail and posts where the rail reaches the upper floor (the upper guard takes
+  over); trim the glass so its edge never drops below the stringer; give the open side posts.
+  Not solved here: in all three rounds the top of the flight still read as passing through the
+  mezzanine edge. Build a real landing and a trimmer beam at the stair head instead of a bare hole.
+- **Furniture that floats.** A soft dark contact shadow under each solid piece (a blurred rounded
+  rectangle, opacity about 0.6) grounds it where ambient occlusion alone did not.
+- **Sparkles and glowing discs.** Satin brass (roughness 0.45) on small hardware, honed marble
+  (roughness 0.2, clearcoat roughness 0.3) under downlights, downlights at emissive 2.5, bloom
+  threshold 2.2. A lit metal mirror disc either glows or goes black. A one-frame `CubeCamera`
+  capture taken at mount showed nothing (the room had not loaded yet); capture after models and
+  textures arrive, then check the mirror actually shows the room. Unsolved here.
+- **Fake marble.** Hand-drawn squiggles read as contour lines; vein it procedurally (sine of
+  coordinates plus multi-octave noise turbulence) with few soft drifts and many fine veins.
+- **Collisions a plan cannot show.** Cushions inside arms, a sectional's pieces at the corner, a
+  toilet under a vanity, chairs against a sofa back: re-check spacing after every layout change.
+- **First impressions.** Start each layout facing its best view (the windows), not a wall or a
+  picture at arm's length; shrink plan labels to fit their room; size buttons consistently.
+
+Remaining after round 3, the budget for one pass:
+- the stair head, mirrors, the loft B toilet and vanity, and furniture spacing in loft B and
+  three-bed came back after a fix, so they need a different construction, not more tuning;
+- panelling edges still catch light as if detached, and the inlaid rug border still aliases;
+- the exterior (flat lawn, simple trees, gradient sky) reads as a game behind tall windows and
+  needs an HDR backdrop or licensed tree models;
+- smaller gaps: an under-furnished upstairs bath, the kitchen hood and tall-unit joinery, the
+  art style, and plan labels that are too small on a phone.
+
 In addition to the floor-plan checks:
 - Sunlight falls through each window onto the floor, and nowhere else (check the roof slab).
 - Ceilings are pale, not brown; no hot spot on the ceiling above a fill light.

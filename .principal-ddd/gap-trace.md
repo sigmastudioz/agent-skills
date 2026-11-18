@@ -778,3 +778,15 @@ its glass side drew on the wall face, and automatic art was hung on the wall the
 (it ignored stairs). Fixed the trace, added a stair-clear-of-walls validation (tested), excluded
 stair walls from art, and drew a wall-mounted rail on wall sides. 20/20 two-storey and route tests,
 41/41 browser checks.
+
+Independent critique loop (verification.md), run on request for the first time on this 3D work: 3
+rounds, a fresh critic each, 19 frames per round across four traced apartments. Round 1: 22
+defects; round 2: 21; round 3: 21. Confirmed and fixed: blank view on load, panelling floating over
+the mezzanine (decoration ran to the room height on walls that stop at the mezzanine), dashed
+mouldings (no anti-aliasing at DPR 1), door moulding z-fighting, stair fascia and glass, contact
+shadows, kitchen sparkles, marble, art, furniture spacing, start views, labels, controls. Not
+solved within the budget and recorded in the recipe: the stair head still reads as passing
+through the mezzanine edge, mirrors reflect nothing (capture taken before the room loaded), loft
+B toilet/vanity clearance, furniture spacing in loft B and three-bed, panelling edge light leaks,
+rug border aliasing, the exterior. Linked the critique loop from interactive.md and
+interior-finish.md. Browser checks 41/41, two-storey and route tests 20/20 after the fixes.

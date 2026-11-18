@@ -286,6 +286,10 @@ rooms overlapping by 7 cm, an opening touching a T junction). Trace furniture fr
 symbols. A plan with a mezzanine or stairs needs a level per floor, which this model does not have:
 trace the lower level and say what was left out.
 
+For the look of the 3D view and the plan, run the
+[independent critique loop](verification.md#independent-critique-loop) as well; the checks above
+cover behaviour, not appearance.
+
 How to test it: block WebGL by launching Chromium with `--disable-webgl --disable-3d-apis` (or by
 making `getContext` return `null` for WebGL), and expect R3F to log the context error. To push the
 view offscreen at phone size, insert a tall spacer above the panel in the test. Keep the view cone out of the marker group, or check the marker's dot rather than the group's
