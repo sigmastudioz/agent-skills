@@ -87,10 +87,34 @@ largest difference, in order (checked on four traced apartment plans, same versi
 Fit the outdoor context to the layout: shadow camera, sun distance, ground size and tree positions
 from the bounds. A demo that hardcodes them for one house puts trees inside the next.
 
-What still limits the look is furniture built from primitives. Poly Haven (CC0) offers sofas,
-chairs, tables, cabinets, lamps, chandeliers, plants and vases as glTF, at about 0.4–3 MB each for
-1k textures; it has no toilets, baths, basins or kitchen units, so those stay generated. Download
-only with the user's approval, and load with ui-foundation `Model`, scaled to each footprint.
+**Real models.** Primitives limit the furniture. Poly Haven (CC0) offers furniture, lights, plants
+and vases as glTF, about 0.4–3 MB each with 1k textures; it has no toilets, baths, basins or
+kitchen units, so those stay generated. Download only with the user's approval. Checked 2026-11-17
+with 15 models: choose by look, not availability. The mid-century lounge chair, a concrete-and-wood
+coffee table, tufted leather dining chairs, a potted plant, a shaded brass chandelier, a globe
+pendant, display shelves and brass or ceramic vases suited a modern loft. Its sofas (carved and
+chesterfield), console, nightstand, bar stool and tall side table are traditional or rustic and
+looked like a period house, so the generated pieces stayed. Render each candidate alone and look at
+it before placing it.
+
+Load each through ui-foundation `Model` (it takes one uniform `scale` and no rotation) inside a
+group that carries the piece's position and `facing`, then fit it:
+- Wait for the meshes: the bounds stay empty until the glTF arrives, which took several seconds
+  with all models loading at once. Give up only after about 30 s, and keep it hidden until fitted.
+- Measure in the group's own frame: combine each mesh's geometry bounds with the inverse of the
+  group's world matrix. `Box3.setFromObject` measures in world axes, which include the room position
+  and the rotation, so turned pieces are scaled and placed wrongly.
+- Scale uniformly to fit the footprint (and height, except plants), centre it, stand it on the
+  floor. Hang ceiling fittings from the ceiling, with a cord down to about 2.5 m.
+- Fall back to the generated piece if the model fails to load (an error boundary plus `onError`).
+
+**Draw shadows once.** With models, drapes and the larger luxury plan, re-rendering every object into
+the sun's shadow map each frame dominated: 92 ms per frame at 1440×810 2x on Residence 205 (a
+traced plan, 10 rooms, about 340k triangles). Nothing moves, so set `gl.shadowMap.autoUpdate =
+false`, set `needsUpdate = true` once, and again whenever a model finishes fitting. That gave
+13–16 ms at the same size (10–20 ms at 1x, 10–13 ms on a phone-sized canvas), measured on a busy
+machine with occasional long stalls. Remaining cost is mostly detailed models (each dining chair is
+22k triangles) and point lights; instance repeated chairs and cap lights per room before phones.
 
 ## Light
 Ceilings and walls facing away from the windows get no direct light, and realtime Three.js has no

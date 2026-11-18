@@ -743,6 +743,12 @@ removed soft shadows in three 0.186, rounded click coordinates, furniture inside
 rules, one sun for opposite windows, one-axis fill light, splashback under windows, corner overlap,
 unknown kinds, default facing, transmission cost, yaw drag rate. Also added tracing a plan image
 and a luxury finish, checked on four real apartment plans (one level each; mezzanines unsupported).
+Real furniture: 15 Poly Haven CC0 models (17 MB, user approved) loaded through ui-foundation `Model`
+and fitted to footprints; 8 kept by look, 7 rejected as traditional. Found and fixed a fitting bug
+(world-axis bounds) and a load-timeout bug in the demo; recorded both in the recipe. Live sun
+shadows cost 92 ms/frame at 2x on the luxury plan; static shadows brought it to 13–16 ms (noisy,
+busy machine). Gap for ui-foundation: `Model` has no fit-to-box, rotation or per-axis scale, so
+every consumer writes the same wrapper; candidate export, not added here.
 ui-foundation 0.13.2 has no environment, AO, tone-mapping or material exports, so the recipe uses
 Drei and @react-three/postprocessing; those library gaps are recorded for ui-foundation, not fixed
 here. Not verified: real phones, Safari, Firefox, long-session texture memory.
