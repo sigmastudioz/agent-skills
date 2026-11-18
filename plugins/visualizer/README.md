@@ -11,6 +11,11 @@ finishes with ui-foundation 0.14.0 (`Environment`, `Finish`, `PostEffects`) inst
 environment and @react-three/postprocessing, with the settings that matched the earlier look and
 the ones that caused washed-out frames, AO halos and haze.
 
+The [floor-plan map](skills/visualizer/references/interactive.md#recipe-live-floor-plan-map-beside-a-walkable-3d-space)
+recipe fixes a collision rule that made every doorway a wall thickness too narrow, and adds an
+on-foot reachability check: furniture placed too close (a sofa 40 cm from a stair) sealed off
+rooms that the door rules accepted.
+
 ## Changes in 1.8.0
 
 [Finishing a walkable interior](skills/visualizer/references/interior-finish.md) adds:

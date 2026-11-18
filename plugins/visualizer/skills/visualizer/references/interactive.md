@@ -145,11 +145,20 @@ Build the plan in a pure function. Round coordinates to millimetres first, so `0
 key the same wall line. Every room edge becomes a span on its line, spans on one line merge so
 shared walls appear once, and door widths are cut out. Reject the layout with a named reason when a
 value is not finite, a size is not positive, rooms overlap, furniture is not inside one room, a door
-breaks the rules above, a room cannot be reached from the start through doors, or a pose is not
+breaks the rules above, a room cannot be reached from the start through doors (and, once furniture
+is placed, on foot: see below), or a pose is not
 standable. The 3D walls, the SVG plan lines and collision all read the output, so the views cannot
 drift. A wall is one segment left after door cuts. Test the model on its own: the fixture's wall
 count and total wall length (merged line lengths minus door widths), no two walls overlapping on a
 line, and one invalid layout per rejection reason.
+
+**Walk every route, not just the doors.** Rooms joined by doors can still be sealed off by
+furniture: a sofa 40 cm from a stair, or a seating group boxing in a door, passes every room and
+door rule. Flood-fill standable points on a grid no coarser than 5 cm from the start (and from the
+top of each stair on an upper floor) and require every room's entry and every stair end to be
+reached. Keep walkways at least 0.9 m (the walker needs 2 × radius = 0.5 m, so anything under that
+is a wall). Checked 2026-11-17 on five layouts: before the fixes this found five sealed rooms in
+three traced apartments, one of them reported by a user walking the demo.
 
 **Plan units are world units.** Give the SVG `viewBox` the layout's bounds in metres and map world
 x → plan x, world z → plan y (both grow the same way). Placing the marker then needs no screen
@@ -190,7 +199,9 @@ redraw it when `camera.aspect` changes, not only on mount.
 **Walking.** These defaults gave a comfortable walk: speed 2.2 m/s, turn 1.8 rad/s, player radius
 0.25 m, eye height 1.6 m, vertical field of view 70°, yaw and pitch from a drag at 0.004 rad per pixel,
 clamped to ±1.1 rad. Collide against walls as rectangles extending half the wall thickness each
-side of the centre line, and against furniture rectangles. Move one axis at a time and undo an axis
+side of the centre line, and against furniture rectangles. Extend a wall's end by half a thickness
+only where it meets another wall (to close the corner); never at a door or window jamb, or every
+doorway loses a full wall thickness: a 0.7 m door left 0.55 m, and the 0.5 m walker stuck in it. Move one axis at a time and undo an axis
 that would hit, so the viewer slides along walls. Split a long frame into sub-steps of at most
 50 ms, so no single step can cross a wall, and cap the total catch-up at about 0.25 s for a tab
 returning from the background. Clamping the whole frame to 50 ms instead makes a slow device walk

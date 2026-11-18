@@ -766,3 +766,10 @@ measured before and after (frame brightness and colourfulness within about 5% af
 needs intensity about 0.2 in interiors, GTAO halos at radius 0.5 / intensity 2, bloom haze at
 strength 0.5. Remaining ui-foundation gaps: no anti-aliasing or vignette in `PostEffects`; `Model`
 still has no fit-to-box or rotation. Frame time not re-measured reliably (load average 75–145).
+
+Also in 1.9.0 (user-reported: "can't fit between a couch and the stairs"): wall collision padded
+door jambs, so every doorway lost a wall thickness (0.7 m door -> 0.55 m clear for a 0.5 m walker);
+and nothing checked on-foot reachability, so furniture sealed five rooms in three traced
+apartments. Fixed the collision rule and the layouts, added a 5 cm grid flood-fill check; demo
+tests now 19/19 two-storey and route tests, 14/14 model, 41/41 browser, and a keyboard walk through
+the reported gap.
