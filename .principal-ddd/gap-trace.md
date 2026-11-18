@@ -747,7 +747,10 @@ Real furniture: 15 Poly Haven CC0 models (17 MB, user approved) loaded through u
 and fitted to footprints; 8 kept by look, 7 rejected as traditional. Found and fixed a fitting bug
 (world-axis bounds) and a load-timeout bug in the demo; recorded both in the recipe. Live sun
 shadows cost 92 ms/frame at 2x on the luxury plan; static shadows brought it to 13–16 ms (noisy,
-busy machine). Gap for ui-foundation: `Model` has no fit-to-box, rotation or per-axis scale, so
+busy machine). Released as 1.8.0 (PR #40 merged at 02c7213 first): two storeys (user-reported: "stairs are not working or going to the top floors"): the
+model had one floor, so the lofts' stairs led nowhere. Added an upper level, walkable stairs and a
+per-floor map; 13/13 model tests and a browser climb up and down in both lofts. Frame time for the
+lofts was not measured reliably (machine load average 36–78 during the run). Gap for ui-foundation: `Model` has no fit-to-box, rotation or per-axis scale, so
 every consumer writes the same wrapper; candidate export, not added here.
 ui-foundation 0.13.2 has no environment, AO, tone-mapping or material exports, so the recipe uses
 Drei and @react-three/postprocessing; those library gaps are recorded for ui-foundation, not fixed

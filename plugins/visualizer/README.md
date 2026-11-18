@@ -1,8 +1,17 @@
 # SigmaStudioz Visualizer
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.7.0.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.8.0.
 
 Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.
+
+## Changes in 1.8.0
+
+[Finishing a walkable interior](skills/visualizer/references/interior-finish.md) adds:
+- panelled interior doors, hung by one rule that the plan's swing arcs share;
+- two-storey walkthroughs: a mezzanine level, walkable stairs (the floor height follows the flight,
+  with no side entry and a guarded hole upstairs), double-height rooms, and a per-floor map that
+  follows the walker. Checked on both traced lofts: 13/13 model tests and a browser climb up and
+  down.
 
 ## Changes in 1.7.0
 
