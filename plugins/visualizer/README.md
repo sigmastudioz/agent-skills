@@ -1,8 +1,28 @@
 # SigmaStudioz Visualizer
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.6.0.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.7.0.
 
 Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.
+
+## Changes in 1.7.0
+
+Adds [finishing a walkable interior](skills/visualizer/references/interior-finish.md), which turns
+the floor-plan map's layout into a lit, furnished interior live in the browser:
+- windows the sun shines through, generated wood, tile, plaster and marble, and furniture fitted to
+  each footprint;
+- image-based fill light, ambient occlusion, bloom and an architectural plan;
+- a luxury finish: tall divided windows, drapes, mouldings, ash and marble, brass, art, and
+  bathrooms with marble cladding, a freestanding bath, a floating vanity and backlit mirrors,
+  shaker kitchens with marble and a fluted island, tufted beds and picture-frame wall panelling;
+- real CC0 models (Poly Haven) loaded through ui-foundation `Model`, chosen by look, fitted in the
+  piece's own frame, with shadows drawn once (92 ms to 13–16 ms per frame on the checked plan);
+- how to measure frame time without the two headless traps that give false numbers.
+
+The [floor-plan map](skills/visualizer/references/interactive.md#recipe-live-floor-plan-map-beside-a-walkable-3d-space)
+recipe gains tracing a marketing floor-plan image into a layout (checked on four real plans; one
+level each), sub-pixel click coordinates and a yaw drag rate. A fresh agent built a working
+finished walkthrough from the two recipes alone; an independent checker passed it 34/34, and its
+14 reported gaps are fixed.
 
 ## Changes in 1.6.0
 

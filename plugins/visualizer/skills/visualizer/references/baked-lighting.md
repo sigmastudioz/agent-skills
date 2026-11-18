@@ -19,7 +19,8 @@ strip): Blender 5.2.3 Cycles, a 1024 px lightmap, glTF export, Three.js 0.186, R
   lights cost real frame time.
 
 Do not bake a scene whose lights, layout or time of day change, and do not bake moving objects.
-Keep those live, and light them cheaply (see reflections below).
+Keep those live, and light them cheaply (see reflections below). For a walkable interior lit live
+throughout, see [finishing a walkable interior](interior-finish.md).
 
 ## Bake a lightmap in Blender
 1. Give the static meshes a **second UV set** for the lightmap, with every face in its own space

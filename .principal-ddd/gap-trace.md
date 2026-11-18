@@ -729,3 +729,27 @@ wording.
 Not verified: real touch devices, real macOS key events (simulated), Safari and Firefox, and loss
 and restore of a WebGL context mid-session.
 
+Follow-up gap, released as 1.7.0 (PR #39 had merged at 58c61ad first): nothing covered a live, browser-only interior look; the recipe gave
+grey boxes and baked lighting covers only the Blender path. Added `references/interior-finish.md`
+(windows, surfaces, fitted furniture, light, post-processing, architectural plan, frame-time
+measurement), linked from SKILL.md, the floor-plan recipe, baked lighting and verification. Evidence:
+the finished demo passes 14 model tests and 41 browser checks; frame time 6.5 ms median at
+1440x810 2x, 2.6 ms at 390x844, about 450 draw calls (headless Chromium, Apple M1 Max, vsync off;
+9.9 ms before dropping transmission glass). A fresh agent given only the two recipes built a
+working finished walkthrough of a new four-room layout; an independent hook-only checker passed it
+34/34 (after two checker assumptions were corrected: the marker group held the view cone, and the
+reduced-motion walk faced a table). Its 14 reported gaps were checked and fixed in the recipes:
+removed soft shadows in three 0.186, rounded click coordinates, furniture inside wall faces, window
+rules, one sun for opposite windows, one-axis fill light, splashback under windows, corner overlap,
+unknown kinds, default facing, transmission cost, yaw drag rate. Also added tracing a plan image
+and a luxury finish, checked on four real apartment plans (one level each; mezzanines unsupported).
+Real furniture: 15 Poly Haven CC0 models (17 MB, user approved) loaded through ui-foundation `Model`
+and fitted to footprints; 8 kept by look, 7 rejected as traditional. Found and fixed a fitting bug
+(world-axis bounds) and a load-timeout bug in the demo; recorded both in the recipe. Live sun
+shadows cost 92 ms/frame at 2x on the luxury plan; static shadows brought it to 13–16 ms (noisy,
+busy machine). Gap for ui-foundation: `Model` has no fit-to-box, rotation or per-axis scale, so
+every consumer writes the same wrapper; candidate export, not added here.
+ui-foundation 0.13.2 has no environment, AO, tone-mapping or material exports, so the recipe uses
+Drei and @react-three/postprocessing; those library gaps are recorded for ui-foundation, not fixed
+here. Not verified: real phones, Safari, Firefox, long-session texture memory.
+
