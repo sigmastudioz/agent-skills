@@ -87,6 +87,7 @@ await reviewer activation. Cursor, Codex and Antigravity publication is not yet 
 | [Engineering Spikes](plugins/engineering-spikes/README.md) | Timeboxed research, evidence and gap tracing, separate stakeholder and technical documents | 1.0.0 |
 | [Does It Make Sense?](plugins/does-it-make-sense/README.md) | Trace an actual build back to its end goal and recommend bounded, evidence-backed refinements | 1.0.3 |
 | [Returncraft](plugins/app-retention/README.md) | Fair onboarding, return habits, ranking, upgrade timing and measured retention experiments | 1.1.1 |
+| [Senior Digital Skills Class](plugins/senior-digital-skills/README.md) | Plan, fund, run and measure a hands-on phone-skills class for older adults, with learner-safety boundaries | 1.0.0 |
 | [Delegating to Agents](plugins/delegating-to-agents/README.md) | Hand work to Codex, Cursor, Pi or other agent CLIs with a full brief, isolation, watchable progress and results reported back | 1.0.1 |
 
 ### Visual creation and analysis
@@ -105,6 +106,7 @@ Install UI Foundation Reuse with `npx skills add sigmastudioz/agent-skills --ski
 Install Tony Stark with `npx skills add sigmastudioz/agent-skills --skill what-if-tony-stark-built-this`
 or Returncraft with `npx skills add sigmastudioz/agent-skills --skill app-retention`.
 Tony Stark's optional comparison runner requires Python 3.10+ and inspected, authorized local code.
+Install the Senior Digital Skills Class with `npx skills add sigmastudioz/agent-skills --skill senior-digital-skills`; it is guidance only.
 Returncraft is guidance only. Official directory review and activation are separate.
 
 Install either visual skill with `npx skills add sigmastudioz/agent-skills --skill visualizer` or
