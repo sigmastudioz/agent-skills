@@ -729,3 +729,13 @@ wording.
 Not verified: real touch devices, real macOS key events (simulated), Safari and Firefox, and loss
 and restore of a WebGL context mid-session.
 
+Follow-up gap, same release: nothing covered a live, browser-only interior look; the recipe gave
+grey boxes and baked lighting covers only the Blender path. Added `references/interior-finish.md`
+(windows, surfaces, fitted furniture, light, post-processing, architectural plan, frame-time
+measurement), linked from SKILL.md, the floor-plan recipe, baked lighting and verification. Evidence:
+the finished demo passes 14 model tests and 41 browser checks; frame time 9.9 ms median at
+1440x810 2x, 3.7 ms at 390x844, about 500 draw calls (headless Chromium, Apple M1 Max, vsync off).
+ui-foundation 0.13.2 has no environment, AO, tone-mapping or material exports, so the recipe uses
+Drei and @react-three/postprocessing; those library gaps are recorded for ui-foundation, not fixed
+here. Not verified: real phones, Safari, Firefox, long-session texture memory.
+

@@ -45,7 +45,9 @@ not proof that a fresh model chose the skill or produced a good artifact.
 
 Measure realistic data size, device, resolution and operating state when reporting performance.
 Frame pacing, responsiveness, memory and export time are different metrics. Describe the tested
-budget and limits; do not turn one desktop result into a universal 60fps or scale claim.
+budget and limits; do not turn one desktop result into a universal 60fps or scale claim. Headless
+Chromium caps frames at 30 fps and a post-processing composer resets `renderer.info` per pass; see
+[measuring frame time](interior-finish.md#budget-and-how-to-measure-it) before trusting either number.
 Inspect representative frames at viewing size and export size, with sound if available. Record
 audio measurements separately from listening and accessibility checks; don't infer unheard speech.
 

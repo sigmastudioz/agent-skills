@@ -13,6 +13,12 @@ validated layout drives the walls, the plan and collision. The plan, status and 
 working with the 3D view offscreen or WebGL unavailable. Two fresh agents built working versions
 from the recipe alone, each passing an independent browser checker.
 
+Adds [finishing a walkable interior](skills/visualizer/references/interior-finish.md): turns the
+same layout into a lit, furnished room live in the browser, with windows the sun shines through,
+generated wood, tile and plaster, furniture fitted to each footprint, image-based fill light,
+ambient occlusion and bloom, an architectural plan, and how to measure frame time without the two
+headless traps that give false numbers.
+
 Corrects the [React Three Fiber](skills/visualizer/references/react-three-fiber.md) reference: in
 React Three Fiber 9 the Canvas `fallback` does not handle a failed WebGL context; an error boundary
 does.

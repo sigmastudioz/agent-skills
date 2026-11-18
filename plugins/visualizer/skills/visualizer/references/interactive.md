@@ -268,3 +268,6 @@ Also check that a hold-to-walk button still walks with the view offscreen and wi
 
 In the check above, every one of these passed. Run against the first version of this recipe, the
 offscreen, WebGL-blocked, stuck-key, "Go to"-under-furniture and landscape checks each failed.
+
+To turn the grey rooms into a lit, furnished interior (windows, surfaces, furniture, light and
+post-processing from the same layout), continue with [finishing a walkable interior](interior-finish.md).

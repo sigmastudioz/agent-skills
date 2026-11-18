@@ -20,6 +20,7 @@ interactive and video modes; do only the modes the user needs.
 | Produce a linear explanation film | [Video and sound](references/video.md), including [feedback and learning](references/learning.md), then its conditional direction/export references | Playable video, captions, editable sources |
 | React 3D scenes, reusable components or R3F migration | [React Three Fiber](references/react-three-fiber.md) | Composable scene, explicit clock and verified lifecycle |
 | Rich motion, spatial scenes or shaders | [Art and rendering](references/rendering.md) | A renderer appropriate to the visual mechanism |
+| A lit, furnished walkable interior, live in the browser | [Interior finish](references/interior-finish.md) | Windows, surfaces, furniture, light and post built from one layout, with measured frame time |
 | Soft lighting for a static 3D scene on a browser budget | [Baked lighting](references/baked-lighting.md) | A lightmapped scene checked against an offline reference |
 | Any substantial artifact | [Trace and verify](references/verification.md) | Evidence, repaired gaps and explicit remaining limits |
 
