@@ -33,8 +33,13 @@ from a visible contradiction and use another frame to check it.
 
 For each shot, identify the actual character, prop, world and composition asset IDs, their versions
 and intended roles. Reuse those IDs across shots instead of redescribing identity independently.
-Map them to supported renderer/provider inputs at execution time. Labels such as “Element 1” in
-a tutorial are not universal API fields. A common reference or seed can help but does not guarantee
+When a generated shot has two or more characters, write the IDs into the prompt as a cast block
+(one tag per character, its reference role, its screen side, actions bound to tags, a lock against
+swaps); generative-shot-craft's prompt templates have the format.
+Describe each anchor's identity in outcome language (face, proportions, costume, markings) in the
+project record, then map the anchors to the chosen renderer/provider's inputs at execution time.
+Labels such as “Element 1”, “@image2” or a platform's saved-character ID are one tool's dialect, not
+universal API fields; record the mapping with the attempt so the shot can be moved to another tool. A common reference or seed can help but does not guarantee
 identity, geography, timing or continuity. Reference-only sheets should not appear as collages in
 the returned film; supply a separate composed start frame when supported and useful.
 
@@ -52,7 +57,8 @@ Use stable shot IDs and the master film timebase. For each shot specify:
 - First pose/composition, one principal action and an observable final state.
 - Subject motion, camera motion and environment response separately.
 - Incoming/outgoing continuity: screen direction, eyeline, pose, prop state, light and geography.
-- Exact source/reference IDs, selected model/renderer settings, prompt revision and returned asset.
+- Exact source/reference IDs, the model or renderer chosen at run time with its version and date,
+  settings, prompt revision and returned asset.
 
 Prefer a few legible actions to contradictory simultaneous events. A hand reaching a lever needs
 plausible contact before the mechanism responds. A camera push cannot replace that articulation.
