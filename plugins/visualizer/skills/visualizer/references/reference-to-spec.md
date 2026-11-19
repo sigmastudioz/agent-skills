@@ -67,21 +67,27 @@ to bind anchor versions and review actual shot-to-shot identity, action and geog
 | --- | --- |
 | Exact diagrams, code or metric cards | Existing project renderer or bundled [storyboard renderer](storyboards.md); map shot duration, copy and supported primitives. Its graph/code/metrics/end schema is narrower than this specification. Do not pass camera/material fields as if it implements them. |
 | Designed vector/type or spatial motion | Existing SVG/canvas/motion-code or R3F/Three.js path; convert beats into explicit-time transforms and camera tracks. Discover compatible UI Foundation effects before building equivalents; verify seeking/export support. |
-| Authorized generated imagery or footage | Prepare original/authorized anchors and a prompt per shot. Check the actual provider's available inputs, length, aspect, sound and cost before invoking it; use supported controls, not options inferred from a tutorial. |
+| Authorized generated imagery or footage | Prepare original/authorized anchors and a tool-neutral prompt per shot. Choose the current best model for the shot's job at run time (user preference first, else a fixed comparison test); check its actual inputs, length, aspect, sound and cost before invoking it; use supported controls, not options inferred from a tutorial. |
 
 For a generation handoff, translate a shot into these sections as useful, rather than submitting a
-whole montage as one contradictory prompt:
+whole montage as one contradictory prompt. The sections are the universal layer: outcome language that
+names no model, so the same shot can move to another provider unchanged.
 
 ```text
 SCENE CONTEXT: original subject, action, visual style and the shot's purpose.
 SPACE / APPEARANCE: foreground, subject, background, material, palette and lighting.
 START / ANCHORS: first composition and supplied asset IDs with their intended roles.
-MOTION / BEATS: subject motion, environment response, camera motion, ordered actions and holds.
+MOTION / BEATS: subject motion, environment response, ordered actions and holds.
+CAMERA: one move, its speed, the framing it ends on and a lock line naming the moves it must not become.
 END / CONTINUITY: final state and what the next shot must inherit.
 SOUND / FINISH: chosen sound mode; exact text or effects to add in the controlled finishing pass.
 ```
 
-Adapt wording to the provider. An input image can already define appearance; concentrate the motion
+Apply the provider dialect last, as a separate step: reference-role syntax, prompt length, negative
+fields, preset toggles and any wording a dated test showed working on that model. Record the dialect
+choices with the attempt; do not edit the universal sections to suit one model. generative-shot-craft's
+camera-moves reference, when installed, has the camera block, rules that held across models and dated
+per-model wording. An input image can already define appearance; concentrate the motion
 prompt on what changes instead of describing a conflicting scene. Use supported start/end frames
 or references when helpful, without assuming they guarantee identity or timing. Keep required labels,
 logos, data and precisely timed type in a controlled overlay when generation cannot preserve them.
@@ -107,8 +113,10 @@ A prepared prompt, attractive frame or successful encode alone does not complete
 
 ## Optional provider references
 
-These are implementation references, not required accounts or bundled integrations. Recheck current
-capabilities before use; installing this skill does not provision any provider.
+These are dialect sources for specific providers, not required accounts, bundled integrations or
+universal rules. Each describes one vendor's models at the time it was written; recheck it and the
+current model list before use. The links were not rechecked in the 2026-11-19 revision of this file.
+Installing this skill does not provision any provider.
 
 - [Google DeepMind prompting guide](https://deepmind.google/models/veo/prompt-guide/): framing,
   camera movement, style, light, action and scene detail.

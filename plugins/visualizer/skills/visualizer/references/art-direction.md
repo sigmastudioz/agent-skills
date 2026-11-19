@@ -48,6 +48,9 @@ an artifact: bind shot evidence, spatial staging, motion beats and renderer deci
   advection, spline deformation, masks, or particles instead of noisy displacement everywhere.
 - For generated scenes, retain a character/style sheet and location/keyframe anchors. Specify motion
   separately from appearance; reject identity, scale, lighting, or geography drift across shots.
+  Write appearance, motion and camera as what the viewer sees, naming no model; choose the model at
+  run time and keep its wording quirks as dated notes with the attempt (see the
+  [timed specification](reference-to-spec.md#adapt-the-same-shot-to-the-selected-renderer)).
 - Render an original hero/mechanism/payoff style-frame set and a short motion study before the film.
   Compare at phone and export size; inspect contacts/transitions, not just the most attractive still.
 - Review composition, material separation, motion, camera, legibility, and sound-picture fit separately.
@@ -70,4 +73,7 @@ name into decisions the build can verify, then confirm it against the brief and 
 | Paper or felt craft | Fibres, stitch lines, soft shadows | Stop-motion on 2s | Muted, tactile | Tabletop, shallow depth |
 | Mirror ink | A two-tone blot: seeded fractal noise, thresholded to a hard edge, mirrored about the vertical centre line, with a falloff that keeps it inside the frame | Slow drift of the noise; no cuts mid-shape | Near-black ink on white; no mid-tones, no outline | Static, centred on the mirror line |
 
-Record the chosen look and its decisions in the timed spec so every shot inherits them.
+Record the chosen look and its decisions in the timed spec so every shot inherits them. When a look
+goes to an image or video model, send the row's decisions as descriptors, never the look's name or an
+artist's name alone; a model's built-in style preset of the same name is a dialect to test against the
+row, not a substitute for it.

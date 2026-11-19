@@ -587,6 +587,10 @@ means compose app-owned CSS, type, layout or artwork; do not claim an effect exi
 | Retro gorpcore | outdoor-gear palette, utilitarian labels | No export; app-owned tokens/type |
 | Art deco | geometric symmetry, gold lines, fans | `/shape-pattern` (`arcs`, `rings`, `chevron`); ornament/type is app-owned |
 | Swiss | grid, sans-serif, asymmetric layout | No export; app-owned layout/type |
+| Liquid glass cards | frosted refractive panels, rainbow edge light, stacked cards | `/liquid-glass` over live DOM; `/refractive-glass` for true refraction over an image or video |
+| Fluted / ripple glass | figure seen through reeded or wet glass, broken into droplets | `/fluted-glass`; `RefractiveGlass` over media |
+| Grain gradient | soft blurred multi-colour field, film grain, brand-mark centred | `/gradient` plus `Grain`; the brand mark and type are app-owned |
+| Editorial lookbook commerce | large model imagery, thin serif or grotesk, wide margins, product rail | No export; app-owned layout, type and product grid |
 
 ## UX-laws critique pass
 
