@@ -30,6 +30,27 @@ Use narrow exclusions where needed; do not blanket-ignore all `.principal-ddd/` 
 shared findings or handoffs. Track durable non-sensitive records according to repository policy;
 exclude only identified local/private/generated material. Do not change access or retention rules.
 
+## Keep records readable
+
+A ledger is useful only while the next agent can read the part it needs. Large ledgers and
+evidence trees have grown past that point in practice, so keep them within explicit budgets.
+
+- Start every finding entry with its stable ID and status, then one sentence of impact. Put hashes,
+  commands and paths in a short evidence line, not inside run-on prose. Do not paste preimages,
+  full logs or file bodies; link the receipt or archive by identity.
+- Close a finding by its ID with the closing check. A later entry that supersedes it must name it.
+  Run a periodic status pass that reconciles open IDs with Git, deploy and runtime state.
+- Keep each `index.md` entry to one line.
+- When the active ledger passes its budget, move closed sections to a dated archive file with a
+  forwarding note, keeping open items and current decisions in the active ledger. Preserve IDs and
+  heading anchors that other records link to.
+- Default budgets, unless the repository sets its own: active ledger 3,000 lines, any single
+  record file 1 MiB, the whole `.principal-ddd/` tree 25 MiB. Large evidence belongs in CI or
+  release receipts or an external archive referenced by checksum, not in Git.
+- Enforce the budget with the repository's existing commit or CI gate where one exists. An optional
+  read-only checker is distributed separately in the skill's source repository
+  (`tools/records-budget/`); do not download or install it merely to use this skill.
+
 ## Migrate existing projects only within authorized scope
 
 A skill update defines future behavior; it does not authorize a sweep of every local repository.

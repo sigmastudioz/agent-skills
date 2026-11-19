@@ -125,6 +125,7 @@ small local fixes do not require every architectural example in context.
 | Measured performance, resource budgets and scaling | [8. Performance](references/architecture.md#8-make-performance-and-scale-evidence-driven) |
 | Authorization, tenant isolation and operational recovery | [9. Security](references/architecture.md#9-preserve-security-and-operability-at-boundaries) |
 | Refactoring, compatibility and migrations | [10. Safe evolution](references/architecture.md#10-evolve-existing-projects-safely) |
+| Boot, shutdown, deploy, release branches, alerts and manual production operations | [Operations](references/operations.md) |
 
 ## Find gaps, keep records, verify
 
@@ -147,6 +148,9 @@ artifacts or archiving superseded evidence, read
 [evidence retention and archival](references/gap-tracing.md#evidence-retention-and-archival).
 
 Acceptance evidence must apply to the final relevant content and execution environment; reuse never
-waives mandatory checks or turns partial or stale evidence into a pass. Before finishing substantial
+waives mandatory checks or turns partial or stale evidence into a pass. Read every reported state
+(deployed, saved, installed, absent, passed) back from the target that holds it, not from an exit
+code, release number, acknowledgement or narration, and trust a gate only after seeing it fail.
+Before finishing substantial
 work, reusing earlier check results or reporting completion, read
 [verification](references/verification.md) and work through its completion checklist.

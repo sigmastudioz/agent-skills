@@ -172,6 +172,17 @@ boundary. Do not introduce a new architecture toolchain for an isolated low-impa
 - Treat IDs, authorization context, and tenant scope as explicit inputs at trust boundaries.
 - Keep public contracts small and version-compatible; consumers should not depend on ORM entities.
 - Design queries for consumer needs without granting consumers ownership of another domain's writes.
+- Model unknown, unpriced, missing and not-yet-measured as explicit states. Never fill them with
+  zero, a constant, a random value or a placeholder in production paths; mechanically scan for
+  `random`, stub and placeholder values in shipped data paths.
+- Emit a reason code at the branch that rejects, defers or holds; do not re-derive it later from
+  the outcome. Keep counters for different causes separate, and keep "waiting" distinct from
+  "failed" and "empty" distinct from "partial". Success states come only from a confirmed effect.
+- Classify events and routes with exact or anchored matches and one emitter per canonical event;
+  substring matching merges distinct meanings. Version metric definitions, record the experiment
+  arm and the serving model/version on each outcome row, and treat history before a fix as suspect.
+- Use wall-clock time for user-facing idle, expiry and schedule durations; a monotonic clock stops
+  while the machine sleeps.
 
 ## 6. Reuse without erasing ownership
 
@@ -243,6 +254,20 @@ scope; propose a wider consolidation separately when it would require unrelated 
 - Do not claim exactly-once effects from an acknowledgement or a process-local deduplication set.
 - Model long workflows with explicit states and compensations where atomic transactions cannot apply.
 - Version persisted events and public schemas; account for older consumers and replay behavior.
+- Transport and client retries apply only to idempotent operations; a committed mutation (a payment,
+  a send) must not be replayed by a link-level retry. Claim work atomically before an external
+  effect; a lease is not a delivery receipt.
+- A create that persists and then fails must be idempotent or must report the persisted result, or
+  users retry it into duplicates. Record intent before a remote write and settle an interrupted
+  write from the provider's state on the next observation.
+- Count holds separately from failures and from the crash-retry budget. Back off holds to a ceiling,
+  re-arm them from the event that clears them, and do the cheap metadata check before fetching bytes.
+- When a durable monitor's peaks, baselines or fingerprints change definition, version the store in
+  the same change; old peaks keep firing after the fix ships.
+- Publish installs and generated files by writing to scratch and moving into place atomically.
+- Before writing to an external system without version control (a SaaS admin, a CMS, a store
+  theme), fetch its current state, merge into it, save, read the saved state back and record a
+  rollback identity. Never write back configuration read from masked display output.
 
 Use these techniques when the workflow needs them; do not add a queue, event bus, CQRS, saga,
 or event sourcing merely to appear scalable. CQRS can be separate functions over one database.
@@ -255,7 +280,7 @@ Recurring project concerns to recognize when relevant:
 | Trading and execution | Explicit live/simulated modes, risk limits, stale-data checks, replayable decisions |
 | Broadcast and playback | Resource ownership, lifecycle cleanup, bounded buffering, timing and device failures |
 | Multi-app workflows | Stable contracts, per-consumer permissions, compatible releases, explicit handoff state |
-| Agent orchestration | Durable job identity, cancellation, bounded concurrency, recoverable ownership |
+| Agent orchestration | Durable job identity, cancellation, bounded concurrency, recoverable ownership; actions replayed and reported from tool receipts, never from the model's narration |
 
 These are prompts to inspect actual requirements, not assumptions about every project.
 
@@ -270,6 +295,18 @@ memory, startup, bundle size, query count, freshness, or infrastructure cost. St
 - Bound concurrency, queues, buffers, retries, and resource lifetimes; use cancellation and backpressure.
 - Cache only with an ownership, tenant isolation, freshness, invalidation, and failure policy.
 - Keep blocking CPU work off latency-sensitive event loops; isolate it only when measured need warrants it.
+  Blocking filesystem, subprocess and network waits belong off the loop as well.
+- Move slow provider or model calls out of the user's request into a durable job with a reconcile
+  sweep for stranded states. Give internal work (warm-ups, background jobs) its own quota and a
+  lower priority than user work; it must not consume user-facing limits or a single shared slot.
+- Tie every async completion to its owner's lifetime or a request token, and drop results whose
+  owner was replaced, unmounted or timed out. On timeout, cancel or read back before retrying.
+- Compare inputs before reallocating or re-rendering; skip no-op updates. Pace render loops to a
+  target cadence and stress-measure before and after.
+- Split hot mutable state from append-only history; rewriting a growing document every tick is
+  write amplification. Partition ownership before claiming more workers add throughput.
+- Put a hard spend cap and a watchdog on paid compute; an idle rented machine bills whether or
+  not it produces work. Confirm nothing is left running before ending the task.
 - Profile hot paths before adding memoization, parallelism, infrastructure, or distributed services.
 - Check shared-package imports for runtime compatibility, tree shaking, and bundle consequences.
 - Identify the next bottleneck and operational trigger before proposing independent scaling.
@@ -284,6 +321,30 @@ Record actual before/after evidence for performance claims; do not equate fewer 
 Enforce authorization and tenant isolation on the server at every relevant entrypoint, including
 workers and internal APIs. UI visibility is not authorization. Validate file, URL, and provider input
 where it crosses a trust boundary. Scope credentials and redact sensitive operational data.
+
+Patterns that have failed in practice:
+
+- **Fail closed.** Security switches treat unknown or mistyped values as off. Child processes get an
+  environment built from an allowlist; a denylist lets loader variables such as `DYLD_INSERT_LIBRARIES`
+  or `BASH_ENV` through.
+- **Every transport.** Enforce authentication below the transport layer; a gate installed as one
+  transport's plugin leaves websocket, queue, IPC and internal entrypoints open.
+- **Identity from the platform.** Derive the caller from the platform (uid, signature, session),
+  never from a name it supplies. Exported OS services and IPC endpoints deny by default.
+- **Throttles are not lockout tools.** Key limits by subject and source, reserve before the work,
+  and release only that request's reservation; one success must not clear other failures.
+- **One step-up gate for every credential write.** Enumerate every path that adds a factor, passkey,
+  key or recovery contact and put all of them behind the same fresh-authentication check.
+- **Public projections.** Serialize responses through an explicit public view; internal records leak
+  control URLs and identifiers. Strip credentials and signed URLs from exception text before logging.
+- **No authority fallback.** Offline or cache fallback never applies to authorization failures.
+- **Least privilege from observed use.** Size an application identity's privileges from the commands
+  it is observed to use and keep a separate administrative identity.
+- **Ingress end to end.** Verify signed webhooks and provider callbacks from the provider's side;
+  an edge challenge or firewall in front of the signature check drops them silently.
+
+Operational lifecycle (boot, shutdown, reboot, release and manual operations) is in
+[operations](operations.md).
 
 Propagate correlation, causation, job, or trace identifiers across asynchronous and service boundaries.
 Record meaningful domain outcomes, failures, retries, and durations using existing observability.

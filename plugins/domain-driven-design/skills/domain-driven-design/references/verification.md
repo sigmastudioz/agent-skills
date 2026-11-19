@@ -35,6 +35,45 @@ for a trivial move when existing compiler/build checks adequately establish the 
 Challenge assumptions with adversarial contract cases: compound-key separator characters, forged
 authority fields, retries after later state changes, and cross-consumer behavior where applicable.
 
+## Claims and their authoritative targets
+
+Before reporting a state, name where that state is held and read it there. A proxy can be a useful
+hint; it is not evidence of the claim.
+
+| Claim | Proxy that has misled | Authoritative readback |
+| --- | --- | --- |
+| Deployed or live | Commit in the release branch, higher release number, pipeline exit 0 | The code or revision the running process serves on each host |
+| Saved, written, published | Exit status, acknowledgement, model or tool narration | The stored file hash or mtime, the provider's record, the saved remote state |
+| Installed or ready | Folder exists, process started | The files actually loaded, a smoke call against the installed artifact |
+| Absent, zero, never happened | A probe returning empty | The same probe finding a known-present item, with names resolved from the schema |
+| Check passed | Exit 0 of a pipeline, a chained shell, a tool that prints failures | The check's own status and parsed output |
+| Status in a tracker | The last ledger mention | Current runtime, deploy and Git state |
+
+After packaging or deploying, smoke-test the installed or deployed artifact through its real entry
+and keep a named rollback copy; unit and build gates do not establish that it starts. Validate the
+operations a shipped client actually sends against the deployed schema, not workspace source.
+
+### Checks that can fail
+
+A check counts as evidence only after it has been seen to fail on the defect it claims to catch.
+Show each new regression test failing before the fix. For a new gate, feed it one known-bad input
+or mutation. A gate that cannot resolve its input (a missing base revision, an empty file set, an
+excluded path) must fail, not skip. Identify what aliases, mocks and exclusions remove (styles,
+GPU, native modules, type-checking of test files) and keep one check on the real path for that
+class. Do not downgrade a blocking gate to a warning without an owner and a removal condition, and
+do not raise timeouts or budgets against a failure nobody has reproduced.
+
+### Isolate verification from the user's live data
+
+Tests, probes and harnesses run against isolated home, data, configuration and environment roots;
+pin that isolation with a guard test. A fixture that defaults to the user's real documents or
+ledger can overwrite them. Run every harness that is written and check its result before relying
+on it. Experiments against a running user application (a desktop host, an editor, a live store)
+use an allowlist of verified operations; ask the user to save first and do not repeat a crash to
+confirm it.
+
+## Completion checklist
+
 Before completing substantial work, confirm:
 
 - Paths and names reveal domain ownership and functional responsibility.
@@ -43,6 +82,7 @@ Before completing substantial work, confirm:
 - No new circular dependencies, forbidden imports, app-to-app imports, or client/server leaks exist.
 - No duplicate implementation, unused abstraction, empty scaffold, or abandoned compatibility path remains.
 - Relevant consistency, failure recovery, resource usage, and authorization behavior are verified.
+- Every reported state was read back from its authoritative target, and every new gate was seen to fail.
 - The implementation meets the agreed acceptance conditions without unrelated restructuring.
 - Every created module has a connected-path trace; touched paths and adjacent consumers are accounted for.
 - Confirmed gaps are fixed and retraced, or explicitly recorded with their impact and blocking evidence.
