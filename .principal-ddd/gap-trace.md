@@ -800,3 +800,14 @@ through the mezzanine edge, mirrors reflect nothing (capture taken before the ro
 B toilet/vanity clearance, furniture spacing in loft B and three-bed, panelling edge light leaks,
 rug border aliasing, the exterior. Linked the critique loop from interactive.md and
 interior-finish.md. Browser checks 41/41, two-storey and route tests 20/20 after the fixes.
+
+## DDD 1.5.0 — lessons from project records — November 19
+
+Status: PR sigmastudioz/agent-skills#45 open from `ddd/project-lessons-1.5.0` (worktree `agent-skills-ddd-lessons`, base bf07b2f); installed locally, not merged.
+Source: read-only review of .principal-ddd ledgers and session feedback notes in galaxytv, rehobe, ai-agent-assistant, agent-skills, ui-foundation, lizkela and smaller repos (agents skimmed the large ledgers; key claims spot-checked).
+Changes: readback/gate/mode/transport edges and three traps (gap-tracing); claim→authoritative-target table, failing-gate and test-isolation rules (verification); unknown-as-state, reason codes, retry/hold/monitor-store rules, perf and security patterns (architecture §5, §7–9); new references/operations.md; records budget section (project-records); optional read-only `tools/records-budget/` checker with 7 tests; version 1.5.0.
+Checks: `python3 -B -m unittest discover -s tests` 221 OK; `build_catalogs.py --check` 4 verified; `claude plugin validate .` passed. Guidance text sha256(SKILL+references) prefix 683e1df03e49. Skill folder text grew 963 → 1152 lines.
+Checker survey (read-only, default budgets): quantum-watch-api 262.6 MiB over (56 files >1 MiB, ledger over); ui-foundation 269.4 MiB over (28 files); galaxy-tv-hub and ai-agent-assistant ledgers over 3,000 lines.
+Install: `~/.agents/skills/domain-driven-design` (also linked from `~/.claude/skills`) re-pointed from the `agent-skills` checkout's skill folder to this worktree's; the unchanged handoff guard copied into its `scripts/` (kept untracked via info/exclude). Readback: installed guidance equals commit fc6ff8b; guard rejects an unbriefed coding delegation (exit 2) the same way the old path does. Rollback: point the link back to `agent-skills/plugins/domain-driven-design/skills/domain-driven-design`. `~/.cursor/plugins/local/domain-driven-design` is still 1.0.6 and was not touched.
+Unverified: no fresh with/without-skill behavior trial. While the guard sits in the worktree, `tests/test_ddd_distribution.py` run there will flag `scripts/guard_handoff.py`.
+Next: after #45 merges, point the link at a durable checkout of main (with the guard in `scripts/`) before removing this worktree.

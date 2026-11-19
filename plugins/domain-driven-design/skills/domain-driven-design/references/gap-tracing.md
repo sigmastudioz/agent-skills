@@ -46,6 +46,10 @@ creating a new test for every row. Record why an edge is inapplicable or remains
 | Snapshot | Reviewed content to the revision or artifact actually being claimed | When Git staging is relevant, compare index and worktree including derived files; otherwise identify the actual files/artifacts by content hash and mark staging inapplicable |
 | Concurrent writer | A path to exactly one writer for the duration of the change | Establish what else writes each touched path — an automated appender, a scheduled job, another agent — before editing or staging it wholesale; a path with another live writer is staged by hunk or left alone, never swept in |
 | Headroom | The change to every chokepoint file it must pass through | Remaining budget against the cap, and whether a baseline or ratchet exempts that file |
+| Readback | A state claim (done, deployed, saved, installed, absent) to the authoritative target that holds it | Read the target itself: deployed artifact, file hash, provider record, running revision. Exit codes, release numbers, ancestry, folder presence, acknowledgements and narrated output are proxies; see [verification](verification.md#claims-and-their-authoritative-targets) |
+| Gate | A check to the defect class it is claimed to catch | Show it fail once on a known-bad input or mutation; an input it cannot resolve must fail it, not skip it |
+| Mode | A live/simulated, tenant or environment discriminator to every write on a shared store | Filter at the write site and fail closed, even when an upstream classifier already routed the call |
+| Transport | An authorization or validation rule to every transport and entrypoint that reaches the handler | Enumerate HTTP, websocket, queue, IPC, CLI and internal calls; a rule installed as one transport's plugin does not run on the others |
 
 Identify whether a task uses a fixed wall-clock/calendar schedule, fixed-rate polling or a
 completion-relative loop before assessing cadence. Preserve timezone, market/calendar anchors,
@@ -83,6 +87,9 @@ Recurring traps in fit review:
 | Calling a near-duplicate a reuse violation | Compare inputs, consumers, and trust boundaries first: offline untrusted input and live authoritative reads are different contexts |
 | Reviewing the working tree and calling the change reviewed | Review what the next commit contains |
 | Relieving a chokepoint by raising its cap | Extract a cohesive group, keep registration and call order identical, and give the extracted module its own test |
+| Reporting a probe's zero or empty result as a finding | A wrong collection, field or path returns zero, not an error; resolve names from the schema and confirm the probe finds a known-present item first |
+| Claiming a root cause from a toy reproduction | Reproduce through the real code path and data shape before reporting it; state confidence and what would refute it |
+| Repairing the same incident again | From the second recurrence, make prevention of the mechanism the blocking next action and count recurrences in the ledger |
 
 ### Trace procedure
 1. **Inventory:** List created/changed modules, their owner, public exports, runtime registration,

@@ -1,6 +1,6 @@
 # Principal Driven Domain Design
 
-By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.4.6**, [MIT](LICENSE).
+By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.5.0**, [MIT](LICENSE).
 
 **Principal-level domain-driven design for AI coding agents.**
 
@@ -14,6 +14,29 @@ The short entrypoint routes conditional architecture, handoff, gap-tracing, reco
 rules into focused references. Small fixes stay small; read-only reviews stay read-only.
 The baseline does not authorize extra agents, unrelated restructuring or deployment.
 
+## Changes in 1.5.0
+
+Lessons from incident records across the maintainer's own projects, folded in as compact rules
+rather than per-project notes:
+
+- **Readback over proxies.** New readback, gate, mode and transport edges in gap tracing, and a
+  claim-to-authoritative-target table in verification: deployed, saved, installed, absent and passed
+  are read from the target, not from exit codes, release numbers, folder presence or narration.
+- **Checks that can fail.** A gate counts only after it has been seen to fail; an unresolvable
+  input fails the gate. Tests run against isolated data roots, never the user's live files.
+- **Unknown is a state.** No zero, constant or random fill; reason codes come from the rejecting
+  branch; holds are not failures; metric and experiment definitions are versioned.
+- **Security patterns.** Fail-closed switches and allowlisted child environments, auth on every
+  transport, platform-derived identity, throttles that cannot lock owners out, one step-up gate
+  for every credential write, public projections, least privilege from observed use.
+- **Operations reference.** New [operations](skills/domain-driven-design/references/operations.md)
+  guide for boot, shutdown, reboot, crash leftovers, reload semantics, release flow, manual
+  operations that run the pipeline's guards, staged enablement and alert delivery.
+- **Readable records.** Status-first ledger entries closed by ID, one-line index entries, archive
+  rotation and default size budgets, with an optional read-only checker in `tools/records-budget/`.
+
+These are instructions only; no executable file ships in the plugin. Their effect on agent
+behavior has not been evaluated with a fresh with/without-skill trial for this release.
 
 ## Changes in 1.4.6
 
