@@ -80,6 +80,17 @@ Engineering Spikes1.0.0 is a separate instruction skill for timeboxed investigat
 Confluence-oriented documents. Its repository release is separate from official marketplace review.
 No Confluence account, terms acceptance or external publication is implied by installation.
 
+## Visualizer 1.10.0 and Video Analysis 1.1.0 — November 20
+
+Visualizer 1.10.0 adds music-teaser and collage motion (hit/gap motif gate, collage and lyric-UI
+cadence, persistent title or rig-over-final stack, mixed-media collage, wordmark to type-only)
+from a 50-post public creator study; it also carries the unreleased 1.5.0 to 1.9.0 changes, which
+had no GitHub release of their own. Video Analysis 1.1.0 adds region/band cut scoring. Held local
+plugins are outside this release's files, catalogs and history. Publish one complete plugin ZIP
+per version (`git archive` of the plugin folder, which applies the export-ignore rules) on tags
+`visualizer-v1.10.0` and `video-analysis-v1.1.0`; preserve earlier tags and assets. GitHub
+availability does not establish native directory review or a refreshed index snapshot.
+
 ## License comparison — checked 2026-10-17
 
 **Recommendation: MIT** for this instruction/script skill when the goal is straightforward reuse
