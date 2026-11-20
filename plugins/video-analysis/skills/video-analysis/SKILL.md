@@ -1,6 +1,6 @@
 ---
 name: video-analysis
-description: Analyze supplied videos or audio with timestamped visual and sound evidence, adaptive frame inspection, transcripts and explicit coverage limits. Use for summaries, scene breakdowns, design or motion studies, walkthrough extraction and comparisons. Prefer native media understanding when available; otherwise use local media tools. Video creation belongs to Visualizer.
+description: Analyze supplied videos or audio with timestamped visual and sound evidence, adaptive frame inspection, transcripts and explicit coverage limits. Use for summaries, scene breakdowns, design or motion studies, walkthrough extraction, comparisons, and region/band cut scoring on screen-recorded NLEs or letterboxed teasers. Prefer native media understanding when available; otherwise use local media tools. Video creation belongs to Visualizer; finished cutting craft belongs to video-editor.
 license: MIT
 ---
 
@@ -19,7 +19,8 @@ Use local tools for exact metadata, sampling and time references when that impro
 State missing capabilities rather than claiming to have listened, transcribed or watched.
 
 Read [media and sampling](references/media.md) for intake/extraction, [audio and evidence](references/evidence.md)
-for transcription/correlation, and [analysis and verification](references/analysis.md) for the report.
+for transcription/correlation, and [analysis and verification](references/analysis.md) for the report
+(including [region / band cut scoring](references/analysis.md#region--band-cut-scoring)).
 The optional [local sampler](scripts/sample.py) uses Python 3.10+, ffprobe and FFmpeg; it does not
 install tools, download models, transcribe speech or upload media. See its contract in media.md.
 

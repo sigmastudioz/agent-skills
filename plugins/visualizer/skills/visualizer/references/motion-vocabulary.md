@@ -95,6 +95,12 @@ right in a live preview is not done until it appears correctly in the decoded ex
 | Light sweep (shine) | A soft angled gradient band crosses an element, clipped to its shape, with pauses between passes | none | Highlight stays inside the element and never washes out its text |
 | Impact shake | On landing, offset the whole frame by `A·e^(−kt)·sin(ωt)` on two axes, squash the object once and puff dust; exit by fading, not by reversing the drop | the wiggle row above | Shake decays within about 0.5 s; the impact frame lines up with the sound cue |
 
+## Wordmark → type-only (≤0.5 s)
+
+Largest wordmark behind one still, then a type-only card of the same word within 0.5 s — one
+identity beat, two states. Keep the hold readable at phone size. *Evidence:* kiuzr DXMzsioif7a
+0.00–0.45 s. **Shown.**
+
 ## Adding an entry
 
 Add an entry only when a reviewed film or reference needed it and the construction was verified in

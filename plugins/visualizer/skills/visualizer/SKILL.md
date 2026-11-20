@@ -1,6 +1,6 @@
 ---
 name: visualizer
-description: Build interactive explanations, diagrams, data explorers, simulations, React Three Fiber / Three.js shader scenes and editable visualization videos. Use when the requested deliverable is a visual explanation or a video generated from a model, evidence or reference. Supports one interactive artifact, one film, or both; ordinary app UI and cinematic footage generation use their own workflows.
+description: Build interactive explanations, diagrams, data explorers, simulations, React Three Fiber / Three.js shader scenes and editable visualization videos (music teasers with hit/gap motifs, mixed-media collage, lyric-UI cadence, wordmark→type and beat-timed motion). Use when the requested deliverable is a visual explanation or a video generated from a model, evidence or reference. Supports one interactive artifact, one film, or both; ordinary app UI and cinematic DCC footage use their own workflows. Finished hard-cutting of existing shots hands to video-editor.
 license: MIT
 ---
 
@@ -18,6 +18,7 @@ interactive and video modes; do only the modes the user needs.
 | Explore a system or compare scenarios | [Interactive](references/interactive.md) | Working controls and an inspectable visual |
 | Explain measured data | [Data](references/data.md) | Honest mappings, sources and accessible alternatives |
 | Produce a linear explanation film | [Video and sound](references/video.md), including [feedback and learning](references/learning.md), then its conditional direction/export references | Playable video, captions, editable sources |
+| Music teaser / collage / lyric-UI / beat-timed motion | [Timing maps](references/timing-maps.md), [Montage and compositing](references/montage-and-compositing.md), [Motion vocabulary](references/motion-vocabulary.md) | Motif/collage/type plan on a beat map; hard cuts hand to `video-editor` |
 | React 3D scenes, reusable components or R3F migration | [React Three Fiber](references/react-three-fiber.md) | Composable scene, explicit clock and verified lifecycle |
 | Rich motion, spatial scenes or shaders | [Art and rendering](references/rendering.md) | A renderer appropriate to the visual mechanism |
 | A lit, furnished walkable interior, live in the browser | [Interior finish](references/interior-finish.md) | Windows, surfaces, furniture, light and post built from one layout, with measured frame time |

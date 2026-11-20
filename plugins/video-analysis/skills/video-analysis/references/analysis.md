@@ -20,6 +20,13 @@ mechanisms, timestamped references, proposed original direction, assets/rights a
 Analysis and generation are separate capabilities. A design recommendation is not a recovered
 source project, permission to copy media, or proof that the suggested renderer produced the clip.
 
+## Region / band cut scoring
+
+For screen-recorded NLEs or letterboxed / dark teasers, score cuts inside the picture region or
+top band, not only full-frame differences; optionally build luma-state maps for letterbox and dark
+teaser bands. Full-frame cut lists under-count nested panel edits (`video-editor` evidence method
+note). *Evidence:* yuyenwng DWhibelDJqE; hanzbeats thr=0.04 mid-band. **Shown.**
+
 ## Report contract
 Include a concise answer, useful time citations, evidence versus interpretation, coverage/method,
 audio/transcript state and material limits. Give deeper shot tables or frame references when the

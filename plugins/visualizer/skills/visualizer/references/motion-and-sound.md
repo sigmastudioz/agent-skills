@@ -39,6 +39,8 @@ timeline; a tool's cue detector or score does not set the film's creative direct
   understandable in mono and through the picture; headphones are not a requirement.
 - Vary density. Duck or pause the bed at a meaningful interruption; allow the repair
   and final reveal to resolve. Avoid continuous maximum intensity or repetitive hits.
+- For hit/gap teasers, keep silence holes regular and reuse one abstract motif in every
+  hole ([timing maps](timing-maps.md#hit--gap-motif-gate)); irregular gaps dilute the brand.
 - Without narration, captions must still explain the film. A sparse or silent edit
   can meet the brief; do not add layers merely because a tool flags low density.
 

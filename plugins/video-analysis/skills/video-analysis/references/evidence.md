@@ -1,5 +1,8 @@
 # Audio, text and synchronized evidence
 
+**Round 19 (2026-11-20), 15 creator profiles, 50 posts.** Region/band cut scoring for NLE-over-picture
+and letterbox/dark teasers added in [analysis](analysis.md#region--band-cut-scoring).
+
 Determine which audio track matters. Preserve language, channel arrangement, offset and source ID.
 No-audio, audible silence, music-only, unintelligible speech and unavailable listening are different
 states. Never fill a silent passage with plausible narration from surrounding images.
