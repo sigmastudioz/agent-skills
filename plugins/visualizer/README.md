@@ -1,8 +1,19 @@
 # SigmaStudioz Visualizer
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.9.0.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.10.0.
 
 Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.
+
+## Changes in 1.10.0
+
+Music-teaser and collage motion from a study of 15 creators' public posts (50 measured posts):
+a [hit / gap motif gate](skills/visualizer/references/timing-maps.md#hit--gap-motif-gate) for
+producer teasers (live picture on the hits, one reused motif in every regular silence hole),
+[collage ↔ lyric-UI cadence](skills/visualizer/references/montage-and-compositing.md#collage--lyric-ui-cadence),
+a persistent title or rig-over-final stack with zero cuts, mixed-media collage that full-frame cut
+detectors miss, and a [wordmark → type-only](skills/visualizer/references/motion-vocabulary.md#wordmark--type-only-05-s)
+beat within 0.5 s. Each rule cites the measured post. Hard cutting of existing shots hands to a
+video-editing skill.
 
 ## Changes in 1.9.0
 

@@ -42,6 +42,7 @@ per-word reveals.
 A still or near-still hero carries a music piece when everything around it moves on the measured
 beat map. Seen in a reviewed audiovisual opening (one figure in one pose, 120 BPM). Tested
 2026-11-18 on a 15 s code-rendered demo: all 8 hard cuts within 0.15 frame of the measured beats.
+Cut-ownership index: `video-editor` signature-moves #57; layer/subdivision recipe stays here.
 
 1. Freeze the subject; give each layer around it its own subdivision from `beatmap.json`:
    geometry or density changes on eighths (show the rebuild as glowing wireframe), surface or
@@ -58,6 +59,14 @@ beat map. Seen in a reviewed audiovisual opening (one figure in one pose, 120 BP
    long as the number of hits; add transforms rather than repeat one.
 5. Place cuts backward from the beat grid (start from the drop and the downbeats, then fill),
    then verify as below.
+
+## Hit / gap motif gate
+
+On producer teasers: live picture on hits; one reused abstract motif on every silence hole (about
+1.8 s when regular). Irregular gaps weaken the brand more than trough inserts alone. Cut timing
+and brightest-on-hit placement stay with `video-editor` (see signature-moves #3); campaign
+packaging with `record-label`. Motif design stays here.
+*Evidence:* hanzbeats Dd_IJtjgOZf vs DdyXRbsAEyS. **Shown.**
 
 ## Verification
 

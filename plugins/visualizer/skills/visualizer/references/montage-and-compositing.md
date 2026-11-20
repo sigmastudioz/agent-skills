@@ -45,6 +45,26 @@ Distinguish speech subtitles from authored display type. Preserve exact copy and
 controlled overlay; reveal by meaning, select emphasis deliberately and allow a readable hold.
 A font or tracking option does not establish a helper's temporal segmentation capability.
 
+## Collage ↔ lyric-UI cadence
+
+Alternate full-bleed collage and a fake lyric-share UI on a fixed ~1.3 s cadence. Keep each panel's
+matte, type and shadow scale consistent across the swap. Hard-cut timing follows `video-editor`
+(signature-moves #58). *Evidence:* kiuzr DYFVxkpJZuF. **Shown.**
+
+## Persistent title; stack rig + final
+
+Carry one persistent title over a thrash montage, or composite controller/rig over the final look
+for the whole clip with zero cuts (simultaneous stack — not hard-cutting stage passes; see
+`3d-animator` social-reveal). *Evidence:* qaisicle DcVg-lfIAUM; DeOWhFkIOAt. **Shown.**
+
+## Mixed-media collage editor
+
+Torn mattes, stamp type and intra-shot collage animation: detectors that only score full-frame cuts
+miss the motion inside a held collage plate. Author independent cutout motion on one anchor frame
+([paper collage](#specify-motion-and-layers) row); verify at normal speed, not only on cut lists.
+Nearest ownership stays here; timeline cutting stays with `video-editor`. *Evidence:* kiuzr
+Daa9CEeJNpL: the full-frame detector found 3 hard cuts where a dense-event rule found 32. **Shown.**
+
 ## Prove the difficult passage
 
 Make a short motion study of the hardest transition before producing every asset. Compare actual

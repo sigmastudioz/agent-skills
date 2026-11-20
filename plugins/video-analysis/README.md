@@ -1,6 +1,6 @@
 # SigmaStudioz Video Analysis
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.0.1.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.1.0.
 
 Analyze supplied videos and audio through timestamped frames, adaptive inspection, transcripts and explicit evidence/coverage limits. By Lex from SigmaStudioz.
 
@@ -22,6 +22,13 @@ The released sampler returned eleven frames within a twelve-frame budget. Sparse
 do not establish exhaustive viewing or audio understanding. This is an authored demonstration,
 not a fresh agent session. Captions are timed scene summaries; there is no voiceover.
 [Reproduce the preview and inspect export checks](../../assets/README.md#visualizer-and-video-analysis-films).
+
+## Changes in 1.1.0
+
+[Region / band cut scoring](skills/video-analysis/references/analysis.md#region--band-cut-scoring):
+for screen-recorded editing timelines and letterboxed or dark teasers, score cuts inside the
+picture region or band, not only full-frame differences, because full-frame cut lists under-count
+nested edits. Measured on public posts in a 50-post creator study.
 
 ## Changes in 1.0.1
 
