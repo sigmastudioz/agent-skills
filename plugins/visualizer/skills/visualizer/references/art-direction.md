@@ -55,6 +55,23 @@ an artifact: bind shot evidence, spatial staging, motion beats and renderer deci
   Compare at phone and export size; inspect contacts/transitions, not just the most attractive still.
 - Review composition, material separation, motion, camera, legibility, and sound-picture fit separately.
   Log the weakest dimension as a creative gap and repair its cause; more effects do not close every gap.
+- **Target first when there is no reference.** Make and approve one target still before building.
+  Render the build from the same camera, lens and framing; a fresh critic with no build history
+  compares render and target and scores each dimension. Fix the weakest area, re-render and repeat
+  until every view meets a threshold stated up front (for example 9/10), or stop and report the gap.
+  Record each round's scores. When a real reference exists, it is the target. *Evidence:* mengto,
+  round 21: his method posts on this loop drew 3.4× and 1.2× his median views; the judge scores he
+  reports (5.2 → 9.0) are his claim, unverified.
+
+## Graphic title sequence
+
+For opening titles, lyric cards and chapter cards: limit the palette to 2–3 colours with one accent
+(for example black and cream with one red disc), use silhouettes rather than faces, give each credit
+or card one graphic motif, and set the type in the frame's empty space. Keep motion to one idea per
+card. *Evidence:* a VFX compositor's title concept at 19.7× his median, round 20. **Shown.**
+
+For storyboards and animatics, draw camera and subject motion as arrows on the panels (one colour for
+the camera, another for the subject), so a reviewer sees the move before anything is rendered.
 
 ## Look presets
 Use a named look as direction, not as bundled assets or a copied artist's style. Translate the

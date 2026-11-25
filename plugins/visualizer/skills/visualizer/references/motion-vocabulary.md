@@ -101,6 +101,32 @@ Largest wordmark behind one still, then a type-only card of the same word within
 identity beat, two states. Keep the hold readable at phone size. *Evidence:* kiuzr DXMzsioif7a
 0.00–0.45 s. **Shown.**
 
+## 3D glyph-decode → poster mock
+
+Decode one phrase as 3D glyphs on rotating solid fields (≤0.5 s each), then smash to a poster mock
+of the finished mark (original IP; no borrowed album palette). Glyph extrude timing stays with
+`3d-animator` brand-geometry; cut on the smash with `video-editor`. *Evidence:* kiuzr DbN22ZWprEr
+0–2.5 s. **Shown.**
+
+## Stamp-poster: flash then long readable hold
+
+After ≤0.1 s stamp flash, hold the title card 2.5–8 s; accelerate only into end stamps; mid board
+= one icon tiled in geometric cells. *Evidence:* DVBVU3zCW24 0.05–16.2. **Shown.**
+
+## Kinetic thesis words on craft macros
+
+Land one thesis word per hit over gear macros; resolve to knolling. Hard-cut timing:
+`video-editor`. *Evidence:* yuyenwng DaYljylxj7C strip. **Shown.**
+
+## Tracking HUD overlay
+
+Boxes with corner brackets lock onto points, each labelled with an id and live x/y coordinates in
+tabular figures, with thin link lines between related points. Positions come from a tracking pass
+or an authored path sampled at frame time, so a box never lags its subject after a seek. Numbers are
+the real screen coordinates, or labelled decorative. Do not suggest identification of real people.
+Not yet verified in an encoded export, so it stays out of the entries table. *Evidence:* round 21,
+post 20 (tracking boxes, x/y labels and link lines over experimental visuals). **Shown.**
+
 ## Adding an entry
 
 Add an entry only when a reviewed film or reference needed it and the construction was verified in

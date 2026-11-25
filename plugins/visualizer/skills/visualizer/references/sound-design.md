@@ -11,6 +11,11 @@ stay, the picture revision, duration, time origin and actual frame rate/time bas
 Identify a small, coherent palette that fits the subject and materials. Preserve
 approved music and voices; do not clone a reference presenter.
 
+When narration has to be synthesised, use a local open-licence voice model (for example Kokoro,
+Apache-2.0); if a companion skill that wraps one is installed, use it. If none is installed, say what
+the download is and its size before installing. Do not fall back to the operating system's built-in
+voices for shared work: their licence restricts public use.
+
 For each important event, decide whether sound explains contact, movement, a state
 change, tension or resolution. Record intentional silence too. Do not sound every
 cut, character, cursor move or detected motion. Detection and beat grids propose

@@ -69,3 +69,21 @@ are included in the film. Keep captions and audio on the same canonical timeline
   documented supported adapter, or state exactly which export remains unavailable.
   Match frame timing and audio, bound memory, detect partial frames and encoder/GPU failures,
   and retain the original source until the completed export passes decoding checks.
+
+## Thin-film iridescence
+
+Soap-film or oil-slick colour that shifts as the surface turns. Check the renderer's physical
+material first (current Three.js `MeshPhysicalMaterial` has iridescence, film IOR and thickness
+range); write a custom term only when that is missing or not controllable enough. A custom term:
+`cos θ1 = dot(N, V)` outside the film (index n1, about 1 for air); the internal angle comes from Snell's
+law `n1·sin θ1 = n2·sin θt`, so `cos θt = sqrt(1 − (n1/n2)²·(1 − cos²θ1))` with n2 the film index (about
+1.33–1.5); path difference `2·n2·d·cos θt`; per channel
+`0.5 + 0.5·cos(2π·path / λ + φ)` with λ about 650, 510 and 440 nm, weighted by Fresnel over a dark base.
+φ is the half-wave shift: reflection off a higher-index medium flips the phase by π, so φ = π when
+exactly one of the film's two interfaces goes to a higher index (a soap film in air: top yes, bottom no)
+and φ = 0 when both or neither do (a low-index coating on glass). Without it, the thinnest film shows
+bright instead of the black it should.
+Vary film thickness `d` with seeded noise or along a strand, driven by the media time uniform.
+Review: colour moves with view angle, not as a fixed rainbow texture; no banding; stable at the
+export frame rate. *Evidence:* round 21, post 27 (an iridescent strand torus with waving
+parameters). The look was shown; the construction above is our method, not the creator's.

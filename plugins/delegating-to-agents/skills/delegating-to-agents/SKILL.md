@@ -58,6 +58,21 @@ How to do it:
 TUI agents with no event source: poll briefly (3–5 s) and give the user a one-line status after each check.
 After a Claude Code worker finishes it may prefill a predicted next user message: that draft is Claude, not the user.
 
+## Checking work with a second agent
+
+- **Map first, then one finder per class.** Map the system, then give each finder one class of
+  problem.
+- **The checker is never the finder.** For audits and reviews, one agent finds and a fresh agent
+  with no access to the finder's reasoning tries to disprove each finding.
+- **Two buckets:** report Confirmed findings and Needs-a-look findings separately; never mix them.
+- **Repeat runs for coverage.** One run finds only part of what is there; run the finder again
+  (a different angle or a fresh agent) until a run adds nothing material.
+- **Many lenses, one synthesis.** For a readiness review, fan out one agent per lens (security,
+  legal, cost, user experience…) and finish with one agent that merges them into a single ranked
+  list.
+*Evidence:* creator posts, round 20 (a security-audit workflow and a multi-lens readiness workflow);
+coverage figures there are claimed.
+
 ## Isolating a worker that writes code
 
 - If the checkout holds anyone's uncommitted work, use a git worktree on a new branch:
