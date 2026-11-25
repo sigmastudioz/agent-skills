@@ -11,6 +11,7 @@ they were all adopted or independently retested.
 - [quick-fix-shared-formatter](baseline-quick-fix-shared-formatter.md)
 - [observed-cli-delegation](observed-cli-delegation.md) (observed in a real session, 2026-11-12)
 - [batch-review coordination](observed-batch-review-coordination.md) (observed in a real session, 2026-11-12)
+- [follow-up commitments](observed-follow-up-commitments.md) (observed in real sessions, 2026-11-22; scenario not yet run)
 
 ## Repeat a scenario
 

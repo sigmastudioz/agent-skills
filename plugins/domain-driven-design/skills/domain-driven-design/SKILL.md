@@ -142,6 +142,9 @@ improvement opportunity or unverified path, and disprove candidates before recor
 recording findings or resuming from a ledger, read
 [gap ledger and continuity](references/gap-tracing.md#gap-ledger-and-continuity).
 
+When you announce a follow-up mid-task, add it at once to the task plan or existing tracker; do not
+create a separate list.
+
 Create separate evidence files only when needed for deployment, rollback, an actual audit or an
 active monitor; routine check results belong in the existing tracker. Before creating evidence
 artifacts or archiving superseded evidence, read

@@ -1,6 +1,6 @@
 # Principal Driven Domain Design
 
-By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.5.0**, [MIT](LICENSE).
+By [Lex from SigmaStudioz](https://github.com/sigmastudioz). Version **1.5.1**, [MIT](LICENSE).
 
 **Principal-level domain-driven design for AI coding agents.**
 
@@ -13,6 +13,13 @@ through callers, dependencies, consumers and failures, and fix gaps required by 
 The short entrypoint routes conditional architecture, handoff, gap-tracing, record and verification
 rules into focused references. Small fixes stay small; read-only reviews stay read-only.
 The baseline does not authorize extra agents, unrelated restructuring or deployment.
+
+## Changes in 1.5.1
+
+- **Announced follow-ups are tracked.** A follow-up announced mid-task goes into the task plan or
+  existing tracker at once; the completion check reports each one as done, dropped with its reason,
+  or open, and requested work that was not done is reported as not done. Workers report unfinished
+  follow-ups on return. Recorded as an observed case; the pressure scenario has not been run yet.
 
 ## Changes in 1.5.0
 
