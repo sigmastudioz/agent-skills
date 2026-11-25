@@ -91,6 +91,15 @@ per version (`git archive` of the plugin folder, which applies the export-ignore
 `visualizer-v1.10.0` and `video-analysis-v1.1.0`; preserve earlier tags and assets. GitHub
 availability does not establish native directory review or a refreshed index snapshot.
 
+## Visualizer 1.11.0 and Delegating to Agents 1.1.0 — November 25
+
+Visualizer 1.11.0 adds round-21 references (art direction, data, montage and compositing, motion
+vocabulary, shaders, sound design with a local open-licence narration voice). Delegating to Agents
+1.1.0 adds checking work with a second agent. Held local plugins are outside this release's files,
+catalogs and history. Publish one complete plugin ZIP per version (`git archive` of the plugin
+folder) on tags `visualizer-v1.11.0` and `delegating-to-agents-v1.1.0`; preserve earlier tags and
+assets. GitHub availability does not establish native directory review or a refreshed index snapshot.
+
 ## License comparison — checked 2026-10-17
 
 **Recommendation: MIT** for this instruction/script skill when the goal is straightforward reuse
