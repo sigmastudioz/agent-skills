@@ -88,13 +88,13 @@ await reviewer activation. Cursor, Codex and Antigravity publication is not yet 
 | [Does It Make Sense?](plugins/does-it-make-sense/README.md) | Trace an actual build back to its end goal and recommend bounded, evidence-backed refinements | 1.0.3 |
 | [Returncraft](plugins/app-retention/README.md) | Fair onboarding, return habits, ranking, upgrade timing and measured retention experiments | 1.1.1 |
 | [Senior Digital Skills Class](plugins/senior-digital-skills/README.md) | Plan, fund, run and measure a hands-on phone-skills class for older adults, with learner-safety boundaries | 1.0.0 |
-| [Delegating to Agents](plugins/delegating-to-agents/README.md) | Hand work to Codex, Cursor, Pi or other agent CLIs with a full brief, isolation, watchable progress and results reported back | 1.0.1 |
+| [Delegating to Agents](plugins/delegating-to-agents/README.md) | Hand work to Codex, Cursor, Pi or other agent CLIs with a full brief, isolation, watchable progress and results reported back | 1.1.0 |
 
 ### Visual creation and analysis
 
 | Plugin | Purpose | Version |
 | --- | --- | --- |
-| [SigmaStudioz Visualizer](plugins/visualizer/README.md) | React Three Fiber scenes, interactive visuals, simulations and visualization videos | 1.10.0 |
+| [SigmaStudioz Visualizer](plugins/visualizer/README.md) | React Three Fiber scenes, interactive visuals, simulations and visualization videos | 1.11.0 |
 | [SigmaStudioz Video Analysis](plugins/video-analysis/README.md) | Timestamped visual/audio evidence, adaptive frame inspection and transcript correlation | 1.1.0 |
 | [UI Foundation Reuse](plugins/ui-foundation-reuse/README.md) | Bundled React effects, lifecycle and scene helpers with local runtime staging | 1.6.0 |
 | [What If Tony Stark Built This](plugins/what-if-tony-stark-built-this/README.md) | Engineering invention and a local correctness, timing and allocation comparison runner | 2.1.1 |

@@ -1,7 +1,7 @@
 # Delegating to Agents
 
 Adapted by **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** from
-[davidondrej/skills](https://github.com/davidondrej/skills) · MIT · version 1.0.1.
+[davidondrej/skills](https://github.com/davidondrej/skills) · MIT · version 1.1.0.
 
 Hand bounded work to another AI agent CLI or TUI (Codex, Cursor, Pi, Claude Code, Hermes) and
 keep control of it: a complete brief, an isolated git worktree when others have uncommitted
@@ -11,6 +11,12 @@ decision, and results reviewed before they are reported back up the chain.
 What a brief must contain comes from the
 [bundled handoff contract](skills/delegating-to-agents/references/handoff-contract.md);
 this skill covers the mechanics of driving each agent.
+
+## Changes in 1.1.0
+
+Adds "Checking work with a second agent": map first then one finder per class, a checker that is
+never the finder, confirmed and needs-a-look findings kept apart, repeat runs until nothing new, and
+one synthesis agent over many review lenses.
 
 ## Changes in 1.0.1
 

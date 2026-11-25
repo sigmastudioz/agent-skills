@@ -103,3 +103,61 @@ several records `height / value` equals the scale factor; the tallest tower is t
 clicking a tower's roof names that record in the status line; a table row selects the same record
 from the keyboard; and the plan view still selects by footprint. In the check above the sample
 drew 37 towers, rejected two records, and passed each of those assertions.
+
+## Recipe: event replay from timestamped public data
+
+Replay a real event (a storm, a launch window, flights around an airport, a market day) from its
+timestamped records, so viewers watch it unfold.
+- **Clock and speed legend** always on screen ("×400", "1 second = 12 minutes"), switching to
+  "REAL TIME" when the replay slows down.
+- **A live counter against a stated baseline** ("Before: 5,957"), with a sparkline or histogram that
+  builds as time passes, and a colour key.
+- **A source strip** naming every dataset and its time span; quote cards for real transmissions or
+  statements, labelled by role, never invented.
+- **Honesty labels:** "gap in feed – path interpolated" where data is missing, and "REAL FOOTAGE" vs
+  "RECONSTRUCTION" badges whenever real video and rendered data alternate.
+- **Lay it out for the phone:** native 9:16, a headline stating the key number ("fell 35,000 ft in
+  78 seconds"), and the data panel below the picture at readable size. A letterboxed 16:9 cut of the
+  same replay under a generic title drew about a fifth of the views.
+- **Pace the clock:** step the speed down into real time at the key moment (×400 → ×100 → ×20 →
+  REAL TIME), show a counter relative to the event ("+0:00 since the dive began"), and colour a value
+  red past its limit.
+- **Label disagreeing sources** in plain words ("GPS altitude reads ~2,000 ft above the reported
+  level") rather than picking one silently.
+- **Open cold on the real footage, then rewind** into the reconstruction.
+- **For tragedies:** a viewer-discretion card first; end on the outcome, "the cause has not been
+  determined" until it has, and condolences. Never speculate past the records.
+Verify before delivery: the clock maps to record times without drift; the counter equals a recount
+of the records at three checkpoints; every interpolated stretch is labelled.
+*Evidence:* a spatial-AI creator's data replays at 4.2M and 2.9M views (26× and 18× his median),
+round 20. **Shown.**
+
+## Recipe: unit (particle) histogram
+
+Each record is one particle that falls and settles into its bin, so the bars build from countable
+units and the distribution shape appears as they land.
+- **One particle per record**, keyed by the record's stable id. If one particle stands for more
+  than one record, say so in the legend ("1 dot = 100 videos").
+- **Stack settled particles in a fixed grid** inside each bin, so a column's height is the exact
+  count. Physics or jitter may animate the fall but must not change where a particle comes to rest.
+- **Label bins and the total n**; state bin edges and how values past the last edge are handled.
+- **Recolour in place** for a second dimension (category, niche): particles keep their positions and
+  only change colour, so the shape stays comparable. Show the colour key.
+Verify: each settled column count equals an independently computed histogram of the same snapshot.
+*Evidence:* round 21, post 0 (a particle bell curve of viral videos, recoloured by niche). The
+creator's counts (6,128 videos) are his claim in a product promotion and unverified. **Shown.**
+
+## Recipe: relationship network over time
+
+Show how links between entities (donors and recipients, accounts, services) change.
+- **Stable node ids:** a node keeps its id, colour and label in every window.
+- **Sliding time window:** edges aggregate the records inside a window of stated width and step,
+  shown on screen ("12-month window, monthly steps") with the window's dates.
+- **Layout morph between windows:** seed each window's layout from the previous positions so nodes
+  move only as much as the data requires, then interpolate positions per id. A change of layout
+  (for example geographic to clustered) is its own labelled step, not a side effect.
+- **Entering and leaving nodes** fade in or out at their position; edge width or colour encodes the
+  amount, with a legend. Label association, not causation.
+Verify: edge totals per window equal a recount of the source records; ids and colours match across
+windows. *Evidence:* round 21, post 86 (political money shown as a network over time, the layout
+morphing from geographic to clustered). **Shown.**

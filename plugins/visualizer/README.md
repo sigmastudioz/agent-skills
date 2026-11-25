@@ -1,8 +1,20 @@
 # SigmaStudioz Visualizer
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.10.0.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.11.0.
 
 Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.
+
+## Changes in 1.11.0
+
+- Art direction: target-first loop when there is no reference (approved target still, same camera,
+  fresh critic scores each dimension against a stated threshold), graphic title-sequence rules and
+  motion arrows on storyboard panels.
+- Data: particle-histogram and relationship-network-over-time recipes with recount checks.
+- Montage: OS-UI lyric vocabulary, environmental letterforms and the living album cover (bar-length
+  idle loops, sleeve staging, end on the still).
+- Motion vocabulary: new entries from round 21 posts. Shaders: thin-film iridescence with Snell's law
+  and the half-wave phase shift. Sound design: synthetic narration uses a local open-licence voice,
+  never the operating system's voices.
 
 ## Changes in 1.10.0
 

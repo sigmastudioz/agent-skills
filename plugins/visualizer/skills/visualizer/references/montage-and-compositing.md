@@ -51,6 +51,19 @@ Alternate full-bleed collage and a fake lyric-share UI on a fixed ~1.3 s cadence
 matte, type and shadow scale consistent across the swap. Hard-cut timing follows `video-editor`
 (signature-moves #58). *Evidence:* kiuzr DYFVxkpJZuF. **Shown.**
 
+## OS-UI lyric vocabulary
+
+Map each lyric metaphor to one recognizable OS screen (location / time / camera / messages); cut
+≥80% on-beat. Beyond collage↔lyric-UI: the screens are the vocabulary, not collage swaps. Beat-lock
+ownership: `video-editor` rhythm. Hold messaging/play screens ~2× type boards:
+`video-editor` structure. *Evidence:* kiuzr DfXekYuJMFd 90% on-beat p=0.0005. **Shown.**
+
+## Environmental letterforms
+
+End a type reel by dropping the same letterforms onto real street objects or signs so type leaves
+the canvas. Prefer this montage subsection until more posts repeat (no new plugin). *Evidence:*
+kiuzr DbN22ZWprEr 14.25–16.95. **Shown.**
+
 ## Persistent title; stack rig + final
 
 Carry one persistent title over a thrash montage, or composite controller/rig over the final look
@@ -64,6 +77,28 @@ miss the motion inside a held collage plate. Author independent cutout motion on
 ([paper collage](#specify-motion-and-layers) row); verify at normal speed, not only on cut lists.
 Nearest ownership stays here; timeline cutting stays with `video-editor`. *Evidence:* kiuzr
 Daa9CEeJNpL: the full-frame detector found 3 hard cuts where a dense-event rule found 32. **Shown.**
+
+## Living album cover
+
+Bring a finished cover to life without changing its design:
+- **Cut and rig.** Separate the cover into layers (figures, props, sky, type) and fill what each
+  cut-out leaves behind. Give each moving piece a pin or puppet rig at its joints.
+- **Idle loops lasting whole bars.** Each layer gets one small motion (sway, blink, drift, flicker)
+  that loops in a whole number of bars: `loop seconds = 4 × 60 / BPM × bars` in 4/4. At 118 BPM,
+  4 bars = 8.14 s and 8 bars = 16.27 s. Offset the layers' phases so they don't all move together.
+- **Stage it on a sleeve.** Film a real or printed sleeve in a room: push in, the cover comes alive
+  on the hook, then pull back out.
+- **End on the still.** The last frame matches the still cover exactly, so the clip loops or hands
+  off to the static artwork without a pop.
+- **Companion post.** Plan a "how it was animated" breakdown of the same cover: cut-out, rig, loops.
+
+Verify: every layer is back at its start pose on the loop frame; the end frame differs from the still
+cover only by the sleeve staging; the hook entry lands on a downbeat. *Evidence:* round 21, post 99
+(about 40 cut-out figures, pin rigs, idle loops, then the cover on a vinyl sleeve); discoggraphic
+profile, observed views against his median: of four covers posted both plain and as a breakdown,
+three favoured the breakdown (2.3× plain vs 80.5×, 2.1× vs 32.2×, 1.0× vs 1.6×) and one went the
+other way (8.1× plain vs 1.8× breakdown). One creator's pairs: a lead to test, not a rule. His
+52.9× post was a compilation, not a breakdown. **Shown.**
 
 ## Prove the difficult passage
 
