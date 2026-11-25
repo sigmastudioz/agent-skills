@@ -158,7 +158,7 @@ For concurrent work, agree public contracts and file ownership before overlappin
 agents they are not alone: preserve others' edits and coordinate shared files through the assigned
 owner. Rebase or reconcile isolated changes before claiming integration; do not silently discard work.
 On return, report changed paths, public-contract changes, checks with outcomes, gap IDs/status, and
-remaining actions. The coordinator reconciles the trace ledger and verifies cross-agent seams and
+remaining actions, including follow-ups the worker announced but did not finish. The coordinator reconciles the trace ledger and verifies cross-agent seams and
 affected consumers; several passing worker checks do not establish a working integrated workflow.
 
 For interruption or context loss, save the handoff in the existing task/trace record with a timestamp

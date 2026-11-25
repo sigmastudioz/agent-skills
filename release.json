@@ -2,28 +2,29 @@
   "catalog": "sigmastudioz",
   "plugins": {
     "domain-driven-design": {
-      "version": "1.5.0",
+      "version": "1.5.1",
       "files": {
-        ".claude-plugin/plugin.json": "f08bac3881e0d0ecc3953349faa561475258114ef47357e2c5ace98d8c52b325",
-        ".codex-plugin/plugin.json": "ab55bd040f88a7498cba7b3b0dd0ed13a4793c9e8e4e32867d4240c170d25502",
-        ".cursor-plugin/plugin.json": "b81e7fc6c8e44c722e7ff40c5052a2636dbaf0b2bf933f82f17ff8758e13e903",
+        ".claude-plugin/plugin.json": "0160ea79532a60b9cd3b80861e9dc26c24dabad47d3ad5087954ae87538b6c88",
+        ".codex-plugin/plugin.json": "f326796a29f7daf21c0d22aaee7671ef3157092226d4e43de7e5bcf582fd73eb",
+        ".cursor-plugin/plugin.json": "992ff3366dcb25fb7f9b4d84547c74659870315dabd88fe276625d05cbb8f349",
         "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
-        "README.md": "830a5765e5e29d19237f88b986690703458c090328489e33c0f9f0ef0d4c61a3",
+        "README.md": "5a81a1ce116544e00b95f07c4c4e8c2a878636032b8804ec4c456f130bde878b",
         "assets/icon.svg": "ecc444f42595ddaac663925c73dfd64b306fa0f2172a96fd49e4a2810dde348c",
-        "plugin.json": "5e14b9abe09623db82126c24286b491635781ff6ff0fb20a29570349bf4ee8f8",
-        "skills/domain-driven-design/SKILL.md": "ff9f9011396cb3eeafbf0511edd0e5c823d19ae1e4f52d20a820b6a435a681bd",
+        "plugin.json": "97c9bf4074ef608b23d9dd407423f1bed93673b7ece5c649c5a2fae2faa52481",
+        "skills/domain-driven-design/SKILL.md": "62924cb0454ba92183d762e8f1d5b87152bc41934d8d29bc9352fb24a34dfc77",
         "skills/domain-driven-design/agents/openai.yaml": "81c161c20c997ded13ce15be615f5cc2a5b163f1036e44d88745c4f0894eff8e",
         "skills/domain-driven-design/references/architecture.md": "0f31f065d157b459d9bc13979de3a37383dee6288c8f1209b3965b966b3d5df3",
         "skills/domain-driven-design/references/gap-tracing.md": "78062032e399783d9e3be30d347b918e8e8115f73fe6a79b179459030fa1749b",
-        "skills/domain-driven-design/references/handoffs.md": "520a8ca0738d4560597bee5b1568b759acf2d1eb5595d48c6fced3f24201616b",
+        "skills/domain-driven-design/references/handoffs.md": "b3e1cb11ae76f5f0bacf7f61bffcc24d325fe825b7a150b3785348b6c6186059",
         "skills/domain-driven-design/references/operations.md": "5698dc6429a7d04c825d37a4cbada279b4a325f8b27d2a36a82dc5bc80357a71",
         "skills/domain-driven-design/references/project-records.md": "74ece221b14d2a5814c1e7d014d72b71823da8fde601bd0ad46083f277938fa6",
-        "skills/domain-driven-design/references/verification.md": "581849102889d6f2f5bd04bee1e4979cd0e9601f3a6bb70d1b7f2fe1062f350d",
-        "skills/domain-driven-design/tests/README.md": "86f323c5dcd8e3d80450b2d88613860444c60e49d4b3f7c18e7295ceda7d64da",
+        "skills/domain-driven-design/references/verification.md": "c04aa69b7eb2e78ae13aabf90720c5ef144fcd7d237ec9954340467a2deb4df7",
+        "skills/domain-driven-design/tests/README.md": "22643949fb41f247809be711f2fd4dba1edca766097963e4f949694347203471",
         "skills/domain-driven-design/tests/baseline-delegation-brief.md": "1846f64679c530986452c1f6fc679d84c645d65cf374047ca6a4a7f5c961540f",
         "skills/domain-driven-design/tests/baseline-quick-fix-shared-formatter.md": "074078a055c7182090bd793f7cda8a4e55c116c705488383e46ded6634574507",
         "skills/domain-driven-design/tests/observed-batch-review-coordination.md": "535d97ca90c03eb580dbddbcea784bdf66831032df7165eca80d79d67379d3d2",
-        "skills/domain-driven-design/tests/observed-cli-delegation.md": "584f168d0399eb23c2725bd07a346dba4cfb89f23ce7e0db3c408e72c39d9b15"
+        "skills/domain-driven-design/tests/observed-cli-delegation.md": "584f168d0399eb23c2725bd07a346dba4cfb89f23ce7e0db3c408e72c39d9b15",
+        "skills/domain-driven-design/tests/observed-follow-up-commitments.md": "e0580e73798abb1a0e97a9607ebdb9a13f12a42adc345d338074768e23c1c934"
       }
     },
     "visualizer": {

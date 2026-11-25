@@ -811,3 +811,11 @@ Checker survey (read-only, default budgets): quantum-watch-api 262.6 MiB over (5
 Install: `~/.agents/skills/domain-driven-design` (also linked from `~/.claude/skills`) re-pointed from the `agent-skills` checkout's skill folder to this worktree's; the unchanged handoff guard copied into its `scripts/` (kept untracked via info/exclude). Readback: installed guidance equals commit fc6ff8b; guard rejects an unbriefed coding delegation (exit 2) the same way the old path does. Rollback: point the link back to `agent-skills/plugins/domain-driven-design/skills/domain-driven-design`. `~/.cursor/plugins/local/domain-driven-design` is still 1.0.6 and was not touched.
 Unverified: no fresh with/without-skill behavior trial. While the guard sits in the worktree, `tests/test_ddd_distribution.py` run there will flag `scripts/guard_handoff.py`.
 Next: after #45 merges, point the link at a durable checkout of main (with the guard in `scripts/`) before removing this worktree.
+
+## DDD 1.5.1 — announced follow-ups tracked — November 24
+
+Status: branch `ddd/commitment-check-1.5.1` (worktree `agent-skills-ddd-1.5.1`, from 020a4e6 on origin/main 4a61117).
+Finding (integration gap): follow-ups announced mid-task went missing from final reports; the 020a4e6 end-of-task audit alone could not see promises lost to context summaries or made by workers.
+Change: record each announced follow-up in the plan or tracker when announced (SKILL.md); completion checklist reports each as done, dropped with its reason, or open, and requested work not done as not done (verification.md); workers report unfinished follow-ups (handoffs.md); observed case tests/observed-follow-up-commitments.md; version 1.5.1.
+Unverified: the ddd-scope pressure scenario (with and without skill) has not been run.
+Not included: the 600-line module rule edits left uncommitted in `agent-skills-main` (another session's work, Nov 22).

@@ -83,6 +83,8 @@ Before completing substantial work, confirm:
 - No duplicate implementation, unused abstraction, empty scaffold, or abandoned compatibility path remains.
 - Relevant consistency, failure recovery, resource usage, and authorization behavior are verified.
 - Every reported state was read back from its authoritative target, and every new gate was seen to fail.
+- Each follow-up announced during the task is in the plan or tracker and is reported as done,
+  dropped with its reason, or open. Requested work that was not done is reported as not done.
 - The implementation meets the agreed acceptance conditions without unrelated restructuring.
 - Every created module has a connected-path trace; touched paths and adjacent consumers are accounted for.
 - Confirmed gaps are fixed and retraced, or explicitly recorded with their impact and blocking evidence.
