@@ -1,11 +1,38 @@
 # UI Foundation Reuse
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.5.0.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.6.0.
 
 Reuse compatible React effects and scene infrastructure without a library download. This
 plugin includes the complete `ui-foundation-reuse` skill and the bundled
-`@sigmastudioz/ui-foundation` 0.14.0 runtime: CJS/ESM modules, TypeScript declarations,
+`@sigmastudioz/ui-foundation` 0.14.3 runtime: CJS/ESM modules, TypeScript declarations,
 original source and license notices. React and optional rendering peers are external.
+
+## Changes in 1.6.0
+
+Refresh the bundled runtime to 0.14.3 (104 public export entries, 3,106 files) and its matching
+source, types, checksum metadata and skill guide. The guide is reorganised: `SKILL.md` is now the
+workflow and capability map (258 lines, from 821), and per-effect props and constraints live in
+`references/effect-api.md`, read on demand.
+
+New since 0.14.0:
+
+- `/scroll-reveal` `ScrollPath`: an SVG path drawn as the page scrolls.
+- `/three` `lensToFov` / `fovToLens` (lens in mm), `WalkControls` (keyboard, drag and touch
+  walk-and-look), `LightingMood` with shared moods (morning, sunset, storm, night) also used by
+  `/weather` `SceneEnvironment mood`.
+- `/core` `useDeviceTilt`: device tilt with a pointer fallback and an explicit iOS permission.
+- `/gradient` `pointer` and `audio` live input.
+
+Fixes carried in the runtime (0.14.3):
+
+- Links and buttons inside a `FlipCard` face no longer flip the card; a `LanyardBadge` swing that
+  ends on a link does not follow it.
+- `Model materials` recolouring keeps a baked `lightmap`.
+- Phones can scroll past `ReactionDiffusion` and `LanyardBadge` (`touch-action: pan-y`).
+- `WalkControls` turns with ←/→, strafes with A/D and reads physical keys (AZERTY works).
+- Glitch patterns and bursts change at most three times a second (WCAG 2.3.1).
+
+The staging helper and its credential boundary are unchanged.
 
 ## Changes in 1.5.0
 

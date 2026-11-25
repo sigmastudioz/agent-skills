@@ -819,3 +819,19 @@ Finding (integration gap): follow-ups announced mid-task went missing from final
 Change: record each announced follow-up in the plan or tracker when announced (SKILL.md); completion checklist reports each as done, dropped with its reason, or open, and requested work not done as not done (verification.md); workers report unfinished follow-ups (handoffs.md); observed case tests/observed-follow-up-commitments.md; version 1.5.1.
 Unverified: the ddd-scope pressure scenario (with and without skill) has not been run.
 Not included: the 600-line module rule edits left uncommitted in `agent-skills-main` (another session's work, Nov 22).
+
+## UI Foundation Reuse 1.6.0 — bundled runtime 0.14.3 — November 24
+
+Status: branch `ui-foundation-reuse-1.6.0` (worktree `agent-skills-uifr-1.6.0`, from origin/main 251a530).
+Finding (integration gap): this copy was never in ui-foundation's sync list, so it stayed at 0.14.0
+while the library shipped 0.14.1–0.14.2, and its SKILL.md never named WalkControls, useDeviceTilt,
+ScrollPath or lensToFov. Tony's review also found the guide too long (821 lines, effect API inline)
+with two sections after "Keep this guide current".
+Change: SKILL.md, `references/effect-api.md`, bundle.json, ui-foundation.tgz and LICENSE copied
+from ui-foundation `fix/release-0.14.3` commit 3c365ef (SKILL.md 258 lines); plugin 1.6.0 in all
+four manifests and both READMEs; release.json regenerated. Before copying, this SKILL.md was byte
+-identical to ui-foundation 4f45217's, so no copy-only edits were lost.
+Checks: archive sha256 matches bundle.json (0.14.3, 3,106 files); `tools/build_catalogs.py --check`;
+`tests/test_catalogs.py` (10 passed); `claude plugin validate .` passed.
+Unverified: this bundle matches 0.14.3 as built from the library branch; if that PR changes before
+merge, re-copy. Not published until the library PR merges and the owner agrees.
