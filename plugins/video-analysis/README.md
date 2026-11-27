@@ -1,6 +1,6 @@
 # SigmaStudioz Video Analysis
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.1.0.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.1.1.
 
 Analyze supplied videos and audio through timestamped frames, adaptive inspection, transcripts and explicit evidence/coverage limits. By Lex from SigmaStudioz.
 

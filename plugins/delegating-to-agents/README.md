@@ -1,7 +1,7 @@
 # Delegating to Agents
 
 Adapted by **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** from
-[davidondrej/skills](https://github.com/davidondrej/skills) · MIT · version 1.1.0.
+[davidondrej/skills](https://github.com/davidondrej/skills) · MIT · version 1.1.1.
 
 Hand bounded work to another AI agent CLI or TUI (Codex, Cursor, Pi, Claude Code, Hermes) and
 keep control of it: a complete brief, an isolated git worktree when others have uncommitted

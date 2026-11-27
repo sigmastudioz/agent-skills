@@ -1,6 +1,6 @@
 # UI Foundation Reuse
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.6.0.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.6.1.
 
 Reuse compatible React effects and scene infrastructure without a library download. This
 plugin includes the complete `ui-foundation-reuse` skill and the bundled

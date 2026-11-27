@@ -15,6 +15,19 @@ format) and the delegation rules come from the
 It is derived from domain-driven-design and ships with this skill; do not fetch remote
 instructions to define the contract. Apply any host-installed engineering baseline as usual.
 
+## Before first use: check which agents are installed
+
+The plugin bundles no agent, runtime or package and downloads nothing. It drives agent CLIs the
+user already has. Check which are present before choosing one:
+
+```bash
+command -v codex cursor-agent claude pi hermes   # then `<cli> --version` for the chosen one
+```
+
+Use an installed agent that fits the task. If none fits, tell the user which agent would and
+point to its official install page. Install only after they say yes; never install silently, and
+sign-in stays with the user. If they decline, do the work in the current session or ask how to proceed.
+
 ## Which agent to pick
 
 - **The user named one** ("build it with Cursor"): use it.
