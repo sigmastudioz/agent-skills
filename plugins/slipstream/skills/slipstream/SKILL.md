@@ -12,6 +12,30 @@ error (under 0.3% of input in the publisher's measured Claude Code and Codex log
 wrong term. Lower the **base** (what loads before the first word), the **growth** (what each call
 adds) and the **count** of calls made at high context, while keeping every capability reachable.
 
+## 0. Before first use: check what the tools need
+
+The plugin ships only its own scripts. It bundles no runtime or package and downloads nothing.
+Before running any script, check once per machine:
+
+```bash
+python3 --version   # needs 3.9+; scripts use the standard library only
+bash --version      # only for scripts/wait_for.sh
+```
+
+If one is missing or too old, tell the user what is missing, which features need it, and the
+install command for their system. Install only after they say yes; never install silently.
+
+| System | Python 3 | bash |
+|---|---|---|
+| macOS | `brew install python` (or python.org installer) | built in |
+| Windows | `winget install Python.Python.3.12` | use WSL or Git Bash; hooks and `wait_for.sh` need it |
+| Debian/Ubuntu | `sudo apt install python3` | built in |
+| Fedora | `sudo dnf install python3` | built in |
+
+If the user declines, continue in **guidance-only mode**: apply sections 3 and 4 by hand and
+explain section 2's lean-listing method. Say plainly that the measurements, the lean setup
+and the hooks need Python, so the measured savings will not apply.
+
 ## 1. Measure (scripts/, read-only)
 
 | Script | Answers |
