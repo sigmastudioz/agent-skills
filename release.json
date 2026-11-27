@@ -251,6 +251,43 @@
         "skills/senior-digital-skills/references/teaching-older-adults.md": "aa365f45f178ac37748821960f639028d8a1ec8577d0cc64dc9040013d400c7a",
         "skills/senior-digital-skills/tests/README.md": "9eba6675d2bf8a602bab5f242cd7ddd9ed62618698945abc65771250a5605fd4"
       }
+    },
+    "slipstream": {
+      "version": "1.0.0",
+      "files": {
+        ".claude-plugin/plugin.json": "452b1bea7f7a1f51a043a2ac7d8122d615b1b8b16bec78fae43d5c79c1b495e6",
+        ".codex-plugin/plugin.json": "65a33d8025d1174ddb9a4c553dd5fe13c134d589352508f0c2bc44951ef7e16c",
+        ".cursor-plugin/plugin.json": "44a7e12bccf2b4f35486730e515e7fb10ca7acba939eae9888edc7d70f20720e",
+        "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
+        "README.md": "d33d3998ee872f972fe369bf955f99ff06aae63316addf0fcc9675163ea2f1b7",
+        "assets/before-after.svg": "5e16a4a135d366641626029459b8529b20f818e844b3d4d62fe721b08683bc7f",
+        "assets/icon.svg": "9c0968ffb511a7d5bcbba2e027880eadf9f8e142f98464e7b559056323a0d60e",
+        "assets/where-tokens-go.svg": "523fe219de4cde6e1891d5aafafa01fe795e4378834942ed16d254272c715124",
+        "plugin.json": "33ace3c128e5049d6e6d616cec869d97356672bdde2ea0f959c987de8eb19188",
+        "skills/slipstream/LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
+        "skills/slipstream/SKILL.md": "375e7bc754cec9e777abc583a877304299e79ba3025416b3ff13ff537dee49c6",
+        "skills/slipstream/cursor/slipstream.mdc": "d126a70dac2e2927f0020ed3f833591ab5a7da6288a2c74bc9e2e32af9ea39cc",
+        "skills/slipstream/hooks/auto_refresh.py": "9bd461509a776da175adc93845474984de9430c9bde26397dc739e3f189ff1a8",
+        "skills/slipstream/hooks/slip_guard.py": "aa3da1cfaca525110235c8aa7f4ae92c210c949a65a67978e3bce53d5dee6504",
+        "skills/slipstream/hooks/slip_hint.py": "1dc08414e52ceeb1467a0e68648be75e4a30174886bae183171df0e400c3f9f3",
+        "skills/slipstream/hooks/slip_meter.py": "b13c7b01f1ecdb84b99d1061fcd197f4c6f5bdfa94b4ed046ed0d87a6a90d4a5",
+        "skills/slipstream/router/SKILL.md": "94f0e086004d9c511df4a9a0659a4d792295f47fa5ba4acf6329a26fe6d74e7d",
+        "skills/slipstream/router/scripts/find_skill.py": "63c9ac5d48a398d667ab3db7223d863a3edbbb59f4561b6d10503f5ff6da3788",
+        "skills/slipstream/scripts/analyze.py": "51d9c2c99c63e4d11312f0b9598f6b8e3b038bd88651b80ddad1ba1542d17705",
+        "skills/slipstream/scripts/analyze_cursor_csv.py": "3d97f8903cb503c6218cb49d499597c6f5e3bb9e32352eab1fdae5f12417de52",
+        "skills/slipstream/scripts/build_catalog.py": "414cf7e8ccbfbad638253eba102b358c1b1ee924343f7309e33dada3101c2210",
+        "skills/slipstream/scripts/closure.py": "d7397db7441173f73883794502e90fe3ad339ba72995e96a66fa668fb42b40a5",
+        "skills/slipstream/scripts/discovery_ab.py": "e0d655ac5a39e67ca2df3ef64197ed69fced3237bb5a48da6257d97a87432184",
+        "skills/slipstream/scripts/eval_hint.py": "32a289bffc18aee9333a5d3c3d43bb05565b3ae5e5438ec2a770a4c73ba84358",
+        "skills/slipstream/scripts/eval_rolling.py": "c3757b0a87ddfb35e53f4c099eba98133906630976d9c5515c3fe23ceefdd6d6",
+        "skills/slipstream/scripts/lean_setup.py": "f719e4d8750395f9e7e2b5a7f909d0220aa3aabca379eeeb501257079a86cebb",
+        "skills/slipstream/scripts/learn_aliases.py": "1a0ad89e854027fe69e0e48c00118e959c79aad9b27c5748deacf9bb11114ecd",
+        "skills/slipstream/scripts/mine_pairs.py": "0627404c7c76bb88f43917a607d312e5ebc635718ce5ec22084f0338f15a72e8",
+        "skills/slipstream/scripts/preamble.py": "4a3a077332aaf95186095dd77c5ad8dc45bb9b085ca93e5be60bb9c9c1218f38",
+        "skills/slipstream/scripts/replay.py": "932e1f09e3d1817d71035f73d2fa8e69779dc16cdd640e8367558adebb471718",
+        "skills/slipstream/scripts/skill_usage.py": "8791887728d2f4435e6ee2d6d388f6ba82615d3de4fd9e680bbe67411682659e",
+        "skills/slipstream/scripts/wait_for.sh": "d5863d891cea739e1a8e4db6bcf934c7d2ed56540495ac3d4a7b402a7be55b55"
+      }
     }
   }
 }

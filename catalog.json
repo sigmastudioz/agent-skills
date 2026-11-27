@@ -56,6 +56,11 @@
       "name": "senior-digital-skills",
       "path": "./plugins/senior-digital-skills",
       "category": "Productivity"
+    },
+    {
+      "name": "slipstream",
+      "path": "./plugins/slipstream",
+      "category": "Productivity"
     }
   ]
 }
