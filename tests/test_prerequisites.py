@@ -6,6 +6,7 @@ No plugin may bundle a runtime, dependency tree or native binary.
 """
 import json
 import re
+import subprocess
 import unittest
 from pathlib import Path
 
@@ -21,8 +22,14 @@ def plugins():
         yield entry["name"], (ROOT / entry["path"]).resolve()
 
 
+def tracked(root):
+    """Committed files only: git-ignored local installs (a plugin's own .venv) are not shipped."""
+    out = subprocess.run(["git", "ls-files", "-z", "--", str(root)], cwd=ROOT, capture_output=True, text=True, check=True)
+    return [ROOT / f for f in out.stdout.split("\0") if f]
+
+
 def ships_code(root):
-    return any(p.suffix in CODE and "tests" not in p.parts for p in root.rglob("*") if p.is_file())
+    return any(p.suffix in CODE and "tests" not in p.parts for p in tracked(root))
 
 
 class PrerequisitePatternTests(unittest.TestCase):
@@ -39,9 +46,7 @@ class PrerequisitePatternTests(unittest.TestCase):
 
     def test_no_bundled_runtime_or_binary(self):
         for name, root in plugins():
-            for p in root.rglob("*"):
-                if not p.is_file():
-                    continue
+            for p in tracked(root):
                 with self.subTest(plugin=name, file=str(p.relative_to(root))):
                     self.assertFalse(RUNTIME_PARTS & set(p.parts), "bundled dependency tree")
                     self.assertNotIn(p.suffix.lower(), RUNTIME_SUFFIX, "bundled binary or installer")
