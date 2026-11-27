@@ -211,3 +211,13 @@ install only with the user's yes (Python packages into a project virtual environ
 what still works if they decline. `tests/test_prerequisites.py` enforces this for every plugin that
 ships code or calls an outside tool and rejects bundled runtimes. This is a reliability and
 transparency rule; it does not change the Claude directory's code-type review gate.
+
+## Tony 2.2.0 — learned from real use, November 27
+
+What If Tony Stark Built This 2.2.0 adds a verdict-first review mode. A local review of human-driven
+skill use across Claude Code, Codex and Cursor found that most Tony requests ask for a review
+("take a look", "what are we missing", an opinion on a link) rather than an invention, and that
+several follow-ups were needed to get a plain verdict. The new section answers in order: verdict
+(built correctly, makes sense, working and how verified, fits surrounding pipelines), ranked gaps
+with evidence, what to change, and what remains. Session content stayed local; only the general
+pattern is published. Other plugins had too little skill-specific evidence to change.
