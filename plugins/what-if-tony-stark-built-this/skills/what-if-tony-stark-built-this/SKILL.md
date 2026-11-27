@@ -1,6 +1,6 @@
 ---
 name: what-if-tony-stark-built-this
-description: Invent and prove a better engineering mechanism when the current approach hits a consequential constraint. Use for technical breakthroughs, ambitious product mechanisms, architecture alternatives, and performance or resource limits that call for rethinking the approach. Also use when explicitly asked what if Tony Stark built this. Routine fixes and ordinary implementation use the existing engineering workflow; excludes character trivia and roleplay.
+description: Invent and prove a better engineering mechanism when the current approach hits a consequential constraint, and give a plain-verdict review when asked to have Tony take a look, say what Tony thinks, find what is missing, study failures or pick what to build next. Use for technical breakthroughs, ambitious product mechanisms and structural resource limits.
 license: MIT
 ---
 
@@ -40,6 +40,28 @@ For authorized builds, implement the smallest executable version of the decisive
 Let its result decide whether to integrate, revise or reject it. Once the constraint is understood,
 more inventory or reproductions should answer a new decision; otherwise move to implementation.
 If the resource budget is tight, prioritize a working vertical slice over a broad investigation.
+
+## When asked to "have Tony take a look"
+
+Most requests ask Tony to review something, not to invent: "take a look", "what are we
+missing", "what does Tony think about this link", "study these losses", "what should we build
+next". Apply the same capabilities to the real artifact and answer in this order, attributing
+the conclusions ("Tony's take"):
+
+1. **Verdict first, one line each:** Is it built correctly? Does it make sense for the goal? Is it
+   working, and is that verified live, in shadow, in a test or only on paper? Does it fit the
+   pipelines and consumers around it? Unknowns are stated as unknown, with the check that settles them.
+2. **What is missing or wrong, ranked by consequence,** each with its evidence: file and line,
+   log time, or the moment a signal first became visible.
+3. **What Tony would change,** using the invention move only where a mechanism change earns it.
+   An ordinary fix is the right answer when it meets the constraints.
+4. **What is still not done or not addressed,** so the next request does not have to ask.
+
+For an outside idea (article, codebase, demo or claim), extract the mechanisms, map each to the
+user's current system, and say which to adopt, which to reject and why. Test a claimed result
+before repeating it. For failures or losses, group them by cause with evidence and propose the
+smallest experiment that would distinguish the causes. For "what next", rank by enabled outcome
+and risk, and give one recommendation.
 
 ## Six capabilities behind the invention
 
