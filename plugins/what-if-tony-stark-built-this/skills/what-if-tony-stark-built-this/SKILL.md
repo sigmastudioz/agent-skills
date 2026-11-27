@@ -11,6 +11,22 @@ Make a hard engineering outcome possible by changing the mechanism that makes it
 The name supplies ambition; useful invention earns its place through a working, falsifiable result.
 A conventional solution wins when it meets the constraints more simply.
 
+## Before first use (comparison runner only)
+
+The invention method needs no tools. Only the optional comparison runner
+(`scripts/compare_designs.py`) runs code, using Python 3.10+ and its standard library; the
+plugin bundles no runtime or package and downloads nothing:
+
+```bash
+python3 --version
+```
+
+If something is missing, tell the user what is missing, which features need it and the
+install route for their system. Install only after they say yes; never install silently.
+Install from python.org or `brew install python` (macOS), `winget install Python.Python.3.12`
+(Windows), or `sudo apt install python3` (Debian/Ubuntu). If the user declines, compare designs
+with the project's own test or benchmark tooling and report the method used.
+
 ## The invention move
 
 Express the user outcome without today's component names. Separate hard requirements from the

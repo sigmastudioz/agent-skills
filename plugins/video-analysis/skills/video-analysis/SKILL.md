@@ -11,6 +11,26 @@ Answer the actual question with inspectable evidence. Distinguish visible events
 recognized text, transcript hypotheses, interpretation and unknowns. Deliver an analysis, not a
 folder of frames with an unsupported claim that the entire video was understood.
 
+## Before first use: check what the local sampler needs
+
+The plugin bundles no runtime, model or binary and downloads nothing. The optional local
+sampler needs Python 3.10+ (standard library only) plus FFmpeg and ffprobe:
+
+```bash
+python3 --version && ffmpeg -version && ffprobe -version
+```
+
+If something is missing, tell the user what is missing, which features need it and the
+install route for their system. Install only after they say yes; never install silently.
+
+| Tool | macOS | Windows | Debian/Ubuntu |
+|---|---|---|---|
+| Python 3 | `brew install python` | `winget install Python.Python.3.12` | `sudo apt install python3` |
+| FFmpeg + ffprobe | `brew install ffmpeg` | `winget install Gyan.FFmpeg` | `sudo apt install ffmpeg` |
+
+If the user declines, use the host's native video or audio input when it has one, or ask for
+frames, a transcript or timestamps, and state the reduced coverage.
+
 ## Capability and scope
 Check what the host can actually inspect: native video, individual images, audio listening,
 transcription, OCR and local FFmpeg/ffprobe. Prefer a suitable native path; do not assume every

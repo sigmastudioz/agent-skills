@@ -200,3 +200,14 @@ hooks). Published evidence is ratios and methods only; raw logs and personal evi
 It has no native review receipt. A Cursor publisher application for this repository and an OpenAI
 ZIP submission were prepared from the merged main ZIP; their outcomes are recorded only once observed.
 The Claude directory route needs the Verified-organization allowance noted above for bundled code.
+
+## Prerequisite pattern — November 27
+
+Collection rule: plugins ship their own tools, never a runtime, dependency tree or binary, and
+check prerequisites with the user first. Visualizer 1.11.1, Video Analysis 1.1.1, UI Foundation
+Reuse 1.6.1, What If Tony Stark Built This 2.1.2 and Delegating to Agents 1.1.1 gain a "Before
+first use" section: check what is installed, explain what is missing and which features need it,
+install only with the user's yes (Python packages into a project virtual environment), and state
+what still works if they decline. `tests/test_prerequisites.py` enforces this for every plugin that
+ships code or calls an outside tool and rejects bundled runtimes. This is a reliability and
+transparency rule; it does not change the Claude directory's code-type review gate.

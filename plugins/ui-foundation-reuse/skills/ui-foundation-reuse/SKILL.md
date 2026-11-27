@@ -11,6 +11,23 @@ This skill includes reusable implementation code in `assets/ui-foundation.tgz`: 
 
 Read [setup](references/setup.md) for Codex/Claude installation and local runtime setup, and [license notices](references/third-party-notices.md) when redistributing the code. Resolve relative skill paths from the directory containing this `SKILL.md`, not the app's working directory.
 
+## Before first use: check what staging needs
+
+The plugin ships its own built library archive and staging script; it bundles no Node.js,
+package manager or third-party package and downloads nothing. Staging needs Node.js and the
+consuming app's own package manager:
+
+```bash
+node --version   # and the app's manager, e.g. npm --version / pnpm --version / yarn --version
+```
+
+If something is missing, tell the user what is missing, which features need it and the
+install route for their system. Install only after they say yes; never install silently.
+Install Node.js from nodejs.org or `brew install node` (macOS), `winget install OpenJS.NodeJS.LTS`
+(Windows), or the distribution package (Linux). Peer packages are installed by the app's package
+manager only when the user authorizes it. If the user declines, read the bundled API guidance
+and write against the documented exports without staging.
+
 ## Reuse an installed runtime or stage the included one
 
 Work from the consuming application's directory, including the correct workspace in a monorepo. Inspect its manifest, lockfile, existing wrappers, and scene host. Resolve the actual installation rather than assuming a `node_modules` layout or a source checkout:

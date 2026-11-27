@@ -12,6 +12,32 @@ Make the subject understandable through a coherent visual model, purposeful inte
 motion. Deliver a working artifact, not just an idea or storyboard. This is one package with
 interactive and video modes; do only the modes the user needs.
 
+## Before first use: check what the local tools need
+
+The plugin ships its own scripts; it bundles no runtime, Python package or binary and downloads
+nothing. Interactive artifacts need none of the tools below. Check once, only for the modes used:
+
+```bash
+python3 --version          # renderer, comparison and media-in-3D helpers (3.10+)
+ffmpeg -version && ffprobe -version   # video, captions, posters, sound mixing
+python3 -c "import PIL, numpy"        # Pillow/NumPy for the renderer and media-in-3D
+```
+
+If something is missing, tell the user what is missing, which features need it and the
+install route for their system. Install only after they say yes; never install silently.
+Python packages go into a project virtual environment from the shipped
+`scripts/requirements.txt` or `scripts/requirements-media-3d.txt`
+(`python3 -m venv .venv && .venv/bin/pip install -r <file>`), never into the global Python.
+Blender, fonts and the optional sound runtime are separately installed by the user.
+
+| Tool | macOS | Windows | Debian/Ubuntu |
+|---|---|---|---|
+| Python 3 | `brew install python` | `winget install Python.Python.3.12` | `sudo apt install python3 python3-venv` |
+| FFmpeg | `brew install ffmpeg` | `winget install Gyan.FFmpeg` | `sudo apt install ffmpeg` |
+
+If the user declines, continue with interactive (browser) artifacts and say which video
+features are unavailable until the tools are installed.
+
 ## Route the actual request
 | Outcome | Read when needed | Deliverable |
 | --- | --- | --- |

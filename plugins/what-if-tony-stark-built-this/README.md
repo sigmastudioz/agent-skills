@@ -1,6 +1,6 @@
 # What If Tony Stark Built This
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 2.1.1.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 2.1.2.
 
 Engineering invention for a consequential constraint: challenge the inherited approach, find a
 better mechanism, and prove a working slice. The name supplies ambition; a useful breakthrough
