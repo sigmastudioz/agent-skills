@@ -64,7 +64,11 @@ disables only settings.json plugins that are pure skills/agents/commands with ze
 and this skill for Codex, and appends a three-line rule block to `~/.codex/AGENTS.md`. Plugins a
 desktop app syncs from an account are reported, not changed.
 
-Requirements: Python 3.9+, macOS or Linux shell. No network access, dependencies or accounts.
+Requirements: Python 3.9+ (standard library only) and bash for the hooks and `wait_for.sh`.
+Nothing is bundled or downloaded: on first use the agent checks for both, tells you what is
+missing and the install command for your system, and installs only if you say yes. Windows
+needs WSL or Git Bash for the hooks. If you decline, Slipstream runs in guidance-only mode
+(its rules, applied by hand) without the measured savings. No network access or accounts.
 
 ## Evidence (publisher's own setup)
 

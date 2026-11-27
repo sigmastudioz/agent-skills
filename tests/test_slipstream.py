@@ -158,6 +158,23 @@ class PackageTests(unittest.TestCase):
                 for bad in ("/Users/", "/private/tmp", "@gmail"):
                     self.assertNotIn(bad, t, f"{p}: {bad}")
 
+    def test_prerequisites_declared_and_consent_required(self):
+        skill = (SKILL / "SKILL.md").read_text()
+        self.assertIn("Before first use", skill)
+        self.assertIn("python3 --version", skill)
+        self.assertIn("never install silently", skill)
+        self.assertIn("guidance-only mode", skill)
+
+    def test_standard_library_only(self):
+        import ast
+        allowed = set(sys.stdlib_module_names) | {"analyze", "closure", "slip_hint"}
+        for p in SKILL.rglob("*.py"):
+            for node in ast.walk(ast.parse(p.read_text())):
+                names = [a.name for a in node.names] if isinstance(node, ast.Import) else \
+                    [node.module] if isinstance(node, ast.ImportFrom) and node.module and not node.level else []
+                for n in names:
+                    self.assertIn(n.split(".")[0], allowed, f"{p.name} imports non-stdlib {n}")
+
     def test_production_modules_under_600_lines(self):
         for p in (SKILL).rglob("*.py"):
             self.assertLessEqual(len(p.read_text().splitlines()), 600, p)
