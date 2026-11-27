@@ -189,3 +189,14 @@ Publish complete plugin ZIPs for the new or unreleased versions. Preserve earlie
 release assets. GitHub availability establishes neither a fresh skills.sh snapshot nor
 native marketplace approval. Tony Stark has no native directory submission identity in
 this task; no new legal declarations, account changes or support messages are implied.
+
+## Slipstream addition — November 27
+
+Slipstream 1.0.0 is a new, separately versioned plugin: local token-usage measurement, a
+usage-based skill listing with an installed-skills catalog and prompt-time hints, a context meter,
+a polling guard and a Cursor usage-CSV parser. Configuration changes are dry-run by default, and
+its hook scripts are registered only by `lean_setup.py --apply` (not declared as plugin lifecycle
+hooks). Published evidence is ratios and methods only; raw logs and personal evidence stay local.
+It has no native review receipt. A Cursor publisher application for this repository and an OpenAI
+ZIP submission were prepared from the merged main ZIP; their outcomes are recorded only once observed.
+The Claude directory route needs the Verified-organization allowance noted above for bundled code.
