@@ -27,9 +27,11 @@ SKILL_PATH = re.compile(r"/([^/]+)/SKILL\.md")
 
 
 def run(prompt, cwd, extra, model, env):
+    # Least privilege: read-only tools plus the one catalog search script; everything else is denied.
+    finder = os.path.join(cwd, ".claude/skills/skill-library/scripts/find_skill.py")
     cmd = ["claude", "-p", prompt + SUFFIX, "--model", model, "--output-format", "stream-json", "--verbose",
-           "--max-turns", "8", "--strict-mcp-config", "--allowedTools", "Skill", "Read", "Grep", "Glob",
-           "Bash(python3:*)", "Bash(grep:*)", "Bash(ls:*)"] + extra
+           "--max-turns", "8", "--strict-mcp-config", "--permission-mode", "default",
+           "--allowedTools", "Skill", "Read", "Grep", "Glob", f"Bash(python3 {finder}:*)"] + extra
     p = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, env=env, timeout=600)
     loaded, tokens, turns = [], 0, 0
     for line in p.stdout.splitlines():

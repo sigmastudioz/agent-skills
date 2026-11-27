@@ -2,7 +2,7 @@
 """Build a searchable one-line-per-skill catalog of every skill on this machine.
 Output TSV: name <TAB> source <TAB> description(<=160 chars) <TAB> path
 Usage: python3 build_catalog.py [--out ~/.claude/skill-library/catalog.tsv]"""
-import argparse, glob, os, re
+import argparse, glob, json, os, re
 HOME = os.path.expanduser("~")
 FM = re.compile(r"^---\s*\n(.*?)\n---", re.S)
 
@@ -33,10 +33,16 @@ def main():
             m = meta(p)
             if m and os.path.realpath(p) not in seen:
                 seen.add(os.path.realpath(p)); rows.append((m[0], os.path.basename(r), m[1], p))
-    plug = glob.glob(f"{HOME}/.claude/plugins/cache/*/*/*/skills/*/SKILL.md")
+    # Only skills the user installed: enabled plugins (settings.json) and account-synced plugins.
+    # Uninstalled marketplace content is never indexed: hints must not surface unvetted instructions.
+    st = f"{HOME}/.claude/settings.json"
+    enabled = [k for k, v in (json.load(open(st)).get("enabledPlugins", {}) if os.path.exists(st) else {}).items() if v]
+    plug = []
+    for key in enabled:
+        n, _, m = key.partition("@")
+        plug += glob.glob(f"{HOME}/.claude/plugins/cache/{m}/{n}/*/skills/*/SKILL.md")
     synced = sorted(glob.glob(f"{HOME}/.claude/plugins/synced/*"), key=os.path.getmtime)[-1:]
     for d in synced: plug += glob.glob(f"{d}/*/skills/*/SKILL.md")
-    plug += glob.glob(f"{HOME}/.claude/plugins/marketplaces/**/skills/*/SKILL.md", recursive=True)
     names = {r[0] for r in rows}
     for p in latest(plug):
         if any(x in p for x in ("/temp_git_", "/.trash/", "/fixtures/", "/tests/")): continue

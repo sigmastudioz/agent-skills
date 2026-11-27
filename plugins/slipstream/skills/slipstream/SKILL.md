@@ -34,10 +34,13 @@ Real preamble: `claude -p "Reply OK" --output-format json`, then sum the usage f
   every skill those skills reference by name (process skills are reached by chaining, not
   by prompt words), plus xlsx/docx/pptx/pdf. The rest move (never delete) to
   `~/.claude/skill-library/archive/`.
+- **New skills are safe:** a skill installed in the last 30 days (`--grace`) always stays listed;
+  usage decides only after that. Installing a skill or enabling a plugin triggers a catalog
+  rebuild at the next session start.
 - **Self-correcting:** `--refresh` runs weekly (SessionStart hook, in the background): an archived
   skill used in the last 30 days is promoted back, idle ones are archived, triggers are relearned.
-- **Catalog** (`build_catalog.py`): one line per skill across personal, archived, plugin and
-  marketplace folders. Costs nothing until searched; covers more skills than the old listing.
+- **Catalog** (`build_catalog.py`): one line per installed skill (personal, archived, enabled and account-synced
+  plugins; never uninstalled marketplace content). Costs nothing until searched.
 - **Skill hint hook** (`hooks/slip_hint.py`, ~0.2 s): matches the user's own words (no pasted
   blocks, summaries or machine notifications) against the catalog and injects one line with the
   SKILL.md path when it finds an exact skill name, a named skill ("the social media skill"), a

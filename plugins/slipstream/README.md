@@ -30,7 +30,8 @@ that per-call context while keeping every skill reachable, so work quality does 
 | --- | --- | --- |
 | Measure | Where input goes: input:output ratio, first-call context, long-session share, polling | `scripts/analyze.py`, `preamble.py`, `skill_usage.py` |
 | Smaller startup | List skills used in the last 30 days (plus skills they reference and ones named in global instructions); archive the rest, never delete | `scripts/lean_setup.py` (dry run by default, `--undo`) |
-| Nothing lost | A one-line-per-skill catalog of every local skill; a prompt-time hint names the exact SKILL.md when a request matches; a router skill for manual search | `hooks/slip_hint.py`, `router/`, `scripts/build_catalog.py` |
+| Nothing lost | A one-line-per-skill catalog of every installed skill (never uninstalled marketplace content); a prompt-time hint names the exact SKILL.md when a request matches; a router skill for manual search | `hooks/slip_hint.py`, `router/`, `scripts/build_catalog.py` |
+| New skills safe | A skill installed in the last 30 days always stays listed; installing a skill or plugin rebuilds the catalog at the next session start | `--grace`, `hooks/auto_refresh.py` |
 | Self-tuning | Weekly refresh promotes archived skills back into use and relearns the user's own trigger words | `--refresh`, `hooks/auto_refresh.py` |
 | Shorter sessions | Silent until a conversation grows ~100K, then suggests a handoff at the next task boundary | `hooks/slip_meter.py` |
 | No polling | Denies a bare `sleep N` step; one shell call waits instead of N model calls | `hooks/slip_guard.py`, `scripts/wait_for.sh` |

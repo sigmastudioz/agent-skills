@@ -101,6 +101,10 @@ class LifecycleTests(unittest.TestCase):
                 skill_md(h / ".claude/skills", n)
             with open(h / ".claude/skills/graphify/SKILL.md", "a") as f:
                 f.write("Then use gamma-helper.\n")
+            old = __import__("time").time() - 90 * 86400  # installed long ago
+            for n in ("alpha", "beta", "graphify", "gamma-helper"):
+                os.utime(h / ".claude/skills" / n, (old, old))
+            skill_md(h / ".claude/skills", "fresh-skill")  # installed today, never used yet
             (h / ".claude/CLAUDE.md").write_text("Use graphify.\n")
             (h / ".codex/skills").mkdir(parents=True)
             (h / ".codex/AGENTS.md").write_text("# agents\n")
@@ -112,17 +116,38 @@ class LifecycleTests(unittest.TestCase):
             r = run([PY, SKILL / "scripts/lean_setup.py", "--apply"], env=env, timeout=300)
             self.assertEqual(r.returncode, 0, r.stderr)
             listed = set(os.listdir(h / ".claude/skills"))
-            self.assertEqual(listed, {"graphify", "gamma-helper", "skill-library", "slipstream"})
+            self.assertEqual(listed, {"graphify", "gamma-helper", "fresh-skill", "skill-library", "slipstream"})
             (h / ".claude/projects/p/s.jsonl").write_text(json.dumps({"type": "assistant", "timestamp": "2099-01-01T00:00:00Z",
                 "message": {"content": [{"type": "tool_use", "name": "Skill", "input": {"skill": "beta"}}], "usage": {"input_tokens": 1}}}, separators=(",", ":")) + "\n")
             os.utime(h / ".claude/projects/p/s.jsonl")
             r = run([PY, h / ".claude/skill-library/slipstream/scripts/lean_setup.py", "--refresh"], env=env, timeout=300)
             self.assertIn("beta", os.listdir(h / ".claude/skills"), r.stdout + r.stderr)
+            self.assertIn("fresh-skill", os.listdir(h / ".claude/skills"), "new skill archived during grace")
             r = run([PY, SKILL / "scripts/lean_setup.py", "--undo"], env=env, timeout=300)
             self.assertEqual(r.returncode, 0, r.stderr)
-            self.assertEqual(set(os.listdir(h / ".claude/skills")), {"alpha", "beta", "graphify", "gamma-helper"})
+            self.assertEqual(set(os.listdir(h / ".claude/skills")), {"alpha", "beta", "graphify", "gamma-helper", "fresh-skill"})
             self.assertEqual(json.loads((h / ".claude/settings.json").read_text()), settings)
             self.assertEqual((h / ".codex/AGENTS.md").read_text(), "# agents\n")
+
+
+class CatalogTrustTests(unittest.TestCase):
+    def test_only_installed_skills_are_indexed(self):
+        with tempfile.TemporaryDirectory() as home:
+            h = Path(home)
+            skill_md(h / ".claude/skills", "mine")
+            skill_md(h / ".claude/plugins/marketplaces/m/plugins/x/skills", "uninstalled-third-party")
+            skill_md(h / ".claude/plugins/cache/m/enabled-plugin/1.0.0/skills", "from-enabled")
+            skill_md(h / ".claude/plugins/cache/m/disabled-plugin/1.0.0/skills", "from-disabled")
+            (h / ".claude/settings.json").write_text(json.dumps({"enabledPlugins": {
+                "enabled-plugin@m": True, "disabled-plugin@m": False}}))
+            out = h / "catalog.tsv"
+            r = run([PY, SKILL / "scripts/build_catalog.py", "--out", str(out)], env={"HOME": home})
+            self.assertEqual(r.returncode, 0, r.stderr)
+            names = {l.split("\t")[0] for l in out.read_text().splitlines()}
+            self.assertIn("mine", names)
+            self.assertIn("from-enabled", names)
+            self.assertNotIn("uninstalled-third-party", names)
+            self.assertNotIn("from-disabled", names)
 
 
 class PackageTests(unittest.TestCase):

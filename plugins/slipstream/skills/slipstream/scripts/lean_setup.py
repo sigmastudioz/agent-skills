@@ -48,6 +48,24 @@ def usage(days):
     return dict(data["combined"])
 
 
+def recently_installed(grace_days, persist):
+    """Skills whose folder appeared in ~/.claude/skills within grace_days. The install time is the
+    earlier of the entry's birth time and mtime (lstat, so a symlinked skill counts from when the
+    link was made); it is recorded once in first-seen.json so later edits never reset it."""
+    state = f"{LIB}/first-seen.json"
+    seen = json.load(open(state)) if os.path.exists(state) else {}
+    now = datetime.datetime.now().timestamp()
+    root = f"{HOME}/.claude/skills"
+    for n in os.listdir(root) if os.path.isdir(root) else []:
+        if n.startswith(".") or n in seen:
+            continue
+        st = os.lstat(f"{root}/{n}")
+        seen[n] = min(getattr(st, "st_birthtime", st.st_mtime), st.st_mtime)
+    if persist and os.path.isdir(LIB):  # a dry run stays read-only
+        json.dump(seen, open(state, "w"), indent=1, sort_keys=True)
+    return {n for n, t in seen.items() if now - t < grace_days * 86400 and os.path.lexists(f"{root}/{n}")}
+
+
 def plan(a):
     used = usage(a.days)
     named = ""
@@ -62,7 +80,8 @@ def plan(a):
     paths = {n: f"{r}/{n}/SKILL.md" for r in roots if os.path.isdir(r) for n in os.listdir(r)
              if not n.startswith(".") and os.path.exists(f"{r}/{n}/SKILL.md")}
     seed = {n for n in paths if used.get(n, 0) >= a.min_uses or n in keep or re.search(rf"\b{re.escape(n)}\b", named)}
-    want = closure(seed, paths, named) | {n for n in os.listdir(f"{HOME}/.claude/skills") if not os.path.exists(f"{HOME}/.claude/skills/{n}/SKILL.md")}
+    new = recently_installed(a.grace, persist=bool(getattr(a, "apply", False) or getattr(a, "refresh", False)))  # no usage history yet is not "unused": keep new skills listed
+    want = closure(seed | new, paths, named) | {n for n in os.listdir(f"{HOME}/.claude/skills") if not os.path.exists(f"{HOME}/.claude/skills/{n}/SKILL.md")}
     moves, core, restore = [], [], []
     for name in sorted(os.listdir(f"{HOME}/.claude/skills")):
         src = f"{HOME}/.claude/skills/{name}"
@@ -242,5 +261,6 @@ if __name__ == "__main__":
     ap.add_argument("--refresh", action="store_true")
     ap.add_argument("--days", type=float, default=30); ap.add_argument("--min-uses", type=int, default=1)
     ap.add_argument("--keep", nargs="*", default=[])
+    ap.add_argument("--grace", type=float, default=30, help="days a newly installed skill stays listed before usage decides")
     a = ap.parse_args()
     undo() if a.undo else refresh(a) if a.refresh else apply(a)

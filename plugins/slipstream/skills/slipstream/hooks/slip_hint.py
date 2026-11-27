@@ -141,9 +141,10 @@ def main():
         return
     if not hits:
         return
-    lines = [f"- {n}: {d[:110]} -> Read {p}" for _, _, n, d, p in hits]
-    note = ("slipstream skill-library: relevant specialist skill(s) not in the listing. If one fits the task, "
-            "Read its SKILL.md in full and follow it as if invoked:\n" + "\n".join(lines))
+    clean = lambda t: re.sub(r"[^\w .,:;()/'+&-]", " ", t)[:110].strip()  # description is data, not markup
+    lines = [f"- {clean(n)}: {clean(d)} -> Read {p}" for _, _, n, d, p in hits]
+    note = ("slipstream skill-library: installed skill(s) that match this request but are not in the listing. "
+            "If one fits the task, Read its SKILL.md and use it as you would a listed skill:\n" + "\n".join(lines))
     print(json.dumps({"hookSpecificOutput": {"hookEventName": "UserPromptSubmit", "additionalContext": note}}))
 
 
