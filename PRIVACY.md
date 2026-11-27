@@ -63,3 +63,11 @@ goal/evidence records. It has no executable helper, publisher backend or require
 connector. Assessment may read confidential project context and produce local findings;
 keep them in the owning project. Implementation, external messages and uploads require
 the corresponding user authorization. Host/provider data handling remains applicable.
+
+Slipstream reads local agent logs (Claude Code session transcripts and Codex rollouts under the
+user's home directory) to compute token totals, skill usage and prompt-to-skill pairs, and reads
+local skill and plugin folders to build a catalog. Results stay in `~/.claude/skill-library/`;
+nothing is sent anywhere. Its hooks are not registered on install: `lean_setup.py --apply` adds
+them to the user's settings only when run, after a dry run, and `--undo` removes them. The prompt
+hint reads only the current prompt and the local catalog. The Cursor helper parses a CSV the user
+exported from their own Cursor account. No publisher service, account or network access is used.

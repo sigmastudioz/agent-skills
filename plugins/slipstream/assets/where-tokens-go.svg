@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="196" viewBox="0 0 760 196" role="img" aria-labelledby="t2 d2">
+<title id="t2">Where AI coding tokens actually go</title>
+<desc id="d2">In measured Claude Code and Codex logs, input context re-sent on every call was over 99.7% of tokens; model output was under 0.3%.</desc>
+<style>
+.s{fill:#fcfcfb}.t1{fill:#0b0b0b}.t2{fill:#52514e}.g{stroke:#e4e3df}.w{fill:#2a78d6}.o{fill:#eb6834}
+text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+@media (prefers-color-scheme:dark){.s{fill:#1a1a19}.t1{fill:#f0efec}.t2{fill:#c3c2b7}.g{stroke:#383835}.w{fill:#3987e5}.o{fill:#d95926}}
+</style><rect class="s" width="760" height="196" rx="12"/>
+<text class="t1" x="24" y="40" font-size="22" font-weight="700">Where AI coding tokens actually go</text>
+<text class="t2" x="24" y="62" font-size="13">Two weeks of measured Claude Code and Codex logs</text>
+<path class="w" d="M24 86h702a4 4 0 0 1 4 4v26a4 4 0 0 1 -4 4h-702z"><title>Input context re-sent on every call: over 99.7%</title></path>
+<path class="o" d="M732 86h2a2 2 0 0 1 2 2v30a2 2 0 0 1 -2 2h-2z"><title>Model output: under 0.3%</title></path>
+<line class="g" x1="735" x2="735" y1="122" y2="134" stroke-width="1.5"/>
+<text class="t1" x="24" y="152" font-size="14" font-weight="600">Input re-sent every call: 99.7%+</text>
+<text class="t2" x="24" y="172" font-size="12">Startup listing + conversation so far. This is what Slipstream shrinks.</text>
+<text class="t1" x="736" y="152" font-size="14" font-weight="600" text-anchor="end">Output: under 0.3%</text>
+<text class="t2" x="736" y="172" font-size="12" text-anchor="end">All that "write less" tricks can cut.</text>
+</svg>

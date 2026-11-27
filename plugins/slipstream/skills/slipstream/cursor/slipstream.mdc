@@ -1,0 +1,9 @@
+---
+description: Token economy - every request re-sends the whole chat and attached context
+alwaysApply: true
+---
+- One task per chat. When a task is done or the chat is long, write a <=40-line handoff (goal, decisions, files, next step, verify command, skills in use) and start a new chat with it.
+- Attach specific files with @file or line ranges; do not @codebase or attach whole folders unless the question is truly codebase-wide.
+- Search before reading; read ranges, not whole large files. Never paste full logs; paste the failing part.
+- Do not poll: wait inside one terminal command (`wait_for.sh --timeout 900 --every 15 -- <check>`) instead of repeated "check again" turns.
+- Keep rules and MCP servers to what this project uses; each one is sent with every request.

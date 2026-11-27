@@ -1,0 +1,26 @@
+{
+  "license": "MIT",
+  "name": "slipstream",
+  "version": "1.0.0",
+  "description": "Cut AI coding token burn by shrinking per-call context, not output, while keeping every skill reachable. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Slipstream",
+    "shortDescription": "Same work, a fraction of the tokens",
+    "longDescription": "Measures where tokens actually go in Claude Code and Codex logs (and Cursor's usage export), then shrinks the context re-sent on every call: a usage-based skill listing with a searchable catalog and prompt-time skill hints, a context meter that suggests handoffs at task boundaries, and a guard that replaces model-driven polling with one shell wait. All helpers run locally; configuration changes are dry-run by default and fully reversible.",
+    "developerName": "Lex from SigmaStudioz",
+    "websiteURL": "https://github.com/sigmastudioz",
+    "supportURL": "https://github.com/sigmastudioz/agent-skills/issues",
+    "privacyPolicyURL": "https://github.com/sigmastudioz/agent-skills/blob/main/PRIVACY.md",
+    "category": "Developer Tools",
+    "capabilities": [],
+    "logo": "./assets/icon.svg",
+    "composerIcon": "./assets/icon.svg"
+  }
+}
