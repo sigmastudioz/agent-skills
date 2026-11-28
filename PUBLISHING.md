@@ -222,6 +222,16 @@ several follow-ups were needed to get a plain verdict. The new section answers i
 with evidence, what to change, and what remains. Session content stayed local; only the general
 pattern is published. Other plugins had too little skill-specific evidence to change.
 
+## Slipstream 1.1.0 — November 27
+
+Long sessions now get a concrete way out, chosen by the app the session runs in. Past ~100K of
+growth, at the next task boundary, the agent writes the handoff and, in the Claude desktop app,
+offers a one-click fresh-session card carrying it; in the terminal it gives the `/clear` step.
+Nothing starts without the user. Fixed: after a compaction the meter stayed silent until the session passed its old peak; it
+now nudges again once the context regrows. New `scripts/handoff_report.py` measures follow-through. Baseline
+on the 1.0.x nudge (one day, 10 nudged sessions): 7 wrote a handoff and 4 offered a session, yet
+they kept going for 1,142 calls re-sending 457M tokens. Tests cover each app route and the report.
+
 ## Slipstream 1.0.2 — November 27
 
 The skill hint also ignores other sessions' hand-backs ("Another Claude session sent a message",

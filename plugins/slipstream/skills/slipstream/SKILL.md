@@ -47,6 +47,7 @@ and the hooks need Python, so the measured savings will not apply.
 | `discovery_ab.py` | Whether a fresh agent still finds the right skill in a lean layout (live, costs tokens) |
 | `mine_pairs.py` + `eval_rolling.py` | Replays real history: is every skill you used still listed or hinted? (free) |
 | `eval_hint.py --before DATE` | Hint recall and noise on a time split: learn from older, test on newer (free) |
+| `handoff_report.py --days 7` | Did nudged sessions hand off, and what did continuing cost? |
 | `analyze_cursor_csv.py` | Cursor usage from the account's CSV export (Cursor keeps no real usage locally) |
 Real preamble: `claude -p "Reply OK" --output-format json`, then sum the usage fields.
 
@@ -86,9 +87,15 @@ Real preamble: `claude -p "Reply OK" --output-format json`, then sum the usage f
 ## 4. Count: fewer calls at high context
 
 - **Context meter** (`hooks/slip_meter.py`): silent until conversation growth passes ~100K,
-  then once per +50K it gives the measured size and asks for a handoff **at the next task
+  then once per +50K (again after a compaction) it gives the measured size and asks for a handoff **at the next task
   boundary**, never mid-step. Handoff: ≤40 lines (goal, decisions and why, files touched, state,
-  next step, verify command) to the project tracker or HANDOFF.md, then a fresh session.
+  next step, verify command, skills in use) to the project tracker or HANDOFF.md.
+- **Fresh session in one step:** the meter reads which app the session runs in. In the Claude
+  desktop app the agent offers a fresh-session card whose brief is the handoff (one click; never
+  started without the user, and ignoring it keeps the session going). In the terminal it tells
+  the user to run `/clear` and `continue from <handoff>`. Hooks cannot open sessions, so a fully
+  automatic switch is not possible. `scripts/handoff_report.py --days 7` shows whether nudged
+  sessions actually handed off and what continuing cost.
 - **No polling:** `hooks/slip_guard.py` denies a bare `sleep N` step; wait inside one call
   with `scripts/wait_for.sh --timeout 900 --every 15 -- <check>` or a background job that
   notifies on completion. In-command loops (`until …; do sleep; done`) are allowed.
