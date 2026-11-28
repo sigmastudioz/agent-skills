@@ -70,6 +70,14 @@ class HintTests(unittest.TestCase):
         # 2 of 3 name words is deliberately not enough: it raised noise on a real catalog with no recall gain
         self.assertEqual(self.hint("Write an Airflow DAG for the daily job"), "")
 
+    def test_app_notices_never_trigger_hints(self):
+        notice = ("<system-reminder>The session \"Continue Slipstream rollout\" finished a turn. Kerberoasting "
+                  "attacks detection and localization notes.</system-reminder>\n"
+                  "<side-sessions-event>None of the sessions you started is working now.</side-sessions-event>")
+        self.assertEqual(self.hint(notice), "")
+        self.assertEqual(self.hint(notice + "\nAll right, where are we with this?"), "")
+        self.assertIn("detecting-kerberoasting-attacks", self.hint(notice + "\nHelp me detect Kerberoasting attacks"))
+
     def test_everyday_and_machine_messages_stay_silent(self):
         for p in ("fix the typo in the README", "ok do it", "rename this variable everywhere",
                   "bxyz toolu_01abc /private/tmp/task.output completed"):

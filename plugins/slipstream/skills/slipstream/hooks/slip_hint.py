@@ -86,7 +86,20 @@ def named_skill(text, idx, listed):
     return out
 
 
+APP_BLOCKS = re.compile(r"<(system-reminder|side-sessions-event|task-notification|ci-monitor-event)\b.*?</\1>"
+                        r"|^\[SYSTEM NOTIFICATION[^\n]*$", re.S | re.M)
+
+
+def typed_only(prompt):
+    """What the user typed: app-generated notices (session events, reminders, task and CI
+    notifications) ride along in the prompt but are never the request."""
+    return APP_BLOCKS.sub(" ", prompt).strip()
+
+
 def match(prompt, idx, listed):
+    prompt = typed_only(prompt)
+    if not prompt:
+        return []
     exact = exact_mentions(prompt, idx, listed) + named_skill(own_words(prompt), idx, listed)
     prompt = own_words(prompt)
     q = stems(prompt)

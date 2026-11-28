@@ -221,3 +221,9 @@ several follow-ups were needed to get a plain verdict. The new section answers i
 (built correctly, makes sense, working and how verified, fits surrounding pipelines), ranked gaps
 with evidence, what to change, and what remains. Session content stayed local; only the general
 pattern is published. Other plugins had too little skill-specific evidence to change.
+
+## Slipstream 1.0.1 — November 27
+
+The prompt-time skill hint ignores app-generated notices (session events, system reminders, task and
+CI notifications) and matches only what the user typed. Observed live: a session notice containing
+"rollout" triggered an unrelated skill hint twice. Regression test added; verified to fail on 1.0.0.

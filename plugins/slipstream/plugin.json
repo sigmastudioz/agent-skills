@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "license": "MIT",
   "name": "slipstream",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cut AI coding token burn by shrinking per-call context, not output, while keeping every skill reachable. By Lex from SigmaStudioz.",
   "author": {
     "name": "Lex from SigmaStudioz",
