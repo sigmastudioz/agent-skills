@@ -1,6 +1,6 @@
 # Slipstream
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.0.2.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.1.0.
 
 *S.L.I.P.: Skills Loaded In Precisely. Go further on less fuel.*
 
@@ -33,7 +33,7 @@ that per-call context while keeping every skill reachable, so work quality does 
 | Nothing lost | A one-line-per-skill catalog of every installed skill (never uninstalled marketplace content); a prompt-time hint names the exact SKILL.md when a request matches; a router skill for manual search | `hooks/slip_hint.py`, `router/`, `scripts/build_catalog.py` |
 | New skills safe | A skill installed in the last 30 days always stays listed; installing a skill or plugin rebuilds the catalog at the next session start | `--grace`, `hooks/auto_refresh.py` |
 | Self-tuning | Weekly refresh promotes archived skills back into use and relearns the user's own trigger words | `--refresh`, `hooks/auto_refresh.py` |
-| Shorter sessions | Silent until a conversation grows ~100K, then suggests a handoff at the next task boundary | `hooks/slip_meter.py` |
+| Shorter sessions | Silent until a conversation grows ~100K; at the next task boundary the agent writes a handoff and offers a one-click fresh session (desktop app) or the `/clear` step (terminal) | `hooks/slip_meter.py`, `scripts/handoff_report.py` |
 | No polling | Denies a bare `sleep N` step; one shell call waits instead of N model calls | `hooks/slip_guard.py`, `scripts/wait_for.sh` |
 | Cursor | Cursor keeps no usage locally; parse the account's usage CSV export | `scripts/analyze_cursor_csv.py`, `cursor/slipstream.mdc` |
 
@@ -91,6 +91,8 @@ and raised noise, so it was removed. Replays re-price real calls; they do not pr
 
 - A first-ever request phrased with no words in common with a skill may not get a hint; the
   listing, the router skill and weekly promotion cover it.
+- Hooks cannot open or end sessions, so the switch to a fresh session takes one click (desktop)
+  or `/clear` (terminal); it is never automatic.
 - Cache reads are cheaper per token but still count toward plan usage limits.
 - Desktop plugins synced from an account must be turned off in that account.
 - Cursor's CSV columns are matched by header; check the "columns used" line on your export.

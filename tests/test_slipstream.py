@@ -109,6 +109,55 @@ class MeterTests(unittest.TestCase):
             self.assertIn("handoff", run([PY, SKILL / "hooks/slip_meter.py"], ev, env).stdout)
             self.assertEqual(run([PY, SKILL / "hooks/slip_meter.py"], ev, env).stdout.strip(), "")
 
+    def test_handoff_route_follows_the_app(self):
+        cases = {"claude-desktop": ("start_session", '\\"fresh\\"', "Do not start it yourself"),
+                 "cli": ("/clear", "continue from"), None: ("fresh session that starts from the handoff file",)}
+        for app, wanted in cases.items():
+            with tempfile.TemporaryDirectory() as d, self.subTest(app=app):
+                t = Path(d) / "s.jsonl"
+                rows = [{"type": "user", "entrypoint": app, "message": {"content": "hi"}}] if app else []
+                rows += [{"type": "assistant", "message": {"usage": {"cache_read_input_tokens": c}}} for c in (90000, 250000)]
+                t.write_text("".join(json.dumps(r) + "\n" for r in rows))
+                ev = json.dumps({"transcript_path": str(t), "session_id": f"route-{app}-{os.getpid()}"})
+                out = run([PY, SKILL / "hooks/slip_meter.py"], ev, {"TMPDIR": d}).stdout
+                for w in wanted:
+                    self.assertIn(w, out)
+                self.assertIn("never mid-step", out)
+                if app != "claude-desktop":
+                    self.assertNotIn("start_session", out)
+
+    def test_nudges_again_after_compaction(self):
+        with tempfile.TemporaryDirectory() as d:
+            t = Path(d) / "s.jsonl"
+            ev = json.dumps({"transcript_path": str(t), "session_id": f"compact-{os.getpid()}"})
+
+            def nudged(ctxs):
+                t.write_text("".join(json.dumps({"type": "assistant", "message": {"usage": {
+                    "cache_read_input_tokens": c}}}) + "\n" for c in ctxs))
+                return bool(run([PY, SKILL / "hooks/slip_meter.py"], ev, {"TMPDIR": d}).stdout.strip())
+            self.assertTrue(nudged([100000, 600000]))
+            self.assertFalse(nudged([100000, 600000, 150000]))           # compacted: back under the line
+            self.assertTrue(nudged([100000, 600000, 150000, 350000]))    # regrew: nudge again
+            self.assertFalse(nudged([100000, 600000, 150000, 360000]))   # once per band
+
+    def test_handoff_report_counts_follow_through(self):
+        with tempfile.TemporaryDirectory() as d:
+            proj = Path(d) / "proj"
+            proj.mkdir()
+            nudge = {"type": "attachment", "attachment": {"content": "slipstream: this session now re-sends ~250K"}}
+            call = {"type": "assistant", "message": {"usage": {"cache_read_input_tokens": 250000}, "content": []}}
+            write = {"type": "assistant", "message": {"usage": {"cache_read_input_tokens": 260000}, "content": [
+                {"type": "tool_use", "name": "Write", "input": {"file_path": "/p/HANDOFF.md"}},
+                {"type": "tool_use", "name": "mcp__ccd_session__start_session", "input": {}}]}}
+            (proj / "a.jsonl").write_text("".join(json.dumps(r) + "\n" for r in (call, nudge, write, call)))
+            (proj / "b.jsonl").write_text(json.dumps({"type": "user", "message": {"content": "continue from HANDOFF.md"}}) + "\n")
+            out = run([PY, SKILL / "scripts/handoff_report.py", "--root", d], "", {}).stdout
+            self.assertIn("1 reached the handoff threshold", out)
+            self.assertIn("handoff file written:      1/1", out)
+            self.assertIn("fresh-session card shown:  1/1", out)
+            self.assertIn("started from a card or handoff: 1", out)
+            self.assertIn("2 calls", out)
+
 
 class LifecycleTests(unittest.TestCase):
     def test_apply_promote_undo_restores_exactly(self):
