@@ -12,8 +12,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Follow-Through",
-    "shortDescription": "Unfinished work stays in view",
-    "longDescription": "Agents lose unfinished work when the conversation pivots, branches or is compacted. Follow-Through keeps every task on a tree saved on disk: each task has a done-when check, closes only with evidence, and a parent cannot close while a child is open. A pivot parks the current task with its next step instead of replacing it. Optional host hooks restore the open tree after a resume or compaction, remind on every prompt, and send the agent back once if it tries to stop with a task still in progress. It guarantees visibility, not completion: the user stays the judge. Standard-library Python, local files only.",
+    "shortDescription": "Track unfinished project work",
+    "longDescription": "For developers using a coding agent who want a local record of unfinished project work. Use the bundled Python command-line tool to add tasks with completion criteria, record status and evidence, park work with a next step, and list open tasks. Records are stored in a local JSON file and can be read when a conversation resumes. Optional hooks, configured separately by the owner in a supported host, can show open-task reminders and request one continuation when the agent stops. These reminders depend on the host configuration and recorded tasks; they do not ensure every request is captured or completed. The package has no publisher backend and makes no network requests.",
     "developerName": "Lex from SigmaStudioz",
     "websiteURL": "https://github.com/sigmastudioz",
     "supportURL": "https://github.com/sigmastudioz/agent-skills/issues",
