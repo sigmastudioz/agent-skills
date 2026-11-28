@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="Follow-Through by Lex from SigmaStudioz">
+  <rect width="256" height="256" rx="44" fill="#14201a"/>
+  <g fill="none" stroke="#b9f2c8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M64 70v116M64 110h44M64 170h44"/>
+    <circle cx="64" cy="62" r="12" fill="#b9f2c8"/>
+  </g>
+  <g fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="116" y="94" width="32" height="32" rx="8" stroke="#b9f2c8"/>
+    <path d="M123 110l7 7 13-15" stroke="#f5c96b"/>
+    <rect x="116" y="154" width="32" height="32" rx="8" stroke="#b9f2c8"/>
+    <path d="M123 170l7 7 13-15" stroke="#f5c96b"/>
+    <path d="M166 110h36M166 170h36" stroke="#b9f2c8" opacity=".55"/>
+  </g>
+</svg>

@@ -60,6 +60,11 @@
       "name": "slipstream",
       "source": "./plugins/slipstream",
       "description": "Cut AI coding token burn by shrinking per-call context, not output, while keeping every skill reachable. By Lex from SigmaStudioz."
+    },
+    {
+      "name": "follow-through",
+      "source": "./plugins/follow-through",
+      "description": "Stop coding agents losing unfinished work: a task tree on disk that survives pivots and context compaction, with evidence-gated closing and opt-in hooks that bring open work back into view. By Lex from SigmaStudioz."
     }
   ]
 }

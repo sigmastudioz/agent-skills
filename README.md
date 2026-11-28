@@ -90,6 +90,7 @@ await reviewer activation. Cursor, Codex and Antigravity publication is not yet 
 | [Senior Digital Skills Class](plugins/senior-digital-skills/README.md) | Plan, fund, run and measure a hands-on phone-skills class for older adults, with learner-safety boundaries | 1.0.0 |
 | [Delegating to Agents](plugins/delegating-to-agents/README.md) | Hand work to Codex, Cursor, Pi or other agent CLIs with a full brief, isolation, watchable progress and results reported back | 1.1.1 |
 | [Slipstream](plugins/slipstream/README.md) | Cut AI coding token spend by shrinking per-call context, with measured before/after evidence and every skill still reachable | 1.1.0 |
+| [Follow-Through](plugins/follow-through/README.md) | Stop agents losing unfinished work: a task tree on disk that survives pivots and compaction, with evidence-gated closing and opt-in hooks | 1.0.0 |
 
 ### Visual creation and analysis
 
@@ -103,6 +104,8 @@ await reviewer activation. Cursor, Codex and Antigravity publication is not yet 
 Install the outcome-review skill with `npx skills add sigmastudioz/agent-skills --skill does-it-make-sense`.
 
 Install Slipstream with `npx skills add sigmastudioz/agent-skills --skill slipstream`; its lean setup is dry-run by default and reversible.
+
+Install Follow-Through with `npx skills add sigmastudioz/agent-skills --skill follow-through`; its hooks are opt-in.
 
 Install UI Foundation Reuse with `npx skills add sigmastudioz/agent-skills --skill ui-foundation-reuse`.
 

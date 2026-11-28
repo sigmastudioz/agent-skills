@@ -289,6 +289,21 @@
         "skills/slipstream/scripts/skill_usage.py": "8791887728d2f4435e6ee2d6d388f6ba82615d3de4fd9e680bbe67411682659e",
         "skills/slipstream/scripts/wait_for.sh": "d5863d891cea739e1a8e4db6bcf934c7d2ed56540495ac3d4a7b402a7be55b55"
       }
+    },
+    "follow-through": {
+      "version": "1.0.0",
+      "files": {
+        ".claude-plugin/plugin.json": "2c318ed9978bec8b6186ef1cf1ac361b5eaefd3a9043f551cc47fccf419c4285",
+        ".codex-plugin/plugin.json": "8070fa3a21972a517f7f050c623fd403dcdd88079f34542ddd8340f296bc29b1",
+        ".cursor-plugin/plugin.json": "073984ec5b47a477d60ba223f7e4e033343bb908d708361b50bfb182f859250d",
+        "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
+        "README.md": "ea88db7b9a91923601641a1568be28a7ebc1e66e302edf7aaeb256d0ff96ba47",
+        "assets/icon.svg": "7c96b26f2f18133941de0e516f51b5892ac98b3e57dbab873fd830f3e286c9f7",
+        "plugin.json": "fac39cf93956c3908eef215dc1cb9479278769b88d8628b5ac709868b2ba1dff",
+        "skills/follow-through/LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
+        "skills/follow-through/SKILL.md": "dc673e0ed99e418c1796a7acce0b739276f76b671981a49a7dcef0ce5bc42822",
+        "skills/follow-through/scripts/follow_through.py": "11d3bc0d79e2ac3140dc7d4d72638544fd45cab4edb5c099a096a1e71c191409"
+      }
     }
   }
 }
