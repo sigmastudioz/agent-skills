@@ -9,6 +9,8 @@ limit on the number of skills. Installers select the plugins they need.
    real supporting resources. Give the skill a precise description for natural task selection.
 3. Add portable `plugin.json` and the three native compatibility manifests. Keep name, version and
    author consistent. Give this plugin its own semantic version and truthful documentation/status.
+   Include a public HTTPS `termsOfServiceURL` in both the root OpenAI interface and the Codex
+   fallback interface; use the actual terms for that plugin. See [upload metadata](PUBLISHING.md#openai-upload-metadata--november-28).
 4. Add one entry to root `catalog.json`, using `./plugins/<plugin-name>` as the path. Catalog metadata
    comes from that plugin's manifest; the generator does not rewrite its version or implementation.
 5. Generate and check all host catalogs, run the tests, and validate the actual skill behavior:

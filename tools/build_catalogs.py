@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 import re
+from urllib.parse import urlsplit
 
 
 # OS metadata files that git ignores and must never be hashed into a release.
@@ -15,6 +16,21 @@ JUNK_DIRS = {'.venv', 'venv', 'node_modules', '__pycache__', '.pytest_cache', '.
 def cursor_identity(author):
     """Cursor's strict author/owner objects accept name and email only."""
     return {key: author[key] for key in ('name', 'email') if key in author}
+
+
+def terms_url(interface, name):
+    """Require an HTTPS terms link before producing an uploadable release inventory."""
+    value = interface.get('termsOfServiceURL')
+    message = 'Terms of service URL must be a public HTTPS URL: ' + name
+    if not isinstance(value, str) or not value or any(c.isspace() for c in value):
+        raise ValueError(message)
+    try:
+        parsed = urlsplit(value)
+        if parsed.scheme != 'https' or not parsed.hostname or parsed.username or parsed.password:
+            raise ValueError(message)
+    except ValueError as error:
+        raise ValueError(message) from error
+    return value
 
 
 def render(root):
@@ -34,11 +50,14 @@ def render(root):
         manifest = json.loads(manifest_path.read_text())
         if manifest['name'] != name or not manifest.get('version') or not manifest.get('description'):
             raise ValueError('Plugin identity/version/description missing or inconsistent: ' + name)
+        terms = terms_url(manifest.get('extensions', {}).get('com.openai', {}).get('interface', {}), name)
         for host in ('claude', 'cursor', 'codex'):
             compatibility_path = (manifest_path.parent / f'.{host}-plugin/plugin.json').resolve()
             if root not in compatibility_path.parents:
                 raise ValueError('Compatibility manifest resolves outside the repository')
             compatibility = json.loads(compatibility_path.read_text())
+            if host == 'codex' and terms_url(compatibility.get('interface', {}), name) != terms:
+                raise ValueError('Terms of service URL differs in Codex fallback: ' + name)
             expected_author = manifest.get('author', {})
             if host == 'cursor':
                 expected_author = cursor_identity(expected_author)

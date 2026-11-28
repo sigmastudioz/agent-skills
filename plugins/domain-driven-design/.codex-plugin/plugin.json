@@ -18,6 +18,7 @@
     "websiteURL": "https://github.com/sigmastudioz",
     "supportURL": "https://github.com/sigmastudioz/agent-skills/issues",
     "privacyPolicyURL": "https://github.com/sigmastudioz/agent-skills/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/sigmastudioz/agent-skills/blob/main/LICENSE",
     "category": "Developer Tools",
     "capabilities": [],
     "logo": "./assets/icon.svg",

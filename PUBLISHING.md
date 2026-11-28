@@ -16,6 +16,22 @@ remains a distinct external blocker. No account, declaration, webhook or Publish
 
 # Publication plan
 
+## OpenAI upload metadata — November 28
+
+Every plugin's root `plugin.json` must include
+`extensions.com.openai.interface.termsOfServiceURL`. Keep the same URL in
+`.codex-plugin/plugin.json` under `interface.termsOfServiceURL` for consumers of that fallback.
+The current MIT-licensed collection uses its existing published usage terms:
+`https://github.com/sigmastudioz/agent-skills/blob/main/LICENSE`.
+This adds a listing link; it does not replace licenses or third-party notices with new terms.
+If a future plugin has different terms, use its actual public terms page.
+
+The catalog/release builder rejects missing, non-HTTPS or mismatched terms links before writing
+outputs. Run `python3 tools/build_catalogs.py --check` before preparing upload ZIPs; package the
+complete plugin folder, including both manifests. Terms-link validation is separate from OpenAI's
+skills-only intake restriction and does not establish marketplace approval. Existing uploaded
+drafts need their own corrected ZIP reupload; repository changes do not update them automatically.
+
 ## DDD guidance-only package — November 13
 
 DDD1.4.6 contains the full baseline and local references, with no executable guard or tests.
