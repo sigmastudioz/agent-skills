@@ -36,7 +36,8 @@ def load_index(catalog):
 
 
 PASTE = re.compile(r"```.*?```|<pasted_content.*?</pasted_content>", re.S)
-CARRIED = ("This session is being continued", "Background (from the session", "None of the sessions you started")
+CARRIED = ("This session is being continued", "Background (from the session", "None of the sessions you started",
+           "Another Claude session sent a message")
 
 
 def own_words(prompt):
@@ -86,13 +87,16 @@ def named_skill(text, idx, listed):
     return out
 
 
-APP_BLOCKS = re.compile(r"<(system-reminder|side-sessions-event|task-notification|ci-monitor-event)\b.*?</\1>"
+APP_BLOCKS = re.compile(r"<(system-reminder|side-sessions-event|task-notification|ci-monitor-event|agent-message)\b.*?</\1>"
                         r"|^\[SYSTEM NOTIFICATION[^\n]*$", re.S | re.M)
 
 
 def typed_only(prompt):
     """What the user typed: app-generated notices (session events, reminders, task and CI
-    notifications) ride along in the prompt but are never the request."""
+    notifications, other sessions' hand-backs, carried-over summaries) ride along in the
+    prompt but are never the request."""
+    if prompt.lstrip().startswith(CARRIED):
+        return ""  # a carried-over summary or another session's hand-back, not a typed request
     return APP_BLOCKS.sub(" ", prompt).strip()
 
 

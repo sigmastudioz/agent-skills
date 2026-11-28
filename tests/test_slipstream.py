@@ -78,6 +78,15 @@ class HintTests(unittest.TestCase):
         self.assertEqual(self.hint(notice + "\nAll right, where are we with this?"), "")
         self.assertIn("detecting-kerberoasting-attacks", self.hint(notice + "\nHelp me detect Kerberoasting attacks"))
 
+    def test_handbacks_and_carried_summaries_never_trigger_hints(self):
+        report = "Detecting Kerberoasting attacks: rule written and localization checked."
+        handback = (f"Another Claude session sent a message: <agent-message from=\"a9d9\"> [Subagent hand-back] "
+                    f"The text below is the final report. {report}</agent-message>")
+        carried = f"This session is being continued from a previous conversation. Summary: {report}"
+        for p in (handback, carried, f"<agent-message from=\"x\">{report}</agent-message>"):
+            self.assertEqual(self.hint(p), "", p[:40])
+        self.assertIn("detecting-kerberoasting-attacks", self.hint("Help me detect Kerberoasting attacks"))
+
     def test_everyday_and_machine_messages_stay_silent(self):
         for p in ("fix the typo in the README", "ok do it", "rename this variable everywhere",
                   "bxyz toolu_01abc /private/tmp/task.output completed"):
