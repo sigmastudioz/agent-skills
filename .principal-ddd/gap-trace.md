@@ -1,3 +1,37 @@
+# OpenAI terms metadata — November 28
+
+OPENAI-TERMS-01 (integration gap, fixed locally): all twelve public plugin manifests
+omitted the Terms of Service URL consumed by the OpenAI listing. DDD's existing draft
+proved that adding `termsOfServiceURL` clears the missing-link finding; the skills-only
+intake restriction is a separate provider decision.
+
+Trace: `catalog.json` → each root OpenAI interface and Codex fallback →
+`tools/build_catalogs.py` → release inventories → complete plugin ZIP → OpenAI listing.
+All twelve plugins now link their existing MIT usage terms at the public repository LICENSE.
+No new legal terms, versions, licenses, notices, runtime code or guidance are introduced.
+The builder validates both interfaces before writing outputs, rejecting absent/non-HTTPS
+links, URL credentials and fallback drift. Existing contributor and publishing instructions
+point to the required field. Its CLI and pre-push hook are the real consuming entrypoints.
+
+Regression evidence: new catalog tests failed before the guard (eleven rejected-input
+subcases were accepted); all thirteen catalog tests pass after it. The guard then failed on
+the real missing DDD URL before the manifest fix and passes on all twelve corrected plugins.
+The required collection suite passes all 260 tests with no skips; catalog/release and diff
+checks pass. Every source inventory retains its version and paths, with only the two metadata file hashes
+changed. Ten matching prior upload ZIPs differ only in those same two manifests; current
+Slipstream 1.1.0 and Follow-Through 1.0.0 ZIPs match their complete release inventories.
+
+The historical Tony catalog experiment must remain frozen while the live builder evolves.
+Its source bytes, original copy and SHA-256 are unchanged. SOURCE.json now pins the actual
+historical commit 0760f5d, and its provenance test compares that commit instead of requiring
+the current production builder to remain byte-identical forever. Both provenance tests pass.
+Consumer/contract/rejection, fallback, inventory and runtime-byte preservation are verified;
+remote approval and other uploaded drafts remain external. No lifecycle, permission, cadence
+or application mount changed. Rollback: revert this metadata/guard commit, regenerate release
+inventories, and retain existing published archives and submission receipts.
+
+---
+
 # Remaining Claude package findings — November 13
 
 CLAUDE-REST-01 (integration gap): Tony's installed plugin included75 maintainer evaluation

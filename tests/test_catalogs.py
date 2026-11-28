@@ -22,11 +22,16 @@ class CatalogTests(unittest.TestCase):
     def add_plugin(self, name, version):
         directory = self.root / 'plugins' / name
         directory.mkdir(parents=True)
-        manifest = {'name': name, 'version': version, 'description': name, 'author': {'name': 'Example author'}}
+        terms = 'https://example.com/terms'
+        manifest = {'name': name, 'version': version, 'description': name, 'author': {'name': 'Example author'},
+                    'extensions': {'com.openai': {'interface': {'termsOfServiceURL': terms}}}}
         (directory / 'plugin.json').write_text(json.dumps(manifest))
         for host in ('claude', 'cursor', 'codex'):
             path = directory / f'.{host}-plugin/plugin.json'
-            path.parent.mkdir(); path.write_text(json.dumps(manifest))
+            native = dict(manifest)
+            if host == 'codex':
+                native['interface'] = {'termsOfServiceURL': terms}
+            path.parent.mkdir(); path.write_text(json.dumps(native))
         self.registry['plugins'].append({'name': name, 'path': './plugins/' + name})
         self.save()
 
@@ -116,6 +121,43 @@ class CatalogTests(unittest.TestCase):
         path.write_text(json.dumps(data))
         with self.assertRaisesRegex(ValueError, 'Compatibility'):
             catalogs.build(self.root)
+
+    def test_missing_terms_rejected_before_catalog_writes(self):
+        for relative in ('plugin.json', '.codex-plugin/plugin.json'):
+            with self.subTest(relative=relative):
+                path = self.root / 'plugins/first' / relative
+                original = path.read_text()
+                data = json.loads(original)
+                interface = (data['extensions']['com.openai']['interface']
+                             if relative == 'plugin.json' else data['interface'])
+                del interface['termsOfServiceURL']
+                path.write_text(json.dumps(data))
+                try:
+                    with self.assertRaisesRegex(ValueError, 'Terms of service'):
+                        catalogs.build(self.root)
+                    self.assertFalse((self.root / 'release.json').exists())
+                finally:
+                    path.write_text(original)
+
+    def test_invalid_terms_urls_rejected(self):
+        path = self.root / 'plugins/first/plugin.json'
+        data = json.loads(path.read_text())
+        for value in ('', None, 42, 'http://example.com/terms', 'javascript:alert(1)',
+                      'https:///terms', 'https://user:secret@example.com/terms',
+                      'https://example.com/terms with spaces'):
+            with self.subTest(value=value):
+                data['extensions']['com.openai']['interface']['termsOfServiceURL'] = value
+                path.write_text(json.dumps(data))
+                with self.assertRaisesRegex(ValueError, 'Terms of service'):
+                    catalogs.render(self.root)
+
+    def test_terms_match_native_fallback(self):
+        path = self.root / 'plugins/first/.codex-plugin/plugin.json'
+        data = json.loads(path.read_text())
+        data['interface']['termsOfServiceURL'] = 'https://example.com/different-terms'
+        path.write_text(json.dumps(data))
+        with self.assertRaisesRegex(ValueError, 'Terms of service'):
+            catalogs.render(self.root)
 
 
 if __name__ == '__main__':

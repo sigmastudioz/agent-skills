@@ -1,6 +1,7 @@
 {
   "source_repository": "sigmastudioz/agent-skills",
   "source_path": "tools/build_catalogs.py",
+  "source_revision": "0760f5d0b495f2a1b96acb8b1b4c0be42318eb21",
   "sha256": "ee6cdcba6805de49e42898c2b222bb9a34a208b6a031fb40746e9bc14777569e",
   "note": "Exact maintained source copied for an isolated optimization experiment; not a deployed change."
 }

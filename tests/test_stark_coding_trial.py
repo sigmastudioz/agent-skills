@@ -3,6 +3,7 @@ from pathlib import Path
 import hashlib
 import importlib.util
 import json
+import subprocess
 import tempfile
 import unittest
 
@@ -34,7 +35,7 @@ class CodingTrialTests(unittest.TestCase):
                     for relative, digest in job['supplied_assets'].items():
                         self.assertEqual(hashlib.sha256((workspace / relative).read_bytes()).hexdigest(), digest)
 
-    def test_reference_and_active_source_match_frozen_origin(self):
+    def test_reference_and_recorded_source_match_frozen_origin(self):
         published = {entry['name'] for entry in json.loads((ROOT / 'catalog.json').read_text())['plugins']}
         for task, active in [('catalog', 'tools/build_catalogs.py'), ('sequencing', 'music/sequence.py')]:
             root = EVAL / 'coding-fixtures' / task
@@ -46,6 +47,10 @@ class CodingTrialTests(unittest.TestCase):
             if source_path.parts[0] == 'plugins' and source_path.parts[1] not in published:
                 # The frozen fixture ships independently; its source plugin can remain private.
                 self.assertFalse((ROOT / 'plugins' / source_path.parts[1]).exists())
+            elif origin.get('source_revision'):
+                recorded = subprocess.check_output(
+                    ['git', 'show', origin['source_revision'] + ':' + origin['source_path']], cwd=ROOT)
+                self.assertEqual(raw, recorded)
             else:
                 self.assertEqual(raw, (ROOT / source_path).read_bytes())
 
