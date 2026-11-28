@@ -20,7 +20,7 @@
     {
       "name": "video-analysis",
       "path": "./plugins/video-analysis",
-      "category": "Productivity"
+      "category": "Creativity"
     },
     {
       "name": "engineering-spikes",
@@ -40,12 +40,12 @@
     {
       "name": "what-if-tony-stark-built-this",
       "path": "./plugins/what-if-tony-stark-built-this",
-      "category": "Productivity"
+      "category": "Developer Tools"
     },
     {
       "name": "app-retention",
       "path": "./plugins/app-retention",
-      "category": "Productivity"
+      "category": "Developer Tools"
     },
     {
       "name": "delegating-to-agents",
@@ -55,7 +55,7 @@
     {
       "name": "senior-digital-skills",
       "path": "./plugins/senior-digital-skills",
-      "category": "Productivity"
+      "category": "Education & Research"
     },
     {
       "name": "slipstream",
@@ -65,7 +65,7 @@
     {
       "name": "follow-through",
       "path": "./plugins/follow-through",
-      "category": "Productivity"
+      "category": "Developer Tools"
     }
   ]
 }

@@ -13,13 +13,13 @@
   "interface": {
     "displayName": "Senior Digital Skills Class",
     "shortDescription": "Phone skills for older adults",
-    "longDescription": "Plan, fund, run and measure a hands-on digital-skills class for older adults: phone basics, QR menus, parking and transit apps, wallet passes, store app deals, video calls, photos and scam safety, with learner-safety boundaries, honest funding leads, a cost sheet and pre/post outcomes. By Lex from SigmaStudioz. Guidance only: no executable helper, account, tracker or required service; it never submits applications or contacts funders.",
+    "longDescription": "For instructors and community organizations planning digital-skills classes for older adults. Create lesson plans, large-print step cards, practice exercises, a cost sheet and pre/post learning checks for phone basics, QR menus, travel apps, video calls, photos and scam awareness. The skill also helps organize funding research using sources that the instructor verifies. It provides teaching and program-planning guidance, not an interactive phone-control service. Learners keep control of their devices and accounts; instructors should use dummy data for sensitive exercises. No accounts are created, applications submitted or funders contacted by the package.",
     "developerName": "Lex from SigmaStudioz",
     "websiteURL": "https://github.com/sigmastudioz",
     "supportURL": "https://github.com/sigmastudioz/agent-skills/issues",
     "privacyPolicyURL": "https://github.com/sigmastudioz/agent-skills/blob/main/PRIVACY.md",
     "termsOfServiceURL": "https://github.com/sigmastudioz/agent-skills/blob/main/LICENSE",
-    "category": "Productivity",
+    "category": "Education & Research",
     "capabilities": [],
     "logo": "./assets/icon.svg",
     "composerIcon": "./assets/icon.svg"

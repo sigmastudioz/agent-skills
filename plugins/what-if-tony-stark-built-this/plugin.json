@@ -15,7 +15,7 @@
       "interface": {
         "displayName": "What If Tony Stark Built This",
         "shortDescription": "Invent and test better designs",
-        "longDescription": "Engineering invention for technical breakthroughs, ambitious product mechanisms and structural resource limits. Keeps six supporting capabilities; routine coding uses existing engineering workflows. Turns a viable idea into an early working slice, checks hard constraints and follows it through the real consumer. No required external service or background process. Local availability is separate from publication and marketplace review.",
+        "longDescription": "For developers and technical teams comparing ways to solve an engineering constraint. Describe the goal and available evidence, then use the skill to identify assumptions, compare alternative designs and plan a small experiment. It helps produce a design comparison, test plan and findings with explicit limitations. An optional local Python runner compares user-selected implementations against supplied cases and records timing and memory measurements. Review those implementations before running them: the runner executes local code and is not a sandbox. No external service is required. Measurements apply to the supplied cases and environment; the skill does not promise a breakthrough or a faster design.",
         "developerName": "Lex from SigmaStudioz",
         "websiteURL": "https://github.com/sigmastudioz",
         "supportURL": "https://github.com/sigmastudioz/agent-skills/issues",

@@ -13,13 +13,13 @@
   "interface": {
     "displayName": "SigmaStudioz Video Analysis",
     "shortDescription": "Visual and audio evidence",
-    "longDescription": "Analyze supplied videos and audio through timestamped frames, adaptive inspection, transcripts and explicit evidence/coverage limits. By Lex from SigmaStudioz. Uses host-authorized tools; no automatic installers or publisher backend. Direct repository distribution; native model selection and marketplace review are separate validation steps.",
+    "longDescription": "For video editors, designers and researchers who need to understand supplied video or audio. Request a timestamped summary, scene breakdown, tutorial walkthrough, comparison or visual and sound evidence report. The skill guides frame selection, audio inspection and coverage notes using tools available in your host. An optional local sampler requires separately installed Python, FFmpeg and ffprobe; it extracts frames and metadata but does not transcribe speech. Results depend on the media and tools available and may cover only part of a recording. No publisher-hosted service is required.",
     "developerName": "Lex from SigmaStudioz",
     "websiteURL": "https://github.com/sigmastudioz",
     "supportURL": "https://github.com/sigmastudioz/agent-skills/issues",
     "privacyPolicyURL": "https://github.com/sigmastudioz/agent-skills/blob/main/PRIVACY.md",
     "termsOfServiceURL": "https://github.com/sigmastudioz/agent-skills/blob/main/LICENSE",
-    "category": "Developer Tools",
+    "category": "Creativity",
     "capabilities": [],
     "logo": "./assets/icon.svg",
     "composerIcon": "./assets/icon.svg"

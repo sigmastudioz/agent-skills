@@ -15,13 +15,13 @@
       "interface": {
         "displayName": "Returncraft",
         "shortDescription": "Fair retention and ranking",
-        "longDescription": "Design fair retention and ranking for apps: return likelihood, habit-timed nudges, per-item ranking, results-based asset choice and upgrade timing, built from the product's own data with privacy guardrails and no dark patterns. By Lex from SigmaStudioz. Guidance only: no executable helper, tracker or required service.",
+        "longDescription": "For product designers and developers planning retention and recommendation features in their own applications. Map an onboarding or return journey, identify drop-off points from data you are authorized to use, and draft habit-timed reminders, ranking rules and experiments. Deliverables can include an implementation plan, opt-out controls, measurement criteria and review notes. This is guidance for building and evaluating product features; it does not run a tracker, send notifications or operate an analytics service. Retention and revenue improvements are hypotheses to test, not promised results.",
         "developerName": "Lex from SigmaStudioz",
         "websiteURL": "https://github.com/sigmastudioz",
         "supportURL": "https://github.com/sigmastudioz/agent-skills/issues",
         "privacyPolicyURL": "https://github.com/sigmastudioz/agent-skills/blob/main/PRIVACY.md",
         "termsOfServiceURL": "https://github.com/sigmastudioz/agent-skills/blob/main/LICENSE",
-        "category": "Productivity",
+        "category": "Developer Tools",
         "capabilities": [],
         "logo": "./assets/icon.svg",
         "composerIcon": "./assets/icon.svg"

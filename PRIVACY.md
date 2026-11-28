@@ -1,8 +1,16 @@
-# Data handling
+# Privacy policy and data handling
 
-Publisher: Lex from SigmaStudioz. Applies to Principal Driven Domain Design, SigmaStudioz Visualizer,
-SigmaStudioz Video Analysis, Engineering Spikes, Does It Make Sense? and UI Foundation Reuse, including the optional local helpers shipped
-with the applicable plugins in this repository.
+Last updated: November 28, 2026. Publisher: Lex from SigmaStudioz.
+
+This policy covers the twelve plugins currently distributed in this repository:
+Principal Driven Domain Design (domain-driven-design), SigmaStudioz Visualizer (visualizer),
+SigmaStudioz Video Analysis (video-analysis), Engineering Spikes (engineering-spikes),
+UI Foundation Reuse (ui-foundation-reuse), Does It Make Sense? (does-it-make-sense),
+What If Tony Stark Built This (what-if-tony-stark-built-this), Returncraft (app-retention),
+Delegating to Agents (delegating-to-agents), Senior Digital Skills Class (senior-digital-skills),
+Slipstream (slipstream) and Follow-Through (follow-through).
+
+## Shared behavior and user control
 
 These plugins provide instructions and optional local Python/Node.js helpers. There is no publisher-hosted
 backend, account system or telemetry endpoint. Shipped helpers do not send media or project data to
@@ -71,3 +79,68 @@ nothing is sent anywhere. Its hooks are not registered on install: `lean_setup.p
 them to the user's settings only when run, after a dry run, and `--undo` removes them. The prompt
 hint reads only the current prompt and the local catalog. The Cursor helper parses a CSV the user
 exported from their own Cursor account. No publisher service, account or network access is used.
+
+## What If Tony Stark Built This
+
+The guidance can use project requirements, source code, test cases and experiment results that
+the user authorizes the host agent to access. Its optional Python comparison runner reads a
+local experiment manifest, selected implementation modules and JSON input cases. It starts
+local Python processes and writes measurement/error reports in the selected output location.
+The runner does not contain a publisher upload endpoint. Selected implementation code runs
+with the local process's access, can itself read files or use the network, and is not sandboxed.
+Inspect that code and its inputs before execution; do not put credentials or private payloads
+in reports intended for sharing. Experiment files remain under the user's storage controls.
+
+## Returncraft (app-retention)
+
+This is guidance for designing retention, ranking and experiments in a user's own product.
+It may use authorized product requirements and aggregate or de-identified usage evidence.
+The package does not include an analytics collector, tracking SDK, advertising service,
+notification sender or publisher database. Feature code and any data collection implemented
+in the consuming product are owned by that product and subject to its own privacy policy.
+The guidance calls for data the product already collects for its own purposes, user controls
+and no third-party tracking, fingerprinting or data-broker input. Avoid sharing identifiable
+customer records with a host or external tool unless the user has authority to do so.
+
+## Senior Digital Skills Class
+
+This guidance helps prepare lesson plans, practice materials, budgets, funding research and
+learning-outcome summaries. It has no executable helper, learner account system or publisher
+collection service. Use dummy information for sensitive exercises and anonymous outcome checks
+where possible. Do not record learner passwords, verification codes, payment details, government
+identifiers, health records or private messages in prompts or teaching materials. Learners keep
+control of their own devices and accounts. Authorized web research is handled by the chosen host
+or research provider, not by a publisher-hosted service.
+
+## Delegating to Agents
+
+This guidance helps prepare task briefs, progress notes, handoff contracts and reports using
+user-authorized project context. It does not launch a worker, register hooks or send a brief on
+its own. A host or worker service selected by the user may receive the context deliberately
+included in an authorized assignment, under that service's policies. Keep credentials and
+unnecessary private context out of briefs and use project-owned storage for resulting records.
+
+## Follow-Through
+
+The local Python tool reads and writes task titles, completion criteria, status, next steps and
+evidence in a JSON task tree. The default store is under ~/.follow-through/; the user can select
+a different path. Optional owner-configured hooks read the tree and local session identifiers
+and print reminders to the host. The tool does not make network requests or send task records
+to the publisher. A host agent can still process a reminder or task content under the host's own
+privacy settings. Task files can contain confidential project information; choose titles and
+evidence accordingly and control access to the storage location.
+
+## Storage, deletion and privacy questions
+
+There is no publisher-operated storage or retention period for local task, media, experiment or
+project files produced by these packages. Files remain until the user or their own software
+changes or deletes them; local tools do not provide automatic deletion of all outputs or host
+history. Users can inspect, edit or remove their local files. Backups, host conversation history,
+external-provider retention and any consuming application's data require that owner's controls.
+Removing a plugin does not necessarily remove its previously created files or configured hooks.
+
+For privacy questions contact ojo@sigmastudioz.com. Public GitHub issues are also available for
+non-sensitive support. Information deliberately sent in a support email or public issue is
+received through the email or GitHub service to respond to the request; do not send credentials,
+private source, raw session logs or learner/customer records. Do not use a public issue for a
+private deletion request. These support channels have their own provider retention controls.
