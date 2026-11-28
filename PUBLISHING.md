@@ -32,6 +32,24 @@ complete plugin folder, including both manifests. Terms-link validation is separ
 skills-only intake restriction and does not establish marketplace approval. Existing uploaded
 drafts need their own corrected ZIP reupload; repository changes do not update them automatically.
 
+## OpenAI listing readiness — November 28
+
+Public-submission limits can be stricter than draft uploads: display names and subtitles are
+limited to 30 characters, long descriptions to 4000, and publisher names to 80. The catalog
+builder enforces these limits in both OpenAI and Codex listing interfaces and rejects core
+listing-text/category drift between them. Use neutral listing language; keep necessary technical
+compatibility details and platform-specific instructions inside the skill rather than using
+other AI product names as listing copy. See the [official field reference](https://developers.openai.com/plugins/deploy/submission#listing-metadata).
+
+All twelve already-public plugins were checked for these fields, the four HTTPS destinations,
+contained square icon files and starter-prompt limits. Nine subtitles were shortened. DDD,
+Delegating to Agents, Slipstream and Follow-Through listing copy no longer names other AI
+platforms; Engineering Spikes' listing uses a neutral knowledge-base description. Returncraft's
+Codex fallback now describes retention rather than the unrelated outcome-review skill, and
+Delegating's fallback reflects its current versioned handoff contract. Full skill functionality,
+identities, versions, licenses and historical evidence remain unchanged. Local checks establish
+metadata readiness, not provider approval or an exception to the skills-only intake restriction.
+
 ## DDD guidance-only package — November 13
 
 DDD1.4.6 contains the full baseline and local references, with no executable guard or tests.

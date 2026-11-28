@@ -13,7 +13,7 @@
   "interface": {
     "displayName": "Slipstream",
     "shortDescription": "Same work, far fewer tokens",
-    "longDescription": "Measures where tokens actually go in Claude Code and Codex logs (and Cursor's usage export), then shrinks the context re-sent on every call: a usage-based skill listing with a searchable catalog and prompt-time skill hints, a context meter that suggests handoffs at task boundaries, and a guard that replaces model-driven polling with one shell wait. All helpers run locally; configuration changes are dry-run by default and fully reversible.",
+    "longDescription": "Measures where tokens actually go in supported agent logs and usage exports, then shrinks the context re-sent on every call: a usage-based skill listing with a searchable catalog and prompt-time skill hints, a context meter that suggests handoffs at task boundaries, and a guard that replaces model-driven polling with one shell wait. All helpers run locally; configuration changes are dry-run by default and fully reversible.",
     "developerName": "Lex from SigmaStudioz",
     "websiteURL": "https://github.com/sigmastudioz",
     "supportURL": "https://github.com/sigmastudioz/agent-skills/issues",

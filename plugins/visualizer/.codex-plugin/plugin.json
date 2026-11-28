@@ -12,7 +12,7 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "SigmaStudioz Visualizer",
-    "shortDescription": "React Three Fiber visuals and visualization videos",
+    "shortDescription": "Interactive visuals and videos",
     "longDescription": "Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz. Uses host-authorized tools; no automatic installers or publisher backend. Direct repository distribution; native model selection and marketplace review are separate validation steps.",
     "developerName": "Lex from SigmaStudioz",
     "websiteURL": "https://github.com/sigmastudioz",

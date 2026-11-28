@@ -1,3 +1,30 @@
+# All approved OpenAI listing metadata — November 28
+
+OPENAI-META-02 (integration gaps): checking all twelve public-catalog plugins against the
+current OpenAI field reference found nine subtitles over the 30-character public-submission
+limit, three additional AI-platform references, Returncraft's Codex fallback copied from
+Does It Make Sense?, and Delegating's outdated fallback contract description. Correct only
+listing text/category metadata; Engineering Spikes uses neutral knowledge-base wording too.
+Every plugin retains its identity, version, paths, runtime/guidance bytes and license notices.
+
+The existing builder now rejects missing/oversized core listing text and core fallback drift.
+Seven limit/missing-value and two copy-drift mutations failed before their respective guards;
+all sixteen catalog tests pass afterward. The final collection suite passes all 263 tests
+with no skips; catalog/release and diff checks pass. The real oversized Visualizer subtitle failed the
+new gate before correction. All twelve plugins pass required text/lengths, four HTTPS links,
+contained square SVG icons (at least 48px, under 5MiB), starter limits and fallback parity.
+Public GitHub API confirms repository visibility, issues enabled, PRIVACY.md and LICENSE;
+provider scan/classification beyond the one existing DDD draft remains unverified.
+
+Trace remains catalog → portable/native metadata → release inventories → complete upload
+ZIPs → existing draft readback. Core validation runs before output writes via the builder and
+pre-push entrypoint. Skill bodies and helper logic are outside this metadata change; no new
+native identities, held-back content, legal declarations or review requests are authorized.
+Rollback is reverting this metadata/validation commit and regenerating inventories, retaining
+all historical archives. Remote skills-only eligibility remains a separate external blocker.
+
+---
+
 # DDD OpenAI listing description — November 28
 
 OPENAI-DESC-01 (listing warning): the existing DDD draft reported a non-blocking reference

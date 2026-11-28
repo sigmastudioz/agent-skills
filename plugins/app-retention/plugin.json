@@ -14,7 +14,7 @@
     "com.openai": {
       "interface": {
         "displayName": "Returncraft",
-        "shortDescription": "Fair retention and ranking from your own app data",
+        "shortDescription": "Fair retention and ranking",
         "longDescription": "Design fair retention and ranking for apps: return likelihood, habit-timed nudges, per-item ranking, results-based asset choice and upgrade timing, built from the product's own data with privacy guardrails and no dark patterns. By Lex from SigmaStudioz. Guidance only: no executable helper, tracker or required service.",
         "developerName": "Lex from SigmaStudioz",
         "websiteURL": "https://github.com/sigmastudioz",

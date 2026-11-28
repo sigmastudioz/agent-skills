@@ -12,7 +12,7 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "SigmaStudioz Video Analysis",
-    "shortDescription": "Timestamped visual and audio evidence",
+    "shortDescription": "Visual and audio evidence",
     "longDescription": "Analyze supplied videos and audio through timestamped frames, adaptive inspection, transcripts and explicit evidence/coverage limits. By Lex from SigmaStudioz. Uses host-authorized tools; no automatic installers or publisher backend. Direct repository distribution; native model selection and marketplace review are separate validation steps.",
     "developerName": "Lex from SigmaStudioz",
     "websiteURL": "https://github.com/sigmastudioz",

@@ -33,6 +33,15 @@ def terms_url(interface, name):
     return value
 
 
+def validate_listing_text(interface, name):
+    """Apply public-submission text limits, which can be stricter than draft uploads."""
+    for field, limit in (('displayName', 30), ('shortDescription', 30),
+                         ('longDescription', 4000), ('developerName', 80)):
+        value = interface.get(field)
+        if not isinstance(value, str) or not value.strip() or len(value) > limit:
+            raise ValueError(f'Listing {field} must contain 1–{limit} characters: {name}')
+
+
 def render(root):
     root = Path(root).resolve()
     registry = json.loads((root / 'catalog.json').read_text())
@@ -50,7 +59,9 @@ def render(root):
         manifest = json.loads(manifest_path.read_text())
         if manifest['name'] != name or not manifest.get('version') or not manifest.get('description'):
             raise ValueError('Plugin identity/version/description missing or inconsistent: ' + name)
-        terms = terms_url(manifest.get('extensions', {}).get('com.openai', {}).get('interface', {}), name)
+        interface = manifest.get('extensions', {}).get('com.openai', {}).get('interface', {})
+        terms = terms_url(interface, name)
+        validate_listing_text(interface, name)
         for host in ('claude', 'cursor', 'codex'):
             compatibility_path = (manifest_path.parent / f'.{host}-plugin/plugin.json').resolve()
             if root not in compatibility_path.parents:
@@ -58,6 +69,11 @@ def render(root):
             compatibility = json.loads(compatibility_path.read_text())
             if host == 'codex' and terms_url(compatibility.get('interface', {}), name) != terms:
                 raise ValueError('Terms of service URL differs in Codex fallback: ' + name)
+            if host == 'codex':
+                validate_listing_text(compatibility['interface'], name)
+                for field in ('displayName', 'shortDescription', 'longDescription', 'developerName', 'category'):
+                    if compatibility['interface'].get(field) != interface.get(field):
+                        raise ValueError(f'Listing {field} differs in Codex fallback: {name}')
             expected_author = manifest.get('author', {})
             if host == 'cursor':
                 expected_author = cursor_identity(expected_author)

@@ -14,7 +14,7 @@
     "com.openai": {
       "interface": {
         "displayName": "Senior Digital Skills Class",
-        "shortDescription": "Plan, fund and run a phone-skills class for older adults",
+        "shortDescription": "Phone skills for older adults",
         "longDescription": "Plan, fund, run and measure a hands-on digital-skills class for older adults: phone basics, QR menus, parking and transit apps, wallet passes, store app deals, video calls, photos and scam safety, with learner-safety boundaries, honest funding leads, a cost sheet and pre/post outcomes. By Lex from SigmaStudioz. Guidance only: no executable helper, account, tracker or required service; it never submits applications or contacts funders.",
         "developerName": "Lex from SigmaStudioz",
         "websiteURL": "https://github.com/sigmastudioz",

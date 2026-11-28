@@ -12,7 +12,7 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "UI Foundation Reuse",
-    "shortDescription": "Reusable React effects and scene infrastructure",
+    "shortDescription": "Reusable UI effects and scenes",
     "longDescription": "Reuse bundled React effects, lifecycle hooks and scene helpers from @sigmastudioz/ui-foundation. Includes runtime, source, types and license notices. By Lex from SigmaStudioz. The staging helper copies a checksum-verified local archive into an authorized app; dependency installation is a separate user-scoped action. No publisher backend or automatic downloads.",
     "developerName": "Lex from SigmaStudioz",
     "websiteURL": "https://github.com/sigmastudioz",
