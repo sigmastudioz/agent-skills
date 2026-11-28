@@ -1,3 +1,19 @@
+# DDD OpenAI listing description — November 28
+
+OPENAI-DESC-01 (listing warning): the existing DDD draft reported a non-blocking reference
+to another assistant/model/platform. Its listing description named Claude Code in historical
+version 1.0.5 evidence. Replace that label with "Historical version 1.0.5 evidence" in the
+root OpenAI and Codex fallback interfaces only; retain the original figures and caveats.
+Skill instructions, references, compatibility claims, version and nineteen other plugin files
+remain unchanged; all eleven other plugin inventories are identical to public 2bb8bfb.
+The Terms of Service link is retained. Same registry-to-release-to-ZIP path as OPENAI-TERMS-01;
+semantic manifest comparison verifies the single-field difference in each of two files.
+All 260 collection tests pass with no skips; catalog/release and diff checks pass.
+Only actual existing-draft readback can prove removal of the warning. No new identity or
+review submission, and the separate skills-only intake restriction is not resolved here.
+
+---
+
 # OpenAI terms metadata — November 28
 
 OPENAI-TERMS-01 (integration gap, fixed locally): all twelve public plugin manifests
