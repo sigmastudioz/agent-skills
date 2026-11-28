@@ -98,3 +98,15 @@ and raised noise, so it was removed. Replays re-price real calls; they do not pr
 - Cursor's CSV columns are matched by header; check the "columns used" line on your export.
 
 See [data handling](../../PRIVACY.md) for what the helpers read and write.
+
+## Claude directory identifier
+
+The new Claude package uses `sigmastudioz-slipstream` to distinguish this publisher’s skill
+from an existing connector. Install from the public repository marketplace with:
+
+```sh
+/plugin install sigmastudioz-slipstream --marketplace sigmastudioz/agent-skills
+```
+
+Its skill remains `slipstream`; other hosts and paths keep that identifier. Official directory
+review is separate from this direct installation route.

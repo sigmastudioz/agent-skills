@@ -1,3 +1,40 @@
+# Marketplace native compatibility — November 28
+
+MARKET-NATIVE-01 (integration gap): current Antigravity requires its own presentation manifest.
+The existing builder now adapts catalog/root metadata into twelve contained native manifests,
+reusing the same icons, skills and local programs. Registry starter prompts are the only new
+presentation content. No MCP server, hook or always-on rule is activated. Generated metadata
+is included in release inventories; prior release assets are retained unchanged.
+
+MARKET-NATIVE-02 (loading bug): the official1.5.19 loader reported UI's31,501-byte body would
+be truncated at24,000 bytes. The complete capability map moved to a directly linked reference;
+its content is identical except rebasing its effect-API link and trimming a terminal blank line. Entrypoint is now21,806 bytes.
+UI1.6.2 preserves the runtime archive/stager and all other guidance. The builder rejects a body
+beyond the actual loader limit before writing any output. Its new regression failed before the
+fix. The real loader accepted all twelve native packages with exactly one skill and only the
+expected shadowed root-manifest warning. Invalid version type was rejected by the real loader.
+
+MARKET-NATIVE-03 (listing collision): Claude's initial Slipstream validation reports an existing
+connector owns that bare name. Explicit `claudeName` metadata selects `sigmastudioz-slipstream`
+for this new, never-submitted Claude identity. Catalog and native manifest agree; all other host
+identifiers and the skill folder remain unchanged. Cross-host alias and duplicate-name rejection
+checks cover this boundary. All12 Claude manifests also expose the existing public privacy,
+usage-terms and support URLs; licenses and terms content do not change.
+
+Trace: catalog + portable/native source -> owned build_catalogs adapter -> Antigravity loader
+or Claude native catalog -> real unchanged skill/reference/runtime consumers. Read-only drift,
+contained logo, duplicate identity, oversized body and native-version failures are checked before
+output writes. Existing runtime bytes are compared with base9c4d910; external publisher approval,
+current Claude security findings and installed-agent efficacy remain separate/unverified.
+All267 collection tests pass with no skips (69.980s);20 catalog tests and3 link/version checks pass.
+Claude catalog validation and generated-file drift checks pass. The restricted-runner stdout
+failure was reproduced in unchanged Slipstream and cleared with normal temporary-file access.
+No new runtime dependency, permission, telemetry or account configuration is added to packages.
+Rollback reverts this metadata/reference-layout patch and regenerates inventories; retain old
+public archives and all sent-once provider receipts. Never undo newer unrelated edits.
+
+---
+
 # All approved OpenAI listing metadata — November 28
 
 OPENAI-META-02 (integration gaps): checking all twelve public-catalog plugins against the

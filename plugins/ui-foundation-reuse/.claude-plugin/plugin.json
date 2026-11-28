@@ -1,7 +1,7 @@
 {
   "license": "MIT",
   "name": "ui-foundation-reuse",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "mcpServers": {},
   "description": "Reuse bundled React effects, lifecycle hooks and scene helpers from @sigmastudioz/ui-foundation. Includes runtime, source, types and license notices. By Lex from SigmaStudioz.",
   "author": {
@@ -24,5 +24,8 @@
     "agent-skills"
   ],
   "icon": "./assets/icon.svg",
-  "documentationUrl": "https://github.com/sigmastudioz/agent-skills/blob/main/plugins/ui-foundation-reuse/README.md"
+  "documentationUrl": "https://github.com/sigmastudioz/agent-skills/blob/main/plugins/ui-foundation-reuse/README.md",
+  "privacyPolicyUrl": "https://github.com/sigmastudioz/agent-skills/blob/main/PRIVACY.md",
+  "termsOfServiceUrl": "https://github.com/sigmastudioz/agent-skills/blob/main/LICENSE",
+  "supportUrl": "https://github.com/sigmastudioz/agent-skills/issues"
 }

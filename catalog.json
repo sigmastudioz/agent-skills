@@ -10,57 +10,88 @@
     {
       "name": "domain-driven-design",
       "path": "./plugins/domain-driven-design",
-      "category": "Productivity"
+      "category": "Productivity",
+      "antigravityPrompts": [
+        "Trace this feature through its callers and downstream consumers, then fix the agreed gaps."
+      ]
     },
     {
       "name": "visualizer",
       "path": "./plugins/visualizer",
-      "category": "Productivity"
+      "category": "Productivity",
+      "antigravityPrompts": [
+        "Build an interactive explanation of this mechanism with editable source."
+      ]
     },
     {
       "name": "video-analysis",
       "path": "./plugins/video-analysis",
-      "category": "Creativity"
+      "category": "Creativity",
+      "antigravityPrompts": [
+        "Analyze the supplied video with timestamped evidence and clear coverage limits."
+      ]
     },
     {
       "name": "engineering-spikes",
       "path": "./plugins/engineering-spikes",
-      "category": "Productivity"
+      "category": "Productivity",
+      "antigravityPrompts": [
+        "Test this engineering uncertainty with a bounded, reproducible spike."
+      ]
     },
     {
       "name": "ui-foundation-reuse",
       "path": "./plugins/ui-foundation-reuse",
-      "category": "Productivity"
+      "category": "Productivity",
+      "antigravityPrompts": [
+        "Inspect the bundled UI runtime and reuse an existing effect for this React scene."
+      ]
     },
     {
       "name": "does-it-make-sense",
       "path": "./plugins/does-it-make-sense",
-      "category": "Productivity"
+      "category": "Productivity",
+      "antigravityPrompts": [
+        "Compare this build with its intended outcome and identify evidence-backed gaps."
+      ]
     },
     {
       "name": "what-if-tony-stark-built-this",
       "path": "./plugins/what-if-tony-stark-built-this",
-      "category": "Developer Tools"
+      "category": "Developer Tools",
+      "antigravityPrompts": [
+        "Propose and test a better engineering mechanism for this constraint."
+      ]
     },
     {
       "name": "app-retention",
       "path": "./plugins/app-retention",
-      "category": "Developer Tools"
+      "category": "Developer Tools",
+      "antigravityPrompts": [
+        "Design fair return and ranking experiments from this product\u2019s own data."
+      ]
     },
     {
       "name": "delegating-to-agents",
       "path": "./plugins/delegating-to-agents",
-      "category": "Developer Tools"
+      "category": "Developer Tools",
+      "antigravityPrompts": [
+        "Prepare a bounded handoff for another agent with an isolated workspace and clear checks."
+      ]
     },
     {
       "name": "senior-digital-skills",
       "path": "./plugins/senior-digital-skills",
-      "category": "Education & Research"
+      "category": "Education & Research",
+      "antigravityPrompts": [
+        "Plan a practical digital-skills class for older adults with learner safety and measurable outcomes."
+      ]
     },
     {
       "name": "slipstream",
       "path": "./plugins/slipstream",
-      "category": "Productivity"
+      "category": "Productivity",
+      "claudeName": "sigmastudioz-slipstream"
     },
     {
       "name": "follow-through",

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "does-it-make-sense",
+  "version": "1.0.3",
+  "description": "Explain an existing build, trace actual behavior back to the end goal, and recommend evidence-backed refinements within scope. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "license": "MIT",
+  "displayName": "Does It Make Sense?",
+  "logo": "./assets/icon.svg",
+  "suggestedPrompts": [
+    "Compare this build with its intended outcome and identify evidence-backed gaps."
+  ],
+  "keywords": []
+}

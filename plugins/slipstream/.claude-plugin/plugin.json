@@ -1,6 +1,6 @@
 {
   "license": "MIT",
-  "name": "slipstream",
+  "name": "sigmastudioz-slipstream",
   "version": "1.1.0",
   "description": "Cut AI coding token burn by shrinking per-call context, not output, while keeping every skill reachable. By Lex from SigmaStudioz.",
   "author": {
@@ -9,7 +9,7 @@
   },
   "homepage": "https://github.com/sigmastudioz",
   "repository": "https://github.com/sigmastudioz/agent-skills",
-  "displayName": "Slipstream",
+  "displayName": "SigmaStudioz Slipstream",
   "keywords": [
     "token-efficiency",
     "context-engineering",
@@ -21,5 +21,8 @@
     "cursor"
   ],
   "icon": "./assets/icon.svg",
-  "documentationUrl": "https://github.com/sigmastudioz/agent-skills/blob/main/plugins/slipstream/README.md"
+  "documentationUrl": "https://github.com/sigmastudioz/agent-skills/blob/main/plugins/slipstream/README.md",
+  "privacyPolicyUrl": "https://github.com/sigmastudioz/agent-skills/blob/main/PRIVACY.md",
+  "termsOfServiceUrl": "https://github.com/sigmastudioz/agent-skills/blob/main/LICENSE",
+  "supportUrl": "https://github.com/sigmastudioz/agent-skills/issues"
 }

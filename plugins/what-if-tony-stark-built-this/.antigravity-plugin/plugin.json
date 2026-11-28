@@ -1,0 +1,19 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "what-if-tony-stark-built-this",
+  "version": "2.2.0",
+  "description": "Invent and prove better engineering mechanisms when the existing approach hits a consequential constraint. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "license": "MIT",
+  "displayName": "What If Tony Stark Built This",
+  "logo": "./assets/icon.svg",
+  "suggestedPrompts": [
+    "Propose and test a better engineering mechanism for this constraint."
+  ],
+  "keywords": []
+}

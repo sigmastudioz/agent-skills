@@ -24,10 +24,13 @@ class CatalogTests(unittest.TestCase):
         directory.mkdir(parents=True)
         terms = 'https://example.com/terms'
         interface = {'termsOfServiceURL': terms, 'displayName': name, 'shortDescription': name,
-                     'longDescription': name, 'developerName': 'Example author'}
+                     'longDescription': name, 'developerName': 'Example author',
+                     'logo': './assets/icon.svg', 'defaultPrompt': ['Help with this skill']}
         manifest = {'name': name, 'version': version, 'description': name, 'author': {'name': 'Example author'},
                     'extensions': {'com.openai': {'interface': interface}}}
         (directory / 'plugin.json').write_text(json.dumps(manifest))
+        (directory / 'assets').mkdir()
+        (directory / 'assets/icon.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg"/>')
         for host in ('claude', 'cursor', 'codex'):
             path = directory / f'.{host}-plugin/plugin.json'
             native = dict(manifest)
@@ -49,6 +52,9 @@ class CatalogTests(unittest.TestCase):
                 self.assertEqual(data['plugins']['second']['version'], '2.3.4')
                 continue
             actual = json.loads((self.root / path).read_text())
+            if '/.antigravity-plugin/' in path:
+                self.assertEqual(actual['suggestedPrompts'], ['Help with this skill'])
+                continue
             self.assertEqual([p['name'] for p in actual['plugins']], ['first', 'second'])
         self.assertEqual(json.loads((self.root / 'plugins/first/plugin.json').read_text())['version'], '1.0.0')
         self.assertEqual(json.loads((self.root / 'plugins/second/plugin.json').read_text())['version'], '2.3.4')
@@ -87,6 +93,43 @@ class CatalogTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'duplicate'):
             catalogs.build(self.root)
         self.assertFalse((self.root / '.claude-plugin').exists())
+
+    def test_claude_only_identity_preserves_other_hosts_and_distribution(self):
+        self.registry['plugins'][0]['claudeName'] = 'example-first'
+        self.save()
+        path = self.root / 'plugins/first/.claude-plugin/plugin.json'
+        data = json.loads(path.read_text()); data['name'] = 'example-first'
+        path.write_text(json.dumps(data))
+        outputs = catalogs.render(self.root)
+        self.assertEqual(outputs['.claude-plugin/marketplace.json']['plugins'][0]['name'], 'example-first')
+        self.assertEqual(outputs['.cursor-plugin/marketplace.json']['plugins'][0]['name'], 'first')
+        self.assertIn('first', outputs['release.json']['plugins'])
+        self.assertEqual(outputs['plugins/first/.antigravity-plugin/plugin.json']['name'], 'first')
+
+    def test_duplicate_claude_identity_rejected(self):
+        self.add_plugin('second', '1.0.0')
+        self.registry['plugins'][1]['claudeName'] = 'first'; self.save()
+        with self.assertRaisesRegex(ValueError, 'duplicate Claude'):
+            catalogs.render(self.root)
+
+    def test_missing_and_escaping_logo_rejected_before_writes(self):
+        path = self.root / 'plugins/first/plugin.json'
+        data = json.loads(path.read_text())
+        for logo in ('./assets/missing.svg', '../../../outside.svg', '/outside.svg'):
+            with self.subTest(logo=logo):
+                data['extensions']['com.openai']['interface']['logo'] = logo
+                path.write_text(json.dumps(data))
+                with self.assertRaisesRegex(ValueError, 'logo'):
+                    catalogs.build(self.root)
+                self.assertFalse((self.root / 'release.json').exists())
+
+    def test_antigravity_truncated_skill_rejected_before_writes(self):
+        skill = self.root / 'plugins/first/skills/first/SKILL.md'
+        skill.parent.mkdir(parents=True)
+        skill.write_text('---\nname: first\ndescription: Test\n---\n' + 'x' * 24001)
+        with self.assertRaisesRegex(ValueError, '24,000'):
+            catalogs.build(self.root)
+        self.assertFalse((self.root / 'release.json').exists())
 
     def test_traversal_rejected(self):
         self.registry['plugins'][0]['path'] = './../outside'; self.save()
