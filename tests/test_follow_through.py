@@ -159,6 +159,19 @@ class FollowThroughTests(unittest.TestCase):
         self.assertNotEqual(self.cli("close", "2", "--evidence", "ok").returncode, 0)
         self.assertEqual(self.cli("reopen", "2").returncode, 0)
 
+    def test_concurrent_prompts_keep_every_session(self):
+        procs = []
+        for i in range(30):
+            d = Path(self.tmp.name) / ("proj%d" % i)
+            d.mkdir()
+            procs.append(subprocess.Popen([sys.executable, "-I", str(SCRIPT), "hook-prompt"], stdin=subprocess.PIPE,
+                                          env=self.env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL))
+            procs[-1].stdin.write(json.dumps({"cwd": str(d), "session_id": "s%d" % i}).encode())
+            procs[-1].stdin.close()
+        for pr in procs:
+            pr.wait(30)
+        self.assertEqual(len(json.loads((self.home / "sessions.json").read_text())), 30)
+
     def test_stale_lock_is_broken(self):
         self.cli("add", "A", "--done-when", "x")
         lock = Path(str(self.stores()[0]) + ".lock")

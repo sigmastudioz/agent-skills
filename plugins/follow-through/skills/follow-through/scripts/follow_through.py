@@ -71,44 +71,73 @@ def store_for(cwd, create=True):
     return os.path.join(home, "%s-%s.json" % (readable, digest))
 
 
-class Store:
-    """Read-modify-write under an exclusive lock file (portable: no fcntl/msvcrt)."""
+class Lock:
+    """Exclusive lock file holding an owner token (portable: no fcntl/msvcrt)."""
 
-    def __init__(self, path):
-        self.path, self.lock = path, path + ".lock"
+    def __init__(self, target, wait=LOCK_WAIT):
+        self.lock, self.wait = target + ".lock", wait
         self.token = "%d-%f" % (os.getpid(), time.time())
 
-    def __enter__(self):
-        deadline = time.time() + LOCK_WAIT
+    def acquire(self):
+        deadline = time.time() + self.wait
         while True:
             try:
                 fd = os.open(self.lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
                 os.write(fd, self.token.encode())
                 os.close(fd)
-                break
+                return
             except FileExistsError:
                 self._break_if_stale()
                 if time.time() > deadline:
                     raise StoreError("store is locked by another writer: " + self.lock)
                 time.sleep(0.05)
-        try:
-            self.db = load(self.path)
-        except BaseException:
-            self._unlock()
-            raise
-        self.dirty = False
-        return self
 
     def _break_if_stale(self):
         try:
+            with open(self.lock) as f:
+                seen = f.read()
             if time.time() - os.path.getmtime(self.lock) <= LOCK_STALE:
                 return
-            # rename is atomic: only one waiter wins the stale lock, and nobody deletes a fresh one
             grave = "%s.stale.%s" % (self.lock, self.token)
-            os.rename(self.lock, grave)
+            os.rename(self.lock, grave)  # atomic: one waiter wins
+            with open(grave) as f:
+                moved = f.read()
+            if moved != seen:
+                # another waiter broke the stale lock and a writer took a fresh one in between:
+                # put that fresh lock back unless a newer one already exists
+                try:
+                    os.link(grave, self.lock)
+                except OSError:
+                    pass
             os.remove(grave)
         except OSError:
             pass
+
+    def release(self):
+        try:
+            with open(self.lock) as f:
+                mine = f.read() == self.token
+            if mine:
+                os.remove(self.lock)
+        except OSError:
+            pass
+
+
+class Store:
+    """Read-modify-write of one tree under its lock."""
+
+    def __init__(self, path):
+        self.path, self._lock = path, Lock(path)
+
+    def __enter__(self):
+        self._lock.acquire()
+        try:
+            self.db = load(self.path)
+        except BaseException:
+            self._lock.release()
+            raise
+        self.dirty = False
+        return self
 
     def save(self):
         self.dirty = True
@@ -125,16 +154,7 @@ class Store:
                     if os.path.exists(tmp):
                         os.remove(tmp)
         finally:
-            self._unlock()
-
-    def _unlock(self):
-        try:
-            with open(self.lock) as f:
-                mine = f.read() == self.token
-            if mine:
-                os.remove(self.lock)
-        except OSError:
-            pass
+            self._lock.release()
 
 
 def load(path):
@@ -234,6 +254,18 @@ def speaking_session(path):
 
 def record_session(path, sid):
     f, key = sessions_file(path)
+    if speaking_session(path) == sid:
+        return
+    os.makedirs(os.path.dirname(f), exist_ok=True)
+    lock = Lock(f, wait=1.0)
+    lock.acquire()
+    try:
+        _write_session(f, key, sid)
+    finally:
+        lock.release()
+
+
+def _write_session(f, key, sid):
     try:
         with open(f, encoding="utf-8") as fh:
             m = json.load(fh)
@@ -245,7 +277,6 @@ def record_session(path, sid):
     m.pop(key, None)
     m[key] = sid
     m = dict(list(m.items())[-300:])  # newest last; old projects age out
-    os.makedirs(os.path.dirname(f), exist_ok=True)
     tmp = "%s.%d.tmp" % (f, os.getpid())
     with open(tmp, "w", encoding="utf-8") as fh:
         json.dump(m, fh)

@@ -91,6 +91,8 @@ Other hosts (Cursor, Codex, any agent with a shell): use the script and the rule
 - The tree remembers only what was added to it. A task never added is still lost: rule 1 is the defence.
 - One tree per project. Two sessions in the same project share it; a task belongs to the session that last
   sent a prompt when it was started, so in rare interleavings the Stop hook can name the other session's task.
+- Outside a git repository, a subfolder is its own project unless `CLAUDE_PROJECT_DIR` is set; run the
+  script from the project root there.
 - The Stop hook only checks `active` tasks. Parked and blocked work is shown on every prompt and at every
   session start, but nothing stops an agent from leaving it parked: the user sees it and decides.
 - Closed tasks stay in the file as history. Very large trees (thousands of nodes) slow the hooks; move the
