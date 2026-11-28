@@ -23,14 +23,16 @@ class CatalogTests(unittest.TestCase):
         directory = self.root / 'plugins' / name
         directory.mkdir(parents=True)
         terms = 'https://example.com/terms'
+        interface = {'termsOfServiceURL': terms, 'displayName': name, 'shortDescription': name,
+                     'longDescription': name, 'developerName': 'Example author'}
         manifest = {'name': name, 'version': version, 'description': name, 'author': {'name': 'Example author'},
-                    'extensions': {'com.openai': {'interface': {'termsOfServiceURL': terms}}}}
+                    'extensions': {'com.openai': {'interface': interface}}}
         (directory / 'plugin.json').write_text(json.dumps(manifest))
         for host in ('claude', 'cursor', 'codex'):
             path = directory / f'.{host}-plugin/plugin.json'
             native = dict(manifest)
             if host == 'codex':
-                native['interface'] = {'termsOfServiceURL': terms}
+                native['interface'] = interface
             path.parent.mkdir(); path.write_text(json.dumps(native))
         self.registry['plugins'].append({'name': name, 'path': './plugins/' + name})
         self.save()
@@ -158,6 +160,40 @@ class CatalogTests(unittest.TestCase):
         path.write_text(json.dumps(data))
         with self.assertRaisesRegex(ValueError, 'Terms of service'):
             catalogs.render(self.root)
+
+    def test_listing_text_submission_limits_rejected(self):
+        path = self.root / 'plugins/first/plugin.json'
+        original = path.read_text()
+        for field, limit in (('displayName', 30), ('shortDescription', 30),
+                             ('longDescription', 4000), ('developerName', 80)):
+            with self.subTest(field=field):
+                data = json.loads(original)
+                data['extensions']['com.openai']['interface'][field] = 'x' * (limit + 1)
+                path.write_text(json.dumps(data))
+                with self.assertRaisesRegex(ValueError, 'Listing ' + field):
+                    catalogs.render(self.root)
+
+    def test_required_listing_text_rejected(self):
+        path = self.root / 'plugins/first/.codex-plugin/plugin.json'
+        original = path.read_text()
+        for value in ('', None, 42):
+            with self.subTest(value=value):
+                data = json.loads(original)
+                data['interface']['shortDescription'] = value
+                path.write_text(json.dumps(data))
+                with self.assertRaisesRegex(ValueError, 'Listing shortDescription'):
+                    catalogs.render(self.root)
+
+    def test_fallback_listing_copy_drift_rejected(self):
+        path = self.root / 'plugins/first/.codex-plugin/plugin.json'
+        original = path.read_text()
+        for field in ('longDescription', 'category'):
+            with self.subTest(field=field):
+                data = json.loads(original)
+                data['interface'][field] = 'Different skill'
+                path.write_text(json.dumps(data))
+                with self.assertRaisesRegex(ValueError, 'Listing ' + field):
+                    catalogs.render(self.root)
 
 
 if __name__ == '__main__':

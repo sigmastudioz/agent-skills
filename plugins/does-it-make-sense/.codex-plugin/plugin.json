@@ -12,7 +12,7 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Does It Make Sense?",
-    "shortDescription": "Trace a build back to its intended outcome",
+    "shortDescription": "Check builds against the goal",
     "longDescription": "Explain an existing build, trace actual behavior back to the end goal, and recommend evidence-backed refinements within scope. By Lex from SigmaStudioz. Assessment is read-only unless fixes are authorized. No executable helper, required service or automatic account changes. Repository availability is separate from native marketplace review.",
     "developerName": "Lex from SigmaStudioz",
     "websiteURL": "https://github.com/sigmastudioz",

@@ -15,7 +15,7 @@
       "interface": {
         "displayName": "Follow-Through",
         "shortDescription": "Unfinished work stays in view",
-        "longDescription": "Agents lose unfinished work when the conversation pivots, branches or is compacted. Follow-Through keeps every task on a tree saved on disk: each task has a done-when check, closes only with evidence, and a parent cannot close while a child is open. A pivot parks the current task with its next step instead of replacing it. Optional Claude Code hooks restore the open tree after a resume or compaction, remind on every prompt, and send the agent back once if it tries to stop with a task still in progress. It guarantees visibility, not completion: the user stays the judge. Standard-library Python, local files only.",
+        "longDescription": "Agents lose unfinished work when the conversation pivots, branches or is compacted. Follow-Through keeps every task on a tree saved on disk: each task has a done-when check, closes only with evidence, and a parent cannot close while a child is open. A pivot parks the current task with its next step instead of replacing it. Optional host hooks restore the open tree after a resume or compaction, remind on every prompt, and send the agent back once if it tries to stop with a task still in progress. It guarantees visibility, not completion: the user stays the judge. Standard-library Python, local files only.",
         "developerName": "Lex from SigmaStudioz",
         "websiteURL": "https://github.com/sigmastudioz",
         "supportURL": "https://github.com/sigmastudioz/agent-skills/issues",

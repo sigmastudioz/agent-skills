@@ -24,7 +24,7 @@
     {
       "name": "engineering-spikes",
       "source": "./plugins/engineering-spikes",
-      "description": "Plan timeboxed engineering spikes, trace evidence to decisions, and deliver separate stakeholder and technical documents for Confluence. By Lex from SigmaStudioz."
+      "description": "Plan timeboxed engineering spikes, trace evidence to decisions, and deliver separate stakeholder and technical documents for project knowledge bases. By Lex from SigmaStudioz."
     },
     {
       "name": "ui-foundation-reuse",
@@ -49,7 +49,7 @@
     {
       "name": "delegating-to-agents",
       "source": "./plugins/delegating-to-agents",
-      "description": "Hand bounded work to another AI agent CLI or TUI (Codex, Cursor, Pi, Claude Code, Hermes) with a complete brief, an isolated workspace, watchable progress and results reported back up the chain. Adapted by Lex from SigmaStudioz from davidondrej/skills (MIT)."
+      "description": "Hand bounded work to a supported agent command-line or terminal interface with a complete brief, an isolated workspace, watchable progress and results reported back up the chain. Adapted by Lex from SigmaStudioz from davidondrej/skills (MIT)."
     },
     {
       "name": "senior-digital-skills",

@@ -1,3 +1,46 @@
+# All approved OpenAI listing metadata — November 28
+
+OPENAI-META-02 (integration gaps): checking all twelve public-catalog plugins against the
+current OpenAI field reference found nine subtitles over the 30-character public-submission
+limit, three additional AI-platform references, Returncraft's Codex fallback copied from
+Does It Make Sense?, and Delegating's outdated fallback contract description. Correct only
+listing text/category metadata; Engineering Spikes uses neutral knowledge-base wording too.
+Every plugin retains its identity, version, paths, runtime/guidance bytes and license notices.
+
+The existing builder now rejects missing/oversized core listing text and core fallback drift.
+Seven limit/missing-value and two copy-drift mutations failed before their respective guards;
+all sixteen catalog tests pass afterward. The final collection suite passes all 263 tests
+with no skips; catalog/release and diff checks pass. The real oversized Visualizer subtitle failed the
+new gate before correction. All twelve plugins pass required text/lengths, four HTTPS links,
+contained square SVG icons (at least 48px, under 5MiB), starter limits and fallback parity.
+Public GitHub API confirms repository visibility, issues enabled, PRIVACY.md and LICENSE;
+provider scan/classification beyond the one existing DDD draft remains unverified.
+
+Trace remains catalog → portable/native metadata → release inventories → complete upload
+ZIPs → existing draft readback. Core validation runs before output writes via the builder and
+pre-push entrypoint. Skill bodies and helper logic are outside this metadata change; no new
+native identities, held-back content, legal declarations or review requests are authorized.
+Rollback is reverting this metadata/validation commit and regenerating inventories, retaining
+all historical archives. Remote skills-only eligibility remains a separate external blocker.
+
+---
+
+# DDD OpenAI listing description — November 28
+
+OPENAI-DESC-01 (listing warning): the existing DDD draft reported a non-blocking reference
+to another assistant/model/platform. Its listing description named Claude Code in historical
+version 1.0.5 evidence. Replace that label with "Historical version 1.0.5 evidence" in the
+root OpenAI and Codex fallback interfaces only; retain the original figures and caveats.
+Skill instructions, references, compatibility claims, version and nineteen other plugin files
+remain unchanged; all eleven other plugin inventories are identical to public 2bb8bfb.
+The Terms of Service link is retained. Same registry-to-release-to-ZIP path as OPENAI-TERMS-01;
+semantic manifest comparison verifies the single-field difference in each of two files.
+All 260 collection tests pass with no skips; catalog/release and diff checks pass.
+Only actual existing-draft readback can prove removal of the warning. No new identity or
+review submission, and the separate skills-only intake restriction is not resolved here.
+
+---
+
 # OpenAI terms metadata — November 28
 
 OPENAI-TERMS-01 (integration gap, fixed locally): all twelve public plugin manifests
