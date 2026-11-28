@@ -222,6 +222,14 @@ several follow-ups were needed to get a plain verdict. The new section answers i
 with evidence, what to change, and what remains. Session content stayed local; only the general
 pattern is published. Other plugins had too little skill-specific evidence to change.
 
+## Slipstream 1.0.2 — November 27
+
+The skill hint also ignores other sessions' hand-backs ("Another Claude session sent a message",
+`<agent-message>` blocks) and carried-over summaries, for every match rule. Observed live in the
+first hours after install: 20 of 23 hints were one unrelated skill, triggered by subagent
+hand-backs and continuation summaries. Replaying those 22 real prompts through 1.0.2 leaves 3
+hints, all on words the user typed. Regression test added; verified to fail on 1.0.1.
+
 ## Slipstream 1.0.1 — November 27
 
 The prompt-time skill hint ignores app-generated notices (session events, system reminders, task and

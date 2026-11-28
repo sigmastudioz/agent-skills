@@ -1,6 +1,6 @@
 # Slipstream
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.0.1.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · MIT · version 1.0.2.
 
 *S.L.I.P.: Skills Loaded In Precisely. Go further on less fuel.*
 

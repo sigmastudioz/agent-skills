@@ -89,7 +89,7 @@ await reviewer activation. Cursor, Codex and Antigravity publication is not yet 
 | [Returncraft](plugins/app-retention/README.md) | Fair onboarding, return habits, ranking, upgrade timing and measured retention experiments | 1.1.1 |
 | [Senior Digital Skills Class](plugins/senior-digital-skills/README.md) | Plan, fund, run and measure a hands-on phone-skills class for older adults, with learner-safety boundaries | 1.0.0 |
 | [Delegating to Agents](plugins/delegating-to-agents/README.md) | Hand work to Codex, Cursor, Pi or other agent CLIs with a full brief, isolation, watchable progress and results reported back | 1.1.1 |
-| [Slipstream](plugins/slipstream/README.md) | Cut AI coding token spend by shrinking per-call context, with measured before/after evidence and every skill still reachable | 1.0.1 |
+| [Slipstream](plugins/slipstream/README.md) | Cut AI coding token spend by shrinking per-call context, with measured before/after evidence and every skill still reachable | 1.0.2 |
 
 ### Visual creation and analysis
 
