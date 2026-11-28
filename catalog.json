@@ -61,6 +61,11 @@
       "name": "slipstream",
       "path": "./plugins/slipstream",
       "category": "Productivity"
+    },
+    {
+      "name": "follow-through",
+      "path": "./plugins/follow-through",
+      "category": "Productivity"
     }
   ]
 }

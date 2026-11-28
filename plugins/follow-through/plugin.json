@@ -1,0 +1,38 @@
+{
+  "license": "MIT",
+  "name": "follow-through",
+  "version": "1.0.0",
+  "description": "Stop coding agents losing unfinished work: a task tree on disk that survives pivots and context compaction, with evidence-gated closing and opt-in hooks that bring open work back into view. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Follow-Through",
+        "shortDescription": "Unfinished work stays in view",
+        "longDescription": "Agents lose unfinished work when the conversation pivots, branches or is compacted. Follow-Through keeps every task on a tree saved on disk: each task has a done-when check, closes only with evidence, and a parent cannot close while a child is open. A pivot parks the current task with its next step instead of replacing it. Optional Claude Code hooks restore the open tree after a resume or compaction, remind on every prompt, and send the agent back once if it tries to stop with a task still in progress. It guarantees visibility, not completion: the user stays the judge. Standard-library Python, local files only.",
+        "developerName": "Lex from SigmaStudioz",
+        "websiteURL": "https://github.com/sigmastudioz",
+        "supportURL": "https://github.com/sigmastudioz/agent-skills/issues",
+        "privacyPolicyURL": "https://github.com/sigmastudioz/agent-skills/blob/main/PRIVACY.md",
+        "category": "Developer Tools",
+        "capabilities": [],
+        "logo": "./assets/icon.svg",
+        "composerIcon": "./assets/icon.svg",
+        "defaultPrompt": [
+          "Put this plan on the task tree before you start.",
+          "What is still unfinished here?",
+          "Park this and switch to the bug I just found."
+        ]
+      },
+      "publication": {
+        "release_notes": "Initial release: disk task tree with evidence-gated closing, parked pivots, session-scoped stop check and fail-open Claude Code hooks."
+      }
+    }
+  }
+}
