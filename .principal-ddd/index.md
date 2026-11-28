@@ -1,6 +1,7 @@
 # Principal Driven Domain Design records
 
 - [Owning gap ledger and handoff](gap-trace.md).
+- [Marketplace map and publication workflow](../PUBLISHING.md).
 - [Legacy forwarding path](../docs/architecture/gap-trace.md).
 
 ## Migration and recovery
