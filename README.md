@@ -6,6 +6,9 @@
 
 A collection of reusable skills by Lex from SigmaStudioz. Each plugin has its own version.
 
+For all publication destinations, recorded review states and update procedures, read the
+[marketplace map and publishing guide](PUBLISHING.md#marketplace-map-and-update-workflow).
+
 ## Principal Driven Domain Design
 
 Help coding agents organize code by domain, reuse shared behavior, and trace integration gaps

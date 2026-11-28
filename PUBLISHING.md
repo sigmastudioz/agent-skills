@@ -1,3 +1,66 @@
+# Marketplace map and update workflow
+
+Last reconciled: **November 28, 2026**. This opening section is the current destination map.
+Older dated sections below are historical, including their old plugin counts and release scopes.
+The approved public set is the **twelve entries in [catalog.json](catalog.json)**.
+
+## Destinations and coverage
+
+| Destination | Current recorded coverage | Update route |
+| --- | --- | --- |
+| [GitHub](https://github.com/sigmastudioz/agent-skills) | Twelve public source plugins with versioned releases. | Review scoped source; publish complete ZIPs for new versions; verify inventories and downloaded assets. Preserve old releases. |
+| [Claude submissions](https://claude.ai/directory/manage) | Eight earlier submitted identities plus Senior Digital Skills submitted November28; Delegating has one saved draft. Slipstream and Follow-Through are blocked at initial validation. DDD, Sense and Engineering have live older listings. | Reuse the same repository/folder submission. Read the candidate hash, findings and exact revision covered by a pending publish request before updating it. |
+| [OpenAI / Codex](https://platform.openai.com/plugins) | Twelve existing uploaded drafts; the observed remaining intake gate is skills-only submissions. | Upload a complete corrected ZIP to the same draft and read its checks. Source commits do not update uploaded ZIPs. Never duplicate an existing draft or sent support report. |
+| [skills.sh](https://www.skills.sh/sigmastudioz/agent-skills) | All twelve canonical pages have been observed, including Slipstream and Follow-Through after the November28 refresh. | Read canonical pages first; use one official isolated-project refresh only for a demonstrated gap. Page content does not establish full distributed-file equality. |
+| [AgenticSkills](https://agenticskills.io/skills/visualizer) | Visualizer accepted. Tony, Returncraft, Delegating, Senior, Video, Slipstream and Follow-Through have sent-once intakes awaiting selective review. DDD, UI, Engineering and Sense retain earlier declines. | Preserve each prior intake and decision. The provider says accepted Visualizer follows the repository and needs no routine version email. A declined entry needs new review evidence; GitHub updates alone are not acceptance. |
+| [Cursor](https://cursor.com/marketplace/publish) | One received publisher application for namespace `sigmastudioz` and this collection; native public listing is unverified. November28 on-site publisher search found no result. | Preserve the existing application. A reappearing form does not mean the application was lost. Do not confuse private/team installation with public approval. |
+| [Google Antigravity](https://antigravity.google/docs/build-plugins/) | Earlier interest submissions preserved; twelve native manifests now validate. Public partner acceptance remains unverified. | The official partner route is the [same existing intake](https://forms.gle/2EX5RFYPoJe1UgxR9). Validate complete packages, follow any existing provider case, and avoid duplicate interest forms. |
+
+## Stable identities and overlap
+
+Returncraft retains `app-retention`. Claude alone uses `sigmastudioz-slipstream` for the new
+Slipstream package because an existing connector owns the bare name; the skill, source folder
+and other hosts remain `slipstream`. Tony is separate from DDD, not nested under it.
+See the [README skill table](README.md#available-plugins) and catalog for the exact approved set.
+Other local additions remain held back unless the publisher explicitly adds them to the scope.
+
+DDD owns implementation structure, reuse and connected-path checks. Tony owns mechanism invention;
+Engineering Spikes owns bounded uncertainty tests; Delegating owns agent handoffs. Those four can
+collaborate without becoming one skill. Sense reviews whether a build reaches the intended outcome.
+Visualizer creates visual explanations/films; UI Foundation supplies reusable effect/runtime code;
+Video Analysis examines supplied footage. Returncraft owns product retention/ranking. Senior Digital
+Skills owns older-adult teaching. Slipstream reduces context overhead; Follow-Through keeps tasks visible.
+
+## Continuity before any update or monitor
+
+- Read this map, the current catalog and the publisher's latest private handoff/receipt tracker.
+  Exact submission IDs, case links, revision hashes, sent-once actions and observation times belong
+  in that private tracker. Do not publish private correspondence, account details or local paths.
+- Distinguish source published, ZIP uploaded, scan passed, review requested and publicly live.
+  Read each claimed state from the service that owns it. Preserve prior times and evidence.
+- Keep full functionality and existing native identities. Anthropic's Verified-organization gate
+  is not fixed by disguising or silently removing scripts or the offline UI archive. Domain proof
+  and a Verified request were completed November28; the human decision remains pending.
+- Prepare accurate new-submission disclosures. Obtain action-time approval for publisher agreements
+  or new sensitive access; never tick an inaccurate code-execution or data-handling declaration.
+- Reconcile every meaningful result into the existing receipt once. Do not repeat a completed send,
+  application, scan request or release simply because another task or recurring monitor runs.
+
+## Native package checks
+
+`tools/build_catalogs.py` generates three catalogs, twelve Antigravity manifests and full plugin
+hashes. It checks identity/version consistency, terms links, contained icons, starter prompts and
+Antigravity's actual24,000-byte skill-body limit. Keep complete conditional guidance in linked
+references and retain real local tools. Claude privacy/terms/support links point to the existing
+shared privacy policy, MIT usage terms and issue tracker.
+
+Follow [CONTRIBUTING.md](CONTRIBUTING.md) for checks. Successful packaging or loader validation is
+not native reviewer approval, automatic skill activation or evidence that all hosted snapshots match.
+
+---
+
+# Historical publication records
+
 # Remaining Claude review items — November 13
 
 Preserve full runtime packages, existing native identities and the UI runtime archive.
