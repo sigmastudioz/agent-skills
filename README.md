@@ -98,7 +98,7 @@ await reviewer activation. Cursor, Codex and Antigravity publication is not yet 
 | --- | --- | --- |
 | [SigmaStudioz Visualizer](plugins/visualizer/README.md) | React Three Fiber scenes, interactive visuals, simulations and visualization videos | 1.11.1 |
 | [SigmaStudioz Video Analysis](plugins/video-analysis/README.md) | Timestamped visual/audio evidence, adaptive frame inspection and transcript correlation | 1.1.1 |
-| [UI Foundation Reuse](plugins/ui-foundation-reuse/README.md) | Bundled React effects, lifecycle and scene helpers with local runtime staging | 1.6.1 |
+| [UI Foundation Reuse](plugins/ui-foundation-reuse/README.md) | Bundled React effects, lifecycle and scene helpers with local runtime staging | 1.6.2 |
 | [What If Tony Stark Built This](plugins/what-if-tony-stark-built-this/README.md) | Engineering invention and a local correctness, timing and allocation comparison runner | 2.2.0 |
 
 Install the outcome-review skill with `npx skills add sigmastudioz/agent-skills --skill does-it-make-sense`.
@@ -121,6 +121,26 @@ See their documentation for requirements and validation limits. Official marketp
 
 The stable package identifier is `domain-driven-design`. Its skill folder includes conditional architecture, record, handoff, tracing and verification
 guidance plus helper regressions and portable pressure scenarios. This collection can host future plugins with independent versions.
+
+## Antigravity native packages
+
+Each approved plugin includes a generated `.antigravity-plugin/plugin.json` with its own
+name, version, bundled logo and starter prompts. After cloning this repository, validate and
+install only the chosen package with the official CLI, for example:
+
+```sh
+agy plugin validate --json ./agent-skills/plugins/domain-driven-design
+agy plugin install ./agent-skills/plugins/domain-driven-design
+```
+
+The loader discovers the existing `skills/` folder and its complete local tools. No hooks,
+MCP servers or always-on rules are enabled by these manifests. The expected warning that the
+root `plugin.json` is shadowed belongs to this multi-host layout. Official marketplace listing
+still requires Google's separate partner review; these files do not claim acceptance.
+
+Claude uses `sigmastudioz-slipstream` for Slipstream's new, not-yet-submitted directory package
+to distinguish it from an existing connector. The public skill, repository folder and other
+host identifiers remain `slipstream`.
 
 ## November 11 maintained-skill update
 
@@ -171,7 +191,7 @@ Instruction guidance and scoped tests do not guarantee every future model follow
 ## Adding future skills
 
 Add owned plugin folders under `plugins/`, register them once in `catalog.json`, and generate all
-three native catalogs plus per-plugin file hashes with `tools/build_catalogs.py`. See
+three native catalogs, per-plugin Antigravity manifests and file hashes with `tools/build_catalogs.py`. See
 [CONTRIBUTING.md](CONTRIBUTING.md) for independent versions, author attribution and checks.
 The public entrypoints are `.claude-plugin/marketplace.json`, `.cursor-plugin/marketplace.json`
 and `.agents/plugins/marketplace.json`; generated catalogs are checked for drift.

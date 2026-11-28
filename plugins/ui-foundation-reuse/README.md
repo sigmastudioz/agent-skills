@@ -1,6 +1,6 @@
 # UI Foundation Reuse
 
-By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.6.1.
+By **[Lex from SigmaStudioz](https://github.com/sigmastudioz)** · plugin version 1.6.2.
 
 Reuse compatible React effects and scene infrastructure without a library download. This
 plugin includes the complete `ui-foundation-reuse` skill and the bundled
@@ -195,3 +195,9 @@ The runtime skill retains its guidance and functional helpers. Executable synthe
 fixtures live in the collection’s [test area](https://github.com/sigmastudioz/agent-skills/tree/main/tests/fixtures/ui-foundation-reuse), outside this installable plugin.
 Historical scenario summaries retain their original dates and hashes. This packaging change does
 not establish Anthropic organization verification or clearance of separate directory findings.
+
+## 1.6.2 — complete loading on Antigravity
+
+Move the complete capability search map into a linked reference so the skill entrypoint fits
+Antigravity’s 24,000-byte body limit. The map and effect guidance remain available on demand;
+the runtime archive, stager and all other operative guidance are unchanged.

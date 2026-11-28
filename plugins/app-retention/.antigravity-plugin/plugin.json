@@ -1,0 +1,19 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "app-retention",
+  "version": "1.1.1",
+  "description": "Design fair retention and ranking for apps: return likelihood, habit-timed nudges, per-item ranking, results-based asset choice and upgrade timing, built from the product's own data with privacy guardrails and no dark patterns. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "license": "MIT",
+  "displayName": "Returncraft",
+  "logo": "./assets/icon.svg",
+  "suggestedPrompts": [
+    "Design fair return and ranking experiments from this product\u2019s own data."
+  ],
+  "keywords": []
+}

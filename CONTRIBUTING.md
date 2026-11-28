@@ -7,8 +7,12 @@ limit on the number of skills. Installers select the plugins they need.
    group related skills only when they form a cohesive workflow. Avoid one oversized universal skill.
 2. Create `plugins/<plugin-name>/skills/<skill-name>/SKILL.md` with required skill metadata and only
    real supporting resources. Give the skill a precise description for natural task selection.
-3. Add portable `plugin.json` and the three native compatibility manifests. Keep name, version and
-   author consistent. Give this plugin its own semantic version and truthful documentation/status.
+3. Add portable `plugin.json` and the Claude, Cursor and Codex compatibility manifests. Keep version
+   and author consistent. A `claudeName` registry override is reserved for a directory name collision
+   before that plugin's first Claude submission; other host identifiers remain unchanged.
+   The builder generates `.antigravity-plugin/plugin.json` from the same metadata, bundled icon
+   and `antigravityPrompts` in the registry (or existing OpenAI starter prompts).
+   Give this plugin its own semantic version and truthful documentation/status.
    Include a public HTTPS `termsOfServiceURL` in both the root OpenAI interface and the Codex
    fallback interface; use the actual terms for that plugin. See [upload metadata](PUBLISHING.md#openai-upload-metadata--november-28).
 4. Add one entry to root `catalog.json`, using `./plugins/<plugin-name>` as the path. Catalog metadata
@@ -20,6 +24,7 @@ python3 tools/build_catalogs.py
 python3 tools/build_catalogs.py --check
 python3 -B tests/test_catalogs.py
 claude plugin validate .
+agy plugin validate --json plugins/<plugin-name>
 ```
 
 6. Document setup, runtime/permission requirements, affected consumers and platform limits. When a
@@ -33,7 +38,10 @@ and honor applicable host limits. Do not turn global instructions into project-s
 share owned resources when their semantics really match.
 
 Catalog generation traces registry -> plugin manifests -> three contained host sources -> skill
-folders. The tests exercise adding a second plugin, preserving independent versions, read-only
+folders and the generated Antigravity adapter. Antigravity's known shadowed root-manifest warning
+is expected in this multi-host repository; other warnings and errors need resolution. Keep its
+skill entrypoint body below 24,000 bytes by linking complete conditional detail in references.
+The tests exercise adding a second plugin, preserving independent versions, read-only
 staleness detection, duplicate identities, path traversal and native manifest drift. Validate every
 new plugin's actual runtime behavior separately; passing catalog tests is not an efficacy result.
 

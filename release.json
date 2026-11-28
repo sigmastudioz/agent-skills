@@ -4,7 +4,8 @@
     "domain-driven-design": {
       "version": "1.5.1",
       "files": {
-        ".claude-plugin/plugin.json": "0160ea79532a60b9cd3b80861e9dc26c24dabad47d3ad5087954ae87538b6c88",
+        ".antigravity-plugin/plugin.json": "05ba0fd64f662dc55cbe47c4a584047f4e8f2b28e2b6e8d1c6a29319b7fa8be4",
+        ".claude-plugin/plugin.json": "727dda0b1bfeeba60cb8722d4f1bdfe38606f374b8e2380e7f6ab0b42963fe05",
         ".codex-plugin/plugin.json": "4c37e5b1202cdf3065879062a57df5b97a04f8f096969239c89a56e58cb646c9",
         ".cursor-plugin/plugin.json": "992ff3366dcb25fb7f9b4d84547c74659870315dabd88fe276625d05cbb8f349",
         "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
@@ -30,7 +31,8 @@
     "visualizer": {
       "version": "1.11.1",
       "files": {
-        ".claude-plugin/plugin.json": "28ec9ac473b1646320a28cc9be3739a44fb15d3820f936801068d7a589bf8715",
+        ".antigravity-plugin/plugin.json": "9c773ac272dc3eceb04f035d9b075ad5e8cf893e62edc81a371e823f07369e94",
+        ".claude-plugin/plugin.json": "ab90e5c10e37a65ffaad4d6785823321eb48ce2024a627d58ed825d7bb735157",
         ".codex-plugin/plugin.json": "bc0fac267fa0f044afe3459cbcb9e1c0e7822d35b36fb0845468bc144d67ab41",
         ".cursor-plugin/plugin.json": "3bf081f3d5b7d4507667bd87c4f607e80312a8ba90ec4563a830d98f199cd0fe",
         "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
@@ -90,7 +92,8 @@
     "video-analysis": {
       "version": "1.1.1",
       "files": {
-        ".claude-plugin/plugin.json": "faf1684c66edb952f66f12adecc91ae9f5e29b30556b7c113a1c08578cdc148c",
+        ".antigravity-plugin/plugin.json": "0c343657dae0a906ac6888fb4cff7cb38112c95f19ddc9459d4ee2cc11075a9a",
+        ".claude-plugin/plugin.json": "b259b0083869b864a7de24012c572ea52d87fb533b30a2afa45602a18cfe5979",
         ".codex-plugin/plugin.json": "f7e8534382e5abd3f3279254f88ebfd0705e68ae200f1c0565faa13c56e590b8",
         ".cursor-plugin/plugin.json": "d4dfaf17cdb20619a68213d2edc726b62110161945c7856d769c2896fbc7a99f",
         "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
@@ -109,7 +112,8 @@
     "engineering-spikes": {
       "version": "1.0.0",
       "files": {
-        ".claude-plugin/plugin.json": "bbcdb6e93754d962d745049fe8420c38efe926309ab821bb478002c4f08efdff",
+        ".antigravity-plugin/plugin.json": "fd9d7b95a4d26feecab06aa46687999f6f7a9013f795844acf0b026a2ced9b6b",
+        ".claude-plugin/plugin.json": "14f4035711c486b0acd01ae5c3ded4e8d93ee48ac8b20e45d98d4e6a222b16d4",
         ".codex-plugin/plugin.json": "67929ad66a450f127e7ef5b7bfabe51c5209f41b3f0317679899d9f56d629986",
         ".cursor-plugin/plugin.json": "c972bd5e075d8dfe854f1fa642b51e4b450ada1f9d61bf0636a1debb9496f45f",
         "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
@@ -125,20 +129,22 @@
       }
     },
     "ui-foundation-reuse": {
-      "version": "1.6.1",
+      "version": "1.6.2",
       "files": {
-        ".claude-plugin/plugin.json": "806f5afc7081bca700e1651e7207fd164e5ab7a61be3e54fda4a995a2735cf03",
-        ".codex-plugin/plugin.json": "235f729d77af2b74d7c487ce44aa7b697afdf205ae455cff10051aeb43cbf3c8",
-        ".cursor-plugin/plugin.json": "cf56583039ff9ecf36880d34d1d179a3a845f16d86a1f103dc4f7a3877e2eee5",
+        ".antigravity-plugin/plugin.json": "cd9970255d8ee2bccadc2dbad3de96b38a0fcc172ed7bcaa0333b313586b710d",
+        ".claude-plugin/plugin.json": "9a5467cb5d93374dc2b4912bc1aad47256139e7af5432ff3170062ba97be776b",
+        ".codex-plugin/plugin.json": "484c290571364314c68717bf26de70247fe0a9a24ebf0bf65dc7edef81cdc0e0",
+        ".cursor-plugin/plugin.json": "4154f26bb09801ac966f1daf96d7fbf3bcf35b2bfa6d4fb4b44a3e19526d2855",
         "LICENSE": "7b83ecb33262b1eb1520aba2d0ff0705b835c988c89e94b0284769f2d8a0ab99",
-        "README.md": "82082ead888a122c6f18f8b75c1d2ccff4a874aca6a3eaaabd36576820b0f103",
+        "README.md": "e0dd3270c0a7e19522606ba06b1ec9625181b01c8e5cdfba866eb47cc3ec3fe5",
         "assets/icon.svg": "ffabdeda1fb856ba322eb678ce765d6c359aec73d8ee5fb5951d15e0cb941699",
-        "plugin.json": "b2e53edd9d913d4dfc48b2a011b938ba8ab75ab74db7412fbb91e7e22e835bbd",
+        "plugin.json": "3cf5fc016174904fecd45094f9d8a224426b9b91da006492f204fb8fedc4a051",
         "skills/ui-foundation-reuse/LICENSE": "7b83ecb33262b1eb1520aba2d0ff0705b835c988c89e94b0284769f2d8a0ab99",
-        "skills/ui-foundation-reuse/SKILL.md": "82d4838195b8fe7b7654c2376a3b50a3b894eece7ad7b8d55049896dd78c30ac",
+        "skills/ui-foundation-reuse/SKILL.md": "44d772fb3add70478bb0b9d77735d4b1533696bb5ca893d822488e0544c99109",
         "skills/ui-foundation-reuse/agents/openai.yaml": "aae7dd31c55b82568950f77072a7b3a32741884a14b3542a08db516ae741906e",
         "skills/ui-foundation-reuse/assets/bundle.json": "2e3bb148dd97f49cc2373492ed42fc00536963b522303da12be8c88813e1d30d",
         "skills/ui-foundation-reuse/assets/ui-foundation.tgz": "69415ab195aece68b8c44390a0439777a8d34c82c3edcd53ae3e2fb2a1676d58",
+        "skills/ui-foundation-reuse/references/capability-map.md": "e7a67cb2b0c5c5aa21d1fde746c53a15f59930d936d6cf07a4792a6a22778497",
         "skills/ui-foundation-reuse/references/effect-api.md": "dfe33e6095b9957c545ff528ae18f6f15e70384aa5f6a218d49d8a0dc8890afe",
         "skills/ui-foundation-reuse/references/setup.md": "ca6fac0b6ec67e4ef40a7478294c7d9dc6ef42712c366ca96b642d1d680b8f5f",
         "skills/ui-foundation-reuse/references/third-party-notices.md": "49d7b7130ceb9f0fc1afd0653945029bdd4a4b13c45cffe1325d2deb30d4c072",
@@ -151,7 +157,8 @@
     "does-it-make-sense": {
       "version": "1.0.3",
       "files": {
-        ".claude-plugin/plugin.json": "db2a565e34e9e757e8496bac17d4322a044a553a97b35533d2905edb04a7d898",
+        ".antigravity-plugin/plugin.json": "c21d185ea777ba7e703004135f9c669e842f2bc31576ac4eca4d435052ca7ee6",
+        ".claude-plugin/plugin.json": "4e68f9143c2631ffed5400ff9924b132fe2981cd81f55fdfe4e5a27f3bc882ed",
         ".codex-plugin/plugin.json": "07cab749eaf4217aa955dcbf1e30445eb93217162de5e304950b2dbe6715a4a3",
         ".cursor-plugin/plugin.json": "0fe1064bed5f065893c32c5132e54edb72f5cf4114cf5791ab95e28c4d4bc7c6",
         "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
@@ -168,7 +175,8 @@
     "what-if-tony-stark-built-this": {
       "version": "2.2.0",
       "files": {
-        ".claude-plugin/plugin.json": "b8f4f64f9fa9fba96101c7f026a8e9518d3c4577314dbb56f6aca04ee849391e",
+        ".antigravity-plugin/plugin.json": "0048a7bd85f717e15de1e59a8839076eb91a7a3a1aafd6235b3be143690095d0",
+        ".claude-plugin/plugin.json": "51cff473dda0004fff1df0b317353c01dd5b2f75f716d327133769afaee5f0a1",
         ".codex-plugin/plugin.json": "217a3ec03219a053d8551ebd4f946e2b36ec0e78cbbe1e5788643797832d8b12",
         ".cursor-plugin/plugin.json": "ef0998bbcb1ae7d7d10324854114ebcefa1b041e908c182b76aa91b84c8b0d51",
         "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
@@ -199,7 +207,8 @@
     "app-retention": {
       "version": "1.1.1",
       "files": {
-        ".claude-plugin/plugin.json": "da3cbb30e8e259d4765ddf9ec37e1f35a35582a1095d517f4883105c9c85ecc6",
+        ".antigravity-plugin/plugin.json": "68c9c0febade710a0683cfbe307641076f35630dac6987947844a4215a260d2a",
+        ".claude-plugin/plugin.json": "5ad801e5aa94f785de544f4c05f2a04c5bfc105fb962dcbcfcea6943895fc31a",
         ".codex-plugin/plugin.json": "35a6b5adf58feceb9b7d5dc371d8d28009b5367e5514c9bcd360e12a5e7eefdb",
         ".cursor-plugin/plugin.json": "dee0d2c8be6869fc583a0c86b74ef53f9156afdf186a315495a28674d413ddaf",
         "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
@@ -216,7 +225,8 @@
     "delegating-to-agents": {
       "version": "1.1.1",
       "files": {
-        ".claude-plugin/plugin.json": "8cb1afdced6c9e3122db4074c6a3e91b33cde1e7e6d2c3e97d96673f096b9a8e",
+        ".antigravity-plugin/plugin.json": "c7ad3dae6512c94bb5ffc52d176be0ede6a0bb7a5afc559ceffbc23ea0b2eee3",
+        ".claude-plugin/plugin.json": "792252117e5bad984c4821f2e2cbd9e0eb9f6c57702f8d52111838ab56dd94c0",
         ".codex-plugin/plugin.json": "26f142ed6052ad8e7fad4ef6e0d2dc184ccf5e9a96f42a5ddebcfbcbff58dd0c",
         ".cursor-plugin/plugin.json": "895ee55b0e38443b3f97bb5475f5cec1666062834bc172a9a698de4b2f199809",
         "LICENSE": "857dcf318e3b2f4fa93af6cbaf93ce8b6c4245f44ffd811bb08381286dfbcf45",
@@ -232,7 +242,8 @@
     "senior-digital-skills": {
       "version": "1.0.0",
       "files": {
-        ".claude-plugin/plugin.json": "f1024f1ccb577058639181574db217c8ba537a7be1b6f19a243be67f336cfde3",
+        ".antigravity-plugin/plugin.json": "0d36cf7d86de4780e5255fdb198e7aa11cf5d7a0d94d465f72c15d621298f82c",
+        ".claude-plugin/plugin.json": "d6541b7f2e4f08f28105150a0e6e32254a31a1864f1ec6779d93f4493548ef6e",
         ".codex-plugin/plugin.json": "a698618102abbf5649fc22078e9a186ae97894197910d7f2581aa6aa8d676ed7",
         ".cursor-plugin/plugin.json": "8e3cb0612509a362df6cfd9c83753f8b3215f2f6a234c69e52829f83ae22a0c3",
         "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
@@ -255,11 +266,12 @@
     "slipstream": {
       "version": "1.1.0",
       "files": {
-        ".claude-plugin/plugin.json": "849c7df808d9d258e2b89ca3121afc78271f75e4399cc2dc5ee3f482801b43ee",
+        ".antigravity-plugin/plugin.json": "6a155d7b52771512f6456677fa9d905dec96fc376410fe7f5db013e3ec0ba69e",
+        ".claude-plugin/plugin.json": "6177d672b799e543d7005d686024eee69b155371b5f73d6a040863a1535818ad",
         ".codex-plugin/plugin.json": "9aa29cbe7a3b79de3529caa9c56eedbc6a1f98ea665925e0194d1920e0d84e5e",
         ".cursor-plugin/plugin.json": "f13659d7fc0f7b391800ba4c178a42c522f8e7d09afc4954baf1589f656a4ac8",
         "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",
-        "README.md": "e4b8d32afc87d62dd977ebc2705b00919cb30f5e429f86e2730d8ecac1cc6b0a",
+        "README.md": "277a7f4b07e412e1fd34700daaeac06624e09694c562a044d9e45e26c4d32220",
         "assets/before-after.svg": "5e16a4a135d366641626029459b8529b20f818e844b3d4d62fe721b08683bc7f",
         "assets/icon.svg": "9c0968ffb511a7d5bcbba2e027880eadf9f8e142f98464e7b559056323a0d60e",
         "assets/where-tokens-go.svg": "523fe219de4cde6e1891d5aafafa01fe795e4378834942ed16d254272c715124",
@@ -293,7 +305,8 @@
     "follow-through": {
       "version": "1.0.0",
       "files": {
-        ".claude-plugin/plugin.json": "2c318ed9978bec8b6186ef1cf1ac361b5eaefd3a9043f551cc47fccf419c4285",
+        ".antigravity-plugin/plugin.json": "3a53fa276ee925397d28637c963ca9322f04462c4309f297cdb9bc9be667b96f",
+        ".claude-plugin/plugin.json": "63bab3173c230ade60f1415ffb9088e180db002fd48f7f3e21d93e87944b47fd",
         ".codex-plugin/plugin.json": "480ff8f727a430cfca1092d69c8eba21a1fd6ea721ae24f73121534e1b846f66",
         ".cursor-plugin/plugin.json": "073984ec5b47a477d60ba223f7e4e033343bb908d708361b50bfb182f859250d",
         "LICENSE": "3637eb7e27523ad4cf79afeff2b05bb55259295a32ecb7b34d6e6e82e199da40",

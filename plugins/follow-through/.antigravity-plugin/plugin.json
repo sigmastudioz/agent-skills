@@ -1,0 +1,21 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "follow-through",
+  "version": "1.0.0",
+  "description": "Stop coding agents losing unfinished work: a task tree on disk that survives pivots and context compaction, with evidence-gated closing and opt-in hooks that bring open work back into view. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "license": "MIT",
+  "displayName": "Follow-Through",
+  "logo": "./assets/icon.svg",
+  "suggestedPrompts": [
+    "Put this plan on the task tree before you start.",
+    "What is still unfinished here?",
+    "Park this and switch to the bug I just found."
+  ],
+  "keywords": []
+}

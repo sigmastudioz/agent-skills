@@ -23,5 +23,8 @@
     "agent-handoffs"
   ],
   "icon": "./assets/icon.svg",
-  "documentationUrl": "https://github.com/sigmastudioz/agent-skills/blob/main/plugins/engineering-spikes/README.md"
+  "documentationUrl": "https://github.com/sigmastudioz/agent-skills/blob/main/plugins/engineering-spikes/README.md",
+  "privacyPolicyUrl": "https://github.com/sigmastudioz/agent-skills/blob/main/PRIVACY.md",
+  "termsOfServiceUrl": "https://github.com/sigmastudioz/agent-skills/blob/main/LICENSE",
+  "supportUrl": "https://github.com/sigmastudioz/agent-skills/issues"
 }

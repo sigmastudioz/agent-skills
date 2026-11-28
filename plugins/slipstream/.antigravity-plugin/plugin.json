@@ -1,0 +1,21 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "slipstream",
+  "version": "1.1.0",
+  "description": "Cut AI coding token burn by shrinking per-call context, not output, while keeping every skill reachable. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "license": "MIT",
+  "displayName": "SigmaStudioz Slipstream",
+  "logo": "./assets/icon.svg",
+  "suggestedPrompts": [
+    "Audit where my tokens go this week.",
+    "Propose a lean skill setup, dry run only.",
+    "Why am I hitting my usage limit?"
+  ],
+  "keywords": []
+}

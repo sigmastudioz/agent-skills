@@ -1,0 +1,19 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "ui-foundation-reuse",
+  "version": "1.6.2",
+  "description": "Reuse bundled React effects, lifecycle hooks and scene helpers from @sigmastudioz/ui-foundation. Includes runtime, source, types and license notices. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "license": "MIT",
+  "displayName": "UI Foundation Reuse",
+  "logo": "./assets/icon.svg",
+  "suggestedPrompts": [
+    "Inspect the bundled UI runtime and reuse an existing effect for this React scene."
+  ],
+  "keywords": []
+}

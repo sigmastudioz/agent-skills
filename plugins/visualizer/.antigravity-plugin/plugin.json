@@ -1,0 +1,19 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "visualizer",
+  "version": "1.11.1",
+  "description": "Build interactive diagrams, simulations and editable visualization videos with React Three Fiber, reusable scenes, shaders and sound. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "license": "MIT",
+  "displayName": "SigmaStudioz Visualizer",
+  "logo": "./assets/icon.svg",
+  "suggestedPrompts": [
+    "Build an interactive explanation of this mechanism with editable source."
+  ],
+  "keywords": []
+}

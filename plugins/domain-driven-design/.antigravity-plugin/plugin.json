@@ -1,0 +1,19 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "domain-driven-design",
+  "version": "1.5.1",
+  "description": "Principal Driven Domain Design: principal-level domain architecture, reusable engines, module gap tracing, and explicit agent handoffs.",
+  "author": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "license": "MIT",
+  "displayName": "Principal Driven Domain Design",
+  "logo": "./assets/icon.svg",
+  "suggestedPrompts": [
+    "Trace this feature through its callers and downstream consumers, then fix the agreed gaps."
+  ],
+  "keywords": []
+}

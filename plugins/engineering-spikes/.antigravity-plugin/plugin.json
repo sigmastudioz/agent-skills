@@ -1,0 +1,19 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "engineering-spikes",
+  "version": "1.0.0",
+  "description": "Plan timeboxed engineering spikes, trace evidence to decisions, and deliver separate stakeholder and technical documents for project knowledge bases. By Lex from SigmaStudioz.",
+  "author": {
+    "name": "Lex from SigmaStudioz",
+    "url": "https://github.com/sigmastudioz"
+  },
+  "homepage": "https://github.com/sigmastudioz",
+  "repository": "https://github.com/sigmastudioz/agent-skills",
+  "license": "MIT",
+  "displayName": "Engineering Spikes",
+  "logo": "./assets/icon.svg",
+  "suggestedPrompts": [
+    "Test this engineering uncertainty with a bounded, reproducible spike."
+  ],
+  "keywords": []
+}
